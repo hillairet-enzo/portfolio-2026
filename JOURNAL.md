@@ -98,7 +98,7 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 - Rédigé `IA.md`, `JOURNAL.md` et `QUALITE.md`. Les parties à compléter sont repérées par `[À COMPLÉTER]`.
 - Repris les remarques de la soutenance maquette. Ajouté un profil clair sur l'accueil, reformulé les compétences en savoir-faire, aligné la cible du site sur ma note de positionnement (studios de création digitale) et mis à jour la note (`POSITIONNEMENT.md`).
 - Créé l'adresse professionnelle contact@enzoh.fr chez Infomaniak (service mail gratuit lié au domaine) et remplacé mon adresse Gmail sur tout le site.
-- Ajouté les boutons pour télécharger mon CV : en-tête, page À propos, page Contact, section contact et pied de page. Ils s'affichent dès que le PDF est déposé dans `public/`.
+- Ajouté les boutons pour télécharger mon CV : en-tête, page À propos, page Contact, section contact et pied de page. Ils s'affichent dès que le PDF est déposé dans `public/`. Un CV fictif est en place pour les tester, à remplacer par le vrai avant la mise en ligne.
 
 ## Choix des réseaux professionnels (consigne 2.4)
 
