@@ -10,7 +10,7 @@ export const profil = {
 
   email: 'prenom.nom@exemple.fr', // À REMPLIR
   linkedin: 'https://www.linkedin.com/in/ton-profil', // À REMPLIR
-  github: 'https://github.com/ton-pseudo', // À REMPLIR
+  github: 'https://github.com/hillairet-enzo',
   cv: '/cv-enzo-hillairet.pdf', // À REMPLIR : dépose ton CV dans public/ sous ce nom
   ville: 'Montbéliard', // À REMPLIR si besoin
   hebergeur: 'À REMPLIR : nom et adresse de ton hébergeur', // pour la page Mentions légales
