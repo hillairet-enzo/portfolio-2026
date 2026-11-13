@@ -13,7 +13,7 @@ export const profil = {
   github: 'https://github.com/hillairet-enzo',
   cv: '/cv-enzo-hillairet.pdf', // À REMPLIR : dépose ton CV dans public/ sous ce nom
   ville: 'Montbéliard', // À REMPLIR si besoin
-  hebergeur: 'À REMPLIR : nom et adresse de ton hébergeur', // pour la page Mentions légales
+  hebergeur: 'Infomaniak Network SA, Rue Eugène-Marziano 25, 1227 Les Acacias, Genève, Suisse. Site : infomaniak.com.', // à vérifier avec ton contrat d’hébergement
 };
 
 // Ce que tu sais faire, regroupé pour que ce soit lisible d’un coup d’œil.
