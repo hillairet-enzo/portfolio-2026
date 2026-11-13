@@ -5486,3 +5486,6 @@ html:not([data-theme='dark']) .ct { background: var(--surf); }
 /* ── Bouton « retour en haut » : la flèche garde sa couleur et sans soulignement au survol ── */
 .pied .pied__haut-bouton, .pied .pied__haut-bouton:hover, .pied .pied__haut-bouton:focus-visible { color: var(--pied-texte); text-decoration: none; }
 .pied .pied__haut-bouton:hover { background: var(--pied-trait); transform: translateY(-3px); }
+
+/* ── Mentions légales : numéros de section au contraste suffisant (≥ 4,5:1) ── */
+.ml__bloc h2 span { opacity: .72; }
