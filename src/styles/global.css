@@ -5475,3 +5475,7 @@ html:not([data-theme='dark']) .ct { background: var(--surf); }
 /* ── Mentions légales : titre court + chapô ── */
 .ml__titre { max-width: 14ch; }
 .ml__chapo { max-width: 34rem; margin: 0; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.5; font-weight: 550; color: var(--encre); }
+
+/* ── Mentions légales : le pied de page suit directement le dernier bloc ── */
+.ml { padding-bottom: 0; }
+.ml__bloc:last-child { border-bottom: 0; padding-bottom: clamp(2.4rem, 5vw, 3.6rem); }
