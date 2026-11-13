@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { profil } from '../data/profil';
+import PageHero from '../components/PageHero.astro';
+import { THEME_NEUTRE } from '../lib/theme';
+
+const couleurs = THEME_NEUTRE;
+---
+
+<Layout titre="Mentions légales" description="Mentions légales du portfolio d’Enzo Hillairet." page="autre" theme={couleurs}>
+  <PageHero titre={['Mentions', 'légales']} taille="moyen" />
+  <div class="contenu page-texte">
+    <section>
+      <h2 class="titre-m">Éditeur du site</h2>
+      <p>{profil.nom}, étudiant en BUT MMI, {profil.ville}. Contact : <a class="lien" href={`mailto:${profil.email}`}>{profil.email}</a>.</p>
+    </section>
+    <section>
+      <h2 class="titre-m">Hébergement</h2>
+      <p>{profil.hebergeur}</p>
+    </section>
+    <section>
+      <h2 class="titre-m">Propriété intellectuelle</h2>
+      <p>
+        Les textes, schémas et mises en page de ce site sont la propriété de leur auteur. Les projets présentés ont été réalisés dans le cadre du BUT MMI, certains en binôme. Certains visuels du projet TiK•TaK ont été générés par intelligence artificielle.
+      </p>
+    </section>
+    <section>
+      <h2 class="titre-m">Données personnelles</h2>
+      <p>
+        Ce site ne dépose aucun cookie et n’utilise aucun outil de mesure d’audience. Le formulaire de contact ne stocke rien : il ouvre votre messagerie avec un message pré-rempli, que vous envoyez vous-même.
+      </p>
+    </section>
+  </div>
+</Layout>
