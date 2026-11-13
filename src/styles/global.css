@@ -5494,3 +5494,15 @@ html:not([data-theme='dark']) .ct { background: var(--surf); }
 .galerie__profil { margin: 0; font-size: .95rem; font-weight: 550; letter-spacing: -0.01em; color: color-mix(in srgb, var(--encre) 70%, var(--fond)); }
 .galerie__profil strong { font-weight: 750; color: var(--encre); }
 .galerie__tete .galerie__texte { margin: 0; font-size: clamp(1rem, 1.3vw, 1.12rem); }
+
+/* ── Boutons CV : en-tête, page À propos ── */
+.entete__cv { display: inline-flex; align-items: center; gap: .35rem; padding: .5rem .8rem; font-size: .95rem; font-weight: 600; color: inherit; text-decoration: none; opacity: .75; transition: opacity .2s; }
+.entete__cv svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.entete__cv:hover { opacity: 1; }
+@media (max-width: 52rem) { .entete__cv { display: none; } }
+.ap-hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: clamp(1.4rem, 3vw, 2.2rem); }
+.ap-bouton { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.4rem; border: 1.5px solid var(--encre); border-radius: 999px; font-weight: 650; color: var(--encre); text-decoration: none; transition: transform .3s var(--ressort), background-color .2s, color .2s; }
+.ap-bouton svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ap-bouton:hover { transform: translateY(-2px); }
+.ap-bouton--plein { background: var(--encre); color: var(--surf); }
+@media (prefers-reduced-motion: reduce) { .ap-bouton:hover { transform: none; } }
