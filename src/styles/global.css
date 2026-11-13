@@ -5426,3 +5426,9 @@ html:not([data-theme='dark']) .entete__barre { box-shadow: none; }
 html[data-theme='light'] .entete__barre::after,
 html:not([data-theme='dark']) .entete__barre::after { box-shadow: none; }
 html[data-theme='dark'] .entete__barre { box-shadow: none; }
+
+/* ── En-tête en haut de page : transparent, il prend la couleur du fond (verre seulement après défilement) ── */
+.entete.en-haut .entete__barre { background: transparent; }
+.entete.en-haut .entete__barre::before { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.entete.en-haut .entete__barre::after { box-shadow: none; }
+.entete__barre::before { transition: background-color .4s ease, backdrop-filter .4s ease, -webkit-backdrop-filter .4s ease; }

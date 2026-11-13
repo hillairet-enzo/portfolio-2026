@@ -199,6 +199,10 @@ const annee = new Date().getFullYear();
       // Le titre de l'en-tête reçoit un fond en verre dès qu'on quitte le haut de la page.
       const entete = document.getElementById('entete');
       const maj = () => entete?.classList.toggle('est-defile', window.scrollY > 40 || entete.dataset.claire === '1');
+      // En haut de page, l'en-tête est transparent et prend la couleur du fond.
+      const haut = () => entete?.classList.toggle('en-haut', window.scrollY <= 40);
+      haut();
+      addEventListener('scroll', haut, { passive: true });
       maj();
       // Pages projet : une fois le hero passé, l'en-tête se retire (il ne reste que la ligne de progression)
       // et revient dès qu'on remonte.
