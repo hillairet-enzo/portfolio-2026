@@ -43,4 +43,4 @@ Elle répond aux remarques du jury :
 
 1. **Le minimalisme strict** (monochrome, grilles rigides, sans interaction) : trop générique, il ne montrait pas ma capacité à développer des interactions.
 2. **Le style « corporate »** : trop lisse et sans âme pour un profil créatif.
-3. **La direction de la maquette** (ciel bleu, herbe, verre translucide, avatar 3D, menu façon jeu vidéo) : le décor identique sur toutes les pages, les contenus enfermés dans des blocs et une identité peu lisible ont été relevés par le jury. Je n'étais pas non plus satisfait du rendu une fois codé.
+3. **La direction de la maquette** (ciel bleu, herbe, verre translucide, avatar 3D, menu façon jeu vidéo) : le décor identique sur toutes les pages, les contenus enfermés dans des blocs et une identité peu lisible ont été relevés par le jury. Je n'étais pas non plus satisfait du rendu une fois codé. J'ai aussi renoncé à l'avatar 3D, qui appartenait à cet univers.

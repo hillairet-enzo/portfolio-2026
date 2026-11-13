@@ -45,8 +45,8 @@ La maquette (ciel bleu, avatar 3D, interface de jeu vidéo) et le site actuel (n
 | Plus de détails dans les fiches projet | Chaque page projet détaille le contexte, mon rôle, le processus, les choix techniques et le résultat |
 | Densité de l'information | Détails des projets rangés en onglets et en accordéons |
 | Attention à l'adresse e-mail | **À faire** : créer une adresse sur mon nom de domaine, par exemple contact@enzoh.fr |
-| Avatar 3D à réutiliser | **À décider** : le réintégrer en différentes poses, ou l'abandonner et l'expliquer |
-| « Hello ? » | **[À PRÉCISER]** : ce que la remarque visait |
+| Avatar 3D à réutiliser | Abandonné : il appartenait à l'univers de la maquette (décor de jeu vidéo) et aurait détonné dans une direction éditoriale centrée sur les projets |
+| « Hello ? » (ma page À propos de la maquette commençait par « Hello ») | La page À propos commence par une présentation directe : « Étudiant en MMI, je conçois des sites qui se voient et qui fonctionnent. » |
 
 La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.md`).
 
