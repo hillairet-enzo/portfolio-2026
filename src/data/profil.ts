@@ -5,8 +5,8 @@ export const profil = {
   nom: 'Enzo Hillairet',
   prenom: 'Enzo',
   formation: 'BUT MMI, Montbéliard',
-  accroche: 'Je conçois des sites et des interfaces, du premier croquis à la mise en ligne.',
-  recherche: 'À la recherche d’un stage en communication et création.',
+  accroche: 'J’imagine des identités visuelles et je les fais vivre dans des sites interactifs, du premier croquis à la mise en ligne.',
+  recherche: 'Je cherche un stage en communication et création, idéalement en studio de création digitale.',
 
   email: 'enzoh13600@gmail.com',
   linkedin: 'https://www.linkedin.com/in/enzo-hillairet-630baa367/',
@@ -20,15 +20,15 @@ export const profil = {
 export const competences = [
   {
     titre: 'Concevoir',
-    items: ['Maquettes Figma', 'Design d’interface', 'Direction artistique', 'Rédaction web'],
+    items: ['Définir une direction artistique', 'Maquetter des interfaces sur Figma', 'Concevoir des parcours clairs', 'Écrire pour le web'],
   },
   {
     titre: 'Développer',
-    items: ['Astro', 'HTML, CSS, JavaScript', 'Tailwind CSS', 'SQL et SQLite', 'three.js'],
+    items: ['Intégrer des pages responsives (HTML, CSS, JS)', 'Construire un site en composants (Astro)', 'Concevoir une base de données (SQLite)', 'Animer un modèle 3D (three.js)'],
   },
   {
     titre: 'Mettre en ligne',
-    items: ['Netlify', 'Serveur VPS, Apache', 'GitHub Actions', 'Référencement (SEO)'],
+    items: ['Héberger un site (Netlify, VPS Apache)', 'Automatiser la mise en ligne (GitHub Actions)', 'Optimiser le référencement'],
   },
 ];
 
