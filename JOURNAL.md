@@ -5,10 +5,23 @@ Projet individuel du semestre 3 (BUT MMI) : concevoir, réaliser et mettre en li
 ## Septembre et octobre 2026 : conception
 
 **Ce que j'ai fait**
-- Rédigé la note de positionnement : à qui je m'adresse, le message à retenir, ce qui me distingue.
-- Réalisé la maquette Figma du portfolio.
+- Rédigé la note de positionnement. Cible : les studios de création digitale, avec un profil volontairement polyvalent. Message : un profil multimédia complet, capable d'imaginer une identité visuelle forte et de la décliner en une expérience web interactive et fluide, que la navigation du site doit prouver dès les 30 premières secondes.
+- Exploré deux directions graphiques, puis écarté les deux :
+  - **Le minimalisme** (interface monochrome aérée, typographie et grilles strictes) : trop générique, les studios en reçoivent beaucoup, et elle limitait mon univers (avatar 3D) comme mes interactions dynamiques avec Astro ou Tailwind CSS.
+  - **Le style « corporate »** (design institutionnel, conventions classiques de l'UX/UI) : sans âme pour un profil créatif, il écrasait mon identité, plus proche des interfaces de jeux vidéo.
+- Construit la maquette Figma, desktop et mobile : écrans d'accueil, de menu, de projets et d'affiches. Elle comprend aussi un guide de style, un moodboard et un dossier. Direction artistique : un ciel bleu et de l'herbe, des panneaux en verre translucide, un avatar 3D de moi et un menu façon interface de jeu vidéo. Projets présentés : Olyvia! et une affiche pour Montbéliard, tous deux de l'an dernier.
+- Défendu cette maquette lors de la soutenance maquette.
 
-**[À COMPLÉTER]** : le détail de ces deux mois, semaine par semaine. Pour chacune : ce que j'ai fait, ce qui a coincé, ce que j'ai décidé. Pense au moodboard, aux deux pistes graphiques écartées et à leurs raisons, et au choix de mes projets.
+**Remarques des enseignants à la soutenance maquette : [À COMPLÉTER]**
+
+**[À COMPLÉTER]** : le détail semaine par semaine (ce que j'ai fait, ce qui a coincé, ce que j'ai décidé), notamment le temps passé sur le moodboard et la maquette.
+
+## Changement de direction artistique
+
+La maquette (ciel bleu, avatar 3D, interface de jeu vidéo) et le site actuel (noir et blanc, effet de verre, police Inter, galerie de projets) n'ont pas la même direction artistique, et le site présente d'autres projets que la maquette (ThermoViz et TiK•TaK à la place d'Olyvia! et de l'affiche).
+
+**[À COMPLÉTER] : pourquoi j'ai changé de direction artistique.**
+Ce que je dois expliquer : ce que les remarques des enseignants ont changé, ce qui m'a fait renoncer à la direction de la maquette, et en quoi la nouvelle direction sert toujours mon positionnement.
 
 ## Vacances de la Toussaint 2026 : début du code
 
