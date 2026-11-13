@@ -12,16 +12,43 @@ Projet individuel du semestre 3 (BUT MMI) : concevoir, réaliser et mettre en li
 - Construit la maquette Figma, desktop et mobile : écrans d'accueil, de menu, de projets et d'affiches. Elle comprend aussi un guide de style, un moodboard et un dossier. Direction artistique : un ciel bleu et de l'herbe, des panneaux en verre translucide, un avatar 3D de moi et un menu façon interface de jeu vidéo. Projets présentés : Olyvia! et une affiche pour Montbéliard, tous deux de l'an dernier.
 - Défendu cette maquette lors de la soutenance maquette.
 
-**Remarques des enseignants à la soutenance maquette : [À COMPLÉTER]**
+**Remarques des enseignants à la soutenance maquette**
+- La page d'accueil ne présente pas assez d'informations ni de profil clair.
+- Le nom n'apparaît que sur l'accueil et dans le pied de page : on perd l'identité sur les autres pages.
+- L'image de fond est identique sur toutes les pages, ce qui est peu pertinent.
+- Les contenus sont trop systématiquement « enfermés » dans des blocs.
+- L'avatar 3D reste intéressant, à utiliser ailleurs sur le site, dans différentes poses.
+- Pas de logo ni de monogramme.
+- « Hello ? » ; compétences plutôt que technologies ; il faut plus de détails dans les fiches projet ; attention à l'adresse e-mail ; densité de l'information.
 
 **[À COMPLÉTER]** : le détail semaine par semaine (ce que j'ai fait, ce qui a coincé, ce que j'ai décidé), notamment le temps passé sur le moodboard et la maquette.
 
 ## Changement de direction artistique
 
-La maquette (ciel bleu, avatar 3D, interface de jeu vidéo) et le site actuel (noir et blanc, effet de verre, police Inter, galerie de projets) n'ont pas la même direction artistique, et le site présente d'autres projets que la maquette (ThermoViz et TiK•TaK à la place d'Olyvia! et de l'affiche).
+La maquette (ciel bleu, avatar 3D, interface de jeu vidéo) et le site actuel (noir et blanc, effet de verre, police Inter) n'ont pas la même direction artistique, et le site présente d'autres projets que la maquette.
 
-**[À COMPLÉTER] : pourquoi j'ai changé de direction artistique.**
-Ce que je dois expliquer : ce que les remarques des enseignants ont changé, ce qui m'a fait renoncer à la direction de la maquette, et en quoi la nouvelle direction sert toujours mon positionnement.
+**Pourquoi j'ai changé**
+- Les remarques du jury pointaient le décor identique sur toutes les pages, les contenus enfermés dans des blocs, une identité peu lisible et l'absence de logo.
+- Une fois codée, la première version ne me plaisait pas : la police, la couleur jaune dominante, les animations et les textes.
+- Je voulais un rendu plus éditorial, qui mette en avant mes projets plutôt qu'un décor.
+
+**Ce que chaque remarque a changé**
+
+| Remarque | Réponse dans le site |
+| --- | --- |
+| Accueil sans profil clair | L'accueil affiche mon nom, ma formation, ce que je fais et ce que je cherche, puis les projets |
+| Identité perdue hors de l'accueil | Monogramme « EH » et nom dans l'en-tête de toutes les pages, ainsi que dans le pied de page |
+| Même image de fond partout | Plus de décor commun : chaque page a sa structure (galerie en arc, cartes empilées, contact en machine à écrire, mentions légales en liste) |
+| Contenus enfermés dans des blocs | Mise en page plus libre : grands titres, texte, filets fins |
+| Pas de logo | Monogramme « EH », aussi sur l'écran de chargement |
+| Compétences plutôt que technologies | Les compétences sont formulées en savoir-faire, avec les outils entre parenthèses |
+| Plus de détails dans les fiches projet | Chaque page projet détaille le contexte, mon rôle, le processus, les choix techniques et le résultat |
+| Densité de l'information | Détails des projets rangés en onglets et en accordéons |
+| Attention à l'adresse e-mail | **À faire** : créer une adresse sur mon nom de domaine, par exemple contact@enzoh.fr |
+| Avatar 3D à réutiliser | **À décider** : le réintégrer en différentes poses, ou l'abandonner et l'expliquer |
+| « Hello ? » | **[À PRÉCISER]** : ce que la remarque visait |
+
+La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.md`).
 
 ## Vacances de la Toussaint 2026 : début du code
 
@@ -69,6 +96,7 @@ Ce que je dois expliquer : ce que les remarques des enseignants ont changé, ce 
 - Ajouté `sitemap.xml` et `robots.txt`, converti la couverture de TiK•TaK en WebP et supprimé une image inutilisée.
 - Mesuré le site avec Lighthouse (accessibilité 100 partout) et corrigé un contraste trop faible sur les mentions légales.
 - Rédigé `IA.md`, `JOURNAL.md` et `QUALITE.md`. Les parties à compléter sont repérées par `[À COMPLÉTER]`.
+- Repris les remarques de la soutenance maquette. Ajouté un profil clair sur l'accueil, reformulé les compétences en savoir-faire, aligné la cible du site sur ma note de positionnement (studios de création digitale) et mis à jour la note (`POSITIONNEMENT.md`).
 
 ## Choix des réseaux professionnels (consigne 2.4)
 
