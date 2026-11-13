@@ -8,7 +8,7 @@ export const profil = {
   accroche: 'J’imagine des identités visuelles et je les fais vivre dans des sites interactifs, du premier croquis à la mise en ligne.',
   recherche: 'Je cherche un stage en communication et création, idéalement en studio de création digitale.',
 
-  email: 'enzoh13600@gmail.com',
+  email: 'contact@enzoh.fr',
   linkedin: 'https://www.linkedin.com/in/enzo-hillairet-630baa367/',
   github: 'https://github.com/hillairet-enzo',
   cv: '/cv-enzo-hillairet.pdf', // À REMPLIR : dépose ton CV dans public/ sous ce nom

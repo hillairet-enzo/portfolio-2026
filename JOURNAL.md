@@ -44,7 +44,7 @@ La maquette (ciel bleu, avatar 3D, interface de jeu vidéo) et le site actuel (n
 | Compétences plutôt que technologies | Les compétences sont formulées en savoir-faire, avec les outils entre parenthèses |
 | Plus de détails dans les fiches projet | Chaque page projet détaille le contexte, mon rôle, le processus, les choix techniques et le résultat |
 | Densité de l'information | Détails des projets rangés en onglets et en accordéons |
-| Attention à l'adresse e-mail | **À faire** : créer une adresse sur mon nom de domaine, par exemple contact@enzoh.fr |
+| Attention à l'adresse e-mail | Adresse professionnelle sur mon nom de domaine, créée chez Infomaniak : contact@enzoh.fr |
 | Avatar 3D à réutiliser | Abandonné : il appartenait à l'univers de la maquette (décor de jeu vidéo) et aurait détonné dans une direction éditoriale centrée sur les projets |
 | « Hello ? » (ma page À propos de la maquette commençait par « Hello ») | La page À propos commence par une présentation directe : « Étudiant en MMI, je conçois des sites qui se voient et qui fonctionnent. » |
 
@@ -97,6 +97,7 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 - Mesuré le site avec Lighthouse (accessibilité 100 partout) et corrigé un contraste trop faible sur les mentions légales.
 - Rédigé `IA.md`, `JOURNAL.md` et `QUALITE.md`. Les parties à compléter sont repérées par `[À COMPLÉTER]`.
 - Repris les remarques de la soutenance maquette. Ajouté un profil clair sur l'accueil, reformulé les compétences en savoir-faire, aligné la cible du site sur ma note de positionnement (studios de création digitale) et mis à jour la note (`POSITIONNEMENT.md`).
+- Créé l'adresse professionnelle contact@enzoh.fr chez Infomaniak (service mail gratuit lié au domaine) et remplacé mon adresse Gmail sur tout le site.
 
 ## Choix des réseaux professionnels (consigne 2.4)
 
