@@ -1,0 +1,66 @@
+---
+// Défilement horizontal des projets, avec flèches. S'adapte à n'importe quel nombre de projets.
+import Photo from './Photo.astro';
+import type { Projet } from '../data/projets';
+
+interface Props {
+  projets: Projet[];
+}
+const { projets } = Astro.props;
+---
+
+<div class="carrousel" data-carrousel>
+  <ul class="carrousel__piste" tabindex="0" aria-label="Projets : faites défiler horizontalement">
+    {
+      projets.map((p) => (
+        <li class="carte">
+          <a class="carte__lien" href={`/projets/${p.slug}`}>
+            <Photo photo={p.couverture} />
+            <div class="carte__corps">
+              <p class="projet__meta">{p.cadre}, {p.annee}</p>
+              <h3 class="titre-m carte__titre">{p.titre}</h3>
+              <p class="carte__accroche">{p.accroche}</p>
+              <ul class="pastilles" aria-label="Outils principaux">
+                {p.outils.slice(0, 3).map((o) => <li>{o}</li>)}
+              </ul>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+    <li class="carte carte--tous">
+      <a class="carte__lien" href="/projets">
+        <span class="titre-m">Voir tous les projets</span>
+        <span class="carte__tous-texte">Une sélection de mes travaux. Chaque projet a sa page : contexte, démarche, schémas et outils.</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </li>
+  </ul>
+  <div class="carrousel__commandes">
+    <button type="button" class="rond" data-prec aria-label="Projet précédent">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+    </button>
+    <button type="button" class="rond rond--plein" data-suiv aria-label="Projet suivant">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carrousel]').forEach((c) => {
+    const piste = c.querySelector<HTMLElement>('.carrousel__piste')!;
+    const prec = c.querySelector<HTMLButtonElement>('[data-prec]')!;
+    const suiv = c.querySelector<HTMLButtonElement>('[data-suiv]')!;
+    const pas = () => (piste.querySelector<HTMLElement>('.carte')?.offsetWidth ?? 320) + 24;
+    const maj = () => {
+      prec.disabled = piste.scrollLeft < 8;
+      suiv.disabled = piste.scrollLeft + piste.clientWidth >= piste.scrollWidth - 8;
+      c.classList.toggle('carrousel--fixe', prec.disabled && suiv.disabled);
+    };
+    prec.addEventListener('click', () => piste.scrollBy({ left: -pas(), behavior: 'smooth' }));
+    suiv.addEventListener('click', () => piste.scrollBy({ left: pas(), behavior: 'smooth' }));
+    piste.addEventListener('scroll', maj, { passive: true });
+    window.addEventListener('resize', maj);
+    maj();
+  });
+</script>

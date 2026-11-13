@@ -1,0 +1,28 @@
+---
+import Photo from './Photo.astro';
+import type { Projet } from '../data/projets';
+
+interface Props {
+  projet: Projet;
+}
+const { projet: p } = Astro.props;
+---
+
+<li class="projet">
+  <a class="projet__image" href={`/projets/${p.slug}`} aria-label={`Voir le projet ${p.titre}`} tabindex="-1">
+    <Photo photo={p.couverture} />
+  </a>
+  <div class="projet__corps">
+    <p class="projet__meta">{p.cadre}, {p.annee}</p>
+    <h3 class="titre-l projet__titre"><a href={`/projets/${p.slug}`}>{p.titre}</a></h3>
+    <p class="chapo">{p.accroche}</p>
+    <p class="projet__resume">{p.resume}</p>
+    <ul class="pastilles" aria-label="Outils utilisés">
+      {p.outils.slice(0, 5).map((o) => <li>{o}</li>)}
+    </ul>
+    <a class="bouton bouton--plein" href={`/projets/${p.slug}`}>
+      Voir le projet
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+    </a>
+  </div>
+</li>

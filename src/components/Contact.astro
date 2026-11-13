@@ -1,0 +1,23 @@
+---
+import { profil } from '../data/profil';
+import { aCv } from '../lib/cv';
+---
+
+<section class="contact-bloc" id="contact" aria-labelledby="titre-contact">
+  <div class="contenu">
+    <div class="section">
+      <div>
+        <h2 id="titre-contact" class="titre-l">Un stage, un projet, une question&nbsp;?</h2>
+        <p class="chapo">
+          Je cherche un stage en communication et création. Écrivez-moi quelques lignes sur ce que vous avez en tête, je vous réponds.
+        </p>
+        <a class="contact-bloc__mail" href={`mailto:${profil.email}`}>{profil.email}</a>
+      </div>
+      <div class="contact-bloc__liens">
+        <a class="bouton bouton--plein" href="/contact">Écrire un message</a>
+        <a class="bouton" href={profil.linkedin} rel="noopener">LinkedIn</a>
+        {aCv && <a class="bouton" href={profil.cv} download>Télécharger mon CV</a>}
+      </div>
+    </div>
+  </div>
+</section>

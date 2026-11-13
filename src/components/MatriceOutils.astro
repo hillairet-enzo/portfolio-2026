@@ -1,0 +1,43 @@
+---
+import { groupesOutils, projetsColonnes } from '../data/outils';
+---
+
+<div class="matrice-cadre">
+  <table class="matrice">
+    <caption class="sr-only">Outils utilisés dans chaque projet</caption>
+    <thead>
+      <tr>
+        <th scope="col"><span class="sr-only">Outil</span></th>
+        {projetsColonnes.map((c) => (
+          <th scope="col"><a href={`/projets/${c.slug}`}>{c.nom}</a></th>
+        ))}
+      </tr>
+    </thead>
+    {
+      groupesOutils.map((g) => (
+        <tbody>
+          <tr class="matrice__groupe">
+            <th scope="colgroup" colspan={projetsColonnes.length + 1}>{g.groupe}</th>
+          </tr>
+          {g.outils.map((o) => (
+            <tr>
+              <th scope="row">{o.nom}</th>
+              {projetsColonnes.map((c) => (
+                <td>
+                  {o.projets.includes(c.slug) ? (
+                    <>
+                      <span class="point" aria-hidden="true" />
+                      <span class="sr-only">Utilisé</span>
+                    </>
+                  ) : (
+                    <span class="sr-only">Non utilisé</span>
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      ))
+    }
+  </table>
+</div>

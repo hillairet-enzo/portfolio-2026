@@ -1,0 +1,55 @@
+---
+// Encart photo : affiche l'image si le fichier existe dans public/images/,
+// sinon un cadre qui explique exactement quoi mettre (sujet, nom du fichier, format).
+import type { Photo } from '../data/projets';
+
+interface Props {
+  photo: Photo;
+  serre?: boolean; // petit cadre (photos côte à côte) : texte raccourci
+  prioritaire?: boolean; // image visible dès l'arrivée sur la page
+}
+const { photo, serre = false, prioritaire = false } = Astro.props;
+
+const fichiers = Object.keys(import.meta.glob('/public/images/**/*.{jpg,jpeg,png,webp,avif}'));
+const existe = fichiers.includes(`/public/images/${photo.fichier}`);
+const [l, h] = photo.format.split('/').map(Number);
+---
+
+{
+  existe ? (
+    <figure class="photo" style={`aspect-ratio:${l}/${h}`}>
+      <img
+        src={`/images/${photo.fichier}`}
+        alt={photo.alt}
+        loading={prioritaire ? 'eager' : 'lazy'}
+        fetchpriority={prioritaire ? 'high' : 'auto'}
+        decoding="async"
+      />
+    </figure>
+  ) : (
+    <figure
+      class:list={['photo', 'photo--vide', { 'photo--serre': serre }]}
+      style={`aspect-ratio:${l}/${h}`}
+      role="img"
+      aria-label={`Photo à ajouter : ${photo.alt}`}
+    >
+      <div class="photo__cadre">
+        <svg class="photo__icone" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2.5" />
+          <circle cx="9" cy="10.5" r="1.8" />
+          <path d="m21 16-5-5-8 8" />
+        </svg>
+        <p class="photo__titre">Photo à ajouter</p>
+        <p class="photo__sujet">{photo.sujet}</p>
+        <ul class="photo__infos">
+          <li>
+            <code>public/images/{photo.fichier}</code>
+          </li>
+          <li>
+            Format {photo.format.replace('/', ':')}, {photo.taille}
+          </li>
+        </ul>
+      </div>
+    </figure>
+  )
+}

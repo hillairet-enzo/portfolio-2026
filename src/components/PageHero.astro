@@ -1,0 +1,125 @@
+---
+// Grand hero de page : image plein écran (ou fond sombre), titre, verre liquide.
+// La couleur de la page vient de cette image (voir src/lib/theme.ts).
+import Photo from './Photo.astro';
+import { imageExiste } from '../lib/images';
+import type { Photo as PhotoType } from '../data/projets';
+
+interface Props {
+  titre: string[]; // une entrée par ligne
+  image?: { fichier: string; alt: string; position?: string };
+  encart?: PhotoType; // affiché à droite quand il n'y a pas d'image de fond (portrait, etc.)
+  taille?: 'grand' | 'moyen';
+  carte?: { titre?: string; texte: string };
+  id?: string;
+  /** « centre » : titre centré, pastille, sous-titre, deux cartes en verre en bas (accueil) */
+  variante?: 'gauche' | 'centre' | 'projet';
+  badge?: string;
+  soustitre?: string;
+  /** ancre de la section suivante : affiche une flèche « défiler » sous le hero */
+  defiler?: string;
+  /** voile plus sombre sur l'image (photos claires ou chargées : pages projet) */
+  voile?: 'fort';
+  /** petit paragraphe sous le sous-titre (infos écrites : équipe, rôle, outils) */
+  detail?: string;
+  /** variante « projet » : le titre devient un lien (ex. vers le site en ligne) */
+  lien?: { url: string; label: string };
+}
+const { titre, image, encart, taille = 'grand', carte, id = 'titre-hero', variante = 'gauche', badge, soustitre, defiler, voile, detail, lien } = Astro.props;
+const aImage = !!image && imageExiste(image.fichier);
+---
+
+<section class:list={['hero', `hero--${taille}`, { 'hero--aplat': !aImage, 'hero--forte': voile === 'fort' }]} aria-labelledby={id}>
+  {aImage && <img class="hero__image" src={`/images/${image!.fichier}`} alt={image!.alt} style={image!.position ? `object-position:${image!.position}` : undefined} fetchpriority="high" decoding="async" />}
+  <div class="hero__voile" aria-hidden="true"></div>
+
+  {
+    variante === 'projet' ? (
+      <>
+        <div class="contenu hero__pied">
+          <div class="hero__pied-texte">
+            <h1 id={id} class="hero__titre hero__titre--projet">
+              {lien ? (
+                <a class="titre-lien" href={lien.url} target="_blank" rel="noopener" aria-label={`${titre.join(' ')} — ${lien.label}`}>
+                  {titre.map((ligne) => <><span class="hero__ligne"><span>{ligne}</span></span>{' '}</>)}
+                  <span class="titre-lien__info" aria-hidden="true">{lien.label} ↗</span>
+                </a>
+              ) : (
+                titre.map((ligne) => <><span class="hero__ligne"><span>{ligne}</span></span>{' '}</>)
+              )}
+            </h1>
+            <div class="hero__actions hero__actions--projet">
+              <slot name="actions" />
+            </div>
+            <slot name="galerie" />
+          </div>
+          {defiler && (
+            <a class="hero__defiler hero__defiler--droite" href={defiler} aria-label="Défiler vers la suite">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8l8 8 8-8"></path></svg>
+            </a>
+          )}
+        </div>
+      </>
+    ) : variante === 'centre' ? (
+      <>
+        <div class="contenu hero__centre">
+          {badge && (
+            <p class="verre badge">
+              <span class="badge__point" aria-hidden="true" />
+              {badge}
+            </p>
+          )}
+          <h1 id={id} class="hero__titre hero__titre--centre">
+            {titre.map((ligne) => <><span class="hero__ligne"><span>{ligne}</span></span>{' '}</>)}
+          </h1>
+          {soustitre && <p class="hero__sous">{soustitre}</p>}
+          {detail && <p class="hero__detail">{detail}</p>}
+          <div class="hero__actions hero__actions--centre">
+            <slot name="actions" />
+          </div>
+        </div>
+        {Astro.slots.has('galerie') ? (
+          <div class="contenu hero__bas hero__bas--galerie">
+            <slot name="galerie" />
+          </div>
+        ) : (
+          <div class="contenu hero__bas hero__bas--cartes">
+            <slot name="gauche" />
+            <slot name="milieu" />
+            <slot name="droite" />
+          </div>
+        )}
+        {defiler && (
+          <a class="hero__defiler" href={defiler} aria-label="Défiler vers la suite">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8l8 8 8-8"></path></svg>
+          </a>
+        )}
+      </>
+    ) : (
+      <>
+        <div class="contenu hero__corps">
+          <h1 id={id} class="hero__titre">
+            {titre.map((ligne) => <span class="hero__ligne"><span>{ligne}</span></span>)}
+          </h1>
+          {encart && !aImage && (
+            <div class="hero__encart">
+              <Photo photo={encart} serre />
+            </div>
+          )}
+        </div>
+
+        <div class="contenu hero__bas">
+          {carte && (
+            <div class="verre hero__carte">
+              {carte.titre && <p class="hero__carte-titre">{carte.titre}</p>}
+              <p>{carte.texte}</p>
+              <div class="hero__actions">
+                <slot name="actions" />
+              </div>
+            </div>
+          )}
+        </div>
+      </>
+    )
+  }
+</section>

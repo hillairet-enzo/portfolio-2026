@@ -1,0 +1,25 @@
+---
+// Étapes reliées entre elles (démarche, parcours, récit). Numérotées uniquement quand l'ordre compte.
+interface Etape {
+  titre: string;
+  texte: string;
+}
+interface Props {
+  etapes: Etape[];
+  etiquette: string; // nom du schéma pour les lecteurs d'écran
+  numerote?: boolean;
+}
+const { etapes, etiquette, numerote = true } = Astro.props;
+---
+
+<ol class="flux" style={`--n:${etapes.length}`} aria-label={etiquette}>
+  {
+    etapes.map((e, i) => (
+      <li>
+        <span class="flux__noeud" aria-hidden="true">{numerote ? i + 1 : ''}</span>
+        <h3>{e.titre}</h3>
+        <p>{e.texte}</p>
+      </li>
+    ))
+  }
+</ol>
