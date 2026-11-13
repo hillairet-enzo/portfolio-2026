@@ -5458,3 +5458,20 @@ html:not([data-theme='dark']) .ct { background: var(--surf); }
   .ml__bloc { grid-template-columns: 1fr; gap: .9rem; }
   .ml__credits li { grid-template-columns: 1fr; gap: .15rem; }
 }
+
+/* ── Pied de page simplifié : identité + e-mail, pages, liens ── */
+.pied__corps { display: grid; grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)); gap: 2.4rem var(--marge); padding-bottom: clamp(2.2rem, 4vw, 3.2rem); }
+.pied__id { display: grid; justify-items: start; align-content: start; gap: 1.1rem; }
+.pied__id .pied__phrase { margin: 0; max-width: 26rem; }
+.pied__mail { display: inline-flex; align-items: baseline; gap: .5rem; padding-bottom: .15rem; font-size: clamp(1.1rem, 2vw, 1.45rem); font-weight: 650; letter-spacing: -0.02em; color: var(--pied-texte); text-decoration: none; border-bottom: 2px solid currentColor; transition: gap .3s var(--ease), opacity .2s; overflow-wrap: anywhere; }
+.pied__mail span { font-size: .85em; transition: transform .3s var(--ressort); }
+.pied__mail:hover { opacity: .65; }
+.pied__mail:hover span { transform: translate(2px, -2px); }
+.pied__col a { color: var(--pied-lien); text-decoration: none; text-decoration-color: transparent; text-underline-offset: .25em; transition: color .2s, text-decoration-color .2s; }
+.pied__col a:hover { color: var(--pied-texte); text-decoration: underline; text-decoration-color: currentColor; }
+@media (max-width: 52rem) { .pied__corps { grid-template-columns: 1fr 1fr; } .pied__id { grid-column: 1 / -1; } }
+@media (prefers-reduced-motion: reduce) { .pied__mail span, .pied__mail:hover span { transition: none; transform: none; } }
+
+/* ── Mentions légales : titre court + chapô ── */
+.ml__titre { max-width: 14ch; }
+.ml__chapo { max-width: 34rem; margin: 0; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.5; font-weight: 550; color: var(--encre); }
