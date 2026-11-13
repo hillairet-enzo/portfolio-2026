@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Photo from '../../components/Photo.astro';
+import Contact from '../../components/Contact.astro';
+import Flux from '../../components/Flux.astro';
+import SchemaBase from '../../components/SchemaBase.astro';
+import SchemaArchitecture from '../../components/SchemaArchitecture.astro';
+import SchemaPipeline from '../../components/SchemaPipeline.astro';
+import GraphiqueChaleur from '../../components/GraphiqueChaleur.astro';
+import MontreCycle from '../../components/pj/MontreCycle.astro';
+import Configurateur from '../../components/pj/Configurateur.astro';
+import ChatIA from '../../components/pj/ChatIA.astro';
+import Telephones from '../../components/pj/Telephones.astro';
+import Chiffres from '../../components/pj/Chiffres.astro';
+import { THEME_NEUTRE, couleurMoyenne } from '../../lib/theme';
+import { projets, trouverProjet } from '../../data/projets';
+
+export function getStaticPaths() {
+  return projets.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const projet = trouverProjet(slug!)!;
+const suivant = projets[(projets.indexOf(projet) + 1) % projets.length];
+// Page sobre noir et blanc ; seule la ligne de progression prend la couleur du hero.
+const couleurs = `${THEME_NEUTRE}--ligne:${await couleurMoyenne(projet.couverture.fichier)};`;
+const lien = projet.liens[0];
+// Quatre blocs, toujours dans le même ordre, chacun sur un panneau de couleur (comme la page À propos).
+const teintes = [
+  { fond: '#3346ff', sombre: true },
+  { fond: '#d4f23c', sombre: false },
+  { fond: '#7c3aed', sombre: true },
+  { fond: '#ffb8d4', sombre: false },
+];
+const blocs = [
+  { id: 'objectif', titre: 'L’objectif' },
+  { id: 'processus', titre: 'Processus créatif' },
+  { id: 'choix', titre: 'Choix techniques' },
+  { id: 'resultat', titre: 'Le résultat' },
+].map((b, i) => ({ ...b, sections: projet.sections.filter((s) => s.phase === b.id), ...teintes[i] })).filter((b) => b.sections.length || b.id === 'choix');
+---
+
+<Layout titre={projet.titre} description={projet.resume} page="projet" claire theme={couleurs}>
+  <!-- Ouverture : titre pleine largeur, grande photo nette, badge qui tourne -->
+  <section class="ph" aria-labelledby="titre-projet">
+    <div class="contenu ph-grille">
+      <div class="ph-gauche">
+        <p class="pp-etiquette">Projet · {projet.annee}</p>
+      <h1 id="titre-projet" class="ph-titre">
+        {
+          lien ? (
+            <a class="ph-titre__lien" href={lien.url} target="_blank" rel="noopener" aria-label={`${projet.titre} : ${lien.label} (nouvel onglet)`}>
+              <span>{projet.titre}</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+            </a>
+          ) : (
+            <span>{projet.titre}</span>
+          )
+        }
+      </h1>
+        <p class="ph-chapo">{projet.accroche}</p>
+      </div>
+      <div class="ph-photo">
+        <Photo photo={{ ...projet.couverture, format: '4/3' }} prioritaire />
+      </div>
+    </div>
+  </section>
+
+  <article class="pp" id="projet">
+    <section class="pp-onglets" aria-label="Informations sur le projet">
+      <div class="contenu">
+
+        <!-- Onglets : on ouvre, les informations se déroulent -->
+        <h2 class="pp-onglets__titre">En détail</h2>
+        <div class="pp-tabs" id="pp-tabs">
+          {
+            blocs.map((b, i) => (
+              <div class="pp-tab" id={`bloc-${b.id}`} data-ouvert="false" style={`--i:${i}`}>
+                <h3>
+                  <button type="button" class="pp-tab__bouton" aria-expanded="false" aria-controls={`pan-${b.id}`} id={`btn-${b.id}`}>
+                    <span class="pp-lettre" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                    <span class="pp-tab__nom">{b.titre}</span>
+                    <span class="pp-tab__icone" aria-hidden="true"></span>
+                  </button>
+                </h3>
+                <div class="pp-tab__panneau" id={`pan-${b.id}`} role="region" aria-labelledby={`btn-${b.id}`} inert>
+                  <div class="pp-tab__interieur">
+                    {b.id === 'choix' && (
+                      <ul class="pp-choix">
+                        {projet.choix.map((c) => (
+                          <li>
+                            <strong>{c.nom}</strong>
+                            <span>{c.raison}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {b.id === 'resultat' && projet.liens.length > 0 && (
+                      <div class="pp-raccourcis">
+                        {projet.liens.map((l, k) => (
+                          <a class:list={['pp-raccourci', k === 0 && 'pp-raccourci--plein']} href={l.url} target="_blank" rel="noopener">
+                            {l.label}
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                    {b.sections.map((sec) => (
+                      <div class="pp-ligne">
+                        <div class="pp-ligne__texte">
+                          <div class="texte-courant">
+                            {sec.paragraphes.map((t) => <p>{t}</p>)}
+                          </div>
+                        </div>
+                        {(sec.flux || sec.chiffres || sec.visuel || sec.schemas || sec.photos) && (
+                          <div class="pp-ligne__medias">
+                            {sec.flux && <div class="pp-feuille"><Flux etapes={sec.flux.etapes} etiquette={sec.flux.etiquette} /></div>}
+                            {sec.chiffres && <div class="pp-feuille"><Chiffres items={sec.chiffres} /></div>}
+                            {sec.visuel === 'montre' && <div class="pp-feuille"><MontreCycle /></div>}
+                            {sec.visuel === 'configurateur' && <div class="pp-feuille"><Configurateur /></div>}
+                            {sec.visuel === 'chat' && <div class="pp-feuille"><ChatIA /></div>}
+                            {sec.visuel === 'telephones' && <div class="pp-feuille"><Telephones /></div>}
+                            {sec.schemas?.includes('architecture') && <div class="pp-feuille"><SchemaArchitecture /></div>}
+                            {sec.schemas?.includes('base') && <div class="pp-feuille"><SchemaBase /></div>}
+                            {sec.schemas?.includes('pipeline') && <div class="pp-feuille"><SchemaPipeline /></div>}
+                            {sec.schemas?.includes('chaleur') && <div class="pp-feuille"><GraphiqueChaleur /></div>}
+                            {sec.photos && (
+                              <div class:list={['recit__photos', sec.photos.length > 1 && `recit__photos--${sec.photos.length}`]}>
+                                {sec.photos.map((ph) => <Photo photo={ph} serre={sec.photos!.length > 1} />)}
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <div class="contenu pp-next-zone">
+      <a class="pp-next" href={`/projets/${suivant.slug}`} aria-label={`Projet suivant : ${suivant.titre}`}>
+        <div class="pp-next__texte">
+          <span class="pp-next__label">Projet suivant</span>
+          <strong class="pp-next__titre">{suivant.titre}</strong>
+          <span class="pp-next__accroche">{suivant.accroche}</span>
+          <span class="pp-next__cta">
+            Découvrir
+            <span class="pp-next__rond" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          </span>
+        </div>
+        <div class="pp-next__photo"><Photo photo={{ ...suivant.couverture, format: '3/2' }} serre /></div>
+      </a>
+    </div>
+  </article>
+
+  <Contact />
+</Layout>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLElement>('.pp-tab'));
+  const fermer = (t: HTMLElement) => {
+    t.dataset.ouvert = 'false';
+    t.querySelector('.pp-tab__bouton')?.setAttribute('aria-expanded', 'false');
+    t.querySelector('.pp-tab__panneau')?.setAttribute('inert', '');
+  };
+  const ouvrir = (t: HTMLElement, defiler = true) => {
+    tabs.forEach((x) => x !== t && fermer(x));
+    t.dataset.ouvert = 'true';
+    t.querySelector('.pp-tab__bouton')?.setAttribute('aria-expanded', 'true');
+    t.querySelector('.pp-tab__panneau')?.removeAttribute('inert');
+    if (defiler) {
+      const reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      setTimeout(() => t.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'start' }), reduit ? 0 : 640);
+    }
+  };
+  tabs.forEach((t) => {
+    t.querySelector('.pp-tab__bouton')?.addEventListener('click', () => {
+      if (t.dataset.ouvert === 'true') fermer(t);
+      else ouvrir(t);
+    });
+  });
+  // léger décalage de la photo du haut pendant le défilement
+  const img = document.querySelector<HTMLElement>('.ph-photo img');
+  if (img && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let attente = false;
+    const maj = () => {
+      attente = false;
+      const y = Math.min(window.scrollY, 700);
+      img.style.transform = `translate3d(0, ${y * 0.08}px, 0) scale(1.1)`;
+    };
+    window.addEventListener('scroll', () => { if (!attente) { attente = true; requestAnimationFrame(maj); } }, { passive: true });
+    maj();
+  }
+
+  // flèches haut/bas, début/fin : on passe d'un onglet à l'autre au clavier
+  const boutons = tabs.map((t) => t.querySelector<HTMLButtonElement>('.pp-tab__bouton')!);
+  boutons.forEach((b, i) => b.addEventListener('keydown', (e) => {
+    const k = e.key;
+    const vers = k === 'ArrowDown' ? (i + 1) % boutons.length : k === 'ArrowUp' ? (i - 1 + boutons.length) % boutons.length : k === 'Home' ? 0 : k === 'End' ? boutons.length - 1 : -1;
+    if (vers >= 0) { e.preventDefault(); boutons[vers].focus(); }
+  }));
+  const h = location.hash.replace('#', '');
+  const cible = h && tabs.find((t) => t.id === h);
+  if (cible) ouvrir(cible, false);
+</script>

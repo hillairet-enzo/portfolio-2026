@@ -1,0 +1,51 @@
+---
+// Illustration de l'objectif : la montre change de forme et de couleurs toute seule,
+// avec les quatre pièces nommées autour.
+import Montre from './Montre.astro';
+---
+
+<figure class="cycle" data-cycle aria-label="Une même montre, des combinaisons à l’infini">
+  <div class="cycle__scene">
+    <Montre class="cycle__montre" titre="Une montre qui change de forme et de couleurs" />
+    <svg class="cycle__notes" viewBox="0 0 460 300" aria-hidden="true">
+      <g class="note"><path d="M78 40H214"></path><circle cx="214" cy="40" r="4"></circle><text x="4" y="45">Bracelet</text></g>
+      <g class="note"><path d="M382 96H350L286 118"></path><circle cx="286" cy="118" r="4"></circle><text x="456" y="101" text-anchor="end">Boîtier</text></g>
+      <g class="note"><path d="M82 194H124L186 170"></path><circle cx="186" cy="170" r="4"></circle><text x="4" y="199">Intérieur</text></g>
+      <g class="note"><path d="M382 232H340L250 178"></path><circle cx="250" cy="178" r="4"></circle><text x="456" y="237" text-anchor="end">Cadran</text></g>
+    </svg>
+  </div>
+  <figcaption>Quatre pièces, deux formes, des dizaines de combinaisons.</figcaption>
+</figure>
+
+<script>
+  const racine = document.querySelector<HTMLElement>('[data-cycle]');
+  const montre = racine?.querySelector<SVGElement>('.montre');
+  if (racine && montre) {
+    const jeux = [
+      { f: 'carree', br: '#b9b4aa', bo: '#2a2c30', i: '#8a8f96', ca: '#101216', glow: '#b9b4aa' },
+      { f: 'ronde', br: '#f26a1b', bo: '#f26a1b', i: '#c94f0c', ca: '#14110f', glow: '#f26a1b' },
+      { f: 'carree', br: '#3b82c4', bo: '#8b8f96', i: '#cfd3d8', ca: '#0f1820', glow: '#3b82c4' },
+      { f: 'ronde', br: '#6b8e3a', bo: '#2a2c30', i: '#f2b705', ca: '#101216', glow: '#6b8e3a' },
+      { f: 'carree', br: '#f2b705', bo: '#f4f2ee', i: '#c9c4ba', ca: '#1b1d20', glow: '#f2b705' },
+    ];
+    const applique = (j: (typeof jeux)[number]) => {
+      montre.setAttribute('data-forme', j.f);
+      montre.style.setProperty('--m-bracelet', j.br);
+      montre.style.setProperty('--m-boitier', j.bo);
+      montre.style.setProperty('--m-interieur', j.i);
+      montre.style.setProperty('--m-cadran', j.ca);
+      racine.style.setProperty('--glow', j.glow);
+    };
+    applique(jeux[0]);
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let n = 0;
+      let visible = false;
+      new IntersectionObserver((e) => (visible = e[0].isIntersecting)).observe(racine);
+      setInterval(() => {
+        if (!visible || document.hidden) return;
+        n = (n + 1) % jeux.length;
+        applique(jeux[n]);
+      }, 2200);
+    }
+  }
+</script>

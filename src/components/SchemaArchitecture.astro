@@ -1,0 +1,66 @@
+---
+// Architecture technique de TiK•TaK, d'après le dépôt (src/pages/api, deploy/).
+---
+
+<figure class="schema">
+  <div class="schema__defil">
+    <svg viewBox="0 0 1100 440" role="img" aria-labelledby="archi-titre archi-desc">
+      <title id="archi-titre">Architecture technique de TiK•TaK</title>
+      <desc id="archi-desc">
+        Le navigateur appelle le serveur par HTTPS. Apache relaie vers l'application Astro, lancée par un service systemd sur un VPS. L'application utilise SQLite pour les données, Better Auth pour la connexion et OpenRouter pour l'assistant IA. GitHub Actions déploie le code sur le serveur.
+      </desc>
+      <defs>
+        <marker id="pointe" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 10 5 0 10z" class="s-pointe" />
+        </marker>
+      </defs>
+
+      <!-- Navigateur -->
+      <rect x="20" y="90" width="220" height="210" rx="12" class="s-table" />
+      <text x="40" y="124" class="s-nom s-nom--sombre">Navigateur</text>
+      <text x="40" y="160" class="s-col">Pages Astro</text>
+      <text x="40" y="186" class="s-col">Tailwind et DaisyUI</text>
+      <text x="40" y="212" class="s-col">Aperçu 2D (SVG)</text>
+      <text x="40" y="238" class="s-col">Modèle 3D (three.js)</text>
+      <text x="40" y="264" class="s-col">Défilement (Lenis)</text>
+
+      <!-- Serveur -->
+      <rect x="330" y="40" width="440" height="360" rx="14" class="s-zone" />
+      <text x="350" y="68" class="s-etiquette">Serveur VPS</text>
+      <rect x="350" y="90" width="400" height="50" rx="10" class="s-table" />
+      <text x="370" y="121" class="s-col s-col--gras">Apache : HTTPS et relais</text>
+      <rect x="350" y="170" width="400" height="150" rx="12" class="s-fort" />
+      <text x="370" y="204" class="s-nom">Application Astro</text>
+      <text x="370" y="236" class="s-col s-col--clair">Pages : accueil, configurateur…</text>
+      <text x="370" y="262" class="s-col s-col--clair">API : montres, commandes, IA</text>
+      <text x="370" y="288" class="s-col s-col--clair">Rendu côté serveur</text>
+      <text x="350" y="356" class="s-note">Lancée en continu par un service systemd.</text>
+
+      <!-- Services -->
+      <rect x="860" y="60" width="220" height="90" rx="12" class="s-table" />
+      <text x="880" y="92" class="s-nom s-nom--sombre">SQLite</text>
+      <text x="880" y="118" class="s-col">6 tables</text>
+      <rect x="860" y="185" width="220" height="90" rx="12" class="s-table" />
+      <text x="880" y="217" class="s-nom s-nom--sombre">Better Auth</text>
+      <text x="880" y="243" class="s-col">E-mail ou compte Google</text>
+      <rect x="860" y="310" width="220" height="90" rx="12" class="s-table" />
+      <text x="880" y="342" class="s-nom s-nom--sombre">OpenRouter</text>
+      <text x="880" y="368" class="s-col">Modèle IA gratuit</text>
+
+      <!-- Déploiement -->
+      <rect x="20" y="330" width="220" height="64" rx="12" class="s-table s-table--tirets" />
+      <text x="40" y="358" class="s-nom s-nom--sombre">GitHub Actions</text>
+      <text x="40" y="381" class="s-col">Déploie à chaque envoi</text>
+
+      <!-- Flèches -->
+      <path d="M240 115 H350" class="s-lien" marker-end="url(#pointe)" />
+      <text x="262" y="106" class="s-note">HTTPS</text>
+      <path d="M550 140 V170" class="s-lien" marker-end="url(#pointe)" />
+      <path d="M750 205 C 810 205, 800 105, 858 105" class="s-lien" marker-end="url(#pointe)" />
+      <path d="M750 245 C 805 245, 805 230, 858 230" class="s-lien" marker-end="url(#pointe)" />
+      <path d="M750 290 C 810 290, 800 355, 858 355" class="s-lien" marker-end="url(#pointe)" />
+      <path d="M240 362 H330" class="s-lien s-lien--tirets" marker-end="url(#pointe)" />
+    </svg>
+  </div>
+  <figcaption>Le site tourne sur mon propre serveur : Apache reçoit les visites, l'application Astro répond et s'appuie sur trois services.</figcaption>
+</figure>

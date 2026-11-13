@@ -1,0 +1,80 @@
+---
+// L'assistant qui compose une montre à partir d'une phrase : la conversation se joue toute seule.
+import Montre from './Montre.astro';
+---
+
+<figure class="chat" data-chat>
+  <div class="chat__fenetre" role="img" aria-label="Exemple de conversation : l’utilisateur demande une montre orange ronde pour le trail, l’assistant la compose, puis passe le bracelet en vert à sa demande.">
+    <div class="chat__barre"><span></span><span></span><span></span><strong>Assistant TiK•TaK</strong></div>
+    <ol class="chat__fil" aria-hidden="true">
+      <li class="bulle bulle--moi" data-texte="Une montre orange pour le trail, ronde"></li>
+      <li class="bulle bulle--ia" data-texte="Voilà : forme ronde, boîtier orange, cadran sombre pour bien lire en courant."></li>
+      <li class="bulle bulle--moi" data-texte="Mets le bracelet en vert"></li>
+      <li class="bulle bulle--ia" data-texte="C’est fait. Tu peux encore ajuster chaque pièce à la main."></li>
+    </ol>
+  </div>
+  <div class="chat__resultat" aria-hidden="true">
+    <Montre class="chat__montre" titre="La montre composée par l’assistant" />
+    <p>Proposée par l’IA, ajustée par toi</p>
+  </div>
+</figure>
+
+<script>
+  const racine = document.querySelector<HTMLElement>('[data-chat]');
+  const montre = racine?.querySelector<SVGElement>('.montre');
+  if (racine && montre) {
+    const bulles = Array.from(racine.querySelectorAll<HTMLElement>('.bulle'));
+    const v = (n: string, c: string) => montre.style.setProperty(n, c);
+    const depart = () => {
+      montre.setAttribute('data-forme', 'carree');
+      v('--m-bracelet', '#b9b4aa'); v('--m-boitier', '#2a2c30'); v('--m-interieur', '#8a8f96'); v('--m-cadran', '#101216');
+    };
+    const orange = () => {
+      montre.setAttribute('data-forme', 'ronde');
+      v('--m-bracelet', '#f26a1b'); v('--m-boitier', '#f26a1b'); v('--m-interieur', '#c94f0c'); v('--m-cadran', '#14110f');
+    };
+    const vert = () => v('--m-bracelet', '#6b8e3a');
+    const pause = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    bulles.forEach((b) => (b.dataset.complet = b.dataset.texte ?? ''));
+
+    if (reduit) {
+      bulles.forEach((b) => { b.textContent = b.dataset.complet!; b.classList.add('on'); });
+      orange(); vert();
+    } else {
+      let visible = false;
+      new IntersectionObserver((e) => (visible = e[0].isIntersecting)).observe(racine);
+      const attend = async () => { while (!visible || document.hidden) await pause(300); };
+      const ecrit = async (b: HTMLElement) => {
+        b.classList.add('on');
+        const t = b.dataset.complet!;
+        for (let i = 1; i <= t.length; i++) { b.textContent = t.slice(0, i); await pause(34); }
+      };
+      const reflechit = async (b: HTMLElement, ms: number) => {
+        b.classList.add('on', 'penser');
+        b.innerHTML = '<i></i><i></i><i></i>';
+        await pause(ms);
+        b.classList.remove('penser');
+        b.textContent = '';
+      };
+      const lit = async (b: HTMLElement) => {
+        await reflechit(b, 1000);
+        b.classList.add('on');
+        b.textContent = b.dataset.complet!;
+      };
+      (async () => {
+        for (;;) {
+          await attend();
+          bulles.forEach((b) => { b.classList.remove('on', 'penser'); b.textContent = ''; });
+          depart();
+          await pause(700);
+          await ecrit(bulles[0]); await pause(300);
+          await lit(bulles[1]); orange(); await pause(1800);
+          await ecrit(bulles[2]); await pause(300);
+          await lit(bulles[3]); vert();
+          await pause(5200);
+        }
+      })();
+    }
+  }
+</script>

@@ -1,0 +1,74 @@
+---
+// Schéma de la base de données de TiK•TaK, dessiné d'après db/01_schema.sql.
+type Col = { n: string; t?: string };
+interface Table { nom: string; x: number; y: number; l: number; cols: Col[] }
+
+const H = 36, L = 30;
+const tables: Table[] = [
+  { nom: 'utilisateur', x: 10, y: 10, l: 210, cols: [{ n: 'id_utilisateur', t: 'PK' }, { n: 'nom' }, { n: 'email' }, { n: 'auth_id' }, { n: 'date_inscription' }] },
+  { nom: 'montre', x: 260, y: 10, l: 210, cols: [{ n: 'id_montre', t: 'PK' }, { n: 'nom' }, { n: 'prix' }, { n: 'date_creation' }, { n: 'svg' }, { n: 'id_utilisateur', t: 'FK' }] },
+  { nom: 'composer', x: 520, y: 10, l: 190, cols: [{ n: 'id_montre', t: 'PK, FK' }, { n: 'id_composant', t: 'PK, FK' }] },
+  { nom: 'composant', x: 760, y: 10, l: 210, cols: [{ n: 'id_composant', t: 'PK' }, { n: 'libelle' }, { n: 'materiau' }, { n: 'couleur' }, { n: 'code_couleur' }, { n: 'prix' }] },
+  { nom: 'commande', x: 10, y: 300, l: 210, cols: [{ n: 'id_commande', t: 'PK' }, { n: 'date_commande' }, { n: 'id_utilisateur', t: 'FK' }] },
+  { nom: 'contenir', x: 260, y: 300, l: 210, cols: [{ n: 'id_commande', t: 'PK, FK' }, { n: 'id_montre', t: 'PK, FK' }, { n: 'quantite' }, { n: 'prix_unitaire' }] },
+];
+const hauteur = (t: Table) => H + t.cols.length * L + 8;
+
+// [x1, y1, x2, y2, début, fin]
+const liens: [number, number, number, number, string, string][] = [
+  [220, 100, 260, 100, '1', 'N'],
+  [470, 100, 520, 100, '1', 'N'],
+  [710, 100, 760, 100, 'N', '1'],
+  [115, 204, 115, 300, '1', 'N'],
+  [220, 370, 260, 370, '1', 'N'],
+  [365, 234, 365, 300, '1', 'N'],
+];
+---
+
+<figure class="schema">
+  <div class="schema__defil">
+    <svg viewBox="0 0 980 480" role="img" aria-labelledby="base-titre base-desc">
+      <title id="base-titre">Schéma de la base de données TiK•TaK</title>
+      <desc id="base-desc">
+        Six tables : un utilisateur crée des montres et passe des commandes. Une montre est composée de composants (table composer). Une commande contient des montres (table contenir) avec une quantité et un prix unitaire.
+      </desc>
+
+      {liens.map(([x1, y1, x2, y2, a, b]) => {
+        const vertical = x1 === x2;
+        const ax = vertical ? x1 + 8 : x1 + 5;
+        const ay = vertical ? y1 + 20 : y1 - 8;
+        const bx = vertical ? x2 + 8 : x2 - 15;
+        const by = y2 - 8;
+        return (
+          <g>
+            <line x1={x1} y1={y1} x2={x2} y2={y2} class="s-lien" />
+            <text x={ax} y={ay} class="s-card">{a}</text>
+            <text x={bx} y={by} class="s-card">{b}</text>
+          </g>
+        );
+      })}
+
+      {tables.map((t) => (
+        <g>
+          <rect x={t.x} y={t.y} width={t.l} height={hauteur(t)} rx="10" class="s-table" />
+          <rect x={t.x} y={t.y} width={t.l} height={H} rx="10" class="s-tete" />
+          <rect x={t.x} y={t.y + 20} width={t.l} height={H - 20} class="s-tete" />
+          <text x={t.x + 14} y={t.y + 24} class="s-nom">{t.nom}</text>
+          {t.cols.map((c, i) => (
+            <g>
+              <text x={t.x + 14} y={t.y + H + 22 + i * L} class="s-col">{c.n}</text>
+              {c.t && <text x={t.x + t.l - 14} y={t.y + H + 22 + i * L} class={c.t.startsWith('PK') ? 's-cle' : 's-cle s-cle--fk'} text-anchor="end">{c.t}</text>}
+            </g>
+          ))}
+        </g>
+      ))}
+
+      <text x="510" y="330" class="s-note">Une montre déjà commandée ne peut pas</text>
+      <text x="510" y="352" class="s-note">être supprimée : la suppression est</text>
+      <text x="510" y="374" class="s-note">bloquée dans la table contenir.</text>
+      <text x="510" y="420" class="s-note">1 = un seul, N = plusieurs.</text>
+      <text x="510" y="442" class="s-note">PK = clé primaire, FK = clé étrangère.</text>
+    </svg>
+  </div>
+  <figcaption>La base compte six tables. « composer » relie une montre à ses pièces, « contenir » relie une commande à ses montres.</figcaption>
+</figure>

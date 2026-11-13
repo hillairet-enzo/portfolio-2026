@@ -1,0 +1,34 @@
+---
+import { chaleur } from '../data/chiffres';
+
+const fr = (n: number) => n.toFixed(1).replace('.', ',');
+const ecart = fr(chaleur.pauvres - chaleur.autres);
+const barres = [
+  { nom: 'Ménages pauvres', v: chaleur.pauvres, fort: true },
+  { nom: 'Autres ménages', v: chaleur.autres, fort: false },
+  { nom: 'Ensemble de la métropole', v: chaleur.ensemble, fort: false },
+];
+---
+
+<figure class="graphique">
+  <figcaption class="graphique__titre">Part des ménages qui vivent dans une zone où le sol atteint 40 °C ou plus</figcaption>
+  <ul class="graphique__barres">
+    {
+      barres.map((b) => (
+        <li class:list={{ 'graphique__barre--fort': b.fort }}>
+          <span class="graphique__nom">{b.nom}</span>
+          <span class="graphique__piste" aria-hidden="true">
+            <span class="graphique__valeur" style={`width:${b.v}%`}></span>
+          </span>
+          <strong class="graphique__chiffre">{fr(b.v)} %</strong>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="graphique__lecture">
+    Écart de {ecart} points entre ménages pauvres et autres ménages : un peu plus, mais la chaleur touche plus de la moitié des ménages dans les deux cas.
+  </p>
+  <p class="graphique__source">
+    Calculé sur {chaleur.zones.toLocaleString('fr-FR')} zones de 200 m dans {chaleur.communes} communes. Température du sol mesurée par satellite le 17 juin 2022. Sources : Insee, Cerema, Bordeaux Métropole.
+  </p>
+</figure>

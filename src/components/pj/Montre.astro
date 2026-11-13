@@ -1,0 +1,46 @@
+---
+// Montre TiK•TaK dessinée en SVG. Les couleurs viennent de variables CSS (--m-*) :
+// on peut donc les changer avec un simple style, ou depuis un script.
+interface Props {
+  forme?: 'carree' | 'ronde';
+  bracelet?: string;
+  boitier?: string;
+  interieur?: string;
+  cadran?: string;
+  class?: string;
+  titre?: string;
+}
+const {
+  forme = 'carree',
+  bracelet = '#b9b4aa',
+  boitier = '#2a2c30',
+  interieur = '#8a8f96',
+  cadran = '#101216',
+  class: classe,
+  titre = 'Une montre TiK•TaK',
+} = Astro.props;
+const style = `--m-bracelet:${bracelet};--m-boitier:${boitier};--m-interieur:${interieur};--m-cadran:${cadran}`;
+---
+
+<svg class:list={['montre', classe]} data-forme={forme} style={style} viewBox="0 0 200 300" role="img" aria-label={titre}>
+  <path class="m-br" d="M64 8Q64 0 72 0H128Q136 0 136 8L141 122H59Z"></path>
+  <path class="m-br" d="M59 178H141L136 292Q136 300 128 300H72Q64 300 64 292Z"></path>
+  <g class="m-trous" fill="#000" opacity="0.22">
+    <circle cx="100" cy="222" r="3"></circle>
+    <circle cx="100" cy="244" r="3"></circle>
+    <circle cx="100" cy="266" r="3"></circle>
+  </g>
+  <rect class="m-bo" x="156" y="128" width="12" height="24" rx="4"></rect>
+  <g class="f-carree">
+    <rect class="m-bo" x="40" y="90" width="120" height="120" rx="30"></rect>
+    <rect class="m-in" x="52" y="102" width="96" height="96" rx="21"></rect>
+    <rect class="m-ca" x="59" y="109" width="82" height="82" rx="15"></rect>
+  </g>
+  <g class="f-ronde">
+    <circle class="m-bo" cx="100" cy="150" r="62"></circle>
+    <circle class="m-in" cx="100" cy="150" r="50"></circle>
+    <circle class="m-ca" cx="100" cy="150" r="42"></circle>
+  </g>
+  <text x="100" y="157" text-anchor="middle" font-size="20" font-weight="600" fill="#fff" opacity="0.92" letter-spacing="-0.5">10:09</text>
+  <path d="M66 116H110L72 186H66Z" fill="#fff" opacity="0.07"></path>
+</svg>

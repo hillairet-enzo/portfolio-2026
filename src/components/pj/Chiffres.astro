@@ -1,0 +1,41 @@
+---
+// Quelques chiffres clés qui défilent jusqu'à leur valeur.
+interface Props {
+  items: { valeur: number; suffixe?: string; label: string }[];
+}
+const { items } = Astro.props;
+---
+
+<ul class="cles" data-chiffres>
+  {
+    items.map((c) => (
+      <li class="cle">
+        <strong>
+          <span data-valeur={c.valeur}>{c.valeur}</span>
+          {c.suffixe && <small>{c.suffixe}</small>}
+        </strong>
+        <span class="cle__label">{c.label}</span>
+      </li>
+    ))
+  }
+</ul>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-chiffres]').forEach((liste) => {
+    const nombres = Array.from(liste.querySelectorAll<HTMLElement>('[data-valeur]'));
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    nombres.forEach((n) => (n.textContent = '0'));
+    new IntersectionObserver((entrees, obs) => {
+      if (!entrees[0].isIntersecting) return;
+      obs.disconnect();
+      const debut = performance.now();
+      const pas = (t: number) => {
+        const k = Math.min(1, (t - debut) / 1400);
+        const e = 1 - Math.pow(1 - k, 3);
+        nombres.forEach((n) => (n.textContent = String(Math.round(Number(n.dataset.valeur) * e))));
+        if (k < 1) requestAnimationFrame(pas);
+      };
+      requestAnimationFrame(pas);
+    }, { threshold: 0.4 }).observe(liste);
+  });
+</script>

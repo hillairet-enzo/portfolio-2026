@@ -1,0 +1,55 @@
+---
+// Trois téléphones : captures réelles si elles existent, sinon écrans dessinés en code.
+import Montre from './Montre.astro';
+import { imageExiste } from '../../lib/images';
+const fichiers = ['tiktak/mobile-1.jpg', 'tiktak/mobile-2.jpg', 'tiktak/mobile-3.jpg'];
+const reel = fichiers.map((f) => imageExiste(f));
+---
+
+<div class="telephones" role="group" aria-label="Le site TiK•TaK sur téléphone : configurateur, mes montres, commande">
+  <figure class="tel">
+    <div class="tel__ecran">
+      {reel[0] ? <img src={`/images/${fichiers[0]}`} alt="Le configurateur sur téléphone" loading="lazy" /> : (
+        <div class="ui">
+          <p class="ui__titre">Configurateur</p>
+          <div class="ui__scene"><Montre bracelet="#f26a1b" boitier="#f26a1b" interieur="#c94f0c" cadran="#14110f" forme="ronde" /></div>
+          <div class="ui__pastilles"><i style="--c:#b9b4aa"></i><i style="--c:#f26a1b" class="on"></i><i style="--c:#3b82c4"></i><i style="--c:#6b8e3a"></i><i style="--c:#f2b705"></i></div>
+          <p class="ui__bouton">Enregistrer · 129 €</p>
+        </div>
+      )}
+    </div>
+    <figcaption>Composer</figcaption>
+  </figure>
+  <figure class="tel">
+    <div class="tel__ecran">
+      {reel[1] ? <img src={`/images/${fichiers[1]}`} alt="La page Mes montres sur téléphone" loading="lazy" /> : (
+        <div class="ui">
+          <p class="ui__titre">Mes montres</p>
+          <ul class="ui__liste">
+            <li><span class="ui__mini"><Montre bracelet="#f26a1b" boitier="#f26a1b" interieur="#c94f0c" cadran="#14110f" forme="ronde" /></span><b>Trail orange</b><em>129 €</em></li>
+            <li><span class="ui__mini"><Montre /></span><b>Pierre</b><em>99 €</em></li>
+            <li><span class="ui__mini"><Montre bracelet="#3b82c4" boitier="#8b8f96" interieur="#cfd3d8" cadran="#0f1820" /></span><b>Lac bleu</b><em>107 €</em></li>
+            <li><span class="ui__mini"><Montre bracelet="#6b8e3a" boitier="#2a2c30" interieur="#f2b705" cadran="#101216" forme="ronde" /></span><b>Forêt</b><em>121 €</em></li>
+            <li><span class="ui__mini"><Montre bracelet="#f2b705" boitier="#f4f2ee" interieur="#c9c4ba" cadran="#1b1d20" /></span><b>Soleil</b><em>105 €</em></li>
+          </ul>
+        </div>
+      )}
+    </div>
+    <figcaption>Retrouver</figcaption>
+  </figure>
+  <figure class="tel">
+    <div class="tel__ecran">
+      {reel[2] ? <img src={`/images/${fichiers[2]}`} alt="La commande sur téléphone" loading="lazy" /> : (
+        <div class="ui">
+          <p class="ui__titre">Commande</p>
+          <div class="ui__ligne"><span class="ui__mini"><Montre bracelet="#f26a1b" boitier="#f26a1b" interieur="#c94f0c" cadran="#14110f" forme="ronde" /></span><b>Trail orange</b></div>
+          <div class="ui__quantite"><i>−</i><b>1</b><i>+</i></div>
+          <p class="ui__prix"><span>Livraison</span><b>10 €</b></p>
+          <p class="ui__prix ui__prix--total"><span>Total</span><b>139 €</b></p>
+          <p class="ui__bouton">Commander</p>
+        </div>
+      )}
+    </div>
+    <figcaption>Commander</figcaption>
+  </figure>
+</div>

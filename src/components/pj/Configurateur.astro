@@ -1,0 +1,120 @@
+---
+// Mini configurateur jouable : change la forme et les couleurs, le prix suit.
+import Montre from './Montre.astro';
+const teintes = [
+  { nom: 'Pierre', c: '#b9b4aa' },
+  { nom: 'Noir', c: '#24262a' },
+  { nom: 'Orange', c: '#f26a1b' },
+  { nom: 'Bleu', c: '#3b82c4' },
+  { nom: 'Vert', c: '#6b8e3a' },
+  { nom: 'Jaune', c: '#f2b705' },
+];
+const pieces = [
+  { id: 'bracelet', nom: 'Bracelet', depart: 0 },
+  { id: 'boitier', nom: 'Boîtier', depart: 1 },
+  { id: 'interieur', nom: 'Intérieur', depart: 0 },
+  { id: 'cadran', nom: 'Cadran', depart: 1 },
+];
+---
+
+<figure class="conf" data-conf>
+  <div class="conf__scene">
+    <Montre class="conf__montre" titre="Aperçu de la montre en cours de composition" />
+    <p class="conf__etiquette" data-conf-nom>Ma montre</p>
+  </div>
+  <div class="conf__panneau">
+    <div class="conf__rang">
+      <span class="conf__nom">Forme</span>
+      <div class="conf__seg" role="group" aria-label="Forme">
+        <button type="button" data-forme="carree" aria-pressed="true">Carrée</button>
+        <button type="button" data-forme="ronde" aria-pressed="false">Ronde</button>
+      </div>
+    </div>
+    {
+      pieces.map((p) => (
+        <div class="conf__rang">
+          <span class="conf__nom">{p.nom}</span>
+          <div class="conf__teintes" role="group" aria-label={p.nom} data-piece={p.id} data-depart={p.depart}>
+            {teintes.map((t, i) => (
+              <button type="button" class="conf__teinte" style={`--c:${t.c}`} data-i={i} aria-label={`${p.nom} ${t.nom}`} aria-pressed="false"></button>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+    <div class="conf__prix">
+      <span>Prix</span>
+      <strong data-prix>0 €</strong>
+    </div>
+  </div>
+  <figcaption>À toi de jouer : les couleurs changent en direct, comme dans le vrai configurateur.</figcaption>
+</figure>
+
+<script>
+  const racine = document.querySelector<HTMLElement>('[data-conf]');
+  const svg = racine?.querySelector<SVGElement>('.montre');
+  if (racine && svg) {
+    const teintes = ['#b9b4aa', '#24262a', '#f26a1b', '#3b82c4', '#6b8e3a', '#f2b705'];
+    const interieurs = ['#8a8f96', '#6b6f76', '#c94f0c', '#2f6aa5', '#4d6b28', '#c99700'];
+    const etat: Record<string, number> = {};
+    const sur: Record<string, string> = { bracelet: '--m-bracelet', boitier: '--m-boitier', interieur: '--m-interieur', cadran: '--m-cadran' };
+    const prix = racine.querySelector<HTMLElement>('[data-prix]')!;
+    const nom = racine.querySelector<HTMLElement>('[data-conf-nom]')!;
+    const noms = ['pierre', 'noire', 'orange', 'bleue', 'verte', 'jaune'];
+    let forme = 'carree';
+    let affiche = 0;
+    let cible = 0;
+    let boucle = 0;
+
+    const total = () => 89 + Object.values(etat).reduce((s, i) => s + [0, 4, 6, 8, 8, 12][i], 0) + (forme === 'ronde' ? 10 : 0);
+    const montrePrix = () => {
+      cible = total();
+      cancelAnimationFrame(boucle);
+      const pas = () => {
+        affiche += (cible - affiche) * 0.25;
+        if (Math.abs(cible - affiche) < 0.5) affiche = cible;
+        prix.textContent = `${Math.round(affiche)} €`;
+        if (affiche !== cible) boucle = requestAnimationFrame(pas);
+      };
+      pas();
+    };
+    const maj = () => {
+      svg.setAttribute('data-forme', forme);
+      for (const [piece, i] of Object.entries(etat)) {
+        const couleur = piece === 'interieur' ? interieurs[i] : teintes[i];
+        svg.style.setProperty(sur[piece], couleur);
+      }
+      nom.textContent = `Montre ${forme === 'ronde' ? 'ronde' : 'carrée'}, bracelet ${noms[etat.bracelet]}`;
+      racine.style.setProperty('--glow', teintes[etat.boitier === 1 ? etat.bracelet : etat.boitier]);
+      racine.querySelectorAll<HTMLElement>('[data-piece]').forEach((g) => {
+        g.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.i) === etat[g.dataset.piece!])));
+      });
+      racine.querySelectorAll<HTMLElement>('[data-forme]').forEach((b) => {
+        if (b.tagName === 'BUTTON') b.setAttribute('aria-pressed', String(b.dataset.forme === forme));
+      });
+      montrePrix();
+    };
+    racine.querySelectorAll<HTMLElement>('[data-piece]').forEach((g) => {
+      etat[g.dataset.piece!] = Number(g.dataset.depart);
+      g.addEventListener('click', (e) => {
+        const b = (e.target as HTMLElement).closest('button');
+        if (!b) return;
+        etat[g.dataset.piece!] = Number(b.dataset.i);
+        maj();
+      });
+    });
+    racine.querySelector('.conf__seg')!.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest('button');
+      if (!b) return;
+      forme = b.dataset.forme!;
+      maj();
+    });
+    // départ : bracelet pierre, boîtier noir, intérieur pierre, cadran noir
+    etat.bracelet = 0;
+    etat.boitier = 1;
+    etat.interieur = 0;
+    etat.cadran = 1;
+    affiche = total();
+    maj();
+  }
+</script>
