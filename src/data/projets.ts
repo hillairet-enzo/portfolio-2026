@@ -78,10 +78,10 @@ export const projets: Projet[] = [
     ],
     liens: [{ label: 'Voir le site en ligne', url: 'https://tiktak.enzoh.fr' }],
     couverture: {
-      fichier: 'tiktak/couverture.jpg',
+      fichier: 'tiktak/couverture.webp',
       alt: 'Cinq montres TiK•TaK, carrées et rondes, de couleurs différentes, posées sur un rocher',
       sujet:
-        'Les cinq montres alignées sur le rocher (bleu, jaune, noir, orange, vert). C’est le fichier hero-montres.jpg de ton projet TiK•TaK, dans public/images.',
+        'Les cinq montres alignées sur le rocher (bleu, jaune, noir, orange, vert). Visuel de couverture du projet TiK•TaK.',
       format: '3/2',
       taille: '2400 × 1600 px',
     },
