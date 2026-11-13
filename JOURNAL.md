@@ -2,11 +2,23 @@
 
 Projet individuel du semestre 3 (BUT MMI) : concevoir, réaliser et mettre en ligne mon portfolio professionnel sur enzoh.fr.
 
-## Semaines précédentes
+## Avant le 9 novembre 2026
 
-**[À COMPLÉTER]** : une dizaine de lignes par semaine, depuis le début du projet.
-Pour chaque semaine : ce que j'ai fait, ce qui a coincé, ce que j'ai décidé.
-Pense à la note de positionnement, au moodboard, aux pistes écartées et à la maquette Figma.
+Les dates ci-dessous sont celles des dépôts de mes projets de semestre.
+
+**Ce que j'ai fait**
+- **20 et 21 octobre** : réalisation de la SAE 303 « ThermoViz » (visualisation de données sur la chaleur en ville) en binôme avec Matthis Carnicer. Mon rôle : récit et rédaction, intégration, préparation des données, page Méthode et une partie des visualisations.
+- **2 au 5 novembre** : réalisation seul de la SAE 301 « TiK•TaK », un configurateur de montres personnalisées (Astro, Bun, SQLite) : direction artistique, interface, développement, base de données et mise en ligne. Le dépôt compte 83 commits.
+- Une première version du portfolio existait déjà. Je n'en étais pas satisfait : police (Bricolage Grotesque), couleur jaune dominante, animations et textes.
+
+**Ce qui a coincé**
+- Le rendu de cette première version ne correspondait pas à ce que je voulais montrer à un recruteur.
+
+**Ce que j'ai décidé**
+- Refaire le design, les animations et le code, en gardant le fond : les projets et les consignes de l'école.
+- Présenter en priorité ces deux projets, les plus aboutis, comme études de cas. Il m'en faut un troisième, de préférence un travail personnel.
+
+**[À COMPLÉTER]** : la date de début du projet portfolio, et les semaines où j'ai rédigé la note de positionnement, construit le moodboard avec les pistes écartées et fait la maquette Figma. Ajoute pour chacune ce que tu as fait, ce qui a coincé et ce que tu as décidé.
 
 ## Semaine du 9 au 15 novembre 2026
 
@@ -29,6 +41,17 @@ Pense à la note de positionnement, au moodboard, aux pistes écartées et à la
 - Garder deux études de cas solides (TiK•TaK, ThermoViz) et en ajouter une troisième, comme l'exige la consigne.
 - Héberger chez Infomaniak, où se trouve déjà mon nom de domaine.
 - Déclarer honnêtement l'usage de l'IA dans `IA.md`.
+
+## Journal des séances
+
+### Vendredi 13 novembre 2026
+- Créé le dépôt Git et le dépôt GitHub public, puis mis mes coordonnées (e-mail, LinkedIn, GitHub) dans `profil.ts`.
+- Refait les mentions légales dans le style du site (titre « En toute transparence »), avec l'hébergeur Infomaniak dont j'ai vérifié l'adresse sur leur site, et une section de crédits.
+- Simplifié le pied de page : identité et e-mail, pages, liens. Corrigé la flèche de retour en haut, qui devenait invisible au survol.
+- Corrigé l'en-tête : plus de lignes ni d'ombre, et un fond transparent en haut des pages claires pour qu'il suive la couleur de la page (page Contact comprise).
+- Ajouté `sitemap.xml` et `robots.txt`, converti la couverture de TiK•TaK en WebP et supprimé une image inutilisée.
+- Mesuré le site avec Lighthouse (accessibilité 100 partout) et corrigé un contraste trop faible sur les mentions légales.
+- Rédigé `IA.md`, `JOURNAL.md` et `QUALITE.md`. Les parties à compléter sont repérées par `[À COMPLÉTER]`.
 
 ## Choix des réseaux professionnels (consigne 2.4)
 

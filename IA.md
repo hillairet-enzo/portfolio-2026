@@ -11,7 +11,7 @@ Ce fichier déclare chaque outil d'IA utilisé, à quelle étape, pour quoi fair
 | --- | --- | --- |
 | **Claude** (Anthropic), via Claude Code et l'application Claude | Conception graphique, intégration, qualité web, mise en place du dépôt | Assistant principal : propositions de design, écriture du code Astro / CSS / JavaScript sous ma direction, corrections, audit, rédaction de textes |
 | **Connecteur Figma** piloté par Claude | Maquette | Création du fichier Figma et des écrans à partir de mes consignes |
-| Générateur d'images IA (outil : **[À COMPLÉTER]**) | Visuels du projet TiK•TaK | Certains visuels du projet TiK•TaK, déclarés dans les mentions légales |
+| **Gemini** (Google) | Visuels du projet TiK•TaK | Génération de certains visuels du projet TiK•TaK, déclarés dans les mentions légales |
 
 ## 2. Ce que l'IA a produit
 
