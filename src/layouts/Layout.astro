@@ -1,0 +1,296 @@
+---
+import VerreSVG from '../components/VerreSVG.astro';
+import Logo from '../components/Logo.astro';
+import '../styles/global.css';
+import { profil } from '../data/profil';
+import { projets } from '../data/projets';
+import { aCv } from '../lib/cv';
+
+interface Props {
+  titre?: string;
+  description?: string;
+  page?: 'accueil' | 'projet' | 'apropos' | 'contact' | 'autre';
+  claire?: boolean; // page sans hero sombre : l'en-tête reste en verre clair dès le haut
+  theme?: string; // variables de couleur calculées depuis l'image du hero (src/lib/theme.ts)
+}
+const {
+  claire = false,
+  titre,
+  description = `${profil.nom}, étudiant en BUT MMI. ${profil.accroche} ${profil.recherche}`,
+  page = 'accueil',
+  theme = '',
+} = Astro.props;
+const titreComplet = titre ? `${titre} – ${profil.nom}` : `${profil.nom}, portfolio`;
+const url = new URL(Astro.url.pathname, Astro.site);
+const annee = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="fr" style={theme}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+      try {
+        var nav = performance.getEntriesByType('navigation')[0];
+        var type = nav ? nav.type : 'navigate';
+        var interne = document.referrer.indexOf(location.origin) === 0;
+        if ((type === 'reload' || (type === 'navigate' && !interne)) && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('intro');
+        }
+      } catch (e) {}
+    </script>
+    <title>{titreComplet}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={titreComplet} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+  </head>
+  <body>
+    <div class="chargeur" aria-hidden="true">
+      <svg class="chargeur__logo" viewBox="0 0 64 64" focusable="false">
+        <g transform="translate(.9 .9)">
+          <rect class="ch-ombre" x="9" y="9" width="50" height="50" rx="8" fill="#15171a" />
+          <rect class="ch-tuile" x="5" y="5" width="50" height="50" rx="8" fill="#fff" stroke="#15171a" stroke-width="3.5" pathLength="100" />
+          <g transform="translate(30 30) scale(.84) translate(-32 -32)">
+            <path class="ch-lettres" d="M11.64 44H28.28V39.36H17.32V34.14H27.42V29.6H17.32V24.64H28.29V20H11.64ZM31.42 44H37.11V34.06H46.69V44H52.36V20H46.69V29.42H37.11V20H31.42Z" fill="#15171a" />
+          </g>
+        </g>
+      </svg>
+      <span class="chargeur__barre"><i></i></span>
+    </div>
+    <VerreSVG />
+    <a class="evitement" href="#contenu">Aller au contenu</a>
+
+    <div class="progres" aria-hidden="true"></div>
+
+    <header class="entete" id="entete" data-claire={claire ? '1' : undefined} >
+      <div class="entete__barre">
+        <a class="marque" href="/" aria-label={`${profil.nom}, accueil`}>
+          <Logo />
+          <span>{profil.nom}</span>
+        </a>
+
+        <nav class="nav" aria-label="Navigation principale">
+          <a href="/" aria-current={page === 'projet' || page === 'accueil' ? 'page' : undefined}>Projets</a>
+          <a href="/a-propos" aria-current={page === 'apropos' ? 'page' : undefined}>À propos</a>
+          <a href="/contact" aria-current={page === 'contact' ? 'page' : undefined}>Contact</a>
+        </nav>
+
+        <div class="entete__droite">
+          <button class="theme-widget" type="button" data-theme-toggle role="switch" aria-label="Mode sombre" aria-checked="false" aria-pressed="false">
+            <svg class="tw__ico tw__ico--soleil" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"></path></svg>
+            <svg class="tw__ico tw__ico--lune" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"></path></svg>
+            <span class="tw__bouton" aria-hidden="true"></span>
+          </button>
+          {aCv ? (
+            <a class="pilule" href={profil.cv} download>Mon CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"></path></svg></a>
+          ) : (
+            <a class="pilule" href="/contact">Me contacter <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+          )}
+        </div>
+
+        <details class="menu">
+          <summary class="pilule" aria-label="Menu"><span class="menu__mot menu__mot--ouvrir">Menu</span><span class="menu__mot menu__mot--fermer">Fermer</span></summary>
+          <nav class="menu__panneau" aria-label="Navigation mobile">
+            <ol class="menu__liens">
+              <li style="--i:0"><a href="/" aria-current={page === 'projet' || page === 'accueil' ? 'page' : undefined}><span>01</span>Projets</a></li>
+              <li style="--i:1"><a href="/a-propos" aria-current={page === 'apropos' ? 'page' : undefined}><span>02</span>À propos</a></li>
+              <li style="--i:2"><a href="/contact" aria-current={page === 'contact' ? 'page' : undefined}><span>03</span>Contact</a></li>
+            </ol>
+            <div class="menu__bas" style="--i:3">
+              <a class="menu__mail" href={`mailto:${profil.email}`}>{profil.email}</a>
+              <p>
+                <a href={profil.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+                <a href={profil.github} target="_blank" rel="noopener">GitHub</a>
+                <span>{profil.ville}</span>
+              </p>
+              <button class="menu__theme" type="button" data-theme-toggle aria-label="Passer en mode sombre" aria-pressed="false"><span class="theme-bascule" aria-hidden="true"><svg class="t-lune" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"></path></svg><svg class="t-soleil" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"></path></svg></span><span data-theme-libelle>Mode sombre</span></button>
+            </div>
+          </nav>
+        </details>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <slot />
+    </main>
+
+    <footer class="pied">
+      <div class="contenu">
+        <div class="pied__tete">
+          <div class="pied__id">
+            <a class="marque" href="/" aria-label={`${profil.nom}, accueil`}>
+              <Logo />
+              <span>{profil.nom}</span>
+            </a>
+            <p class="pied__phrase">{profil.recherche}</p>
+          </div>
+        </div>
+        <div class="pied__grille">
+          <nav aria-label="Projets">
+            <h2>Projets</h2>
+            <ol>
+              {projets.slice(0, 4).map((p, i) => (
+                <li><a href={`/projets/${p.slug}`}><span class="pied__num">{String(i + 1).padStart(2, '0')}</span>{p.titre}</a></li>
+              ))}
+            </ol>
+          </nav>
+          <nav aria-label="Pages du site">
+            <h2>Pages</h2>
+            <ul>
+              <li><a href="/">Accueil</a></li>
+              <li><a href="/a-propos">À propos</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </nav>
+          <div>
+            <h2>Me retrouver</h2>
+            <ul>
+              <li><a href={`mailto:${profil.email}`}>{profil.email}</a></li>
+              <li><a href={profil.linkedin} rel="noopener">LinkedIn</a></li>
+              <li><a href={profil.github} rel="noopener">GitHub</a></li>
+              <li class="pied__ville">{profil.ville}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pied__fin">
+          <p>© {annee} {profil.nom} · {profil.formation}</p>
+          <p class="pied__liens"><a href="/mentions-legales">Mentions légales</a><span>Conçu et codé avec Astro</span></p>
+          <a class="pied__haut-bouton" href="#contenu" aria-label="Retour en haut">↑</a>
+        </div>
+      </div>
+    </footer>
+    <script is:inline>
+      (function () {
+        var racine = document.documentElement;
+        function maj() {
+          var sombre = racine.dataset.theme === 'dark';
+          document.querySelectorAll('[data-theme-toggle]').forEach(function (b) {
+            b.setAttribute('aria-pressed', sombre ? 'true' : 'false'); b.setAttribute('aria-checked', sombre ? 'true' : 'false');
+            b.setAttribute('aria-label', sombre ? 'Passer en mode clair' : 'Passer en mode sombre');
+          });
+          document.querySelectorAll('[data-theme-libelle]').forEach(function (e) { e.textContent = sombre ? 'Mode clair' : 'Mode sombre'; });
+        }
+        document.querySelectorAll('[data-theme-toggle]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var suivant = racine.dataset.theme === 'dark' ? 'light' : 'dark';
+            racine.dataset.theme = suivant;
+            try { localStorage.setItem('theme', suivant); } catch (e) {}
+            maj();
+          });
+        });
+        maj();
+      })();
+    </script>
+    <script>
+      import '../scripts/animations.ts';
+    </script>
+    <script>
+      // Le titre de l'en-tête reçoit un fond en verre dès qu'on quitte le haut de la page.
+      const entete = document.getElementById('entete');
+      const maj = () => entete?.classList.toggle('est-defile', window.scrollY > 40 || entete.dataset.claire === '1');
+      maj();
+      // Pages projet : une fois le hero passé, l'en-tête se retire (il ne reste que la ligne de progression)
+      // et revient dès qu'on remonte.
+      let repere = window.scrollY;
+      const masque = () => {
+        return;
+        const y = window.scrollY;
+        if (y <= window.innerHeight * 0.7) {
+          entete.classList.remove('entete--masque');
+          repere = y;
+        } else if (y > repere) {
+          repere = y;
+          if (y > repere - 1) entete.classList.add('entete--masque');
+        } else if (y < repere - 90) {
+          entete.classList.remove('entete--masque');
+          repere = y;
+        }
+      };
+      window.addEventListener('scroll', masque, { passive: true });
+      window.addEventListener('scroll', maj, { passive: true });
+      document.querySelectorAll('.menu__panneau a').forEach((a) => a.addEventListener('click', () => document.querySelector('.menu')?.removeAttribute('open')));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') document.querySelector<HTMLDetailsElement>('.menu')?.removeAttribute('open');
+      });
+    </script>
+    <script is:inline>
+      (function () {
+        var r = document.documentElement;
+        var c = document.querySelector('.chargeur');
+        if (!r.classList.contains('intro') || !c) return;
+        var debut = Date.now(), fini = false;
+        function sortir() {
+          if (fini) return;
+          fini = true;
+          c.classList.add('sortie');
+          r.classList.add('intro-lance');
+          setTimeout(function () { r.classList.remove('intro'); c.remove(); }, 1700);
+          setTimeout(function () { r.classList.remove('intro-lance'); }, 3200);
+        }
+        function pret() { setTimeout(sortir, Math.max(0, 3200 - (Date.now() - debut))); }
+        if (document.readyState === 'complete') pret(); else addEventListener('load', pret);
+        setTimeout(sortir, 6500);
+      })();
+    </script>
+    <div class="ascenseur" aria-hidden="true"><div class="ascenseur__pouce"></div></div>
+    <script>
+      // ascenseur en verre liquide : remplace la barre de défilement native (souris uniquement)
+      const pouce = document.querySelector<HTMLElement>('.ascenseur__pouce');
+      const racine = document.documentElement;
+      if (pouce && matchMedia('(pointer: fine)').matches) {
+        const M = 8;
+        let actif: number | undefined;
+        const mesures = () => {
+          const total = racine.scrollHeight, vue = innerHeight;
+          const piste = vue - 2 * M;
+          const h = Math.max(52, piste * (vue / total));
+          return { total, vue, piste, h, libre: Math.max(1, piste - h), max: Math.max(1, total - vue) };
+        };
+        const maj = () => {
+          const m = mesures();
+          racine.classList.toggle('sans-ascenseur', m.total <= m.vue + 1);
+          pouce.style.height = m.h + 'px';
+          pouce.style.transform = `translateY(${M + (scrollY / m.max) * m.libre}px)`;
+        };
+        let raf = 0;
+        const planifier = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(maj); };
+        addEventListener('scroll', () => {
+          planifier();
+          racine.classList.add('defile-actif');
+          clearTimeout(actif);
+          actif = window.setTimeout(() => racine.classList.remove('defile-actif'), 900);
+        }, { passive: true });
+        addEventListener('resize', planifier);
+        new ResizeObserver(planifier).observe(document.body);
+        addEventListener('load', planifier);
+        let depart = 0, scrollDepart = 0;
+        pouce.addEventListener('pointerdown', (e) => {
+          pouce.setPointerCapture(e.pointerId);
+          depart = e.clientY; scrollDepart = scrollY;
+          pouce.classList.add('saisi');
+          e.preventDefault();
+        });
+        pouce.addEventListener('pointermove', (e) => {
+          if (!pouce.classList.contains('saisi')) return;
+          const m = mesures();
+          scrollTo({ top: scrollDepart + ((e.clientY - depart) / m.libre) * m.max, behavior: 'instant' as ScrollBehavior });
+        });
+        const lacher = () => pouce.classList.remove('saisi');
+        pouce.addEventListener('pointerup', lacher);
+        pouce.addEventListener('pointercancel', lacher);
+        maj();
+      }
+    </script>
+  </body>
+</html>
