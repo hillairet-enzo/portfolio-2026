@@ -5432,3 +5432,6 @@ html[data-theme='dark'] .entete__barre { box-shadow: none; }
 .entete.en-haut .entete__barre::before { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
 .entete.en-haut .entete__barre::after { box-shadow: none; }
 .entete__barre::before { transition: background-color .4s ease, backdrop-filter .4s ease, -webkit-backdrop-filter .4s ease; }
+
+/* ── Page Contact en clair : même blanc que la page d'accueil (sans halos gris) ── */
+html:not([data-theme='dark']) .ct { background: var(--surf); }
