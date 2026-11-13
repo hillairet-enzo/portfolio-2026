@@ -56,4 +56,4 @@ Parties du code que je dois pouvoir présenter et modifier :
 
 ## 5. Historique Git
 
-Le portfolio a été développé en local avant la création du dépôt. Le dépôt GitHub a été créé le **13 novembre 2026** ; l'état du projet à cette date a été rejoué en commits par étape, puis les modifications suivantes ont été commitées au fil du travail. L'historique ne reflète donc pas les semaines précédentes, que le `JOURNAL.md` décrit.
+Le code du portfolio a été commencé en local pendant les vacances de la Toussaint, avant la création du dépôt. Le dépôt GitHub a été créé le **13 novembre 2026** ; l'état du projet à cette date a été rejoué en commits par étape, puis les modifications suivantes ont été commitées au fil du travail. L'historique ne reflète donc pas les semaines précédentes, que le `JOURNAL.md` décrit.
