@@ -8,8 +8,8 @@ export const profil = {
   accroche: 'Je conçois des sites et des interfaces, du premier croquis à la mise en ligne.',
   recherche: 'À la recherche d’un stage en communication et création.',
 
-  email: 'prenom.nom@exemple.fr', // À REMPLIR
-  linkedin: 'https://www.linkedin.com/in/ton-profil', // À REMPLIR
+  email: 'enzoh13600@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/enzo-hillairet-630baa367/',
   github: 'https://github.com/hillairet-enzo',
   cv: '/cv-enzo-hillairet.pdf', // À REMPLIR : dépose ton CV dans public/ sous ce nom
   ville: 'Montbéliard', // À REMPLIR si besoin
