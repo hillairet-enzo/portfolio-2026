@@ -5482,3 +5482,7 @@ html:not([data-theme='dark']) .ct { background: var(--surf); }
 
 /* ── Mentions légales : la ligne du haut a la même finesse que les autres ── */
 .ml__bloc:first-child { border-top: 1px solid var(--bord); }
+
+/* ── Bouton « retour en haut » : la flèche garde sa couleur et sans soulignement au survol ── */
+.pied .pied__haut-bouton, .pied .pied__haut-bouton:hover, .pied .pied__haut-bouton:focus-visible { color: var(--pied-texte); text-decoration: none; }
+.pied .pied__haut-bouton:hover { background: var(--pied-trait); transform: translateY(-3px); }
