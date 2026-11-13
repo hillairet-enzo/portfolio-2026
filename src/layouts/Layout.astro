@@ -127,36 +127,26 @@ const annee = new Date().getFullYear();
 
     <footer class="pied">
       <div class="contenu">
-        <div class="pied__tete">
+        <div class="pied__corps">
           <div class="pied__id">
             <a class="marque" href="/" aria-label={`${profil.nom}, accueil`}>
               <Logo />
               <span>{profil.nom}</span>
             </a>
             <p class="pied__phrase">{profil.recherche}</p>
+            <a class="pied__mail" href={`mailto:${profil.email}`}>{profil.email}<span aria-hidden="true">↗</span></a>
           </div>
-        </div>
-        <div class="pied__grille">
-          <nav aria-label="Projets">
-            <h2>Projets</h2>
-            <ol>
-              {projets.slice(0, 4).map((p, i) => (
-                <li><a href={`/projets/${p.slug}`}><span class="pied__num">{String(i + 1).padStart(2, '0')}</span>{p.titre}</a></li>
-              ))}
-            </ol>
-          </nav>
-          <nav aria-label="Pages du site">
+          <nav class="pied__col" aria-label="Pages du site">
             <h2>Pages</h2>
             <ul>
-              <li><a href="/">Accueil</a></li>
+              <li><a href="/">Projets</a></li>
               <li><a href="/a-propos">À propos</a></li>
               <li><a href="/contact">Contact</a></li>
             </ul>
           </nav>
-          <div>
+          <div class="pied__col">
             <h2>Me retrouver</h2>
             <ul>
-              <li><a href={`mailto:${profil.email}`}>{profil.email}</a></li>
               <li><a href={profil.linkedin} rel="noopener">LinkedIn</a></li>
               <li><a href={profil.github} rel="noopener">GitHub</a></li>
               <li class="pied__ville">{profil.ville}</li>
