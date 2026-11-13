@@ -5435,3 +5435,26 @@ html[data-theme='dark'] .entete__barre { box-shadow: none; }
 
 /* ── Page Contact en clair : même blanc que la page d'accueil (sans halos gris) ── */
 html:not([data-theme='dark']) .ct { background: var(--surf); }
+
+/* ── Page Mentions légales : même langage que le reste du site ── */
+.ml { padding: clamp(7rem, 16vh, 10rem) 0 clamp(4rem, 9vw, 7rem); background: var(--surf); }
+.ml__tete { display: grid; gap: 1.4rem; margin-bottom: clamp(2.6rem, 6vw, 4.6rem); }
+.ml__etiquette { margin: 0; font-size: .85rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+.ml__titre { max-width: 17ch; font-size: clamp(2.6rem, 6.4vw, 6rem); font-weight: 800; letter-spacing: -0.055em; line-height: 1.04; text-transform: none; text-wrap: balance; color: var(--encre); }
+.ml__titre mark { background: none; color: inherit; text-decoration: underline; text-decoration-thickness: .07em; text-underline-offset: .08em; text-decoration-skip-ink: none; }
+.ml__bloc:first-child { border-top: 3px solid var(--encre); }
+.ml__bloc { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(1.2rem, 4vw, 4rem); padding: clamp(1.6rem, 3vw, 2.4rem) 0; border-bottom: 1px solid var(--bord); }
+.ml__bloc h2 { display: flex; align-items: baseline; gap: 1rem; margin: 0; font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 750; letter-spacing: -0.035em; line-height: 1.1; text-transform: none; }
+.ml__bloc h2 span { font-size: .8rem; font-weight: 700; letter-spacing: .12em; opacity: .5; font-variant-numeric: tabular-nums; }
+.ml__texte { display: grid; gap: .9rem; max-width: 40rem; font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.6; font-weight: 500; color: var(--encre); }
+.ml__texte p { margin: 0; }
+.ml__lien { font-weight: 650; text-decoration: underline; text-decoration-thickness: .08em; text-underline-offset: .2em; transition: opacity .2s; }
+.ml__lien:hover { opacity: .6; }
+.ml__credits { display: grid; margin: 0 0 .4rem; padding: 0; list-style: none; border-top: 1px solid var(--bord); }
+.ml__credits li { display: grid; grid-template-columns: 7rem 1fr auto; gap: 1rem; align-items: baseline; padding: .8rem 0; border-bottom: 1px solid var(--bord); }
+.ml__credits li span { color: var(--gris); font-size: .95em; }
+.ml__credits li em { font-style: normal; font-size: .8rem; font-weight: 650; letter-spacing: .04em; opacity: .7; white-space: nowrap; }
+@media (max-width: 52rem) {
+  .ml__bloc { grid-template-columns: 1fr; gap: .9rem; }
+  .ml__credits li { grid-template-columns: 1fr; gap: .15rem; }
+}
