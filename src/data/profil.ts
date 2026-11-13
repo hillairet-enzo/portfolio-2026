@@ -13,7 +13,7 @@ export const profil = {
   github: 'https://github.com/hillairet-enzo',
   cv: '/cv-enzo-hillairet.pdf', // À REMPLIR : dépose ton CV dans public/ sous ce nom
   ville: 'Montbéliard', // À REMPLIR si besoin
-  hebergeur: 'Infomaniak Network SA, Rue Eugène-Marziano 25, 1227 Les Acacias, Genève, Suisse. Site : infomaniak.com.', // à vérifier avec ton contrat d’hébergement
+  hebergeur: 'Infomaniak Network SA, Rue Eugène Marziano 25, 1227 Les Acacias (GE), Suisse. Numéro IDE : CHE-103.167.648. Site : infomaniak.com.',
 };
 
 // Ce que tu sais faire, regroupé pour que ce soit lisible d’un coup d’œil.
