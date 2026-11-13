@@ -5506,3 +5506,8 @@ html:not([data-theme='dark']) .ct { background: var(--surf); }
 .ap-bouton:hover { transform: translateY(-2px); }
 .ap-bouton--plein { background: var(--encre); color: var(--surf); }
 @media (prefers-reduced-motion: reduce) { .ap-bouton:hover { transform: none; } }
+
+/* ── Section contact : boutons en colonne, même largeur ── */
+.contact-bloc__liens { display: grid; grid-template-columns: minmax(0, 16rem); gap: .7rem; justify-content: end; align-self: end; }
+.contact-bloc__liens .bouton { justify-content: center; width: 100%; margin: 0; }
+@media (max-width: 52rem) { .contact-bloc__liens { grid-template-columns: minmax(0, 22rem); justify-content: start; } }
