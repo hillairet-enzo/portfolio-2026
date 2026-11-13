@@ -5489,3 +5489,8 @@ html:not([data-theme='dark']) .ct { background: var(--surf); }
 
 /* ── Mentions légales : numéros de section au contraste suffisant (≥ 4,5:1) ── */
 .ml__bloc h2 span { opacity: .72; }
+
+/* ── Accueil : profil clair avant le titre ── */
+.galerie__profil { margin: 0; font-size: .95rem; font-weight: 550; letter-spacing: -0.01em; color: color-mix(in srgb, var(--encre) 70%, var(--fond)); }
+.galerie__profil strong { font-weight: 750; color: var(--encre); }
+.galerie__tete .galerie__texte { margin: 0; font-size: clamp(1rem, 1.3vw, 1.12rem); }

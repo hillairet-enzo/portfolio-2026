@@ -4,6 +4,7 @@ import Photo from '../components/Photo.astro';
 import Contact from '../components/Contact.astro';
 import { projets } from '../data/projets';
 import { THEME_NEUTRE } from '../lib/theme';
+import { profil } from '../data/profil';
 
 // La galerie affiche toujours au moins ce nombre de cartes : les cases vides disparaissent à mesure que tu ajoutes des projets.
 const NB_CARTES = 11;
@@ -26,7 +27,9 @@ const cartes = [
 >
   <section class="galerie" data-vue="galerie" aria-labelledby="titre-galerie">
     <div class="galerie__tete">
+      <p class="galerie__profil"><strong>{profil.nom}</strong> · {profil.formation}</p>
       <h1 id="titre-galerie"><span>Curieux de voir</span> ce que j’ai créé&nbsp;?</h1>
+      <p class="galerie__texte">{profil.accroche} {profil.recherche}</p>
       <div class="bascule" role="group" aria-label="Façon d’afficher les projets">
         <span class="bascule__pastille" aria-hidden="true"></span>
         <button type="button" data-vue-bouton="galerie" aria-pressed="true">
