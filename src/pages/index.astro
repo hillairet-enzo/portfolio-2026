@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Photo from '../components/Photo.astro';
+import Contact from '../components/Contact.astro';
+import { projets } from '../data/projets';
+import { THEME_NEUTRE } from '../lib/theme';
+
+// La galerie affiche toujours au moins ce nombre de cartes : les cases vides disparaissent à mesure que tu ajoutes des projets.
+const NB_CARTES = 11;
+const vides = Math.max(0, NB_CARTES - projets.length);
+// Tes projets sont placés au milieu de la galerie, les cases vides de chaque côté.
+const avant = Math.ceil(vides / 2);
+const cartes = [
+  ...Array.from({ length: avant }, () => ({ projet: null as (typeof projets)[number] | null })),
+  ...projets.map((p) => ({ projet: p })),
+  ...Array.from({ length: vides - avant }, () => ({ projet: null as (typeof projets)[number] | null })),
+].map((c, i, tous) => ({ ...c, numero: i + 1, k: Math.abs(i - Math.floor((tous.length - 1) / 2)) }));
+---
+
+<Layout
+  titre="Projets"
+  description="Les projets d’Enzo Hillairet, étudiant en BUT MMI : sites web, data-visualisation, projets d’équipe et projets personnels."
+  page="projet"
+  theme={THEME_NEUTRE}
+  claire
+>
+  <section class="galerie" data-vue="galerie" aria-labelledby="titre-galerie">
+    <div class="galerie__tete">
+      <h1 id="titre-galerie"><span>Curieux de voir</span> ce que j’ai créé&nbsp;?</h1>
+      <div class="bascule" role="group" aria-label="Façon d’afficher les projets">
+        <span class="bascule__pastille" aria-hidden="true"></span>
+        <button type="button" data-vue-bouton="galerie" aria-pressed="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="4.5" height="12" rx="1.2"></rect><rect x="9.75" y="4" width="4.5" height="16" rx="1.2"></rect><rect x="16.5" y="6" width="4.5" height="12" rx="1.2"></rect></svg>
+          Galerie
+        </button>
+        <button type="button" data-vue-bouton="liste" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"></path></svg>
+          Liste
+        </button>
+      </div>
+    </div>
+
+    <div class="arc-vue">
+      <ul class="arc" data-arc data-depart={avant} aria-label="Projets : faites défiler horizontalement, en boucle" tabindex="0">
+        {
+          cartes.map((c) =>
+            c.projet ? (
+              <li class="arc__carte" style={`--k:${c.k}`}>
+                <a href={`/projets/${c.projet.slug}`} class="arc__lien" draggable="false">
+                  <div class="arc__scene">
+                    <div class="arc__img">
+                      <Photo photo={{ ...c.projet.couverture, format: '1/1' }} />
+                    </div>
+                  </div>
+                  <p class="arc__label"><span>0{c.numero}</span>{c.projet.titre}</p>
+                  <p class="arc__meta">{c.projet.cadre}, {c.projet.annee}</p>
+                </a>
+              </li>
+            ) : (
+              <li class="arc__carte arc__carte--vide" style={`--k:${c.k}`}>
+                <div class="arc__scene">
+                  <div class="arc__img">
+                    <div class="arc__vide" role="img" aria-label="Emplacement pour un futur projet">
+                      <span>Projet à ajouter</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="arc__label"><span>0{c.numero}</span>À venir</p>
+                <p class="arc__meta">Nouvel emplacement</p>
+              </li>
+            ),
+          )
+        }
+      </ul>
+    </div>
+
+    <div class="liste" id="liste-projets">
+      <ol>
+        {
+          projets.map((p, i) => (
+            <li style={`--i:${i}`}>
+              <a href={`/projets/${p.slug}`}>
+                <span class="liste__num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="liste__img"><Photo photo={{ ...p.couverture, format: '1/1' }} serre /></span>
+                <span class="liste__corps">
+                  <strong>{p.titre}</strong>
+                  <span>{p.accroche}</span>
+                </span>
+                <span class="liste__meta">{p.cadre}, {p.annee}</span>
+                <span class="liste__outils">{p.outils.slice(0, 3).join(' · ')}</span>
+                <span class="liste__fleche" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <div class="arc__commandes">
+      <button type="button" class="rond" data-arc-prec aria-label="Projet précédent">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+      </button>
+      <button type="button" class="rond rond--plein" data-arc-suiv aria-label="Projet suivant">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </button>
+    </div>
+  </section>
+
+  <Contact />
+
+  <script>
+    import '../scripts/arc.ts';
+
+    // bascule galerie / liste
+    const section = document.querySelector<HTMLElement>('.galerie');
+    const boutons = document.querySelectorAll<HTMLButtonElement>('[data-vue-bouton]');
+    const bascule = document.querySelector<HTMLElement>('.bascule');
+    function pastille() {
+      const actif = document.querySelector<HTMLElement>('[data-vue-bouton][aria-pressed="true"]');
+      if (!bascule || !actif) return;
+      bascule.style.setProperty('--x', actif.offsetLeft + 'px');
+      bascule.style.setProperty('--w', actif.offsetWidth + 'px');
+    }
+    function montrer(vue: string) {
+      if (!section) return;
+      section.dataset.vue = vue;
+      boutons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.vueBouton === vue)));
+      pastille();
+      try {
+        localStorage.setItem('vue-projets', vue);
+      } catch {}
+    }
+    boutons.forEach((b) => b.addEventListener('click', () => montrer(b.dataset.vueBouton ?? 'galerie')));
+    try {
+      const memo = localStorage.getItem('vue-projets');
+      if (memo === 'liste') montrer('liste');
+    } catch {}
+    pastille();
+    addEventListener('resize', pastille);
+    document.fonts?.ready.then(pastille);
+    addEventListener('load', pastille);
+  </script>
+</Layout>
