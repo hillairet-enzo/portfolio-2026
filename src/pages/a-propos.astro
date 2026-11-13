@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Photo from '../components/Photo.astro';
+import Contact from '../components/Contact.astro';
+import { THEME_NEUTRE } from '../lib/theme';
+import { profil, competences, demarche, parcours } from '../data/profil';
+import { aCv } from '../lib/cv';
+
+const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
+
+const photos = {
+  portrait: {
+    fichier: 'a-propos/portrait.jpg',
+    alt: 'Portrait d’Enzo Hillairet',
+    sujet: 'Ton portrait : de face ou de trois quarts, lumière douce, sourire naturel. Cadre à la poitrine, avec un peu d’espace au-dessus de la tête.',
+    format: '3/4' as const,
+    taille: '1500 × 2000 px',
+  },
+  travail: {
+    fichier: 'a-propos/travail.jpg',
+    alt: 'Enzo Hillairet au travail devant son écran',
+    sujet: 'Toi en train de travailler : devant l’ordinateur avec une maquette Figma ou du code à l’écran, de trois quarts arrière, lumière naturelle.',
+    format: '4/5' as any,
+    taille: '1600 × 2000 px',
+  },
+  atelier: {
+    fichier: 'a-propos/atelier.jpg',
+    alt: 'Croquis et maquettes préparatoires',
+    sujet: 'Tes croquis, wireframes ou maquettes imprimées étalés sur un bureau, vus de dessus.',
+    format: '3/2' as const,
+    taille: '2000 × 1333 px',
+  },
+  iut: {
+    fichier: 'a-propos/iut.jpg',
+    alt: 'L’IUT de Montbéliard',
+    sujet: 'Une photo de ton quotidien d’étudiant : l’IUT de Montbéliard, la salle de projet ou un travail de groupe.',
+    format: '3/2' as const,
+    taille: '2000 × 1333 px',
+  },
+};
+---
+
+<Layout titre="À propos" description={`${profil.nom}, étudiant en BUT MMI à Montbéliard. ${profil.recherche}`} page="apropos" claire theme={couleurs}>
+  <!-- Ouverture : grande phrase + portrait -->
+  <section class="ap-hero" aria-labelledby="titre-ap">
+    <div class="contenu ap-hero__grille">
+      <div class="ap-hero__texte">
+        <p class="ap-hero__etiquette">À propos</p>
+        <h1 id="titre-ap">Étudiant en MMI, je conçois des sites qui se <mark>voient</mark> et qui fonctionnent.</h1>
+      </div>
+      <div class="ap-hero__photo">
+        <Photo photo={photos.portrait} prioritaire />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pile de cartes : chaque carte est un chapitre, le défilement les fait passer une à une -->
+  <div class="pile" id="pile" style={`--n:${7}`}>
+    <div class="pile__scene">
+      <div class="pile__cartes">
+
+        <section class="pl pl--gris" style="--fond:#5ebd3e" data-etiquette="En bref" aria-labelledby="titre-bref">
+          <div class="pl__corps pl__corps--bref">
+            <div class="pl__texte">
+              <h2 id="titre-bref" class="pl__titre">En bref</h2>
+              <p class="pl__lead">Étudiant en BUT MMI à Montbéliard, j’aime les projets où le design et le code avancent ensemble.</p>
+              <p>Pour TiK•TaK, j’ai dessiné l’interface, écrit les textes, construit la base de données et mis le site en ligne sur mon propre serveur. Pour ThermoViz, j’ai appris à raconter des chiffres sans leur faire dire plus qu’ils ne disent.</p>
+              <div class="pl__duo">
+                <div>
+                  <p class="pl__grand">2</p>
+                  <p>projets menés de A à Z : <a href="/projets/tiktak">TiK•TaK</a> et <a href="/projets/thermo-viz">ThermoViz</a>.</p>
+                </div>
+                <div>
+                  <h3>Ce que je cherche</h3>
+                  <p>Un stage en communication et création, pour apprendre au contact d’une équipe.</p>
+                </div>
+              </div>
+            </div>
+            <div class="pl-photo"><Photo photo={photos.travail} serre /></div>
+          </div>
+        </section>
+
+        <section class="pl pl--gris" style="--fond:#ffb900" data-etiquette="Démarche" aria-labelledby="titre-demarche">
+          <div class="pl__corps pl__corps--colonne">
+            <h2 id="titre-demarche" class="pl__titre">Ma démarche</h2>
+            <ol class="pl__etapes">
+              {
+                demarche.map((e, i) => (
+                  <li>
+                    <span class="pl__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                    <h3>{e.titre}</h3>
+                    <p>{e.texte}</p>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+        </section>
+
+        <section class="pl pl--gris" style="--fond:#f78200" data-etiquette="Compétences" aria-labelledby="titre-comp">
+          <div class="pl__corps pl__corps--colonne">
+            <h2 id="titre-comp" class="pl__titre">Compétences</h2>
+            <div class="pl__comps">
+              {
+                competences.map((c) => (
+                  <div>
+                    <h3>{c.titre}</h3>
+                    <ul>
+                      {c.items.map((i) => <li>{i}</li>)}
+                    </ul>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </section>
+
+        <section class="pl pl--noir" style="--fond:#d12f2f" data-etiquette="Au quotidien" aria-label="Au quotidien">
+          <div class="pl__corps pl__corps--photos">
+            <div class="pl-photo"><Photo photo={photos.atelier} serre /></div>
+            <div class="pl-photo"><Photo photo={photos.iut} serre /></div>
+          </div>
+        </section>
+
+        <section class="pl pl--noir" style="--fond:#973999" data-etiquette="Parcours" aria-labelledby="titre-parcours">
+          <div class="pl__corps pl__corps--colonne">
+            <h2 id="titre-parcours" class="pl__titre">Parcours</h2>
+            <ol class="pl__parcours">
+              {
+                parcours.map((p) => (
+                  <li>
+                    <p class="pl__periode">{p.periode}</p>
+                    <div>
+                      <strong>{p.titre}</strong>
+                      <span>{p.lieu}</span>
+                    </div>
+                    <p>{p.texte}</p>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+        </section>
+
+      </div>
+      <nav class="pile__points" aria-label="Chapitres" id="pile-points"></nav>
+      <p class="pile__defiler" aria-hidden="true">Défiler ↓</p>
+    </div>
+  </div>
+
+  <div class="pile-suite"><Contact /></div>
+</Layout>
+
+<script>
+  const pile = document.getElementById('pile');
+  const cartes = pile ? Array.from(pile.querySelectorAll<HTMLElement>('.pl')) : [];
+  const points = document.getElementById('pile-points');
+  const mq = window.matchMedia('(min-width: 48.01rem) and (prefers-reduced-motion: no-preference)');
+
+  if (pile && cartes.length) {
+    const N = cartes.length;
+    pile.style.setProperty('--n', String(N + 1));
+    const boutons: HTMLButtonElement[] = [];
+    cartes.forEach((c, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'pile__point';
+      b.setAttribute('aria-label', `${String(i + 1).padStart(2, '0')} ${c.dataset.etiquette ?? ''}`);
+      b.innerHTML = `<span>${c.dataset.etiquette ?? ''}</span>`;
+      b.addEventListener('click', () => {
+        const haut = pile.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: haut + i * window.innerHeight, behavior: 'smooth' });
+      });
+      points?.appendChild(b);
+      boutons.push(b);
+      const e = document.createElement('span');
+      e.className = 'pl__onglet';
+      e.textContent = `${String(i + 1).padStart(2, '0')}  ${c.dataset.etiquette ?? ''}`;
+      c.prepend(e);
+    });
+
+    const clamp = (x: number, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+    const debutPile = () => pile.getBoundingClientRect().top + window.scrollY;
+    const aller = (i: number) => window.scrollTo({ top: debutPile() + i * window.innerHeight, behavior: 'smooth' });
+
+    // progression « visée » (lue au défilement) et progression « affichée » (rattrape la visée en douceur)
+    let vise = 0;
+    let affiche = 0;
+    let dernier = performance.now();
+    let actif = -1;
+    let enBoucle = false;
+
+    const lire = () => { vise = clamp((window.scrollY - debutPile()) / window.innerHeight, 0, N); };
+
+    const dessiner = () => {
+      const p = affiche;
+      const proche = Math.round(p);
+      cartes.forEach((c, i) => {
+        const d = i - p;
+        if (d <= 0) {
+          // la carte tombe vers l'écran : elle bascule vers nous, grossit et s'efface
+          const t = clamp(-d);
+          const e = t * t;
+          c.style.transformOrigin = '50% 100%';
+          c.style.transform = `translate3d(0, ${e * 18}vh, ${e * 900}px) rotateX(${-e * 55}deg)`;
+          c.style.opacity = String(1 - clamp((t - 0.55) / 0.35));
+          c.style.visibility = t >= 1 ? 'hidden' : 'visible';
+        } else {
+          const k = Math.min(d, 4.2);
+          c.style.transformOrigin = '50% 0';
+          c.style.transform = `translate3d(0, calc(var(--pas) * ${-k}), ${-k * 40}px) scale(${1 - k * 0.045})`;
+          c.style.opacity = String(1 - clamp((d - 3) / 1.2));
+          c.style.visibility = d > 4.2 ? 'hidden' : 'visible';
+        }
+        c.style.zIndex = String(N - i);
+        c.style.pointerEvents = d <= -1 || d > 3.4 ? 'none' : 'auto';
+        c.classList.toggle('pl--derriere', i > proche);
+      });
+      if (proche !== actif) {
+        actif = proche;
+        boutons.forEach((b, i) => b.setAttribute('aria-current', i === proche ? 'true' : 'false'));
+        pile.classList.toggle('pile--fin', proche === N - 1);
+      }
+    };
+
+    const boucle = (maintenant: number) => {
+      const dt = Math.min(0.05, (maintenant - dernier) / 1000);
+      dernier = maintenant;
+      affiche += (vise - affiche) * (1 - Math.exp(-dt * 16));
+      if (Math.abs(vise - affiche) < 0.0004) affiche = vise;
+      dessiner();
+      if (affiche !== vise) requestAnimationFrame(boucle);
+      else enBoucle = false;
+    };
+    const lancer = () => { if (!enBoucle) { enBoucle = true; dernier = performance.now(); requestAnimationFrame(boucle); } };
+
+    const statique = () => {
+      pile.classList.add('pile--statique');
+      cartes.forEach((c) => { c.style.transform = ''; c.style.opacity = ''; c.style.visibility = ''; c.style.zIndex = ''; c.style.pointerEvents = ''; c.style.transformOrigin = ''; c.classList.remove('pl--derriere'); });
+    };
+
+    const auDefilement = () => {
+      if (!mq.matches) { statique(); return; }
+      pile.classList.remove('pile--statique');
+      lire();
+      lancer();
+    };
+
+    // cliquer sur une carte qui dépasse derrière la carte du devant la ramène devant
+    cartes.forEach((c, i) => {
+      c.addEventListener('click', (ev) => {
+        if (!mq.matches || i <= actif || (ev.target as HTMLElement).closest('a, button')) return;
+        aller(i);
+      });
+    });
+
+    window.addEventListener('scroll', auDefilement, { passive: true });
+    window.addEventListener('resize', () => { auDefilement(); });
+    mq.addEventListener('change', auDefilement);
+    if (mq.matches) { lire(); affiche = vise; pile.classList.remove('pile--statique'); dessiner(); } else statique();
+  }
+</script>

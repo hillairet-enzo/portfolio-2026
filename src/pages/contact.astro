@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { profil } from '../data/profil';
+import { aCv } from '../lib/cv';
+import { THEME_NEUTRE } from '../lib/theme';
+
+const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
+const phrases = ['Un stage à me proposer ?', 'Un projet à lancer ensemble ?', 'Une idée à discuter ?', 'Une question sur mon travail ?'];
+---
+
+<Layout titre="Contact" description={`Écrire à ${profil.nom} pour un stage, un projet ou une question.`} page="contact" claire theme={couleurs}>
+  <section class="ct" aria-labelledby="titre-ct">
+    <div class="ct__centre">
+      <div class="ct__ligne-titre">
+        <h1 id="titre-ct" class="ct__titre" aria-label="Un stage, un projet, une idée, une question ? Écrivez-moi.">
+          <span aria-hidden="true"><span class="ct__mots" id="ct-mots" data-phrases={JSON.stringify(phrases)}>{phrases[0]}</span><span class="ct__curseur">|</span></span>
+        </h1>
+      </div>
+
+      <div class="ct__mail">
+        <a class="ct__adresse" href={`mailto:${profil.email}`}>{profil.email}</a>
+        <button class="ct__copier" type="button" id="ct-copier" data-email={profil.email}>Copier</button>
+      </div>
+      <p class="ct__etat" id="ct-etat" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="contenu ct__bas">
+      <p>{profil.ville}</p>
+      <p class="ct__bas-liens">
+        <a href={profil.linkedin} rel="noopener">LinkedIn</a>
+        <a href={profil.github} rel="noopener">GitHub</a>
+        {aCv && <a href={profil.cv} download>CV</a>}
+      </p>
+      <p>©{new Date().getFullYear()}</p>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // machine à écrire : le mot change, le curseur clignote
+  const mots = document.getElementById('ct-mots');
+  if (mots && !reduit) {
+    const liste: string[] = JSON.parse(mots.dataset.phrases || '[]');
+    let i = 0;
+    let n = liste[0].length;
+    let sens = -1; // -1 : on efface, 1 : on écrit
+    const pas = () => {
+      const mot = liste[i];
+      n += sens;
+      mots.textContent = mot.slice(0, n);
+      let delai = sens > 0 ? 85 : 45;
+      if (sens > 0 && n >= mot.length) { sens = -1; delai = 1900; }
+      else if (sens < 0 && n <= 0) { i = (i + 1) % liste.length; sens = 1; delai = 300; }
+      setTimeout(pas, delai);
+    };
+    setTimeout(pas, 2200);
+  }
+
+
+  // copier l'adresse
+  const bouton = document.getElementById('ct-copier') as HTMLButtonElement | null;
+  const etat = document.getElementById('ct-etat');
+  bouton?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(bouton.dataset.email || '');
+      bouton.textContent = 'Copié ✓';
+      if (etat) etat.textContent = 'Adresse copiée.';
+    } catch {
+      bouton.textContent = '[Copie impossible]';
+      if (etat) etat.textContent = 'Copiez l’adresse à la main.';
+    }
+    setTimeout(() => { bouton.textContent = 'Copier'; if (etat) etat.textContent = ''; }, 2200);
+  });
+</script>
