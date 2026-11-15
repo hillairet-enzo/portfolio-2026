@@ -106,6 +106,7 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 - Les projets ne sont plus dans un gros fichier de code mais dans une base SQLite (`data/portfolio.db`), parce que c'est ce que nous apprenons en cours et que cela rend l'ajout d'un projet plus simple. Le site reste statique : un script exporte la base en JSON avant chaque build.
 - Deux gabarits prévus, « site web » et « affiche », qui changent les libellés des onglets. TiK•TaK et ThermoViz ont été migrés en premier ; les autres projets suivent.
 - Textes des deux projets réécrits en phrases courtes et simples, et onglets renommés pour être plus parlants : « Le projet et ses défis », « Mon rôle », « Ma démarche », « Les outils et le résultat ».
+- Mise en page des onglets revue : espaces resserrés, bulles du rôle supprimées, démarche avec le schéma en grand sous un court texte d'introduction, outils présentés en cartes avec une icône et une phrase simple, schémas techniques retirés.
 - Mode d'emploi pour ajouter un projet : `data/AJOUTER-UN-PROJET.md`.
 
 ## Choix des réseaux professionnels (consigne 2.4)

@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Photo from '../../components/Photo.astro';
 import Contact from '../../components/Contact.astro';
 import Ligne from '../../components/pj/LigneProjet.astro';
+import Icone from '../../components/pj/Icone.astro';
 import { THEME_NEUTRE, couleurMoyenne } from '../../lib/theme';
 import { projets, trouverProjet, gabarits } from '../../data/projets';
 
@@ -83,18 +84,13 @@ const blocs = [
                 </h3>
                 <div class="pp-tab__panneau" id={`pan-${b.id}`} role="region" aria-labelledby={`btn-${b.id}`} inert>
                   <div class="pp-tab__interieur">
-                    {b.id === 'role' && (
-                      <ul class="pp-roles" aria-label="Missions">
-                        {projet.role.map((r) => <li>{r}</li>)}
-                        <li class="pp-roles__equipe">{projet.equipe}</li>
-                      </ul>
-                    )}
                     {b.id === 'choix' && (
                       <>
                         <h4 class="pp-sous-titre">{gabarit.choix}</h4>
-                        <ul class="pp-choix">
+                        <ul class="pp-outils">
                           {projet.choix.map((c) => (
-                            <li>
+                            <li class="pp-outil">
+                              <span class="pp-outil__icone"><Icone nom={c.icone} /></span>
                               <strong>{c.nom}</strong>
                               <span>{c.raison}</span>
                             </li>

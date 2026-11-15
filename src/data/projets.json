@@ -28,27 +28,33 @@
     "choix": [
       {
         "nom": "Astro",
-        "raison": "Crée les pages du site, avec leur titre, leur description et un plan du site."
+        "raison": "Construit les pages du site.",
+        "icone": "pages"
       },
       {
         "nom": "Bun",
-        "raison": "Fait tourner l’application sur le serveur."
+        "raison": "Fait fonctionner le site sur le serveur.",
+        "icone": "eclair"
       },
       {
         "nom": "SQLite",
-        "raison": "Garde les données dans six tables, créées toutes seules au premier lancement."
+        "raison": "Garde les comptes, les montres et les commandes.",
+        "icone": "base"
       },
       {
         "nom": "Better Auth",
-        "raison": "Gère la connexion par e-mail ou avec un compte Google."
+        "raison": "Permet de se connecter avec un e-mail ou un compte Google.",
+        "icone": "cle"
       },
       {
         "nom": "three.js",
-        "raison": "Affiche la montre en 3D, qu’on fait tourner à la souris."
+        "raison": "Affiche la montre en 3D.",
+        "icone": "cube"
       },
       {
         "nom": "OpenRouter",
-        "raison": "Permet à l’assistant de créer une montre à partir d’une phrase, avec un modèle gratuit."
+        "raison": "Relie le site à l’assistant IA.",
+        "icone": "bulle"
       }
     ],
     "defis": [
@@ -112,8 +118,7 @@
         "onglet": "processus",
         "titre": "Composer sa montre",
         "paragraphes": [
-          "On commence par la forme, carrée ou ronde. Puis on choisit le bracelet, les deux boîtiers et le cadran, avec une matière et une couleur pour chacun. Le prix change à chaque choix.",
-          "L’aperçu se met à jour en direct. En 2D, c’est un dessin que le site fabrique à partir des choix. En 3D, c’est un modèle qu’on fait tourner à la souris. Le dessin de chaque montre est gardé dans la base, pour la retrouver à l’identique dans « Mes montres »."
+          "On commence par la forme, carrée ou ronde. Puis on choisit chaque pièce, avec sa matière et sa couleur. La montre et le prix changent à chaque choix, en 2D puis en 3D."
         ],
         "flux": {
           "etiquette": "Parcours d’achat sur TiK•TaK",
@@ -161,8 +166,7 @@
         "onglet": "processus",
         "titre": "Décrire sa montre à l’IA",
         "paragraphes": [
-          "Pour ceux qui ne veulent pas tout choisir, un assistant crée la montre à partir d’une phrase, par exemple « une montre orange pour le trail, ronde ». Il utilise OpenRouter, avec un modèle gratuit.",
-          "On peut ensuite lui demander de changer le bracelet ou le cadran, ou régler chaque pièce soi-même. L’IA propose, l’utilisateur décide."
+          "Pour ceux qui ne veulent pas tout choisir, un assistant crée la montre à partir d’une phrase, par exemple « une montre orange pour le trail, ronde ». On peut ensuite tout modifier à la main : l’IA propose, l’utilisateur décide."
         ],
         "photos": [
           {
@@ -178,20 +182,15 @@
         "onglet": "choix",
         "titre": "Sous le capot",
         "paragraphes": [
-          "La base de données contient six tables : utilisateur, composant, montre, commande, composer et contenir. Elle se crée toute seule au premier lancement, à partir de deux fichiers SQL. J’ai aussi écrit les 17 requêtes demandées par le sujet. Les schémas de la base (modèle conceptuel et physique) sont dans un PDF du dépôt.",
-          "On se connecte avec un e-mail et un mot de passe, ou avec un compte Google, grâce à Better Auth. Chacun retrouve ses montres et ses commandes.",
-          "Le site est hébergé sur un serveur VPS. Chaque fois que j’envoie du code sur GitHub, il se met à jour tout seul. Chaque page a son titre et sa description pour les moteurs de recherche et les réseaux sociaux, et un plan du site est créé automatiquement."
-        ],
-        "schemas": [
-          "architecture",
-          "base"
+          "Les données sont rangées dans une base de six tables. J’ai aussi écrit les 17 requêtes demandées par le sujet.",
+          "Le site est sur un serveur. Il se met à jour tout seul à chaque envoi de code sur GitHub."
         ]
       },
       {
         "onglet": "resultat",
         "titre": "Sur téléphone",
         "paragraphes": [
-          "Le site est pensé pour des gestes simples : choisir une pièce, voir la montre changer, commander. Tout fonctionne sur l’écran d’un téléphone."
+          "On compose sa montre, on la voit en 3D, on la commande. Tout fonctionne aussi sur téléphone."
         ],
         "photos": [
           {
@@ -246,27 +245,33 @@
     "choix": [
       {
         "nom": "Astro",
-        "raison": "Crée les pages et le parcours en quatre temps."
+        "raison": "Construit les pages et le parcours.",
+        "icone": "pages"
       },
       {
         "nom": "Observable Plot",
-        "raison": "Dessine les cinq visualisations interactives."
+        "raison": "Dessine les graphiques interactifs.",
+        "icone": "graphique"
       },
       {
         "nom": "Observable",
-        "raison": "Contient le notebook pour refaire tous les calculs."
+        "raison": "Contient le carnet de calculs, pour tout vérifier.",
+        "icone": "carnet"
       },
       {
         "nom": "Lenis",
-        "raison": "Rend le défilement fluide."
+        "raison": "Rend le défilement fluide.",
+        "icone": "defilement"
       },
       {
         "nom": "Tailwind CSS 4",
-        "raison": "Met en forme l’interface, avec son effet de verre dépoli."
+        "raison": "Met en forme le site, avec l’effet de verre dépoli.",
+        "icone": "palette"
       },
       {
         "nom": "Netlify",
-        "raison": "Met le site en ligne, à chaque nouvelle version."
+        "raison": "Met le site en ligne.",
+        "icone": "nuage"
       }
     ],
     "defis": [
@@ -325,8 +330,7 @@
         "onglet": "processus",
         "titre": "Un récit plutôt qu’un tableau de bord",
         "paragraphes": [
-          "Au lieu d’aligner des graphiques, nous avons construit un parcours en quatre temps : le contexte, l’exploration, la réponse, la conclusion. Le contexte rappelle trois choses avant les chiffres : on parle de la température du sol et pas de l’air, pourquoi la pauvreté compte face à la chaleur, et comment lire les graphiques.",
-          "Les cinq visualisations vont du plus large au plus proche. La carte montre où il fait le plus chaud. On découvre ensuite que plus de la moitié des ménages vivent à 40 °C ou plus. On compare les ménages pauvres aux autres, puis on choisit soi-même le seuil de chaleur. On termine par sa propre commune."
+          "Nous avons commencé par une question, puis construit un parcours en quatre temps : le contexte, l’exploration, la réponse et la conclusion. Les cinq visualisations vont du plus large au plus proche."
         ],
         "flux": {
           "etiquette": "Les cinq visualisations de ThermoViz",
@@ -374,8 +378,7 @@
         "onglet": "processus",
         "titre": "Et chez moi ?",
         "paragraphes": [
-          "Le visiteur choisit sa commune dès l’accueil, et la dernière visualisation s’ouvre sur elle. Cela change le rapport au sujet : on ne lit plus des chiffres sur Bordeaux, on voit où se place sa ville.",
-          "Le menu de choix est refait à la main, ce n’est pas un simple menu du navigateur. Il garde l’effet de verre du site et fonctionne au clavier."
+          "Le visiteur choisit sa commune dès l’accueil. La dernière visualisation s’ouvre sur elle : on ne lit plus des chiffres sur Bordeaux, on voit où se place sa ville."
         ],
         "photos": [
           {
@@ -391,11 +394,8 @@
         "onglet": "choix",
         "titre": "Des chiffres qu’on peut vérifier",
         "paragraphes": [
-          "Les chiffres viennent de quatre sources publiques : l’Insee pour les ménages et la pauvreté (revenus 2019), le Cerema pour les types de zones urbaines, et Bordeaux Métropole pour les contours des communes et les températures du sol. J’ai écrit le script qui les rassemble. Aucun fichier brut n’est dans le dépôt.",
-          "La page Méthode explique chaque étape, ce qui a pu se perdre et les limites : une seule journée mesurée, la chaleur du sol et pas celle de l’air, des chiffres qui montrent un lien mais pas une cause. Le notebook Observable permet de tout refaire."
-        ],
-        "schemas": [
-          "pipeline"
+          "Les chiffres viennent de quatre sources publiques : l’Insee, le Cerema et Bordeaux Métropole. J’ai écrit le script qui les rassemble.",
+          "La page Méthode explique chaque étape et les limites. Le carnet Observable permet de tout refaire."
         ],
         "photos": [
           {
@@ -411,18 +411,16 @@
         "onglet": "resultat",
         "titre": "Le résultat",
         "paragraphes": [
-          "Oui, les ménages pauvres vivent un peu plus souvent dans les zones les plus chaudes. Mais presque tout le monde est touché : la chaleur se concentre autour du centre de Bordeaux. Notre conclusion dit les deux à la fois, avec deux barres côte à côte, plutôt qu’une phrase choc."
-        ],
-        "schemas": [
-          "chaleur"
+          "Oui, les ménages pauvres vivent un peu plus souvent dans les zones les plus chaudes. Mais presque tout le monde est touché : la chaleur se concentre autour du centre de Bordeaux.",
+          "La conclusion dit les deux à la fois, plutôt qu’une phrase choc."
         ]
       },
       {
         "onglet": "resultat",
         "titre": "Design et accessibilité",
         "paragraphes": [
-          "Le site utilise un style de verre dépoli pour la navigation, l’en-tête et le pied de page, et un défilement fluide grâce à Lenis. Chaque visualisation a son onglet et son adresse (/#v1 à /#v5), qu’on peut partager et parcourir au clavier avec les flèches.",
-          "Le site a un lien d’évitement, des contrastes vérifiés, respecte la préférence « réduire les animations » et s’adapte aux petits écrans."
+          "Le site utilise un style de verre dépoli et un défilement fluide. Chaque visualisation a sa propre adresse, qu’on peut partager.",
+          "Il se parcourt au clavier, a des contrastes vérifiés et respecte la préférence « réduire les animations »."
         ],
         "photos": [
           {

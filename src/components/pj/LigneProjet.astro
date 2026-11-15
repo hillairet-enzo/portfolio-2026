@@ -15,7 +15,7 @@ import type { Section } from '../../data/projets';
 const { sec } = Astro.props as { sec: Section };
 ---
 
-<div class="pp-ligne">
+<div class:list={['pp-ligne', sec.flux && 'pp-ligne--empile']}>
     <div class="pp-ligne__texte">
       <div class="texte-courant">
         {sec.paragraphes.map((t) => <p>{t}</p>)}

@@ -27,7 +27,8 @@ CREATE TABLE role   (projet_id INTEGER NOT NULL REFERENCES projet(id) ON DELETE 
 CREATE TABLE outil  (projet_id INTEGER NOT NULL REFERENCES projet(id) ON DELETE CASCADE, ordre INTEGER NOT NULL, nom TEXT NOT NULL, PRIMARY KEY (projet_id, ordre));
 CREATE TABLE lien   (projet_id INTEGER NOT NULL REFERENCES projet(id) ON DELETE CASCADE, ordre INTEGER NOT NULL, label TEXT NOT NULL, url TEXT NOT NULL, PRIMARY KEY (projet_id, ordre));
 -- Onglet « Choix » : un outil (site) ou un choix créatif (affiche) et sa raison.
-CREATE TABLE choix  (projet_id INTEGER NOT NULL REFERENCES projet(id) ON DELETE CASCADE, ordre INTEGER NOT NULL, nom TEXT NOT NULL, raison TEXT NOT NULL, PRIMARY KEY (projet_id, ordre));
+-- `icone` : pages, eclair, base, cle, cube, bulle, palette, graphique, carnet, defilement, nuage, serveur (voir src/components/pj/Icone.astro).
+CREATE TABLE choix  (projet_id INTEGER NOT NULL REFERENCES projet(id) ON DELETE CASCADE, ordre INTEGER NOT NULL, nom TEXT NOT NULL, raison TEXT NOT NULL, icone TEXT, PRIMARY KEY (projet_id, ordre));
 -- Onglet « Contexte » : les paires défi → solution.
 CREATE TABLE defi   (projet_id INTEGER NOT NULL REFERENCES projet(id) ON DELETE CASCADE, ordre INTEGER NOT NULL, defi TEXT NOT NULL, solution TEXT NOT NULL, PRIMARY KEY (projet_id, ordre));
 

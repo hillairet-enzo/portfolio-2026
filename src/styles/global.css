@@ -5166,6 +5166,7 @@ html[data-theme='dark'] body { background: #000; }
 }
 html[data-theme='dark'] .menu__panneau { background: rgb(0 0 0 / .8); }
 html[data-theme='dark'] .nav a[aria-current='page'] { background: none; box-shadow: none; }
+
 html[data-theme='dark'] .contact-bloc { background: #000; }
 html[data-theme='dark'] .pp-tab__icone { color: var(--encre); }
 html[data-theme='dark'] .pp-tab { background: #0f0f0f; }
@@ -5388,7 +5389,9 @@ html[data-theme='dark'] .chargeur__logo .ch-lettres { fill: #fff; }
 }
 .theme-widget:hover .tw__bouton { transform: scale(1.06); }
 .theme-widget:active .tw__bouton { transform: scaleX(1.25); }
+/* clair : le bouton est sur le soleil */
 .theme-widget .tw__ico--soleil { opacity: 1; }
+/* sombre : le bouton glisse sur la lune */
 html[data-theme='dark'] .theme-widget { box-shadow: 0 0 0 1px rgb(255 255 255 / .28), 0 6px 16px -8px rgb(0 0 0 / .9); }
 html[data-theme='dark'] .theme-widget::before { background: rgb(255 255 255 / .12); }
 html[data-theme='dark'] .theme-widget .tw__bouton { transform: translateX(2.1rem); background: #1c1c1e; box-shadow: 0 2px 6px rgb(0 0 0 / .8), 0 0 0 1px rgb(255 255 255 / .35), inset 0 1px 0 rgb(255 255 255 / .25); }
@@ -5532,3 +5535,37 @@ html:not([data-theme='dark']) .ct { background: var(--surf); }
   .pp-defi { grid-template-columns: 1fr; }
   .pp-defi__num { display: none; }
 }
+
+/* ===== Page projet : espaces resserrés, démarche en grand, outils en cartes ===== */
+.pp-tab__interieur { gap: clamp(1rem, 2vw, 1.6rem); }
+.pp-tab[data-ouvert="true"] .pp-tab__interieur { padding-bottom: clamp(1.2rem, 2.4vw, 2rem); }
+.pp-tab .pp-ligne { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(1rem, 2.6vw, 2.2rem); align-items: center; }
+.pp-tab .pp-ligne:not(:has(.pp-ligne__medias)) { grid-template-columns: minmax(0, 46rem); }
+/* Démarche : le texte d'intro court, puis le schéma en pleine largeur et en grand */
+.pp-tab .pp-ligne--empile { grid-template-columns: 1fr; align-items: start; gap: 1.1rem; }
+.pp-ligne--empile .pp-ligne__texte { max-width: 46rem; }
+.pp-ligne--empile .pp-ligne__texte .texte-courant p { font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.5; }
+.pp-ligne--empile .pp-feuille { padding: clamp(1.2rem, 2.6vw, 2.2rem); }
+.pp-ligne--empile .flux { gap: 1.6rem 1.4rem; }
+.pp-ligne--empile .flux li { padding-top: 4.4rem; }
+.pp-ligne--empile .flux__noeud, .pp-ligne--empile .pp-feuille .flux__noeud { width: 3.2rem; height: 3.2rem; font-size: 1.15rem; }
+.pp-ligne--empile .flux li:not(:last-child)::before { top: 1.55rem; left: 4rem; }
+.pp-ligne--empile .flux h3 { font-size: clamp(1.15rem, 1.6vw, 1.45rem); }
+.pp-ligne--empile .flux p { font-size: clamp(1rem, 1.2vw, 1.12rem); color: #3a3d41; }
+.pp-ligne--empile .pp-ligne__medias { grid-template-columns: 1fr; }
+@media (max-width: 64rem) {
+  .pp-ligne--empile .flux li { padding: 0 0 1.6rem 4.6rem; min-height: 3.2rem; }
+  .pp-ligne--empile .flux li:not(:last-child)::before { top: 3.4rem; left: 1.55rem; }
+}
+@media (max-width: 60rem) { .pp-tab .pp-ligne { grid-template-columns: 1fr; } }
+/* Outils : une carte par outil, avec une icône et une phrase simple */
+.pp-outils { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.7rem, 1.4vw, 1rem); }
+.pp-outil { display: grid; grid-template-columns: auto 1fr; grid-template-areas: 'icone nom' 'texte texte'; align-items: center; gap: .65rem .85rem; padding: clamp(1rem, 1.8vw, 1.35rem); border-radius: 1.2rem; background: var(--surf); color: var(--ink); }
+.pp-outil__icone { grid-area: icone; display: grid; place-items: center; width: 2.9rem; height: 2.9rem; border-radius: 50%; background: var(--ink); color: var(--surf); }
+.pp-outil .icone { width: 1.45rem; height: 1.45rem; }
+.pp-outil strong { grid-area: nom; font-size: clamp(1.1rem, 1.5vw, 1.3rem); letter-spacing: -.02em; line-height: 1.15; color: inherit; }
+.pp-outil > span:last-child { grid-area: texte; line-height: 1.45; font-size: 1rem; color: #3a3d41; }
+@media (max-width: 64rem) { .pp-outils { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 40rem) { .pp-outils { grid-template-columns: 1fr; } }
+.pp-outil { align-content: start; }
+.pp-tab .pp-ligne__medias .photo--vide { margin: 0; }

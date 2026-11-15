@@ -26,7 +26,7 @@ const projets = tout('SELECT * FROM projet ORDER BY ordre, id').map((p) => ({
   equipe: p.equipe,
   role: tout('SELECT libelle FROM role WHERE projet_id = ? ORDER BY ordre', p.id).map((r) => r.libelle),
   outils: tout('SELECT nom FROM outil WHERE projet_id = ? ORDER BY ordre', p.id).map((r) => r.nom),
-  choix: tout('SELECT nom, raison FROM choix WHERE projet_id = ? ORDER BY ordre', p.id),
+  choix: tout('SELECT nom, raison, icone FROM choix WHERE projet_id = ? ORDER BY ordre', p.id),
   defis: tout('SELECT defi, solution FROM defi WHERE projet_id = ? ORDER BY ordre', p.id),
   liens: tout('SELECT label, url FROM lien WHERE projet_id = ? ORDER BY ordre', p.id),
   couverture: { fichier: p.couv_fichier, alt: p.couv_alt, sujet: p.couv_sujet, format: p.couv_format, taille: p.couv_taille },

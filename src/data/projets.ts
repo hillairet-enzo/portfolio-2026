@@ -28,6 +28,7 @@ export type TypeProjet = 'web' | 'affiche';
 export interface Choix {
   nom: string;
   raison: string;
+  icone?: string | null; // voir src/components/pj/Icone.astro
 }
 
 export interface Defi {
