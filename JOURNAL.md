@@ -111,6 +111,7 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 - Mockups : les captures d'écran des projets s'affichent maintenant dans une fenêtre de navigateur (format ordinateur) ou dans un téléphone (format mobile). Commande `npm run projets:images` pour lister les captures encore à faire.
 - Mode d'emploi pour ajouter un projet : `data/AJOUTER-UN-PROJET.md`.
 - Vraies captures de TiK•TaK (accueil, configurateur, modèle 3D, assistant IA) prises sur le site en ligne et placées dans les cadres navigateur, au format large 21:9. Restent les captures mobile et celles de ThermoViz.
+- Retouches : fond des onglets en gris uni un peu plus foncé (plus de couleurs dans les coins), captures affichées sans fenêtre ni points de couleur mais détachées du fond (bord fin et ombre), clic sur une image pour l'ouvrir en grand (touche Échap ou clic pour fermer).
 
 ## Choix des réseaux professionnels (consigne 2.4)
 

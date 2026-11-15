@@ -7,7 +7,7 @@ interface Props {
   photo: Photo;
   serre?: boolean; // petit cadre (photos côte à côte) : texte raccourci
   prioritaire?: boolean; // image visible dès l'arrivée sur la page
-  mockup?: boolean; // capture d'écran : on l'affiche dans une fenêtre de navigateur (16:9...) ou un téléphone (3:4)
+  mockup?: boolean; // capture d'écran : affichée telle quelle, détachée du fond (ombre fine)
 }
 const { photo, serre = false, prioritaire = false, mockup = false } = Astro.props;
 
@@ -19,16 +19,8 @@ const cadre = mockup && l < h ? 'telephone' : mockup ? 'navigateur' : null;
 
 {
   existe && cadre ? (
-    <figure class:list={['photo', 'mockup', `mockup--${cadre}`]}>
-      {cadre === 'navigateur' && (
-        <div class="mockup__barre" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </div>
-      )}
-      <div class="mockup__ecran" style={`aspect-ratio:${l}/${h}`}>
-        <img src={`/images/${photo.fichier}`} alt={photo.alt} loading={prioritaire ? 'eager' : 'lazy'} decoding="async" />
-      </div>
-      {cadre === 'telephone' && <span class="mockup__ilot" aria-hidden="true"></span>}
+    <figure class:list={['photo', 'capture', `capture--${cadre}`]}>
+      <img src={`/images/${photo.fichier}`} alt={photo.alt} width={l * 100} height={h * 100} loading={prioritaire ? 'eager' : 'lazy'} decoding="async" data-zoom />
     </figure>
   ) : existe ? (
     <figure class="photo" style={`aspect-ratio:${l}/${h}`}>
@@ -38,6 +30,7 @@ const cadre = mockup && l < h ? 'telephone' : mockup ? 'navigateur' : null;
         loading={prioritaire ? 'eager' : 'lazy'}
         fetchpriority={prioritaire ? 'high' : 'auto'}
         decoding="async"
+        data-zoom
       />
     </figure>
   ) : (

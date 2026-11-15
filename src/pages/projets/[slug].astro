@@ -157,7 +157,25 @@ const blocs = [
   <Contact />
 </Layout>
 
+<dialog class="zoom" id="zoom" aria-label="Image en grand">
+  <button type="button" class="zoom__fermer" aria-label="Fermer l’image">×</button>
+  <img alt="" />
+</dialog>
+
 <script>
+  // Clic sur une image : elle s'ouvre en grand
+  const zoom = document.getElementById('zoom') as HTMLDialogElement | null;
+  if (zoom) {
+    const grande = zoom.querySelector('img') as HTMLImageElement;
+    document.querySelectorAll<HTMLImageElement>('img[data-zoom]').forEach((img) => {
+      img.tabIndex = 0;
+      img.setAttribute('role', 'button');
+      const ouvrir = () => { grande.src = img.currentSrc || img.src; grande.alt = img.alt; zoom.showModal(); };
+      img.addEventListener('click', ouvrir);
+      img.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ouvrir(); } });
+    });
+    zoom.addEventListener('click', () => zoom.close());
+  }
   const tabs = Array.from(document.querySelectorAll<HTMLElement>('.pp-tab'));
   const fermer = (t: HTMLElement) => {
     t.dataset.ouvert = 'false';

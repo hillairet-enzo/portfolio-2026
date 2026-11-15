@@ -5599,14 +5599,18 @@ html:not([data-theme='dark']) .pp-tab[data-ouvert="true"] {
 .pp-tab .photo--vide { background: transparent; }
 .pp-tab .photo__cadre { background: rgba(255,255,255,.55); }
 
-/* ===== Mockups : captures d'écran dans une fenêtre de navigateur ou un téléphone ===== */
-.photo.mockup { background: none; overflow: visible; border-radius: 0; }
-.photo.mockup--navigateur { border-radius: 1rem; background: #fff; border: 1px solid rgba(11,11,12,.1); overflow: hidden; box-shadow: 0 1px 2px rgb(0 0 0 / .05), 0 26px 50px -28px rgb(40 40 90 / .45); }
-.mockup__barre { display: flex; align-items: center; gap: .4rem; height: 2rem; padding: 0 .85rem; background: linear-gradient(#fbfbfa, #f1f1ee); border-bottom: 1px solid rgba(11,11,12,.08); }
-.mockup__barre span { width: .62rem; height: .62rem; border-radius: 50%; background: #d6d6d2; }
-.mockup__barre span:nth-child(1) { background: #ff8f84; } .mockup__barre span:nth-child(2) { background: #ffd36b; } .mockup__barre span:nth-child(3) { background: #7fdc95; }
-.mockup--navigateur .mockup__ecran { overflow: hidden; background: #fff; }
-.photo.mockup--telephone { position: relative; padding: .5rem; border-radius: 2.2rem; background: #17181b; box-shadow: 0 0 0 1.5px #3a3c41 inset, 0 1px 2px rgb(0 0 0 / .1), 0 28px 50px -26px rgb(40 40 90 / .55); }
-.mockup--telephone .mockup__ecran { overflow: hidden; border-radius: 1.75rem; background: #fff; }
-.mockup__ilot { position: absolute; top: 1rem; left: 50%; width: 22%; height: .8rem; transform: translateX(-50%); border-radius: 999px; background: #17181b; }
-.mockup__ecran img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+/* ===== Onglets : fond gris uni un peu plus foncé (plus de couleurs dans les coins) ===== */
+html:not([data-theme='dark']) .pp-tab[data-ouvert="true"] { background: #e9e8e4; border-color: rgba(11,11,12,.14); box-shadow: 0 1px 2px rgb(0 0 0 / .04), 0 24px 48px -36px rgb(0 0 0 / .3); }
+
+/* ===== Captures d'écran : affichées telles quelles, bien détachées du fond ===== */
+.photo.capture { background: none; overflow: visible; border-radius: 0; aspect-ratio: auto; }
+.photo.capture img { display: block; width: 100%; height: auto; border-radius: .9rem; background: #fff; border: 1px solid rgba(11,11,12,.12); box-shadow: 0 1px 2px rgb(0 0 0 / .06), 0 22px 44px -22px rgb(0 0 0 / .4); }
+.photo.capture--telephone img { border-radius: 1.6rem; }
+img[data-zoom] { cursor: zoom-in; }
+img[data-zoom]:focus-visible { outline: 3px solid #0b0b0c; outline-offset: 3px; }
+
+/* ===== Visionneuse d'image (clic sur une capture) ===== */
+.zoom { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; overflow: visible; }
+.zoom::backdrop { background: rgb(12 12 14 / .82); backdrop-filter: blur(4px); }
+.zoom img { display: block; max-width: 94vw; max-height: 90vh; width: auto; height: auto; border-radius: .8rem; box-shadow: 0 30px 80px rgb(0 0 0 / .5); cursor: zoom-out; }
+.zoom__fermer { position: absolute; top: -2.4rem; right: 0; width: 2.2rem; height: 2.2rem; border: 0; border-radius: 50%; background: #fff; color: #0b0b0c; font-size: 1.4rem; line-height: 1; cursor: pointer; }
