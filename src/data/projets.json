@@ -416,29 +416,6 @@
         "paragraphes": [
           "Le site utilise un style de verre dépoli et un défilement fluide. Chaque visualisation a sa propre adresse, qu’on peut partager.",
           "Il se parcourt au clavier, a des contrastes vérifiés et respecte la préférence « réduire les animations »."
-        ],
-        "photos": [
-          {
-            "fichier": "thermo-viz/mobile-1.jpg",
-            "alt": "L’accueil de ThermoViz sur téléphone",
-            "sujet": "Capture de l’accueil sur téléphone (390 px de large) avec le titre « Bordeaux ».",
-            "format": "3/4",
-            "taille": "585 × 780 px"
-          },
-          {
-            "fichier": "thermo-viz/mobile-2.jpg",
-            "alt": "Une visualisation de ThermoViz sur téléphone",
-            "sujet": "Capture d’une visualisation sur téléphone, avec la barre d’onglets visible.",
-            "format": "3/4",
-            "taille": "585 × 780 px"
-          },
-          {
-            "fichier": "thermo-viz/mobile-3.jpg",
-            "alt": "La page Ma commune sur téléphone",
-            "sujet": "Capture de la visualisation « Ma commune » sur téléphone, avec une commune choisie.",
-            "format": "3/4",
-            "taille": "585 × 780 px"
-          }
         ]
       }
     ]
