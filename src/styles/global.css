@@ -5569,3 +5569,32 @@ html:not([data-theme='dark']) .ct { background: var(--surf); }
 @media (max-width: 40rem) { .pp-outils { grid-template-columns: 1fr; } }
 .pp-outil { align-content: start; }
 .pp-tab .pp-ligne__medias .photo--vide { margin: 0; }
+
+/* ===== Page projet : onglets plus doux (dégradés pastel, cartes blanches) ===== */
+.pp-tab { border-color: rgba(11,11,12,.1); box-shadow: 0 1px 2px rgb(0 0 0 / .03), 0 14px 34px -24px rgb(40 40 80 / .28); }
+.pp-tab:hover { border-color: rgba(11,11,12,.28); }
+.pp-tabs .pp-tab:nth-child(1) { --a: rgba(196,208,255,.55); --b: rgba(255,214,230,.5); }
+.pp-tabs .pp-tab:nth-child(2) { --a: rgba(196,236,222,.55); --b: rgba(255,238,196,.5); }
+.pp-tabs .pp-tab:nth-child(3) { --a: rgba(224,208,255,.5); --b: rgba(255,222,200,.5); }
+.pp-tabs .pp-tab:nth-child(4) { --a: rgba(190,226,255,.55); --b: rgba(255,214,230,.45); }
+html:not([data-theme='dark']) .pp-tab[data-ouvert="true"] {
+  border-color: rgba(11,11,12,.12);
+  background:
+    radial-gradient(52rem 26rem at 0% 0%, var(--a), transparent 62%),
+    radial-gradient(46rem 26rem at 100% 100%, var(--b), transparent 62%),
+    #fbfaf8;
+  box-shadow: 0 1px 2px rgb(0 0 0 / .03), 0 30px 60px -36px rgb(40 40 90 / .32);
+}
+.pp-tab .photo--vide { background: rgba(255,255,255,.6); border-radius: 1.2rem; }
+.pp-tab .photo__cadre { border-color: rgba(11,11,12,.18); }
+.pp-feuille, .pp-outil { box-shadow: 0 1px 2px rgb(0 0 0 / .04), 0 16px 34px -24px rgb(40 40 90 / .3); }
+.pp-outil { border-radius: 1.4rem; }
+.pp-feuille { border-radius: 1.4rem; }
+/* défis et solutions : une carte douce par ligne */
+.pp-defis__liste { gap: .6rem; }
+.pp-defi, .pp-defi:last-child { border: 0; background: rgba(255,255,255,.72); border-radius: 1.2rem; padding: clamp(.95rem, 1.8vw, 1.3rem) clamp(1rem, 2vw, 1.5rem); box-shadow: 0 1px 2px rgb(0 0 0 / .04), 0 12px 28px -22px rgb(40 40 90 / .3); }
+/* sections avec plusieurs photos ou un schéma : texte au-dessus, médias dessous */
+.pp-ligne--sans-texte { grid-template-columns: 1fr !important; }
+.pp-ligne--empile .recit__photos--3 { max-width: 46rem; }
+.pp-tab .photo--vide { background: transparent; }
+.pp-tab .photo__cadre { background: rgba(255,255,255,.55); }

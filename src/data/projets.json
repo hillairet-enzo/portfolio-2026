@@ -117,9 +117,7 @@
       {
         "onglet": "processus",
         "titre": "Composer sa montre",
-        "paragraphes": [
-          "On commence par la forme, carrée ou ronde. Puis on choisit chaque pièce, avec sa matière et sa couleur. La montre et le prix changent à chaque choix, en 2D puis en 3D."
-        ],
+        "paragraphes": [],
         "flux": {
           "etiquette": "Parcours d’achat sur TiK•TaK",
           "etapes": [
@@ -176,14 +174,6 @@
             "format": "16/9",
             "taille": "2400 × 1350 px"
           }
-        ]
-      },
-      {
-        "onglet": "choix",
-        "titre": "Sous le capot",
-        "paragraphes": [
-          "Les données sont rangées dans une base de six tables. J’ai aussi écrit les 17 requêtes demandées par le sujet.",
-          "Le site est sur un serveur. Il se met à jour tout seul à chaque envoi de code sur GitHub."
         ]
       },
       {

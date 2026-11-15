@@ -15,12 +15,14 @@ import type { Section } from '../../data/projets';
 const { sec } = Astro.props as { sec: Section };
 ---
 
-<div class:list={['pp-ligne', sec.flux && 'pp-ligne--empile']}>
-    <div class="pp-ligne__texte">
-      <div class="texte-courant">
-        {sec.paragraphes.map((t) => <p>{t}</p>)}
+<div class:list={['pp-ligne', (sec.flux || (sec.photos?.length ?? 0) >= 2) && 'pp-ligne--empile', sec.paragraphes.length === 0 && 'pp-ligne--sans-texte']}>
+    {sec.paragraphes.length > 0 && (
+      <div class="pp-ligne__texte">
+        <div class="texte-courant">
+          {sec.paragraphes.map((t) => <p>{t}</p>)}
+        </div>
       </div>
-    </div>
+    )}
     {(sec.flux || sec.chiffres || sec.visuel || sec.schemas || sec.photos) && (
       <div class="pp-ligne__medias">
         {sec.flux && <div class="pp-feuille"><Flux etapes={sec.flux.etapes} etiquette={sec.flux.etiquette} /></div>}
