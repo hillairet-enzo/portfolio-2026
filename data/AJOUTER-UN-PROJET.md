@@ -18,12 +18,12 @@ Prérequis : Node 22.5 ou plus (module `node:sqlite`). Pour éditer la base : «
 ## Les quatre onglets de chaque page
 | Onglet | Contenu |
 |---|---|
-| 1. Contexte, défis et solutions | sections `contexte` + paires de la table `defi` |
-| 2. Rôle | sections `role` + puces de la table `role` + `projet.equipe` |
-| 3. Processus | sections `processus` |
-| 4. Choix et résultat | table `choix`, sections `choix`, puis `lien` et sections `resultat` |
+| 1. Le projet et ses défis | sections `contexte` + paires de la table `defi` |
+| 2. Mon rôle | sections `role` + puces de la table `role` + `projet.equipe` |
+| 3. Ma démarche | sections `processus` |
+| 4. Les outils et le résultat | table `choix`, sections `choix`, puis `lien` et sections `resultat` |
 
 ## Gabarit « affiche »
-Même structure, libellés adaptés : « Choix créatifs et résultat », « Rendu final ».
+Même structure, libellés adaptés : « Les choix créatifs et le résultat », « Le rendu final ».
 Pour une affiche : `outil` = logiciels, `choix` = typographies, palette, grille, format et support ;
 `photo` en `3/4` pour le visuel final et ses déclinaisons.

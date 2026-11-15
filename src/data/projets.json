@@ -4,7 +4,7 @@
     "type": "web",
     "titre": "TiK•TaK",
     "accroche": "Composer sa montre de course pièce par pièce, et la voir tourner en 3D.",
-    "resume": "Un site de vente de montres de trail à composer soi-même : forme, bracelet, boîtier, cadran. Un assistant IA propose une montre à partir d’une phrase. Conçu, développé et mis en ligne seul.",
+    "resume": "Un site de montres de trail à composer soi-même : forme, bracelet, boîtier, cadran. Un assistant IA propose une montre à partir d’une phrase. Conçu, codé et mis en ligne seul.",
     "annee": "Novembre 2026",
     "cadre": "SAE 301, BUT MMI",
     "equipe": "Projet individuel",
@@ -28,45 +28,45 @@
     "choix": [
       {
         "nom": "Astro",
-        "raison": "Les pages du site, avec titres, balises Open Graph, URL canonique et sitemap générés pour chacune."
+        "raison": "Crée les pages du site, avec leur titre, leur description et un plan du site."
       },
       {
         "nom": "Bun",
-        "raison": "Fait tourner l’application côté serveur."
+        "raison": "Fait tourner l’application sur le serveur."
       },
       {
         "nom": "SQLite",
-        "raison": "La base de six tables, créée toute seule au premier lancement à partir de deux fichiers SQL."
+        "raison": "Garde les données dans six tables, créées toutes seules au premier lancement."
       },
       {
         "nom": "Better Auth",
-        "raison": "La connexion par e-mail et mot de passe, ou avec un compte Google."
+        "raison": "Gère la connexion par e-mail ou avec un compte Google."
       },
       {
         "nom": "three.js",
-        "raison": "Le modèle 3D de la montre, qu’on fait tourner à la souris."
+        "raison": "Affiche la montre en 3D, qu’on fait tourner à la souris."
       },
       {
         "nom": "OpenRouter",
-        "raison": "L’assistant qui compose une montre à partir d’une phrase, avec un modèle gratuit."
+        "raison": "Permet à l’assistant de créer une montre à partir d’une phrase, avec un modèle gratuit."
       }
     ],
     "defis": [
       {
-        "defi": "Composer une montre pièce par pièce sans se perdre",
-        "solution": "Un parcours en cinq étapes (forme, composition, résultat, enregistrement, commande), un aperçu qui change en direct, en 2D puis en 3D, et un prix mis à jour à chaque choix."
+        "defi": "Composer une montre sans se perdre",
+        "solution": "Un parcours en cinq étapes. La montre change en direct, en 2D puis en 3D, et le prix se met à jour à chaque choix."
       },
       {
-        "defi": "Retrouver sa création à l’identique plus tard",
-        "solution": "Le SVG de chaque montre est enregistré en base : « Mes montres » la restitue exactement comme elle a été composée."
+        "defi": "Retrouver sa montre plus tard",
+        "solution": "Chaque montre est enregistrée dans la base. La page « Mes montres » la montre exactement comme on l’a créée."
       },
       {
         "defi": "Aider ceux qui ne veulent pas tout choisir",
-        "solution": "Un assistant IA compose la montre à partir d’une phrase, puis l’utilisateur ajuste chaque pièce à la main. L’IA propose, l’utilisateur garde la main."
+        "solution": "Un assistant propose une montre à partir d’une phrase. Ensuite, chacun peut tout modifier à la main."
       },
       {
-        "defi": "Rester simple sur un petit écran",
-        "solution": "Le configurateur, « Mes montres » et les commandes sont pensés pour des gestes simples et s’adaptent à l’écran d’un téléphone."
+        "defi": "Rester simple sur téléphone",
+        "solution": "Le configurateur, « Mes montres » et la commande s’adaptent à l’écran d’un téléphone."
       }
     ],
     "liens": [
@@ -87,8 +87,8 @@
         "onglet": "contexte",
         "titre": "Le point de départ",
         "paragraphes": [
-          "La SAE 301 demandait un site dynamique relié à une base de données. J’ai choisi un produit qui se compose naturellement par pièces : une montre de course.",
-          "Les montres de sport se ressemblent presque toutes, alors que chaque coureur a son terrain, son rythme et ses couleurs. TiK•TaK part de l’idée inverse : celle que vous portez, c’est vous qui l’avez imaginée. La marque est fictive, mais le parcours d’achat est complet, de l’aperçu à la commande."
+          "La SAE 301 demandait de créer un site relié à une base de données. J’ai choisi un produit qu’on peut composer pièce par pièce : une montre de course.",
+          "Les montres de sport se ressemblent presque toutes, alors que chaque coureur a son terrain, son rythme et ses couleurs. Avec TiK•TaK, on crée la montre qu’on a envie de porter. La marque est fictive, mais le parcours est complet, de l’aperçu à la commande."
         ],
         "photos": [
           {
@@ -104,16 +104,16 @@
         "onglet": "role",
         "titre": "Mon rôle",
         "paragraphes": [
-          "TiK•TaK est un projet individuel. J’ai pris en charge toute la chaîne, de l’idée à la mise en ligne : la direction artistique, le design de l’interface, le développement, la base de données et le déploiement sur serveur.",
-          "Le sujet de la SAE 301 imposait un site dynamique relié à une base de données. Le produit, la marque fictive, le parcours d’achat et l’assistant IA sont mes choix."
+          "TiK•TaK est un projet que j’ai fait seul. Je me suis occupé de tout, de l’idée à la mise en ligne : le design, le code, la base de données et l’hébergement.",
+          "Le sujet imposait un site relié à une base de données. Le produit, la marque, le parcours d’achat et l’assistant sont mes choix."
         ]
       },
       {
         "onglet": "processus",
         "titre": "Composer sa montre",
         "paragraphes": [
-          "On commence par la forme, carrée ou ronde. On choisit ensuite le bracelet, le boîtier extérieur, le boîtier intérieur et le cadran, chacun avec sa matière et sa couleur. Le prix se met à jour à chaque choix.",
-          "L’aperçu change en direct. En 2D, c’est un SVG que je génère à partir des choix ; en 3D, c’est un modèle three.js qu’on fait tourner à la souris. Le SVG de chaque montre est enregistré en base, ce qui permet de la retrouver à l’identique dans « Mes montres »."
+          "On commence par la forme, carrée ou ronde. Puis on choisit le bracelet, les deux boîtiers et le cadran, avec une matière et une couleur pour chacun. Le prix change à chaque choix.",
+          "L’aperçu se met à jour en direct. En 2D, c’est un dessin que le site fabrique à partir des choix. En 3D, c’est un modèle qu’on fait tourner à la souris. Le dessin de chaque montre est gardé dans la base, pour la retrouver à l’identique dans « Mes montres »."
         ],
         "flux": {
           "etiquette": "Parcours d’achat sur TiK•TaK",
@@ -132,7 +132,7 @@
             },
             {
               "titre": "Enregistrer",
-              "texte": "La montre rejoint « Mes montres »."
+              "texte": "La montre rejoint « Mes montres »."
             },
             {
               "titre": "Commander",
@@ -144,7 +144,7 @@
           {
             "fichier": "tiktak/configurateur.jpg",
             "alt": "Le configurateur TiK•TaK avec une montre carrée et le panneau de choix des pièces",
-            "sujet": "Capture du configurateur (page /configurateur) : la montre carrée à bracelet gris pierre au centre, le panneau des pièces à côté (bracelet, boîtier, cadran) et le prix en bas.",
+            "sujet": "Capture du configurateur (page /configurateur) : la montre carrée à bracelet gris pierre au centre, le panneau des pièces à côté (bracelet, boîtier, cadran) et le prix en bas.",
             "format": "16/9",
             "taille": "2400 × 1350 px"
           },
@@ -161,14 +161,14 @@
         "onglet": "processus",
         "titre": "Décrire sa montre à l’IA",
         "paragraphes": [
-          "Pour ceux qui ne veulent pas tout choisir, un assistant compose la montre à partir d’une phrase en français, par exemple « une montre orange pour le trail, ronde ». Il passe par OpenRouter, avec un modèle gratuit.",
-          "La conversation continue ensuite : on peut lui demander de changer le bracelet ou le cadran, puis ajuster à la main chaque pièce. L’IA propose, l’utilisateur garde la main."
+          "Pour ceux qui ne veulent pas tout choisir, un assistant crée la montre à partir d’une phrase, par exemple « une montre orange pour le trail, ronde ». Il utilise OpenRouter, avec un modèle gratuit.",
+          "On peut ensuite lui demander de changer le bracelet ou le cadran, ou régler chaque pièce soi-même. L’IA propose, l’utilisateur décide."
         ],
         "photos": [
           {
             "fichier": "tiktak/assistant-ia.jpg",
             "alt": "Conversation avec l’assistant IA qui compose une montre orange",
-            "sujet": "Capture de l’assistant IA : ta phrase « Une montre orange pour le trail, ronde », la réponse de l’assistant et la montre orange obtenue à côté.",
+            "sujet": "Capture de l’assistant IA : ta phrase « Une montre orange pour le trail, ronde », la réponse de l’assistant et la montre orange obtenue à côté.",
             "format": "16/9",
             "taille": "2400 × 1350 px"
           }
@@ -178,9 +178,9 @@
         "onglet": "choix",
         "titre": "Sous le capot",
         "paragraphes": [
-          "La base SQLite compte six tables : utilisateur, composant, montre, commande, composer et contenir. Elle se crée toute seule au premier lancement à partir de deux fichiers SQL, et j’ai écrit les 17 requêtes du sujet. Le rendu back-end (modèle conceptuel et physique des données) est dans un PDF du dépôt.",
-          "La connexion se fait par e-mail et mot de passe ou avec un compte Google, grâce à Better Auth. Chaque personne retrouve ses montres, ses commandes et leurs compteurs dans la navigation.",
-          "Le site tourne sur un serveur VPS : un service systemd lance l’application, Apache sert de relais en HTTPS, et une action GitHub la redéploie à chaque envoi de code. Chaque page a son titre, sa description, ses balises Open Graph, une URL canonique et des données structurées schema.org, avec un sitemap généré automatiquement."
+          "La base de données contient six tables : utilisateur, composant, montre, commande, composer et contenir. Elle se crée toute seule au premier lancement, à partir de deux fichiers SQL. J’ai aussi écrit les 17 requêtes demandées par le sujet. Les schémas de la base (modèle conceptuel et physique) sont dans un PDF du dépôt.",
+          "On se connecte avec un e-mail et un mot de passe, ou avec un compte Google, grâce à Better Auth. Chacun retrouve ses montres et ses commandes.",
+          "Le site est hébergé sur un serveur VPS. Chaque fois que j’envoie du code sur GitHub, il se met à jour tout seul. Chaque page a son titre et sa description pour les moteurs de recherche et les réseaux sociaux, et un plan du site est créé automatiquement."
         ],
         "schemas": [
           "architecture",
@@ -191,7 +191,7 @@
         "onglet": "resultat",
         "titre": "Sur téléphone",
         "paragraphes": [
-          "Le site est pensé d’abord pour des gestes simples : choisir une pièce, voir la montre changer, commander. Le configurateur, « Mes montres » et les commandes s’adaptent à l’écran d’un téléphone."
+          "Le site est pensé pour des gestes simples : choisir une pièce, voir la montre changer, commander. Tout fonctionne sur l’écran d’un téléphone."
         ],
         "photos": [
           {
@@ -204,14 +204,14 @@
           {
             "fichier": "tiktak/mobile-2.jpg",
             "alt": "La page Mes montres sur téléphone",
-            "sujet": "Capture de la page « Mes montres » sur téléphone avec au moins trois montres enregistrées.",
+            "sujet": "Capture de la page « Mes montres » sur téléphone avec au moins trois montres enregistrées.",
             "format": "3/4",
             "taille": "1500 × 2000 px"
           },
           {
             "fichier": "tiktak/mobile-3.jpg",
             "alt": "La page de commande sur téléphone",
-            "sujet": "Capture de la commande sur téléphone : quantité, frais de livraison de 10 € et total.",
+            "sujet": "Capture de la commande sur téléphone : quantité, frais de livraison de 10 € et total.",
             "format": "3/4",
             "taille": "1500 × 2000 px"
           }
@@ -223,8 +223,8 @@
     "slug": "thermo-viz",
     "type": "web",
     "titre": "ThermoViz",
-    "accroche": "Les plus pauvres vivent-ils aux endroits les plus chauds de Bordeaux ?",
-    "resume": "Un site de data-visualisation qui croise la chaleur du sol, mesurée par satellite, et la pauvreté des ménages de la métropole de Bordeaux. Cinq visualisations, une conclusion et une page Méthode pour tout vérifier.",
+    "accroche": "Les plus pauvres vivent-ils aux endroits les plus chauds de Bordeaux ?",
+    "resume": "Un site qui croise la chaleur du sol, mesurée par satellite, et la pauvreté des ménages de la métropole de Bordeaux. Cinq visualisations, une conclusion et une page Méthode pour tout vérifier.",
     "annee": "Octobre 2026",
     "cadre": "SAE 303, BUT MMI",
     "equipe": "En binôme avec Matthis Carnicer",
@@ -246,45 +246,45 @@
     "choix": [
       {
         "nom": "Astro",
-        "raison": "Les pages du site et le parcours en quatre temps."
+        "raison": "Crée les pages et le parcours en quatre temps."
       },
       {
         "nom": "Observable Plot",
-        "raison": "Les cinq visualisations interactives."
+        "raison": "Dessine les cinq visualisations interactives."
       },
       {
         "nom": "Observable",
-        "raison": "Le notebook qui permet de refaire tous les calculs."
+        "raison": "Contient le notebook pour refaire tous les calculs."
       },
       {
         "nom": "Lenis",
-        "raison": "Le défilement fluide de toute la page."
+        "raison": "Rend le défilement fluide."
       },
       {
         "nom": "Tailwind CSS 4",
-        "raison": "Le style de l’interface, avec son effet de verre dépoli."
+        "raison": "Met en forme l’interface, avec son effet de verre dépoli."
       },
       {
         "nom": "Netlify",
-        "raison": "La mise en ligne du site, à chaque nouvelle version."
+        "raison": "Met le site en ligne, à chaque nouvelle version."
       }
     ],
     "defis": [
       {
-        "defi": "Rendre un sujet de données lisible par tous",
-        "solution": "Un récit en quatre temps (contexte, exploration, réponse, conclusion) plutôt qu’un tableau de bord. Le contexte explique la température du sol, le poids de la pauvreté et la lecture des graphiques avant les chiffres."
+        "defi": "Rendre des chiffres faciles à comprendre",
+        "solution": "Un parcours en quatre temps au lieu d’un tableau de bord : contexte, exploration, réponse, conclusion. Avant les chiffres, on explique ce qu’on mesure et comment lire les graphiques."
       },
       {
-        "defi": "Rester honnête avec des données limitées",
-        "solution": "Une page Méthode détaille les sources, ce qui a pu se perdre et les limites : une seule journée, la chaleur du sol et non de l’air, une coïncidence et non une cause. La conclusion dit les deux à la fois."
+        "defi": "Rester honnête avec peu de données",
+        "solution": "Une page Méthode montre les sources et les limites : une seule journée, la chaleur du sol et pas celle de l’air, un lien qui n’est pas une preuve. La conclusion dit les deux à la fois."
       },
       {
-        "defi": "Faire sentir le sujet à chaque visiteur",
-        "solution": "« Et chez moi ? » : on choisit sa commune dès l’accueil et la dernière visualisation s’ouvre directement dessus."
+        "defi": "Concerner chaque visiteur",
+        "solution": "« Et chez moi ? » : on choisit sa commune dès l’accueil, et la dernière visualisation s’ouvre sur elle."
       },
       {
-        "defi": "Garder le verre dépoli sans perdre l’accessibilité",
-        "solution": "Un menu de choix refait à la main, utilisable au clavier, avec lien d’évitement, rôles ARIA, contrastes vérifiés et respect de « réduire les animations »."
+        "defi": "Rester beau et accessible",
+        "solution": "Un menu de choix refait à la main, utilisable au clavier. Le site a un lien d’évitement, des contrastes vérifiés et respecte « réduire les animations »."
       }
     ],
     "liens": [
@@ -300,7 +300,7 @@
     "couverture": {
       "fichier": "thermo-viz/couverture.webp",
       "alt": "Les toits de Bordeaux et la flèche d’une église sous un ciel d’été",
-      "sujet": "La photo des toits de Bordeaux avec la flèche gothique, celle du haut de ton site. C’est le fichier hero.webp du projet SAE 303, dans public/images : convertis-le en JPG.",
+      "sujet": "La photo des toits de Bordeaux avec la flèche gothique, celle du haut de ton site. C’est le fichier hero.webp du projet SAE 303, dans public/images : convertis-le en JPG.",
       "format": "3/2",
       "taille": "2400 × 1600 px"
     },
@@ -309,47 +309,47 @@
         "onglet": "contexte",
         "titre": "La question",
         "paragraphes": [
-          "Le 17 juin 2022, un satellite a mesuré la température du sol dans toute la métropole de Bordeaux. Nous avons découpé le territoire en zones de 200 m sur 200 m, puis croisé ces mesures avec les données de l’Insee sur les ménages et leurs revenus.",
-          "La question tient en une phrase : les ménages pauvres de Bordeaux vivent-ils dans les zones les plus chaudes ? Elle est affichée en grand dès l’arrivée, et tout le site sert à y répondre honnêtement."
+          "Le 17 juin 2022, un satellite a mesuré la température du sol dans toute la métropole de Bordeaux. Nous avons découpé la ville en zones de 200 m sur 200 m, puis ajouté les données de l’Insee sur les ménages et leurs revenus.",
+          "Notre question : les ménages pauvres vivent-ils dans les zones les plus chaudes ? Elle est affichée en grand dès l’arrivée, et tout le site sert à y répondre honnêtement."
         ]
       },
       {
         "onglet": "role",
         "titre": "Mon rôle",
         "paragraphes": [
-          "ThermoViz est la SAE 303, réalisée en binôme avec Matthis Carnicer. Je me suis occupé du récit et de la rédaction, de l’intégration, de la préparation des données et de la page Méthode, et j’ai réalisé une partie des visualisations.",
-          "J’ai écrit le script qui assemble les quatre sources publiques, change les systèmes de coordonnées et ne garde que les colonnes utiles."
+          "ThermoViz est la SAE 303, réalisée en binôme avec Matthis Carnicer. Je me suis occupé de l’histoire racontée et de la rédaction, de l’intégration des pages, de la préparation des données et de la page Méthode. J’ai aussi fait une partie des visualisations.",
+          "J’ai écrit le script qui rassemble les quatre sources, change les systèmes de coordonnées et garde seulement les colonnes utiles."
         ]
       },
       {
         "onglet": "processus",
         "titre": "Un récit plutôt qu’un tableau de bord",
         "paragraphes": [
-          "Au lieu d’aligner des graphiques, nous avons construit un parcours en quatre temps : le contexte, l’exploration, la réponse, puis la conclusion. Le contexte rappelle trois choses avant de regarder les chiffres : on parle de la température du sol et pas de l’air, pourquoi la pauvreté compte face à la chaleur, et comment lire les graphiques.",
-          "Les cinq visualisations vont du plus large au plus proche. La carte montre où il fait le plus chaud, puis on découvre que plus de la moitié des ménages vivent à 40 °C ou plus, on compare les ménages pauvres aux autres, on choisit soi-même le seuil de chaleur, et on finit par sa propre commune."
+          "Au lieu d’aligner des graphiques, nous avons construit un parcours en quatre temps : le contexte, l’exploration, la réponse, la conclusion. Le contexte rappelle trois choses avant les chiffres : on parle de la température du sol et pas de l’air, pourquoi la pauvreté compte face à la chaleur, et comment lire les graphiques.",
+          "Les cinq visualisations vont du plus large au plus proche. La carte montre où il fait le plus chaud. On découvre ensuite que plus de la moitié des ménages vivent à 40 °C ou plus. On compare les ménages pauvres aux autres, puis on choisit soi-même le seuil de chaleur. On termine par sa propre commune."
         ],
         "flux": {
           "etiquette": "Les cinq visualisations de ThermoViz",
           "etapes": [
             {
               "titre": "La carte",
-              "texte": "Où fait-il le plus chaud ?"
+              "texte": "Où fait-il le plus chaud ?"
             },
             {
               "titre": "La chaleur",
-              "texte": "Combien d’habitants vivent à 40 °C ?"
+              "texte": "Combien d’habitants vivent à 40 °C ?"
             },
             {
               "titre": "Les écarts",
-              "texte": "Les plus pauvres ont-ils plus chaud ?"
+              "texte": "Les plus pauvres ont-ils plus chaud ?"
             },
             {
               "titre": "Le seuil",
-              "texte": "Et si je choisis la température ?"
+              "texte": "Et si je choisis la température ?"
             },
             {
               "titre": "Ma commune",
-              "texte": "Et chez moi, il fait chaud ?"
+              "texte": "Et chez moi, il fait chaud ?"
             }
           ]
         },
@@ -357,14 +357,14 @@
           {
             "fichier": "thermo-viz/carte.jpg",
             "alt": "La carte des zones de chaleur de la métropole de Bordeaux",
-            "sujet": "Capture de la première visualisation, « La carte » : la carte de la métropole avec les zones colorées, le titre « Les zones les plus chaudes forment un bloc autour du centre » visible au-dessus.",
+            "sujet": "Capture de la première visualisation, « La carte » : la carte de la métropole avec les zones colorées, le titre « Les zones les plus chaudes forment un bloc autour du centre » visible au-dessus.",
             "format": "16/9",
             "taille": "2400 × 1350 px"
           },
           {
             "fichier": "thermo-viz/comparaison.jpg",
             "alt": "Graphique comparant la part de ménages pauvres et des autres ménages selon la chaleur",
-            "sujet": "Capture de la visualisation « Les écarts » : le graphique qui compare ménages pauvres et autres ménages, avec son titre « Oui, les ménages pauvres vivent un peu plus souvent dans les zones chaudes ».",
+            "sujet": "Capture de la visualisation « Les écarts » : le graphique qui compare ménages pauvres et autres ménages, avec son titre « Oui, les ménages pauvres vivent un peu plus souvent dans les zones chaudes ».",
             "format": "16/9",
             "taille": "2400 × 1350 px"
           }
@@ -372,16 +372,16 @@
       },
       {
         "onglet": "processus",
-        "titre": "Et chez moi ?",
+        "titre": "Et chez moi ?",
         "paragraphes": [
-          "Le visiteur peut choisir sa commune dès l’accueil, et la dernière visualisation s’ouvre directement sur elle. Ce détail change le rapport au sujet : on ne lit plus des chiffres sur Bordeaux, on regarde où se place sa propre ville.",
-          "Le menu de choix est un composant que j’ai refait à la main plutôt qu’un simple menu du navigateur, pour qu’il garde l’effet de verre du reste du site tout en restant utilisable au clavier."
+          "Le visiteur choisit sa commune dès l’accueil, et la dernière visualisation s’ouvre sur elle. Cela change le rapport au sujet : on ne lit plus des chiffres sur Bordeaux, on voit où se place sa ville.",
+          "Le menu de choix est refait à la main, ce n’est pas un simple menu du navigateur. Il garde l’effet de verre du site et fonctionne au clavier."
         ],
         "photos": [
           {
             "fichier": "thermo-viz/ma-commune.jpg",
             "alt": "Le menu de choix de commune ouvert, sur fond de photo de Bordeaux",
-            "sujet": "Capture du champ « Et chez moi ? » avec la liste des communes ouverte (effet verre sur la photo). Cadre serré sur le haut de la page.",
+            "sujet": "Capture du champ « Et chez moi ? » avec la liste des communes ouverte (effet verre sur la photo). Cadre serré sur le haut de la page.",
             "format": "16/9",
             "taille": "2400 × 1350 px"
           }
@@ -391,8 +391,8 @@
         "onglet": "choix",
         "titre": "Des chiffres qu’on peut vérifier",
         "paragraphes": [
-          "Les chiffres viennent de quatre sources publiques : l’Insee pour les ménages et la pauvreté (revenus 2019), le Cerema pour les types de zones urbaines, et Bordeaux Métropole pour les contours des communes et les températures de surface. J’ai écrit le script qui les assemble, change les systèmes de coordonnées et ne garde que les colonnes utiles ; aucun fichier brut n’est dans le dépôt.",
-          "La page Méthode détaille chaque étape, ce qui a pu se perdre en route et les limites : une seule journée mesurée, la chaleur du sol et non celle de l’air, et des chiffres qui montrent une coïncidence mais pas une cause. Le notebook Observable permet de tout refaire."
+          "Les chiffres viennent de quatre sources publiques : l’Insee pour les ménages et la pauvreté (revenus 2019), le Cerema pour les types de zones urbaines, et Bordeaux Métropole pour les contours des communes et les températures du sol. J’ai écrit le script qui les rassemble. Aucun fichier brut n’est dans le dépôt.",
+          "La page Méthode explique chaque étape, ce qui a pu se perdre et les limites : une seule journée mesurée, la chaleur du sol et pas celle de l’air, des chiffres qui montrent un lien mais pas une cause. Le notebook Observable permet de tout refaire."
         ],
         "schemas": [
           "pipeline"
@@ -401,7 +401,7 @@
           {
             "fichier": "thermo-viz/methode.jpg",
             "alt": "La page Méthode du site, avec le tableau des sources",
-            "sujet": "Capture de la page /methode : le tableau des quatre sources (producteur, date, licence) avec les onglets en haut.",
+            "sujet": "Capture de la page /methode : le tableau des quatre sources (producteur, date, licence) avec les onglets en haut.",
             "format": "16/9",
             "taille": "2400 × 1350 px"
           }
@@ -411,7 +411,7 @@
         "onglet": "resultat",
         "titre": "Le résultat",
         "paragraphes": [
-          "Oui, les ménages pauvres vivent un peu plus souvent dans les zones les plus chaudes. Mais la chaleur concerne presque tout le monde : elle se concentre autour du centre de Bordeaux. Notre conclusion dit les deux à la fois, avec les deux barres côte à côte, plutôt qu’une phrase choc."
+          "Oui, les ménages pauvres vivent un peu plus souvent dans les zones les plus chaudes. Mais presque tout le monde est touché : la chaleur se concentre autour du centre de Bordeaux. Notre conclusion dit les deux à la fois, avec deux barres côte à côte, plutôt qu’une phrase choc."
         ],
         "schemas": [
           "chaleur"
@@ -421,14 +421,14 @@
         "onglet": "resultat",
         "titre": "Design et accessibilité",
         "paragraphes": [
-          "L’interface adopte un style de verre dépoli sur la navigation, l’en-tête et le pied de page, avec un défilement fluide grâce à Lenis. Les visualisations s’ouvrent en onglets synchronisés avec l’adresse (/#v1 à /#v5), qu’on peut partager et parcourir au clavier avec les flèches.",
-          "Le site propose un lien d’évitement, des rôles ARIA complets, des contrastes vérifiés, il respecte la préférence « réduire les animations » et s’adapte aux petits écrans."
+          "Le site utilise un style de verre dépoli pour la navigation, l’en-tête et le pied de page, et un défilement fluide grâce à Lenis. Chaque visualisation a son onglet et son adresse (/#v1 à /#v5), qu’on peut partager et parcourir au clavier avec les flèches.",
+          "Le site a un lien d’évitement, des contrastes vérifiés, respecte la préférence « réduire les animations » et s’adapte aux petits écrans."
         ],
         "photos": [
           {
             "fichier": "thermo-viz/mobile-1.jpg",
             "alt": "L’accueil de ThermoViz sur téléphone",
-            "sujet": "Capture de l’accueil sur téléphone (390 px de large) avec le titre « Bordeaux ».",
+            "sujet": "Capture de l’accueil sur téléphone (390 px de large) avec le titre « Bordeaux ».",
             "format": "3/4",
             "taille": "1500 × 2000 px"
           },
@@ -442,7 +442,7 @@
           {
             "fichier": "thermo-viz/mobile-3.jpg",
             "alt": "La page Ma commune sur téléphone",
-            "sujet": "Capture de la visualisation « Ma commune » sur téléphone, avec une commune choisie.",
+            "sujet": "Capture de la visualisation « Ma commune » sur téléphone, avec une commune choisie.",
             "format": "3/4",
             "taille": "1500 × 2000 px"
           }

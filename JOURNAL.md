@@ -105,6 +105,7 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 - Réorganisation des pages projet en quatre onglets : « Contexte, défis et solutions », « Rôle », « Processus », « Choix techniques et résultat ». Chaque projet a maintenant des paires défi → solution et une section sur mon rôle.
 - Les projets ne sont plus dans un gros fichier de code mais dans une base SQLite (`data/portfolio.db`), parce que c'est ce que nous apprenons en cours et que cela rend l'ajout d'un projet plus simple. Le site reste statique : un script exporte la base en JSON avant chaque build.
 - Deux gabarits prévus, « site web » et « affiche », qui changent les libellés des onglets. TiK•TaK et ThermoViz ont été migrés en premier ; les autres projets suivent.
+- Textes des deux projets réécrits en phrases courtes et simples, et onglets renommés pour être plus parlants : « Le projet et ses défis », « Mon rôle », « Ma démarche », « Les outils et le résultat ».
 - Mode d'emploi pour ajouter un projet : `data/AJOUTER-UN-PROJET.md`.
 
 ## Choix des réseaux professionnels (consigne 2.4)

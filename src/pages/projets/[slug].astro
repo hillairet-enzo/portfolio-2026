@@ -83,20 +83,6 @@ const blocs = [
                 </h3>
                 <div class="pp-tab__panneau" id={`pan-${b.id}`} role="region" aria-labelledby={`btn-${b.id}`} inert>
                   <div class="pp-tab__interieur">
-                    {b.id === 'contexte' && projet.defis.length > 0 && (
-                      <div class="pp-defis">
-                        <h4 class="pp-sous-titre">Défis et solutions</h4>
-                        <ol class="pp-defis__liste">
-                          {projet.defis.map((d, k) => (
-                            <li class="pp-defi">
-                              <span class="pp-defi__num" aria-hidden="true">{String(k + 1).padStart(2, '0')}</span>
-                              <div class="pp-defi__defi"><span class="pp-defi__label">Défi</span><p>{d.defi}</p></div>
-                              <div class="pp-defi__solution"><span class="pp-defi__label">Solution</span><p>{d.solution}</p></div>
-                            </li>
-                          ))}
-                        </ol>
-                      </div>
-                    )}
                     {b.id === 'role' && (
                       <ul class="pp-roles" aria-label="Missions">
                         {projet.role.map((r) => <li>{r}</li>)}
@@ -117,6 +103,20 @@ const blocs = [
                       </>
                     )}
                     {b.sections.filter((sec) => sec.onglet !== 'resultat').map((sec) => <Ligne sec={sec} />)}
+                    {b.id === 'contexte' && projet.defis.length > 0 && (
+                      <div class="pp-defis">
+                        <h4 class="pp-sous-titre">Défis et solutions</h4>
+                        <ol class="pp-defis__liste">
+                          {projet.defis.map((d, k) => (
+                            <li class="pp-defi">
+                              <span class="pp-defi__num" aria-hidden="true">{String(k + 1).padStart(2, '0')}</span>
+                              <div class="pp-defi__defi"><span class="pp-defi__label">Défi</span><p>{d.defi}</p></div>
+                              <div class="pp-defi__solution"><span class="pp-defi__label">Solution</span><p>{d.solution}</p></div>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                    )}
                     {b.id === 'choix' && (
                       <>
                         <h4 class="pp-sous-titre">{gabarit.resultat}</h4>

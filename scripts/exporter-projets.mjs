@@ -44,5 +44,7 @@ const projets = tout('SELECT * FROM projet ORDER BY ordre, id').map((p) => ({
   }),
 }));
 
-writeFileSync(chemin('src/data/projets.json'), JSON.stringify(projets, null, 2) + '\n');
+// Typographie française : espace insécable après « et avant », ? ! : ; pour éviter les guillemets seuls en bout de ligne.
+const typo = (_, v) => (typeof v === 'string' && !/^https?:/.test(v) ? v.replace(/« /g, '«\u00a0').replace(/ (»|\?|!|;|:)/g, '\u00a0$1') : v);
+writeFileSync(chemin('src/data/projets.json'), JSON.stringify(projets, typo, 2) + '\n');
 console.log(`[projets] ${projets.length} projet(s) exporté(s) vers src/data/projets.json`);

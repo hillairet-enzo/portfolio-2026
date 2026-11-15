@@ -67,14 +67,14 @@ export interface Projet {
 // Les libellés changent selon le type de projet : le gabarit s’adapte.
 export const gabarits: Record<TypeProjet, { onglets: [string, string, string, string]; choix: string; resultat: string }> = {
   web: {
-    onglets: ['Contexte, défis et solutions', 'Rôle', 'Processus', 'Choix techniques et résultat'],
-    choix: 'Choix techniques',
-    resultat: 'Résultat',
+    onglets: ['Le projet et ses défis', 'Mon rôle', 'Ma démarche', 'Les outils et le résultat'],
+    choix: 'Les outils',
+    resultat: 'Le résultat',
   },
   affiche: {
-    onglets: ['Contexte, défis et solutions', 'Rôle', 'Processus', 'Choix créatifs et résultat'],
-    choix: 'Choix créatifs',
-    resultat: 'Rendu final',
+    onglets: ['Le projet et ses défis', 'Mon rôle', 'Ma démarche', 'Les choix créatifs et le résultat'],
+    choix: 'Les choix créatifs',
+    resultat: 'Le rendu final',
   },
 };
 
