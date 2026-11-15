@@ -27,3 +27,12 @@ Prérequis : Node 22.5 ou plus (module `node:sqlite`). Pour éditer la base : «
 Même structure, libellés adaptés : « Les choix créatifs et le résultat », « Le rendu final ».
 Pour une affiche : `outil` = logiciels, `choix` = typographies, palette, grille, format et support ;
 `photo` en `3/4` pour le visuel final et ses déclinaisons.
+
+## Les images (mockups)
+`npm run projets:images` liste les images encore manquantes avec leur nom, leur format et ce qu'il faut capturer.
+Dépose les fichiers dans `public/images/<slug>/` avec exactement ce nom : ils remplacent les encadrés « Photo à ajouter ».
+
+Les captures d'écran s'affichent automatiquement dans un cadre :
+- format 16:9 (ordinateur) : fenêtre de navigateur. Capture en pleine fenêtre, par exemple 1600 × 900 px minimum.
+- format 3:4 (mobile) : téléphone. Capture avec la fenêtre étroite (390 px de large) et garde le haut de l'écran, sur un format 3:4 (390 × 520 px, ou plus grand dans les mêmes proportions).
+- la photo de couverture n'a pas de cadre.

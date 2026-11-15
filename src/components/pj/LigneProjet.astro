@@ -37,7 +37,7 @@ const { sec } = Astro.props as { sec: Section };
         {sec.schemas?.includes('chaleur') && <div class="pp-feuille"><GraphiqueChaleur /></div>}
         {sec.photos && (
           <div class:list={['recit__photos', sec.photos.length > 1 && `recit__photos--${sec.photos.length}`]}>
-            {sec.photos.map((ph) => <Photo photo={ph} serre={sec.photos!.length > 1} />)}
+            {sec.photos.map((ph) => <Photo photo={ph} serre={sec.photos!.length > 1} mockup />)}
           </div>
         )}
       </div>

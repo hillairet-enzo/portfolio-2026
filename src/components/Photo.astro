@@ -7,16 +7,30 @@ interface Props {
   photo: Photo;
   serre?: boolean; // petit cadre (photos côte à côte) : texte raccourci
   prioritaire?: boolean; // image visible dès l'arrivée sur la page
+  mockup?: boolean; // capture d'écran : on l'affiche dans une fenêtre de navigateur (16:9...) ou un téléphone (3:4)
 }
-const { photo, serre = false, prioritaire = false } = Astro.props;
+const { photo, serre = false, prioritaire = false, mockup = false } = Astro.props;
 
 const fichiers = Object.keys(import.meta.glob('/public/images/**/*.{jpg,jpeg,png,webp,avif}'));
 const existe = fichiers.includes(`/public/images/${photo.fichier}`);
 const [l, h] = photo.format.split('/').map(Number);
+const cadre = mockup && l < h ? 'telephone' : mockup ? 'navigateur' : null;
 ---
 
 {
-  existe ? (
+  existe && cadre ? (
+    <figure class:list={['photo', 'mockup', `mockup--${cadre}`]}>
+      {cadre === 'navigateur' && (
+        <div class="mockup__barre" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      )}
+      <div class="mockup__ecran" style={`aspect-ratio:${l}/${h}`}>
+        <img src={`/images/${photo.fichier}`} alt={photo.alt} loading={prioritaire ? 'eager' : 'lazy'} decoding="async" />
+      </div>
+      {cadre === 'telephone' && <span class="mockup__ilot" aria-hidden="true"></span>}
+    </figure>
+  ) : existe ? (
     <figure class="photo" style={`aspect-ratio:${l}/${h}`}>
       <img
         src={`/images/${photo.fichier}`}

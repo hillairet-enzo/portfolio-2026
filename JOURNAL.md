@@ -108,6 +108,7 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 - Textes des deux projets réécrits en phrases courtes et simples, et onglets renommés pour être plus parlants : « Le projet et ses défis », « Mon rôle », « Ma démarche », « Les outils et le résultat ».
 - Mise en page des onglets revue : espaces resserrés, bulles du rôle supprimées, démarche avec le schéma en grand sous un court texte d'introduction, outils présentés en cartes avec une icône et une phrase simple, schémas techniques retirés.
 - Onglets adoucis : fond en dégradés pastel très légers à la place du gris, cartes blanches pour les défis, les outils et les schémas. Texte et section jugés inutiles retirés sur TiK•TaK (le schéma de la démarche se suffit à lui-même). Les sections à plusieurs photos passent en texte au-dessus et photos en dessous.
+- Mockups : les captures d'écran des projets s'affichent maintenant dans une fenêtre de navigateur (format ordinateur) ou dans un téléphone (format mobile). Commande `npm run projets:images` pour lister les captures encore à faire.
 - Mode d'emploi pour ajouter un projet : `data/AJOUTER-UN-PROJET.md`.
 
 ## Choix des réseaux professionnels (consigne 2.4)
