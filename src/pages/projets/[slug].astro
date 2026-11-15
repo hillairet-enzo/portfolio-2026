@@ -158,23 +158,52 @@ const blocs = [
 </Layout>
 
 <dialog class="zoom" id="zoom" aria-label="Image en grand">
-  <button type="button" class="zoom__fermer" aria-label="Fermer l’image">×</button>
-  <img alt="" />
+  <button type="button" class="zoom__bouton zoom__fermer" aria-label="Fermer l’image">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+  </button>
+  <button type="button" class="zoom__bouton zoom__prec" aria-label="Image précédente">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+  </button>
+  <button type="button" class="zoom__bouton zoom__suiv" aria-label="Image suivante">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+  </button>
+  <figure class="zoom__figure">
+    <img alt="" />
+    <figcaption class="zoom__legende"></figcaption>
+  </figure>
 </dialog>
 
 <script>
-  // Clic sur une image : elle s'ouvre en grand
+  // Clic sur une image : elle s'ouvre en grand, on peut passer à la suivante (flèches, clavier)
   const zoom = document.getElementById('zoom') as HTMLDialogElement | null;
   if (zoom) {
     const grande = zoom.querySelector('img') as HTMLImageElement;
-    document.querySelectorAll<HTMLImageElement>('img[data-zoom]').forEach((img) => {
+    const legende = zoom.querySelector('.zoom__legende') as HTMLElement;
+    const images = Array.from(document.querySelectorAll<HTMLImageElement>('img[data-zoom]'));
+    let courante = 0;
+    const afficher = (i: number) => {
+      courante = (i + images.length) % images.length;
+      const img = images[courante];
+      grande.src = img.currentSrc || img.src;
+      grande.alt = img.alt;
+      legende.textContent = img.alt;
+      zoom.classList.toggle('zoom--seule', images.length < 2);
+    };
+    images.forEach((img, i) => {
       img.tabIndex = 0;
       img.setAttribute('role', 'button');
-      const ouvrir = () => { grande.src = img.currentSrc || img.src; grande.alt = img.alt; zoom.showModal(); };
+      const ouvrir = () => { afficher(i); zoom.showModal(); };
       img.addEventListener('click', ouvrir);
       img.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ouvrir(); } });
     });
-    zoom.addEventListener('click', () => zoom.close());
+    zoom.querySelector('.zoom__fermer')?.addEventListener('click', () => zoom.close());
+    zoom.querySelector('.zoom__prec')?.addEventListener('click', () => afficher(courante - 1));
+    zoom.querySelector('.zoom__suiv')?.addEventListener('click', () => afficher(courante + 1));
+    zoom.addEventListener('click', (e) => { if (e.target === zoom) zoom.close(); });
+    zoom.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') afficher(courante - 1);
+      if (e.key === 'ArrowRight') afficher(courante + 1);
+    });
   }
   const tabs = Array.from(document.querySelectorAll<HTMLElement>('.pp-tab'));
   const fermer = (t: HTMLElement) => {

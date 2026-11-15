@@ -5609,11 +5609,25 @@ html:not([data-theme='dark']) .pp-tab[data-ouvert="true"] { background: #e9e8e4;
 img[data-zoom] { cursor: zoom-in; }
 img[data-zoom]:focus-visible { outline: 3px solid #0b0b0c; outline-offset: 3px; }
 
-/* ===== Visionneuse d'image (clic sur une capture) ===== */
-.zoom { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; overflow: visible; }
-.zoom::backdrop { background: rgb(12 12 14 / .82); backdrop-filter: blur(4px); }
-.zoom img { display: block; max-width: 94vw; max-height: 90vh; width: auto; height: auto; border-radius: .8rem; box-shadow: 0 30px 80px rgb(0 0 0 / .5); cursor: zoom-out; }
-.zoom__fermer { position: absolute; top: -2.4rem; right: 0; width: 2.2rem; height: 2.2rem; border: 0; border-radius: 50%; background: #fff; color: #0b0b0c; font-size: 1.4rem; line-height: 1; cursor: pointer; }
+/* ===== Visionneuse d'image : plein écran, image centrée, légende, flèches ===== */
+.zoom { border: 0; padding: 0; margin: 0; max-width: none; max-height: none; width: 100vw; height: 100dvh; background: transparent; color: #fff; overflow: hidden; }
+.zoom[open] { display: grid; place-items: center; animation: zoom-entree .28s var(--ease, ease) both; }
+.zoom::backdrop { background: rgb(14 14 16 / .88); backdrop-filter: blur(10px); }
+.zoom__figure { margin: 0; display: grid; justify-items: center; gap: .9rem; max-width: min(94vw, 1500px); padding: 3.4rem 0 1.4rem; }
+.zoom__figure img { display: block; max-width: 100%; max-height: calc(100dvh - 8.5rem); width: auto; height: auto; border-radius: 1rem; box-shadow: 0 30px 80px rgb(0 0 0 / .55); background: #fff; }
+.zoom__legende { max-width: 46rem; text-align: center; font-size: .95rem; line-height: 1.4; color: rgb(255 255 255 / .8); text-wrap: balance; }
+.zoom__bouton { position: absolute; display: grid; place-items: center; width: 2.9rem; height: 2.9rem; border: 1px solid rgb(255 255 255 / .22); border-radius: 50%; background: rgb(255 255 255 / .12); color: #fff; cursor: pointer; backdrop-filter: blur(8px); transition: background .2s, transform .2s var(--ease, ease); }
+.zoom__bouton:hover { background: rgb(255 255 255 / .26); }
+.zoom__bouton:active { transform: scale(.94); }
+.zoom__bouton:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.zoom__bouton svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.zoom__fermer { top: 1.1rem; right: 1.1rem; }
+.zoom__prec, .zoom__suiv { top: 50%; margin-top: -1.45rem; }
+.zoom__prec { left: 1.1rem; } .zoom__suiv { right: 1.1rem; }
+.zoom--seule .zoom__prec, .zoom--seule .zoom__suiv { display: none; }
+@keyframes zoom-entree { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+@media (max-width: 640px) { .zoom__prec, .zoom__suiv { top: auto; bottom: 1rem; margin: 0; } .zoom__prec { left: calc(50% - 3.4rem); } .zoom__suiv { right: calc(50% - 3.4rem); } .zoom__figure { padding-bottom: 4.6rem; } }
+@media (prefers-reduced-motion: reduce) { .zoom[open] { animation: none; } }
 
 /* ===== Résultat : vitrine des mockups (ordinateur + téléphone) ===== */
 .pp-ligne--vitrine { grid-template-columns: 1fr !important; gap: 1.4rem; }
@@ -5626,3 +5640,10 @@ img[data-zoom]:focus-visible { outline: 3px solid #0b0b0c; outline-offset: 3px; 
 .pp-raccourcis { margin-top: .4rem; }
 @media (max-width: 720px) { .pp-vitrine { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .photo.vitrine img { transition: none; } .photo.vitrine:hover img { transform: none; } }
+
+/* ===== Texte plus large quand il n'y a pas de média à côté ===== */
+.pp-ligne:not(:has(.pp-ligne__medias)) { grid-template-columns: minmax(0, 1fr); }
+.pp-ligne--empile .pp-ligne__texte, .pp-ligne--vitrine .pp-ligne__texte { max-width: none; }
+.pp-ligne:not(:has(.pp-ligne__medias)) .pp-ligne__texte .texte-courant p { font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.55; }
+.pp-ligne--empile .texte-courant, .pp-ligne--vitrine .texte-courant, .pp-ligne:not(:has(.pp-ligne__medias)) .texte-courant { max-width: none; }
+.pp-tab .pp-ligne:not(:has(.pp-ligne__medias)) { grid-template-columns: minmax(0, 1fr); }

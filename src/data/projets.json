@@ -95,15 +95,6 @@
         "paragraphes": [
           "La SAE 301 demandait de créer un site relié à une base de données. J’ai choisi un produit qu’on peut composer pièce par pièce : une montre de course.",
           "Les montres de sport se ressemblent presque toutes, alors que chaque coureur a son terrain, son rythme et ses couleurs. Avec TiK•TaK, on crée la montre qu’on a envie de porter. La marque est fictive, mais le parcours est complet, de l’aperçu à la commande."
-        ],
-        "photos": [
-          {
-            "fichier": "tiktak/accueil.jpg",
-            "alt": "La page d’accueil du site TiK•TaK",
-            "sujet": "Capture de la page d’accueil de TiK•TaK (hero avec les montres), en plein écran sur ordinateur.",
-            "format": "21/9",
-            "taille": "1537 × 659 px"
-          }
         ]
       },
       {
