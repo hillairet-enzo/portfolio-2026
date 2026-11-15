@@ -110,6 +110,7 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 - Onglets adoucis : fond en dégradés pastel très légers à la place du gris, cartes blanches pour les défis, les outils et les schémas. Texte et section jugés inutiles retirés sur TiK•TaK (le schéma de la démarche se suffit à lui-même). Les sections à plusieurs photos passent en texte au-dessus et photos en dessous.
 - Mockups : les captures d'écran des projets s'affichent maintenant dans une fenêtre de navigateur (format ordinateur) ou dans un téléphone (format mobile). Commande `npm run projets:images` pour lister les captures encore à faire.
 - Mode d'emploi pour ajouter un projet : `data/AJOUTER-UN-PROJET.md`.
+- Vraies captures de TiK•TaK (accueil, configurateur, modèle 3D, assistant IA) prises sur le site en ligne et placées dans les cadres navigateur, au format large 21:9. Restent les captures mobile et celles de ThermoViz.
 
 ## Choix des réseaux professionnels (consigne 2.4)
 
