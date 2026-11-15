@@ -114,6 +114,7 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 - Retouches : fond des onglets en gris uni un peu plus foncé (plus de couleurs dans les coins), captures affichées sans fenêtre ni points de couleur mais détachées du fond (bord fin et ombre), clic sur une image pour l'ouvrir en grand (touche Échap ou clic pour fermer).
 - Onglet « Les outils et le résultat » de TiK•TaK : le résultat présente maintenant deux mockups côte à côte (MacBook et téléphone tenus en main, avec l'accueil du site), faits à partir de mockups PSD gratuits et de mes captures. Les images dont le nom commence par `mockup-` s'affichent en vitrine, avec une légende.
 - Réglages : textes étendus sur toute la largeur quand rien ne les accompagne, capture d'accueil retirée du premier onglet de TiK•TaK, visionneuse d'image refaite (plein écran, image centrée, légende, flèches et clavier pour passer d'une image à l'autre).
+- Photo d'ouverture des pages projet : ombre douce et fin liseré pour qu'elle se détache du fond.
 
 ## Choix des réseaux professionnels (consigne 2.4)
 
