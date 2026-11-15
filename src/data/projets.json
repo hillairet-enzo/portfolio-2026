@@ -274,6 +274,10 @@
       {
         "label": "Ouvrir le notebook Observable",
         "url": "https://observablehq.com/@mmi-montbeliard/sae-303-gr-13"
+      },
+      {
+        "label": "Voir la page sur data.gouv.fr",
+        "url": "https://www.data.gouv.fr/reuses/thermo-viz-chaleur-et-pauvrete-dans-la-metropole-bordelaise"
       }
     ],
     "couverture": {
@@ -336,15 +340,15 @@
             "fichier": "thermo-viz/carte.jpg",
             "alt": "La carte des zones de chaleur de la métropole de Bordeaux",
             "sujet": "Capture de la première visualisation, « La carte » : la carte de la métropole avec les zones colorées, le titre « Les zones les plus chaudes forment un bloc autour du centre » visible au-dessus.",
-            "format": "16/9",
-            "taille": "2400 × 1350 px"
+            "format": "3/2",
+            "taille": "1188 × 793 px"
           },
           {
             "fichier": "thermo-viz/comparaison.jpg",
             "alt": "Graphique comparant la part de ménages pauvres et des autres ménages selon la chaleur",
             "sujet": "Capture de la visualisation « Les écarts » : le graphique qui compare ménages pauvres et autres ménages, avec son titre « Oui, les ménages pauvres vivent un peu plus souvent dans les zones chaudes ».",
-            "format": "16/9",
-            "taille": "2400 × 1350 px"
+            "format": "3/2",
+            "taille": "1188 × 793 px"
           }
         ]
       },
@@ -359,8 +363,8 @@
             "fichier": "thermo-viz/ma-commune.jpg",
             "alt": "Le menu de choix de commune ouvert, sur fond de photo de Bordeaux",
             "sujet": "Capture du champ « Et chez moi ? » avec la liste des communes ouverte (effet verre sur la photo). Cadre serré sur le haut de la page.",
-            "format": "16/9",
-            "taille": "2400 × 1350 px"
+            "format": "3/2",
+            "taille": "1188 × 793 px"
           }
         ]
       },
@@ -376,8 +380,8 @@
             "fichier": "thermo-viz/methode.jpg",
             "alt": "La page Méthode du site, avec le tableau des sources",
             "sujet": "Capture de la page /methode : le tableau des quatre sources (producteur, date, licence) avec les onglets en haut.",
-            "format": "16/9",
-            "taille": "2400 × 1350 px"
+            "format": "3/2",
+            "taille": "1188 × 793 px"
           }
         ]
       },
@@ -386,7 +390,24 @@
         "titre": "Le résultat",
         "paragraphes": [
           "Oui, les ménages pauvres vivent un peu plus souvent dans les zones les plus chaudes. Mais presque tout le monde est touché : la chaleur se concentre autour du centre de Bordeaux.",
-          "La conclusion dit les deux à la fois, plutôt qu’une phrase choc."
+          "La conclusion dit les deux à la fois, plutôt qu’une phrase choc.",
+          "ThermoViz est aussi publié sur data.gouv.fr, le site public des données ouvertes, dans la catégorie « Environnement et énergie »."
+        ],
+        "photos": [
+          {
+            "fichier": "thermo-viz/mockup-ordinateur.jpg",
+            "alt": "L’accueil de ThermoViz sur l’écran d’un MacBook tenu à la main",
+            "sujet": "Sur ordinateur",
+            "format": "4/3",
+            "taille": "2400 × 1800 px"
+          },
+          {
+            "fichier": "thermo-viz/mockup-telephone.jpg",
+            "alt": "L’accueil de ThermoViz sur un téléphone tenu à la main",
+            "sujet": "Sur téléphone",
+            "format": "4/3",
+            "taille": "2400 × 1800 px"
+          }
         ]
       },
       {
@@ -402,21 +423,21 @@
             "alt": "L’accueil de ThermoViz sur téléphone",
             "sujet": "Capture de l’accueil sur téléphone (390 px de large) avec le titre « Bordeaux ».",
             "format": "3/4",
-            "taille": "1500 × 2000 px"
+            "taille": "585 × 780 px"
           },
           {
             "fichier": "thermo-viz/mobile-2.jpg",
             "alt": "Une visualisation de ThermoViz sur téléphone",
             "sujet": "Capture d’une visualisation sur téléphone, avec la barre d’onglets visible.",
             "format": "3/4",
-            "taille": "1500 × 2000 px"
+            "taille": "585 × 780 px"
           },
           {
             "fichier": "thermo-viz/mobile-3.jpg",
             "alt": "La page Ma commune sur téléphone",
             "sujet": "Capture de la visualisation « Ma commune » sur téléphone, avec une commune choisie.",
             "format": "3/4",
-            "taille": "1500 × 2000 px"
+            "taille": "585 × 780 px"
           }
         ]
       }

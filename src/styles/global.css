@@ -5651,3 +5651,8 @@ img[data-zoom]:focus-visible { outline: 3px solid #0b0b0c; outline-offset: 3px; 
 /* Photo d'ouverture : ombre douce et fin liseré pour la détacher du fond */
 .ph-photo { box-shadow: 0 0 0 1px rgb(11 11 12 / .1), 0 2px 4px rgb(0 0 0 / .06), 0 22px 40px -14px rgb(0 0 0 / .32), 0 50px 90px -36px rgb(0 0 0 / .4); }
 html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14), 0 30px 70px -24px rgb(0 0 0 / .8); }
+
+/* Titre de projet : la taille suit la largeur de sa colonne, pour que les noms longs (ThermoViz) ne soient jamais coupés */
+.ph-gauche { container-type: inline-size; min-width: 0; }
+.ph-titre { font-size: clamp(2.6rem, 18.5cqi, 8rem); }
+@media (max-width: 60rem) { .ph-titre { font-size: clamp(3rem, 16vw, 6rem); } }
