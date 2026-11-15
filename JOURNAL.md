@@ -133,4 +133,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - Nettoyer et découper la feuille de styles (160 Ko).
 - Mettre le site en ligne sur enzoh.fr (hébergement, HTTPS) et refaire les mesures sur le site en ligne.
 - Mettre à jour LinkedIn, préparer les deux soutenances.
-- Mockups ThermoViz refaits comme TiK•TaK : MacBook en main (la carte) et iPhone Duo (« Et votre commune »), et suppression des 3 petites captures mobiles de l'onglet résultat.
+- Mockups ThermoViz refaits comme TiK•TaK : MacBook en main et iPhone Duo, tous deux avec la page d'accueil, et suppression des 3 petites captures mobiles de l'onglet résultat.
