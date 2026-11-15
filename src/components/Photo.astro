@@ -7,9 +7,10 @@ interface Props {
   photo: Photo;
   serre?: boolean; // petit cadre (photos côte à côte) : texte raccourci
   prioritaire?: boolean; // image visible dès l'arrivée sur la page
+  vitrine?: boolean; // mockup : image seule, coins arrondis, légende en pastille
   mockup?: boolean; // capture d'écran : affichée telle quelle, détachée du fond (ombre fine)
 }
-const { photo, serre = false, prioritaire = false, mockup = false } = Astro.props;
+const { photo, serre = false, prioritaire = false, mockup = false, vitrine = false } = Astro.props;
 
 const fichiers = Object.keys(import.meta.glob('/public/images/**/*.{jpg,jpeg,png,webp,avif}'));
 const existe = fichiers.includes(`/public/images/${photo.fichier}`);
@@ -18,7 +19,12 @@ const cadre = mockup && l < h ? 'telephone' : mockup ? 'navigateur' : null;
 ---
 
 {
-  existe && cadre ? (
+  existe && vitrine ? (
+    <figure class="photo vitrine">
+      <img src={`/images/${photo.fichier}`} alt={photo.alt} width={l * 100} height={h * 100} loading="lazy" decoding="async" data-zoom />
+      <figcaption class="vitrine__legende">{photo.sujet}</figcaption>
+    </figure>
+  ) : existe && cadre ? (
     <figure class:list={['photo', 'capture', `capture--${cadre}`]}>
       <img src={`/images/${photo.fichier}`} alt={photo.alt} width={l * 100} height={h * 100} loading={prioritaire ? 'eager' : 'lazy'} decoding="async" data-zoom />
     </figure>

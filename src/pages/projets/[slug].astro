@@ -116,6 +116,7 @@ const blocs = [
                     {b.id === 'choix' && (
                       <>
                         <h4 class="pp-sous-titre">{gabarit.resultat}</h4>
+                        {b.sections.filter((sec) => sec.onglet === 'resultat').map((sec) => <Ligne sec={sec} />)}
                         {projet.liens.length > 0 && (
                           <div class="pp-raccourcis">
                             {projet.liens.map((l, k) => (
@@ -126,7 +127,6 @@ const blocs = [
                             ))}
                           </div>
                         )}
-                        {b.sections.filter((sec) => sec.onglet === 'resultat').map((sec) => <Ligne sec={sec} />)}
                       </>
                     )}
                   </div>

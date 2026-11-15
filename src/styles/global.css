@@ -5614,3 +5614,15 @@ img[data-zoom]:focus-visible { outline: 3px solid #0b0b0c; outline-offset: 3px; 
 .zoom::backdrop { background: rgb(12 12 14 / .82); backdrop-filter: blur(4px); }
 .zoom img { display: block; max-width: 94vw; max-height: 90vh; width: auto; height: auto; border-radius: .8rem; box-shadow: 0 30px 80px rgb(0 0 0 / .5); cursor: zoom-out; }
 .zoom__fermer { position: absolute; top: -2.4rem; right: 0; width: 2.2rem; height: 2.2rem; border: 0; border-radius: 50%; background: #fff; color: #0b0b0c; font-size: 1.4rem; line-height: 1; cursor: pointer; }
+
+/* ===== Résultat : vitrine des mockups (ordinateur + téléphone) ===== */
+.pp-ligne--vitrine { grid-template-columns: 1fr !important; gap: 1.4rem; }
+.pp-ligne--vitrine .pp-ligne__texte { position: static; max-width: 46rem; }
+.pp-vitrine { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.4rem); }
+.photo.vitrine { position: relative; margin: 0; aspect-ratio: auto; overflow: hidden; border-radius: 1.5rem; background: #f2f2f2; box-shadow: 0 1px 2px rgb(0 0 0 / .05), 0 26px 50px -30px rgb(0 0 0 / .45); }
+.photo.vitrine img { display: block; width: 100%; height: auto; transition: transform .6s var(--ease, ease); }
+.photo.vitrine:hover img { transform: scale(1.025); }
+.vitrine__legende { position: absolute; left: .9rem; bottom: .9rem; padding: .4rem .9rem; border-radius: 99px; background: rgb(255 255 255 / .86); backdrop-filter: blur(10px); font-size: .85rem; font-weight: 700; color: #0b0b0c; box-shadow: 0 1px 2px rgb(0 0 0 / .08); }
+.pp-raccourcis { margin-top: .4rem; }
+@media (max-width: 720px) { .pp-vitrine { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .photo.vitrine img { transition: none; } .photo.vitrine:hover img { transform: none; } }

@@ -36,3 +36,7 @@ Les captures d'écran s'affichent automatiquement dans un cadre :
 - format 16:9 (ordinateur) : fenêtre de navigateur. Capture en pleine fenêtre, par exemple 1600 × 900 px minimum.
 - format 3:4 (mobile) : téléphone. Capture avec la fenêtre étroite (390 px de large) et garde le haut de l'écran, sur un format 3:4 (390 × 520 px, ou plus grand dans les mêmes proportions).
 - la photo de couverture n'a pas de cadre.
+
+## Mockups dans « Le résultat »
+
+Une image dont le nom commence par `mockup-` (par exemple `tiktak/mockup-ordinateur.jpg`) est affichée en « vitrine » : coins arrondis, sans bord, avec une légende en pastille. La légende est le champ `sujet` de la photo. Mettre deux images au format 4/3 pour qu'elles se placent côte à côte.

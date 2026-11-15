@@ -13,9 +13,11 @@ import Telephones from './Telephones.astro';
 import Chiffres from './Chiffres.astro';
 import type { Section } from '../../data/projets';
 const { sec } = Astro.props as { sec: Section };
+// Mockups (images nommées « mockup-… ») : présentés en vitrine, côte à côte, avec une légende
+const vitrine = !!sec.photos?.length && sec.photos.every((ph) => /\/mockup-/.test(ph.fichier));
 ---
 
-<div class:list={['pp-ligne', (sec.flux || (sec.photos?.length ?? 0) >= 2) && 'pp-ligne--empile', sec.paragraphes.length === 0 && 'pp-ligne--sans-texte']}>
+<div class:list={['pp-ligne', (sec.flux || (sec.photos?.length ?? 0) >= 2) && 'pp-ligne--empile', vitrine && 'pp-ligne--vitrine', sec.paragraphes.length === 0 && 'pp-ligne--sans-texte']}>
     {sec.paragraphes.length > 0 && (
       <div class="pp-ligne__texte">
         <div class="texte-courant">
@@ -35,7 +37,12 @@ const { sec } = Astro.props as { sec: Section };
         {sec.schemas?.includes('base') && <div class="pp-feuille"><SchemaBase /></div>}
         {sec.schemas?.includes('pipeline') && <div class="pp-feuille"><SchemaPipeline /></div>}
         {sec.schemas?.includes('chaleur') && <div class="pp-feuille"><GraphiqueChaleur /></div>}
-        {sec.photos && (
+        {sec.photos && vitrine && (
+          <div class="pp-vitrine">
+            {sec.photos.map((ph) => <Photo photo={ph} vitrine />)}
+          </div>
+        )}
+        {sec.photos && !vitrine && (
           <div class:list={['recit__photos', sec.photos.length > 1 && `recit__photos--${sec.photos.length}`]}>
             {sec.photos.map((ph) => <Photo photo={ph} serre={sec.photos!.length > 1} mockup />)}
           </div>

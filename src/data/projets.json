@@ -178,31 +178,24 @@
       },
       {
         "onglet": "resultat",
-        "titre": "Sur téléphone",
+        "titre": "Un site qui marche partout",
         "paragraphes": [
-          "On compose sa montre, on la voit en 3D, on la commande. Tout fonctionne aussi sur téléphone."
+          "Le site se parcourt de bout en bout : on compose sa montre, on la voit en 3D, on la commande. Il s’adapte aussi bien à l’écran d’un ordinateur qu’à celui d’un téléphone."
         ],
         "photos": [
           {
-            "fichier": "tiktak/mobile-1.jpg",
-            "alt": "Le configurateur TiK•TaK sur téléphone",
-            "sujet": "Capture du configurateur sur téléphone (390 px de large), montre visible en haut.",
-            "format": "3/4",
-            "taille": "1500 × 2000 px"
+            "fichier": "tiktak/mockup-ordinateur.jpg",
+            "alt": "L’accueil du site TiK•TaK sur l’écran d’un MacBook tenu à la main",
+            "sujet": "Sur ordinateur",
+            "format": "4/3",
+            "taille": "2400 × 1800 px"
           },
           {
-            "fichier": "tiktak/mobile-2.jpg",
-            "alt": "La page Mes montres sur téléphone",
-            "sujet": "Capture de la page « Mes montres » sur téléphone avec au moins trois montres enregistrées.",
-            "format": "3/4",
-            "taille": "1500 × 2000 px"
-          },
-          {
-            "fichier": "tiktak/mobile-3.jpg",
-            "alt": "La page de commande sur téléphone",
-            "sujet": "Capture de la commande sur téléphone : quantité, frais de livraison de 10 € et total.",
-            "format": "3/4",
-            "taille": "1500 × 2000 px"
+            "fichier": "tiktak/mockup-telephone.jpg",
+            "alt": "L’accueil du site TiK•TaK sur un téléphone tenu à la main",
+            "sujet": "Sur téléphone",
+            "format": "4/3",
+            "taille": "2400 × 1800 px"
           }
         ]
       }
