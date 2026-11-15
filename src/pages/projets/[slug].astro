@@ -2,18 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import Photo from '../../components/Photo.astro';
 import Contact from '../../components/Contact.astro';
-import Flux from '../../components/Flux.astro';
-import SchemaBase from '../../components/SchemaBase.astro';
-import SchemaArchitecture from '../../components/SchemaArchitecture.astro';
-import SchemaPipeline from '../../components/SchemaPipeline.astro';
-import GraphiqueChaleur from '../../components/GraphiqueChaleur.astro';
-import MontreCycle from '../../components/pj/MontreCycle.astro';
-import Configurateur from '../../components/pj/Configurateur.astro';
-import ChatIA from '../../components/pj/ChatIA.astro';
-import Telephones from '../../components/pj/Telephones.astro';
-import Chiffres from '../../components/pj/Chiffres.astro';
+import Ligne from '../../components/pj/LigneProjet.astro';
 import { THEME_NEUTRE, couleurMoyenne } from '../../lib/theme';
-import { projets, trouverProjet } from '../../data/projets';
+import { projets, trouverProjet, gabarits } from '../../data/projets';
 
 export function getStaticPaths() {
   return projets.map((p) => ({ params: { slug: p.slug } }));
@@ -32,12 +23,19 @@ const teintes = [
   { fond: '#7c3aed', sombre: true },
   { fond: '#ffb8d4', sombre: false },
 ];
+const gabarit = gabarits[projet.type];
+// Quatre onglets : le dernier regroupe les choix (techniques ou créatifs) et le résultat.
 const blocs = [
-  { id: 'objectif', titre: 'L’objectif' },
-  { id: 'processus', titre: 'Processus créatif' },
-  { id: 'choix', titre: 'Choix techniques' },
-  { id: 'resultat', titre: 'Le résultat' },
-].map((b, i) => ({ ...b, sections: projet.sections.filter((s) => s.phase === b.id), ...teintes[i] })).filter((b) => b.sections.length || b.id === 'choix');
+  { id: 'contexte', onglets: ['contexte'] },
+  { id: 'role', onglets: ['role'] },
+  { id: 'processus', onglets: ['processus'] },
+  { id: 'choix', onglets: ['choix', 'resultat'] },
+].map((b, i) => ({
+  ...b,
+  titre: gabarit.onglets[i],
+  sections: projet.sections.filter((s) => (b.onglets as string[]).includes(s.onglet)),
+  ...teintes[i],
+}));
 ---
 
 <Layout titre={projet.titre} description={projet.resume} page="projet" claire theme={couleurs}>
@@ -85,54 +83,56 @@ const blocs = [
                 </h3>
                 <div class="pp-tab__panneau" id={`pan-${b.id}`} role="region" aria-labelledby={`btn-${b.id}`} inert>
                   <div class="pp-tab__interieur">
-                    {b.id === 'choix' && (
-                      <ul class="pp-choix">
-                        {projet.choix.map((c) => (
-                          <li>
-                            <strong>{c.nom}</strong>
-                            <span>{c.raison}</span>
-                          </li>
-                        ))}
+                    {b.id === 'contexte' && projet.defis.length > 0 && (
+                      <div class="pp-defis">
+                        <h4 class="pp-sous-titre">Défis et solutions</h4>
+                        <ol class="pp-defis__liste">
+                          {projet.defis.map((d, k) => (
+                            <li class="pp-defi">
+                              <span class="pp-defi__num" aria-hidden="true">{String(k + 1).padStart(2, '0')}</span>
+                              <div class="pp-defi__defi"><span class="pp-defi__label">Défi</span><p>{d.defi}</p></div>
+                              <div class="pp-defi__solution"><span class="pp-defi__label">Solution</span><p>{d.solution}</p></div>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                    )}
+                    {b.id === 'role' && (
+                      <ul class="pp-roles" aria-label="Missions">
+                        {projet.role.map((r) => <li>{r}</li>)}
+                        <li class="pp-roles__equipe">{projet.equipe}</li>
                       </ul>
                     )}
-                    {b.id === 'resultat' && projet.liens.length > 0 && (
-                      <div class="pp-raccourcis">
-                        {projet.liens.map((l, k) => (
-                          <a class:list={['pp-raccourci', k === 0 && 'pp-raccourci--plein']} href={l.url} target="_blank" rel="noopener">
-                            {l.label}
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
-                          </a>
-                        ))}
-                      </div>
+                    {b.id === 'choix' && (
+                      <>
+                        <h4 class="pp-sous-titre">{gabarit.choix}</h4>
+                        <ul class="pp-choix">
+                          {projet.choix.map((c) => (
+                            <li>
+                              <strong>{c.nom}</strong>
+                              <span>{c.raison}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
                     )}
-                    {b.sections.map((sec) => (
-                      <div class="pp-ligne">
-                        <div class="pp-ligne__texte">
-                          <div class="texte-courant">
-                            {sec.paragraphes.map((t) => <p>{t}</p>)}
-                          </div>
-                        </div>
-                        {(sec.flux || sec.chiffres || sec.visuel || sec.schemas || sec.photos) && (
-                          <div class="pp-ligne__medias">
-                            {sec.flux && <div class="pp-feuille"><Flux etapes={sec.flux.etapes} etiquette={sec.flux.etiquette} /></div>}
-                            {sec.chiffres && <div class="pp-feuille"><Chiffres items={sec.chiffres} /></div>}
-                            {sec.visuel === 'montre' && <div class="pp-feuille"><MontreCycle /></div>}
-                            {sec.visuel === 'configurateur' && <div class="pp-feuille"><Configurateur /></div>}
-                            {sec.visuel === 'chat' && <div class="pp-feuille"><ChatIA /></div>}
-                            {sec.visuel === 'telephones' && <div class="pp-feuille"><Telephones /></div>}
-                            {sec.schemas?.includes('architecture') && <div class="pp-feuille"><SchemaArchitecture /></div>}
-                            {sec.schemas?.includes('base') && <div class="pp-feuille"><SchemaBase /></div>}
-                            {sec.schemas?.includes('pipeline') && <div class="pp-feuille"><SchemaPipeline /></div>}
-                            {sec.schemas?.includes('chaleur') && <div class="pp-feuille"><GraphiqueChaleur /></div>}
-                            {sec.photos && (
-                              <div class:list={['recit__photos', sec.photos.length > 1 && `recit__photos--${sec.photos.length}`]}>
-                                {sec.photos.map((ph) => <Photo photo={ph} serre={sec.photos!.length > 1} />)}
-                              </div>
-                            )}
+                    {b.sections.filter((sec) => sec.onglet !== 'resultat').map((sec) => <Ligne sec={sec} />)}
+                    {b.id === 'choix' && (
+                      <>
+                        <h4 class="pp-sous-titre">{gabarit.resultat}</h4>
+                        {projet.liens.length > 0 && (
+                          <div class="pp-raccourcis">
+                            {projet.liens.map((l, k) => (
+                              <a class:list={['pp-raccourci', k === 0 && 'pp-raccourci--plein']} href={l.url} target="_blank" rel="noopener">
+                                {l.label}
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+                              </a>
+                            ))}
                           </div>
                         )}
-                      </div>
-                    ))}
+                        {b.sections.filter((sec) => sec.onglet === 'resultat').map((sec) => <Ligne sec={sec} />)}
+                      </>
+                    )}
                   </div>
                 </div>
               </div>

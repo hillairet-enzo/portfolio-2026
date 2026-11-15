@@ -1,0 +1,43 @@
+---
+// Une ligne de récit : texte à gauche, médias (flux, schémas, visuels, photos) à droite.
+import Photo from '../Photo.astro';
+import Flux from '../Flux.astro';
+import SchemaBase from '../SchemaBase.astro';
+import SchemaArchitecture from '../SchemaArchitecture.astro';
+import SchemaPipeline from '../SchemaPipeline.astro';
+import GraphiqueChaleur from '../GraphiqueChaleur.astro';
+import MontreCycle from './MontreCycle.astro';
+import Configurateur from './Configurateur.astro';
+import ChatIA from './ChatIA.astro';
+import Telephones from './Telephones.astro';
+import Chiffres from './Chiffres.astro';
+import type { Section } from '../../data/projets';
+const { sec } = Astro.props as { sec: Section };
+---
+
+<div class="pp-ligne">
+    <div class="pp-ligne__texte">
+      <div class="texte-courant">
+        {sec.paragraphes.map((t) => <p>{t}</p>)}
+      </div>
+    </div>
+    {(sec.flux || sec.chiffres || sec.visuel || sec.schemas || sec.photos) && (
+      <div class="pp-ligne__medias">
+        {sec.flux && <div class="pp-feuille"><Flux etapes={sec.flux.etapes} etiquette={sec.flux.etiquette} /></div>}
+        {sec.chiffres && <div class="pp-feuille"><Chiffres items={sec.chiffres} /></div>}
+        {sec.visuel === 'montre' && <div class="pp-feuille"><MontreCycle /></div>}
+        {sec.visuel === 'configurateur' && <div class="pp-feuille"><Configurateur /></div>}
+        {sec.visuel === 'chat' && <div class="pp-feuille"><ChatIA /></div>}
+        {sec.visuel === 'telephones' && <div class="pp-feuille"><Telephones /></div>}
+        {sec.schemas?.includes('architecture') && <div class="pp-feuille"><SchemaArchitecture /></div>}
+        {sec.schemas?.includes('base') && <div class="pp-feuille"><SchemaBase /></div>}
+        {sec.schemas?.includes('pipeline') && <div class="pp-feuille"><SchemaPipeline /></div>}
+        {sec.schemas?.includes('chaleur') && <div class="pp-feuille"><GraphiqueChaleur /></div>}
+        {sec.photos && (
+          <div class:list={['recit__photos', sec.photos.length > 1 && `recit__photos--${sec.photos.length}`]}>
+            {sec.photos.map((ph) => <Photo photo={ph} serre={sec.photos!.length > 1} />)}
+          </div>
+        )}
+      </div>
+    )}
+  </div>

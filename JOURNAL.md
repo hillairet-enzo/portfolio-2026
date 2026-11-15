@@ -100,6 +100,13 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 - Créé l'adresse professionnelle contact@enzoh.fr chez Infomaniak (service mail gratuit lié au domaine) et remplacé mon adresse Gmail sur tout le site.
 - Ajouté les boutons pour télécharger mon CV : en-tête, page À propos, page Contact, section contact et pied de page. Ils s'affichent dès que le PDF est déposé dans `public/`. Un CV fictif est en place pour les tester, à remplacer par le vrai avant la mise en ligne.
 
+### Dimanche 15 novembre 2026
+
+- Réorganisation des pages projet en quatre onglets : « Contexte, défis et solutions », « Rôle », « Processus », « Choix techniques et résultat ». Chaque projet a maintenant des paires défi → solution et une section sur mon rôle.
+- Les projets ne sont plus dans un gros fichier de code mais dans une base SQLite (`data/portfolio.db`), parce que c'est ce que nous apprenons en cours et que cela rend l'ajout d'un projet plus simple. Le site reste statique : un script exporte la base en JSON avant chaque build.
+- Deux gabarits prévus, « site web » et « affiche », qui changent les libellés des onglets. TiK•TaK et ThermoViz ont été migrés en premier ; les autres projets suivent.
+- Mode d'emploi pour ajouter un projet : `data/AJOUTER-UN-PROJET.md`.
+
 ## Choix des réseaux professionnels (consigne 2.4)
 
 **[À AJUSTER avec tes mots]**
