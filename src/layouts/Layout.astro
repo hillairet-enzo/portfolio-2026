@@ -1,6 +1,5 @@
 ---
 import VerreSVG from '../components/VerreSVG.astro';
-import Logo from '../components/Logo.astro';
 import '../styles/global.css';
 import { profil } from '../data/profil';
 import { projets } from '../data/projets';
@@ -23,6 +22,7 @@ const {
 const titreComplet = titre ? `${titre} – ${profil.nom}` : `${profil.nom}, portfolio`;
 const url = new URL(Astro.url.pathname, Astro.site);
 const annee = new Date().getFullYear();
+const lettres = [...profil.nom];
 ---
 
 <!doctype html>
@@ -57,15 +57,9 @@ const annee = new Date().getFullYear();
   </head>
   <body>
     <div class="chargeur" aria-hidden="true">
-      <svg class="chargeur__logo" viewBox="0 0 64 64" focusable="false">
-        <g transform="translate(.9 .9)">
-          <rect class="ch-ombre" x="9" y="9" width="50" height="50" rx="8" fill="#15171a" />
-          <rect class="ch-tuile" x="5" y="5" width="50" height="50" rx="8" fill="#fff" stroke="#15171a" stroke-width="3.5" pathLength="100" />
-          <g transform="translate(30 30) scale(.84) translate(-32 -32)">
-            <path class="ch-lettres" d="M11.64 44H28.28V39.36H17.32V34.14H27.42V29.6H17.32V24.64H28.29V20H11.64ZM31.42 44H37.11V34.06H46.69V44H52.36V20H46.69V29.42H37.11V20H31.42Z" fill="#15171a" />
-          </g>
-        </g>
-      </svg>
+      <span class="chargeur__mot">
+        {lettres.map((l, i) => (l === ' ' ? <span class="chl chl--espace"></span> : <span class="chl"><i style={`--i:${i};--c:var(--arc-${(i % 5) + 1})`}>{l}</i></span>))}
+      </span>
       <span class="chargeur__barre"><i></i></span>
     </div>
     <VerreSVG />
@@ -76,7 +70,6 @@ const annee = new Date().getFullYear();
     <header class="entete" id="entete" data-claire={claire ? '1' : undefined} >
       <div class="entete__barre">
         <a class="marque" href="/" aria-label={`${profil.nom}, accueil`}>
-          <Logo />
           <span>{profil.nom}</span>
         </a>
 
@@ -128,7 +121,6 @@ const annee = new Date().getFullYear();
         <div class="pied__corps">
           <div class="pied__id">
             <a class="marque" href="/" aria-label={`${profil.nom}, accueil`}>
-              <Logo />
               <span>{profil.nom}</span>
             </a>
             <p class="pied__phrase">{profil.recherche}</p>
@@ -234,6 +226,33 @@ const annee = new Date().getFullYear();
         function pret() { setTimeout(sortir, Math.max(0, 3200 - (Date.now() - debut))); }
         if (document.readyState === 'complete') pret(); else addEventListener('load', pret);
         setTimeout(sortir, 6500);
+      })();
+    </script>
+    <div class="toast-copie" id="toast-copie" role="status" aria-live="polite"><span class="ct__copier toast-copie__pastille" id="toast-pastille">Copié ✓</span><span class="toast-copie__texte" id="toast-texte">Adresse copiée.</span></div>
+    <script is:inline>
+      // Un clic sur une adresse mail la copie (pas d'ouverture d'un logiciel de messagerie).
+      (function () {
+        var toast = document.getElementById('toast-copie'), minuteur;
+        function annoncer(t, ok) {
+          if (!toast) return;
+          document.getElementById('toast-pastille').textContent = ok ? 'Copié ✓' : 'Copie impossible'; document.getElementById('toast-texte').textContent = t; toast.classList.add('visible');
+          clearTimeout(minuteur); minuteur = setTimeout(function () { toast.classList.remove('visible'); }, 2200);
+        }
+        function copier(texte) {
+          if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(texte);
+          return new Promise(function (ok, ko) {
+            var z = document.createElement('textarea'); z.value = texte; z.setAttribute('readonly', ''); z.style.cssText = 'position:fixed;opacity:0';
+            document.body.appendChild(z); z.select();
+            try { document.execCommand('copy') ? ok() : ko(); } catch (e) { ko(e); } z.remove();
+          });
+        }
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
+          if (!a) return;
+          e.preventDefault();
+          var mail = a.getAttribute('href').replace(/^mailto:/, '').split('?')[0];
+          copier(mail).then(function () { annoncer('Adresse copiée.', true); }, function () { annoncer('Écrivez à ' + mail, false); });
+        });
       })();
     </script>
     <div class="ascenseur" aria-hidden="true"><div class="ascenseur__pouce"></div></div>
