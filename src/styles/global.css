@@ -5697,3 +5697,6 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 /* projets en rectangle (4/3) dans la galerie et la liste */
 .galerie { --cw: clamp(11rem, 22vw, 23rem); }
 .arc { height: calc(var(--cw) * 0.75 + 9rem); }
+
+/* rectangles plus grands */
+.galerie .arc-vue { --cw: clamp(14rem, 31vw, 31rem); }
