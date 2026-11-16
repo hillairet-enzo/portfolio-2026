@@ -19,8 +19,11 @@ const insp = (n: number) => ({
 const fichiersInsp = Object.keys(import.meta.glob('/public/images/a-propos/inspiration-*.{jpg,jpeg,png,webp,avif}'))
   .map((f) => f.split('/').pop() as string)
   .sort((a, b) => parseInt(a.replace(/\D/g, ''), 10) - parseInt(b.replace(/\D/g, ''), 10));
+// liens vers les épingles, si le tableau a été importé avec « npm run pinterest »
+const donneesPin = Object.values(import.meta.glob('/src/data/inspirations.json', { eager: true, import: 'default' }))[0] as { fichier: string; lien: string; titre: string }[] | undefined;
+const pinDe = (f: string) => donneesPin?.find((d) => d.fichier === f);
 const inspirations = fichiersInsp.length
-  ? fichiersInsp.map((f, i) => ({ fichier: `a-propos/${f}`, alt: `Une de mes inspirations (${i + 1})`, sujet: '', format: '1/1' as const, taille: '' }))
+  ? fichiersInsp.map((f, i) => ({ fichier: `a-propos/${f}`, alt: pinDe(f)?.titre || `Une de mes inspirations (${i + 1})`, sujet: '', format: '1/1' as const, taille: '', lien: pinDe(f)?.lien }))
   : Array.from({ length: 30 }, (_, i) => insp(i + 1)); // aucune image encore : 30 cadres vides
 const photos = {
   portrait: {
@@ -69,7 +72,9 @@ const photos = {
       </div>
       <div class="ap-bande__portrait"><Photo photo={photos.portrait} prioritaire /></div>
       <div class="ap-bande__insp">
-        {inspirations.map((ph, i) => <div class="ap-bande__case" style={`--i:${i}`}><Photo photo={ph} /></div>)}
+        {inspirations.map((ph: any, i) => ph.lien
+          ? <a class="ap-bande__case" style={`--i:${i}`} href={ph.lien} target="_blank" rel="noopener" aria-label={`${ph.alt} (voir sur Pinterest)`}><Photo photo={ph} /></a>
+          : <div class="ap-bande__case" style={`--i:${i}`}><Photo photo={ph} /></div>)}
       </div>
     </div>
   </section>
