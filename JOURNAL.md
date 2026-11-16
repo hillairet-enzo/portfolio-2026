@@ -137,3 +137,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - Nouveau projet : Iris (plateforme de vidéo à la demande pour cinéphiles, module R304). Fiche saisie dans la base, vraies captures (accueil, étagères, PocketBase), mockups MacBook et iPhone Duo. Lien du site en ligne à ajouter après le déploiement.
 - Nouveau projet : Olyvia (site WordPress et deux vidéos verticales, SAÉ 201-202 et module R210). Fiche saisie, captures Jira, DaVinci et site, mockup MacBook. Mockup téléphone provisoire, à refaire avec une image de la vidéo en bonne qualité.
 - 2026-11-16 : projet 5 « Affiches » (campagne Montbéliard), nouveau gabarit affiche avec visionneuse une affiche à la fois.
+- 2026-11-16 : Affiches : cartes d'affiches dans l'onglet résultat, couverture simplifiée.
