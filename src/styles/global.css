@@ -6113,3 +6113,11 @@ html[data-theme='dark'] .toast-copie__texte { color: #d8dbe0; text-shadow: 0 0 1
 /* « En bref » : le paragraphe de présentation et la phrase sur le stage ont le même rendu, sans encadré */
 .pl__intro + .pl__intro { margin-top: -.3rem; }
 .pl__corps--bref { grid-template-columns: minmax(0, 6fr) minmax(0, 4fr); align-items: stretch; }
+
+/* ── Compétences : rangée de logiciels sous les trois colonnes ── */
+.pl__corps--comp { grid-template-rows: auto 1fr auto; align-content: stretch; }
+.pl__logiciels { display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 1.8rem); padding-top: clamp(.8rem, 2svh, 1.4rem); border-top: 3px solid rgba(11,11,12,.8); }
+.pl__logiciels h3 { flex: none; margin: 0; font-size: clamp(1.1rem, 1.8vw, 1.5rem); font-weight: 800; letter-spacing: -.03em; color: #0b0b0c; }
+.pl__logiciels ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: clamp(.5rem, 1.2vw, .8rem); }
+.pl__logiciels li { padding: 0; border: 0; }
+.pl__logiciels img { display: block; width: clamp(2.6rem, 6.4svh, 3.8rem); aspect-ratio: 1; object-fit: cover; border-radius: 22%; box-shadow: 0 8px 18px -10px rgb(0 0 0 / .55); }

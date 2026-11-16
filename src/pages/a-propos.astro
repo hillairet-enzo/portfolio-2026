@@ -3,11 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Photo from '../components/Photo.astro';
 import Contact from '../components/Contact.astro';
 import { THEME_NEUTRE } from '../lib/theme';
-import { profil, competences, skillsIA, demarche, parcours } from '../data/profil';
+import { profil, competences, logiciels, skillsIA, demarche, parcours } from '../data/profil';
 import { aCv } from '../lib/cv';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
+// Logos des logiciels : public/images/logiciels/<id>.png (seuls ceux qui existent s'affichent)
+const fichiersLogiciels = Object.keys(import.meta.glob('/public/images/logiciels/*.{png,svg,webp,jpg,jpeg,avif}')).map((f) => f.split('/').pop() as string);
+const logosAffiches = logiciels
+  .map((l) => ({ ...l, fichier: fichiersLogiciels.find((f) => f.replace(/\.[^.]+$/, '').toLowerCase() === l.id) }))
+  .filter((l) => l.fichier);
 const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
 
 const insp = (n: number) => ({
@@ -124,7 +129,7 @@ const photos = {
         </section>
 
         <section class="pl pl--gris" style="--fond:#f78200" data-etiquette="Compétences" aria-labelledby="titre-comp">
-          <div class="pl__corps pl__corps--colonne">
+          <div class="pl__corps pl__corps--colonne pl__corps--comp">
             <h2 id="titre-comp" class="pl__titre">Compétences</h2>
             <div class="pl__comps">
               {
@@ -138,6 +143,14 @@ const photos = {
                 ))
               }
             </div>
+            {logosAffiches.length > 0 && (
+              <div class="pl__logiciels">
+                <h3>Logiciels</h3>
+                <ul>
+                  {logosAffiches.map((l) => <li><img src={`/images/logiciels/${l.fichier}`} alt={l.nom} title={l.nom} width="64" height="64" loading="lazy" /></li>)}
+                </ul>
+              </div>
+            )}
           </div>
         </section>
 
