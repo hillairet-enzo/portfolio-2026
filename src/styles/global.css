@@ -5742,3 +5742,11 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 .pl__comps h3 { color: #0b0b0c; }
 .pl__comps li { border-bottom-color: rgba(11,11,12,.16); }
 .pl__onglet { color: #0b0b0c; }
+
+/* titres : tout en noir et en gras, plus de gris */
+.ap-hero h1 { font-size: clamp(2.8rem, 6.8vw, 6.2rem); font-weight: 800; letter-spacing: -0.055em; line-height: 1.02; color: #000; max-width: 11em; }
+.galerie h1, .galerie h1 span { color: #000; font-weight: 700; }
+.galerie h1 span { display: inline; }
+.pied h2 { color: #000; }
+.ap-hero h1 { font-size: clamp(2.6rem, 5.3vw, 4.8rem); max-width: none; }
+.ap-hero h1 { text-wrap: balance; }

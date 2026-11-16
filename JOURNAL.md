@@ -143,3 +143,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : accueil, flèches retirées et cartes agrandies (tout tient à l'écran)
 - 2026-11-16 : à propos, titre harmonisé avec l'accueil (début gris léger, suite en gras, taille réduite)
 - 2026-11-16 : à propos, nouveau titre plus grand, cartes de couleur en verre translucide
+- 2026-11-16 : titres tout en noir et en gras (plus de gris), titre À propos remis en grand
