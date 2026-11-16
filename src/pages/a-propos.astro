@@ -57,8 +57,9 @@ const photos = {
 <Layout titre="À propos" description={`${profil.nom}, étudiant en BUT MMI à Montbéliard. ${profil.recherche}`} page="apropos" claire theme={couleurs}>
   <!-- Ouverture : grande phrase + portrait -->
   <section class="ap-hero" id="ap-hero" aria-labelledby="titre-ap">
-    <div class="contenu ap-hero__grille">
-      <div class="ap-hero__texte">
+    <!-- Une seule bande qui défile à l'horizontale : texte, portrait, puis les inspirations -->
+    <div class="ap-bande" id="ap-bande" tabindex="0" role="region" aria-label="À propos et inspirations, faire défiler vers la droite">
+      <div class="ap-bande__texte">
         <p class="ap-hero__etiquette">À propos</p>
         <h1 id="titre-ap">Enzo, étudiant en MMI. Je crée des identités visuelles qui <mark>vivent</mark> en ligne.</h1>
         <div class="ap-hero__actions">
@@ -66,12 +67,9 @@ const photos = {
           <a class="ap-bouton" href="/contact">Me contacter</a>
         </div>
       </div>
-      <div class="ap-hero__photo ap-patch">
-        <div class="ap-patch__grand"><Photo photo={photos.portrait} prioritaire /></div>
-        <div class="ap-patch__vue"><div class="ap-patch__defile" id="ap-defile" tabindex="0" role="region" aria-label="Mes inspirations, faire défiler vers la droite">
-          {inspirations.map((ph) => <div class="ap-patch__p"><Photo photo={ph} /></div>)}
-        </div></div>
-        <button class="ap-patch__retour" id="ap-retour" type="button" aria-label="Revenir au portrait"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button>
+      <div class="ap-bande__portrait"><Photo photo={photos.portrait} prioritaire /></div>
+      <div class="ap-bande__insp">
+        {inspirations.map((ph) => <div class="ap-bande__case"><Photo photo={ph} /></div>)}
       </div>
     </div>
   </section>
@@ -174,45 +172,38 @@ const photos = {
 </Layout>
 
 <script>
-  // inspirations : glisser à la souris pour faire défiler (le tactile et le trackpad marchent déjà)
-  const defile = document.getElementById('ap-defile');
-  if (defile) {
-    // glisser à la souris avec inertie (le tactile et le trackpad défilent déjà naturellement)
-    let x0 = 0, s0 = 0, bouge = false, vitesse = 0, dernierX = 0, dernierT = 0, raf = 0;
+  // Bande du haut : le trackpad et le tactile la font défiler nativement (le plus fluide).
+  // À la souris, on peut aussi la glisser, avec un peu d'inertie au lâcher.
+  const bande = document.getElementById('ap-bande');
+  if (bande) {
+    let x0 = 0, s0 = 0, saisi = false, aGlisse = false, v = 0, dx = 0, dt = 0, raf = 0;
     const freiner = () => {
-      if (Math.abs(vitesse) < 0.02) { defile.classList.remove('est-saisi'); return; }
-      defile.scrollLeft -= vitesse * 16;
-      vitesse *= 0.94;
+      if (Math.abs(v) < 0.05) { bande.classList.remove('est-saisi'); return; }
+      bande.scrollLeft -= v * 16;
+      v *= 0.95;
       raf = requestAnimationFrame(freiner);
     };
-    let aGlisse = false;
-    defile.addEventListener('dragstart', (e) => e.preventDefault());
-    defile.addEventListener('click', (e) => { if (aGlisse) { e.preventDefault(); e.stopPropagation(); aGlisse = false; } }, true);
-    defile.addEventListener('pointerdown', (e) => {
-      if (e.pointerType !== 'mouse') return;
-      aGlisse = false;
+    bande.addEventListener('dragstart', (e) => e.preventDefault());
+    bande.addEventListener('click', (e) => { if (aGlisse) { e.preventDefault(); e.stopPropagation(); aGlisse = false; } }, true);
+    bande.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0 || (e.target as HTMLElement).closest('a, button')) return;
       cancelAnimationFrame(raf);
-      x0 = e.clientX; s0 = defile.scrollLeft; bouge = true; vitesse = 0; dernierX = e.clientX; dernierT = performance.now();
-      defile.classList.add('est-saisi');
+      saisi = true; aGlisse = false; v = 0; x0 = dx = e.clientX; s0 = bande.scrollLeft; dt = performance.now();
     });
     window.addEventListener('pointermove', (e) => {
-      if (!bouge) return;
-      if (Math.abs(e.clientX - x0) > 5) aGlisse = true;
-      defile.scrollLeft = s0 - (e.clientX - x0);
+      if (!saisi) return;
+      if (!aGlisse && Math.abs(e.clientX - x0) > 6) { aGlisse = true; bande.classList.add('est-saisi'); }
+      if (!aGlisse) return;
+      bande.scrollLeft = s0 - (e.clientX - x0);
       const t = performance.now();
-      if (t > dernierT) vitesse = 0.8 * vitesse + 0.2 * ((e.clientX - dernierX) / (t - dernierT));
-      dernierX = e.clientX; dernierT = t;
+      if (t > dt) v = 0.7 * v + 0.3 * ((e.clientX - dx) / (t - dt));
+      dx = e.clientX; dt = t;
     });
-    window.addEventListener('pointerup', () => { if (!bouge) return; bouge = false; raf = requestAnimationFrame(freiner); });
-
-    // dès qu'on fait défiler, tout glisse vers la gauche et les inspirations passent en grande mosaïque
-    const hero = document.getElementById('ap-hero');
-    const retour = document.getElementById('ap-retour');
-    defile.addEventListener('scroll', () => {
-      if (!hero) return;
-      if (defile.scrollLeft > 30) hero.classList.add('ap-hero--mosaique');
-    }, { passive: true });
-    retour?.addEventListener('click', () => { hero?.classList.remove('ap-hero--mosaique'); defile.scrollTo({ left: 0 }); });
+    window.addEventListener('pointerup', () => {
+      if (!saisi) return;
+      saisi = false;
+      if (aGlisse) raf = requestAnimationFrame(freiner); else bande.classList.remove('est-saisi');
+    });
   }
   const pile = document.getElementById('pile');
   const cartes = pile ? Array.from(pile.querySelectorAll<HTMLElement>('.pl')) : [];

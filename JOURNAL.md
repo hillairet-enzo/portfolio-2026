@@ -151,3 +151,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : à propos, défilé horizontal de 12 carrés d'inspirations à côté du portrait
 - 2026-11-16 : à propos, photo plus fine, le défilé des inspirations bascule en grande mosaïque (bouton retour)
 - 2026-11-16 : à propos, défilé d'inspirations plus fluide (3 rangées, vraie mosaïque, inertie, détection automatique des images inspiration-N)
+- 2026-11-16 : à propos, hero refait en une seule bande horizontale (texte, portrait, petites cases), défilement natif au trackpad partout dans la section
