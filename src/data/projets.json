@@ -609,5 +609,217 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "olyvia",
+    "type": "web",
+    "titre": "Olyvia",
+    "accroche": "Un site et deux vidéos pour lancer une application qui accompagne les femmes pendant la ménopause.",
+    "resume": "Olyvia est une application fictive pour les femmes de 45 ans et plus. Pour la lancer, nous avons imaginé toute la communication : un site vitrine et deux vidéos courtes au format vertical, faites de A à Z par nos soins.",
+    "annee": "2026",
+    "cadre": "SAÉ 201-202 et module audiovisuel R210, BUT MMI",
+    "equipe": "En groupe de trois",
+    "role": [
+      "Gestion de projet (Jira)",
+      "Conception et mise en page du site",
+      "Tournage et prise de son",
+      "Montage, textes à l’écran et bruitages",
+      "Exports vidéo aux formats demandés",
+      "Intégration des vidéos sur le site"
+    ],
+    "outils": [
+      "Jira",
+      "WordPress (thème Astra)",
+      "Figma",
+      "iPhone 13 Pro et micro externe",
+      "DaVinci Resolve 20"
+    ],
+    "choix": [
+      {
+        "nom": "Jira",
+        "raison": "Répartit les tâches de l’équipe et surveille les délais.",
+        "icone": "carnet"
+      },
+      {
+        "nom": "WordPress (thème Astra)",
+        "raison": "Construit le site vitrine et accueille les vidéos.",
+        "icone": "pages"
+      },
+      {
+        "nom": "Figma",
+        "raison": "Sert à dessiner la maquette du site avant de le construire.",
+        "icone": "palette"
+      },
+      {
+        "nom": "iPhone 13 Pro et micro externe",
+        "raison": "Filment avec une belle image et enregistrent un son propre.",
+        "icone": "cube"
+      },
+      {
+        "nom": "DaVinci Resolve 20",
+        "raison": "Coupe les vidéos, règle le son et exporte les fichiers.",
+        "icone": "graphique"
+      }
+    ],
+    "defis": [
+      {
+        "defi": "Tout créer nous-mêmes",
+        "solution": "Aucune vidéo ni musique prise sur internet. Tournage au téléphone, voix enregistrées avec un vrai micro, bruitages fabriqués par mes soins."
+      },
+      {
+        "defi": "Monter sans « plan sur plan »",
+        "solution": "Le professeur interdisait de couper une vidéo sans changer d’angle, ce qu’on appelle un faux raccord. J’ai trié les extraits avec rigueur au montage, pour garder un rythme dynamique sans enfreindre la règle."
+      },
+      {
+        "defi": "Des vidéos de haute qualité et très légères",
+        "solution": "Il fallait une version d’une très haute qualité pour l’archivage, et une autre très légère pour que le site se charge vite. J’ai exporté le montage deux fois, avec des réglages très différents."
+      }
+    ],
+    "liens": [
+      {
+        "label": "Voir le site en ligne",
+        "url": "https://olyvia.tperruchot.fr"
+      }
+    ],
+    "couverture": {
+      "fichier": "olyvia/couverture.webp",
+      "alt": "L’accueil du site Olyvia : le titre « La ménopause, sans tabou et avec des solutions » et le dessin d’une femme assise en méditation, sur fond rose",
+      "sujet": "La page d’accueil du site Olyvia.",
+      "format": "3/2",
+      "taille": "1476 × 984 px"
+    },
+    "sections": [
+      {
+        "onglet": "contexte",
+        "titre": "Le point de départ",
+        "paragraphes": [
+          "L’école nous a demandé de lancer un service fictif : Olyvia, une application qui accompagne les femmes de 45 ans et plus pendant la ménopause. Le but : penser toute la stratégie de lancement, avec un budget fictif, et fabriquer de vrais supports de communication.",
+          "Pour attirer les futurs utilisateurs, il fallait un site complet et deux vidéos de promotion au format vertical, pensées pour les téléphones.",
+          "La contrainte principale était stricte : tout créer nous-mêmes. Aucune vidéo ni musique prise sur internet, un son enregistré avec un vrai micro, et des fichiers finaux qui respectent des règles techniques précises."
+        ]
+      },
+      {
+        "onglet": "role",
+        "titre": "Mon rôle",
+        "paragraphes": [
+          "Olyvia est un projet de groupe, à trois. J’ai organisé le travail de l’équipe et suivi son avancement, puis conçu et mis en page le site.",
+          "J’ai aussi réalisé les vidéos : le tournage, la prise de son, le montage avec les textes à l’écran et les bruitages, puis les exports dans les formats demandés. Pour finir, j’ai placé les vidéos sur le site."
+        ]
+      },
+      {
+        "onglet": "role",
+        "titre": "Suivre l’équipe avec Jira",
+        "paragraphes": [
+          "Jira m’a servi de tableau pour répartir le travail et surveiller les délais. Chaque tâche est une carte, avec une date et la personne qui s’en occupe. Les cartes avancent de colonne en colonne : à faire, en cours, en revue, terminé.",
+          "Sur la capture, 22 tâches sont déjà terminées : le scénario, le moodboard, les maquettes ou encore le budget. Il reste le tournage, le montage et l’export."
+        ],
+        "photos": [
+          {
+            "fichier": "olyvia/jira.jpg",
+            "alt": "Capture du tableau Jira du projet Olyvia, avec les colonnes À faire, En cours, En revue et Terminé.",
+            "sujet": "Capture du tableau Jira du projet Olyvia.",
+            "format": "21/9",
+            "taille": "1502 × 640 px"
+          }
+        ]
+      },
+      {
+        "onglet": "processus",
+        "titre": "De l’idée à la vidéo",
+        "paragraphes": [
+          "Nous sommes partis d’un besoin : donner envie à des femmes de 45 ans et plus de découvrir Olyvia. Les vidéos devaient être courtes et faites pour le téléphone, et le site devait les accueillir."
+        ],
+        "flux": {
+          "etiquette": "Les étapes d’Olyvia",
+          "etapes": [
+            {
+              "titre": "Rechercher",
+              "texte": "J’ai étudié les codes des vidéos qui marchent sur TikTok : format court, rythme rapide."
+            },
+            {
+              "titre": "Imaginer",
+              "texte": "Nous avons écrit deux scénarios : une vidéo basée sur du texte, une autre filmée face caméra."
+            },
+            {
+              "titre": "Dessiner",
+              "texte": "Maquette du site dans Figma."
+            },
+            {
+              "titre": "Réaliser",
+              "texte": "Tournage au téléphone, voix enregistrées, construction du site, puis montage sur ordinateur."
+            },
+            {
+              "titre": "Vérifier",
+              "texte": "Contrôle du poids et de la qualité de chaque vidéo : 6 Mbit/s au maximum."
+            }
+          ]
+        }
+      },
+      {
+        "onglet": "processus",
+        "titre": "Le montage dans DaVinci Resolve",
+        "paragraphes": [
+          "Le montage est fait dans DaVinci Resolve 20. Sur la capture, la piste du haut porte l’image : les plans filmés, les enregistrements d’écran du forum et l’image de fin avec le logo. En dessous, trois pistes de son : le son des plans, un bruitage de clavier et les voix enregistrées.",
+          "Tous les sons sont créés ou enregistrés par nous, sans musique prise sur internet."
+        ],
+        "photos": [
+          {
+            "fichier": "olyvia/davinci.jpg",
+            "alt": "Capture de la ligne de montage dans DaVinci Resolve 20 : une piste vidéo et trois pistes de son.",
+            "sujet": "Capture de la ligne de montage dans DaVinci Resolve 20.",
+            "format": "21/9",
+            "taille": "1502 × 644 px"
+          }
+        ]
+      },
+      {
+        "onglet": "choix",
+        "titre": "Deux versions de chaque vidéo",
+        "paragraphes": [
+          "À la fin, j’ai exporté chaque montage deux fois : une version de très haute qualité, lourde, pour l’archivage, et une version très compressée, légère, pour que le site se charge vite.",
+          "J’ai vérifié le poids de chaque fichier : le débit ne devait pas dépasser 6 Mbit/s. J’ai aussi remis au professeur les fichiers de sauvegarde du montage."
+        ]
+      },
+      {
+        "onglet": "resultat",
+        "titre": "Le résultat",
+        "paragraphes": [
+          "J’ai livré deux vidéos courtes, prêtes pour les réseaux sociaux, placées sur la page d’accueil du site dans la section « Découvrez l’expérience Olyvia ».",
+          "J’ai appris à tenir des contraintes de production très exigeantes, et à relier la fabrication de vidéos au développement d’un site."
+        ],
+        "photos": [
+          {
+            "fichier": "olyvia/mockup-ordinateur.jpg",
+            "alt": "L’accueil du site Olyvia sur l’écran d’un MacBook tenu à la main",
+            "sujet": "Sur ordinateur",
+            "format": "4/3",
+            "taille": "2400 × 1800 px"
+          },
+          {
+            "fichier": "olyvia/mockup-telephone.jpg",
+            "alt": "La vidéo du forum Olyvia au format vertical sur un téléphone tenu à la main",
+            "sujet": "Vidéo sur téléphone",
+            "format": "4/3",
+            "taille": "2400 × 1800 px"
+          }
+        ]
+      },
+      {
+        "onglet": "resultat",
+        "titre": "Les vidéos sur le site",
+        "paragraphes": [
+          "Sur la page d’accueil, la section « Découvrez l’expérience Olyvia » présente la vidéo au format vertical, comme sur un téléphone."
+        ],
+        "photos": [
+          {
+            "fichier": "olyvia/videos.jpg",
+            "alt": "Capture de la section « Découvrez l’expérience Olyvia » : la vidéo verticale du forum de discussion Olyvia.",
+            "sujet": "Capture de la section vidéo de l’accueil.",
+            "format": "3/2",
+            "taille": "1576 × 1050 px"
+          }
+        ]
+      }
+    ]
   }
 ]
