@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Photo from '../components/Photo.astro';
 import Contact from '../components/Contact.astro';
 import { THEME_NEUTRE } from '../lib/theme';
-import { profil, competences, demarche, parcours } from '../data/profil';
+import { profil, competences, skillsIA, demarche, parcours } from '../data/profil';
 import { aCv } from '../lib/cv';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -150,10 +150,21 @@ const photos = {
           </div>
         </section>
 
-        <section class="pl pl--noir" style="--fond:#d12f2f" data-etiquette="Au quotidien" aria-label="Au quotidien">
-          <div class="pl__corps pl__corps--photos">
-            <div class="pl-photo"><Photo photo={photos.atelier} serre /></div>
-            <div class="pl-photo"><Photo photo={photos.iut} serre /></div>
+        <section class="pl pl--noir" style="--fond:#d12f2f" data-etiquette="Skills IA" aria-labelledby="titre-ia">
+          <div class="pl__corps pl__corps--colonne">
+            <h2 id="titre-ia" class="pl__titre">Skills IA</h2>
+            <div class="pl__comps">
+              {
+                skillsIA.map((c) => (
+                  <div>
+                    <h3>{c.titre}</h3>
+                    <ul>
+                      {c.items.map((i) => <li>{i}</li>)}
+                    </ul>
+                  </div>
+                ))
+              }
+            </div>
           </div>
         </section>
 

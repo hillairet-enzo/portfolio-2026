@@ -32,6 +32,22 @@ export const competences = [
   },
 ];
 
+// Ce que je sais faire avec l'IA, d'après la déclaration d'usage (IA.md) et le projet TiK•TaK.
+export const skillsIA = [
+  {
+    titre: 'Piloter',
+    items: ['Écrire des consignes précises', 'Avancer par retours successifs', 'Garder, corriger ou rejeter', 'Tenir ma direction artistique'],
+  },
+  {
+    titre: 'Intégrer',
+    items: ['Un assistant IA dans un site (TiK•TaK)', 'Des visuels générés (Gemini)', 'Du code écrit sous ma direction', 'Des maquettes Figma pilotées par IA'],
+  },
+  {
+    titre: 'Vérifier',
+    items: ['Relire et reprendre les textes', 'Contrôler les informations (hébergeur, sources)', 'Mesurer la qualité (Lighthouse)', 'Déclarer chaque usage (IA.md)'],
+  },
+];
+
 // Les quatre temps d'un projet, tels que je les ai vécus sur TiK•TaK, ThermoViz, Iris et les affiches.
 export const demarche = [
   { titre: 'Cadrer', texte: 'Poser une question claire : à qui je parle, que doit-on pouvoir faire ? ThermoViz est parti d’une seule question sur la chaleur à Bordeaux.' },

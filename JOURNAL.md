@@ -168,3 +168,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : cartes À propos, plus d'espace en bas ; textes adaptés à la hauteur de la fenêtre.
 - 2026-11-16 : cartes À propos plus courtes, « Défiler » sous la carte et non plus dessus.
 - 2026-11-16 : textes des cartes À propos refaits à partir des 6 projets (en bref, démarche, compétences, parcours).
+- 2026-11-16 : carte « Au quotidien » remplacée par « Skills IA » (piloter, intégrer, vérifier), d'après IA.md.
