@@ -6010,3 +6010,32 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
   isolation: isolate;
 }
 .pl__corps { transition: none; }
+
+/* ═════ Mode sombre : corrections relevées page par page ═════ */
+/* projets : cartes « défi / solution » (étaient gris clair avec texte blanc) */
+html[data-theme='dark'] .pp-defi, html[data-theme='dark'] .pp-defi:last-child { background: rgb(255 255 255 / .06); box-shadow: inset 0 1px 0 rgb(255 255 255 / .06), 0 12px 28px -22px rgb(0 0 0 / .8); color: var(--encre); }
+/* projets : textes secondaires trop sombres (étapes de la démarche, outils) */
+html[data-theme='dark'] .flux p, html[data-theme='dark'] .pp-ligne--empile .flux p { color: rgb(243 244 245 / .68); }
+html[data-theme='dark'] .pp-outil > span:last-child { color: rgb(243 244 245 / .66); }
+html[data-theme='dark'] .pp-outil { box-shadow: inset 0 1px 0 rgb(255 255 255 / .06), 0 16px 34px -24px rgb(0 0 0 / .8); }
+/* cadres « photo à ajouter » : le chemin du fichier restait noir sur noir */
+html[data-theme='dark'] .photo__infos code { background: rgb(255 255 255 / .1); color: var(--encre); }
+
+/* À propos : haut de page, fondus et section des cartes */
+html[data-theme='dark'] .ap-hero { background: var(--fond); }
+html[data-theme='dark'] .ap-hero::before { background: linear-gradient(270deg, rgb(13 14 16 / 0), var(--fond) 85%); }
+html[data-theme='dark'] .ap-hero::after { background: linear-gradient(90deg, rgb(13 14 16 / 0), var(--fond)); }
+html[data-theme='dark'] .ap-bande__case .photo--vide { background: rgb(255 255 255 / .05); }
+html[data-theme='dark'] .ap-bande:focus-visible { box-shadow: inset 0 0 0 3px var(--encre); }
+html[data-theme='dark'] .pile { background: var(--fond); }
+html[data-theme='dark'] .pile__scene { background:
+  radial-gradient(40rem 28rem at 12% 55%, rgba(247,130,0,.12), transparent 70%),
+  radial-gradient(38rem 30rem at 88% 60%, rgba(151,57,153,.14), transparent 70%),
+  radial-gradient(44rem 30rem at 55% 100%, rgba(94,189,62,.1), transparent 70%),
+  linear-gradient(180deg, var(--fond) 0%, var(--fond) 16%, #141518 48%, #16171a 100%); }
+html[data-theme='dark'] .pile__point { background: rgb(255 255 255 / .25); }
+html[data-theme='dark'] .pile__point[aria-current="true"] { background: #fff; }
+html[data-theme='dark'] .pile__point span { background: #fff; color: #0b0b0c; }
+html[data-theme='dark'] .pile__defiler { color: rgb(255 255 255 / .55); }
+/* les cartes de couleur gardent leur texte noir : il est lisible sur leurs teintes vives */
+html[data-theme='dark'] .pl { box-shadow: inset 0 1px 0 color-mix(in srgb, var(--fond, #fff) 40%, #fff 60%), inset 0 40px 60px -40px rgba(255,255,255,.3), 0 30px 60px -30px rgba(0,0,0,.7); }
