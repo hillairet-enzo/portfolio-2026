@@ -5,6 +5,8 @@ import Contact from '../components/Contact.astro';
 import { THEME_NEUTRE } from '../lib/theme';
 import { profil, competences, demarche, parcours } from '../data/profil';
 import { aCv } from '../lib/cv';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 
 const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
 
@@ -16,9 +18,17 @@ const insp = (n: number) => ({
   taille: '800 × 800 px',
 });
 // Les inspirations sont détectées toutes seules : inspiration-1.jpg, inspiration-2.jpg… (jpg, png, webp)
+const vus = new Set<string>();
 const fichiersInsp = Object.keys(import.meta.glob('/public/images/a-propos/inspiration-*.{jpg,jpeg,png,webp,avif}'))
   .map((f) => f.split('/').pop() as string)
-  .sort((a, b) => parseInt(a.replace(/\D/g, ''), 10) - parseInt(b.replace(/\D/g, ''), 10));
+  .sort((a, b) => parseInt(a.replace(/\D/g, ''), 10) - parseInt(b.replace(/\D/g, ''), 10))
+  // une même épingle enregistrée deux fois n'apparaît qu'une fois
+  .filter((f) => {
+    const empreinte = createHash('md5').update(readFileSync(`public/images/a-propos/${f}`)).digest('hex');
+    if (vus.has(empreinte)) return false;
+    vus.add(empreinte);
+    return true;
+  });
 // liens vers les épingles, si le tableau a été importé avec « npm run pinterest »
 const donneesPin = Object.values(import.meta.glob('/src/data/inspirations.json', { eager: true, import: 'default' }))[0] as { fichier: string; lien: string; titre: string }[] | undefined;
 const pinDe = (f: string) => donneesPin?.find((d) => d.fichier === f);
@@ -180,6 +190,26 @@ const photos = {
   // Bande du haut : le trackpad et le tactile la font défiler nativement (le plus fluide).
   // À la souris, on peut aussi la glisser, avec un peu d'inertie au lâcher.
   const bande = document.getElementById('ap-bande');
+
+  // Inspirations : ordre tiré au hasard à chaque chargement, et colonnes toujours complètes (3 cases)
+  const grille = document.querySelector<HTMLElement>('.ap-bande__insp');
+  if (grille && grille.children.length > 1) {
+    const cases = Array.from(grille.children) as HTMLElement[];
+    for (let i = cases.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cases[i], cases[j]] = [cases[j], cases[i]];
+    }
+    // on complète la dernière colonne avec des cases tirées parmi les premières (loin des voisines)
+    const manque = (3 - (cases.length % 3)) % 3;
+    for (let k = 0; k < manque; k++) {
+      const copie = cases[k * 2].cloneNode(true) as HTMLElement;
+      copie.setAttribute('aria-hidden', 'true');
+      copie.setAttribute('tabindex', '-1');
+      cases.push(copie);
+    }
+    cases.forEach((c, i) => { c.style.setProperty('--i', String(i)); grille.appendChild(c); });
+  }
+
   if (bande) {
     let x0 = 0, s0 = 0, saisi = false, aGlisse = false, v = 0, dx = 0, dt = 0, raf = 0;
     const freiner = () => {
