@@ -99,21 +99,9 @@ const photos = {
           <div class={`pl__corps pl__corps--bref${aPhotoTravail ? '' : ' pl__corps--bref-seul'}`}>
             <div class="pl__texte">
               <h2 id="titre-bref" class="pl__titre">En bref</h2>
-              <p class="pl__lead">Étudiant en BUT MMI à Montbéliard, je crée des identités visuelles et je les fais vivre en ligne.</p>
-              <div class="pl__comps pl__comps--chiffres">
-                <div>
-                  <p class="pl__grand">6</p>
-                  <p>projets, seul ou en équipe : sites, vidéos et affiches.</p>
-                </div>
-                <div>
-                  <p class="pl__grand">BUT 2</p>
-                  <p>MMI, à l’IUT de Montbéliard.</p>
-                </div>
-                <div>
-                  <p class="pl__grand">Stage</p>
-                  <p>en communication et création, idéalement en studio digital.</p>
-                </div>
-              </div>
+              <p class="pl__lead">J’ai 19 ans, je suis en deuxième année de BUT MMI et ce que j’aime, c’est quand le design et le code avancent ensemble.</p>
+              <p class="pl__intro">J’imagine une identité visuelle, je la dessine sur Figma, puis je la code jusqu’à la mise en ligne. Du site à la vidéo en passant par l’affiche, c’est ce mélange entre design, communication et développement qui me plaît.</p>
+              <p class="pl__note">{profil.recherche}</p>
             </div>
             {aPhotoTravail && <div class="pl-photo"><Photo photo={photos.travail} serre /></div>}
           </div>
