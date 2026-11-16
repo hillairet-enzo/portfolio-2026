@@ -33,33 +33,24 @@ export const competences = [
 ];
 
 // Ce que je sais faire avec l'IA, d'après la déclaration d'usage (IA.md) et le projet TiK•TaK.
+// Modèles utilisés (pastilles d'application). Pour afficher le vrai logo, dépose public/images/ia/<id>.png (ou .svg, .webp).
+export const modelesIA = [
+  { id: 'claude', nom: 'Claude', lettre: 'C', couleur: 'var(--arc-3)' },
+  { id: 'gemini', nom: 'Gemini', lettre: 'G', couleur: 'var(--arc-5)' },
+];
+
 export const skillsIA = [
   {
     titre: 'Piloter',
-    items: [
-      { icone: 'prompt', texte: 'Rédiger des prompts clairs et précis' },
-      { icone: 'contexte', texte: 'Donner contexte, format et exemples' },
-      { icone: 'iterer', texte: 'Affiner par retours successifs' },
-      { icone: 'trier', texte: 'Garder, corriger ou rejeter' },
-    ],
+    items: ['Rédiger des prompts clairs et précis', 'Donner contexte, format et exemples', 'Affiner par retours successifs', 'Garder, corriger ou rejeter'],
   },
   {
     titre: 'Utiliser',
-    items: [
-      { icone: 'modeles', texte: 'Claude, Gemini : le bon modèle selon la tâche' },
-      { icone: 'skills', texte: 'Des skills adaptés à chaque tâche' },
-      { icone: 'code', texte: 'Code, maquettes et visuels générés' },
-      { icone: 'assistant', texte: 'Des assistants IA intégrés à un site' },
-    ],
+    items: ['Claude, Gemini : le bon modèle selon la tâche', 'Des skills adaptés à chaque tâche', 'Code, maquettes et visuels générés', 'Des assistants IA intégrés à un site'],
   },
   {
     titre: 'Vérifier',
-    items: [
-      { icone: 'relire', texte: 'Relire et reprendre les textes' },
-      { icone: 'sources', texte: 'Contrôler les informations et les sources' },
-      { icone: 'qualite', texte: 'Mesurer la qualité (Lighthouse)' },
-      { icone: 'declarer', texte: 'Déclarer chaque usage (IA.md)' },
-    ],
+    items: ['Relire et reprendre les textes', 'Contrôler les informations et les sources', 'Mesurer la qualité (Lighthouse)', 'Déclarer chaque usage (IA.md)'],
   },
 ];
 
