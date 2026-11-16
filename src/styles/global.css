@@ -5657,42 +5657,7 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 .ph-titre { font-size: clamp(2.6rem, 18.5cqi, 8rem); }
 @media (max-width: 60rem) { .ph-titre { font-size: clamp(3rem, 16vw, 6rem); } }
 
-/* ===== Cartes d'affiches (onglet résultat) ===== */
-.cartes { display: flex; gap: clamp(.5rem, 1.2vw, .9rem); height: clamp(30rem, 78vh, 44rem); margin: .4rem 0 1.4rem; }
-.carte { position: relative; flex: 1 1 0; min-width: 0; border-radius: clamp(1.2rem, 2vw, 1.8rem); overflow: hidden; background: #1a1a4a; color: #fff; cursor: pointer; transition: flex-grow .6s cubic-bezier(.2, .8, .2, 1); outline-offset: 3px; }
-.carte[data-actif="true"] { flex-grow: 1.3; cursor: default; }
-.carte__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.carte__voile { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(10 10 40 / 0) 38%, rgb(10 10 40 / .72) 62%, rgb(10 10 40 / .95) 100%); }
-.carte__tags { position: absolute; top: 1rem; left: 1rem; display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; opacity: 0; transition: opacity .3s; }
-.carte[data-actif="true"] .carte__tags { opacity: 1; transition-delay: .25s; }
-.carte__tags li { padding: .3rem .8rem; border: 1px solid #d4f23c; border-radius: 99px; background: rgb(10 10 40 / .45); color: #d4f23c; font-size: .8rem; font-weight: 600; backdrop-filter: blur(6px); }
-.carte__rond { position: absolute; top: 1rem; right: 1rem; width: 3rem; height: 3rem; border-radius: 50%; background: #fff; color: #0b0b0c; display: grid; place-items: center; transition: background .3s, transform .3s; }
-.carte[data-actif="true"] .carte__rond { background: #d4f23c; transform: rotate(45deg); }
-.carte__rond svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.carte__texte { position: absolute; inset: auto 0 0 0; padding: clamp(.9rem, 1.6vw, 1.3rem); }
-.carte__nom { margin: 0 0 .5rem; font-size: clamp(1.2rem, 2vw, 1.7rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; color: #fff; }
-.carte__accroche, .carte__desc, .carte__bouton { display: none; }
-.carte[data-actif="true"] .carte__accroche { display: block; margin: 0 0 .4rem; font-weight: 700; font-size: .98rem; }
-.carte[data-actif="true"] .carte__desc { display: block; margin: 0 0 .9rem; font-size: .88rem; line-height: 1.45; color: rgb(255 255 255 / .85); }
-.carte[data-actif="true"] .carte__bouton { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: .6rem; padding: .85rem 1.2rem; border: 0; border-radius: 99px; background: #fff; color: #0b0b0c; font: inherit; font-weight: 700; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; cursor: pointer; }
-.carte__bouton svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.carte:not([data-actif="true"]) .carte__nom { font-size: clamp(1rem, 1.5vw, 1.25rem); }
-@media (max-width: 52rem) {
-  .cartes { flex-direction: column; height: auto; }
-  .carte { flex: none; height: 6.5rem; transition: height .55s cubic-bezier(.2, .8, .2, 1); }
-  .carte[data-actif="true"] { height: 34rem; }
-  .carte__img { object-position: center 40%; }
-}
-@media (prefers-reduced-motion: reduce) { .carte, .carte[data-actif="true"] { transition: none; } }
-/* cartes d'affiches : rien par-dessus le titre de l'affiche, texte toujours blanc */
-.carte__tags, .carte__rond { display: none; }
-.carte .carte__nom, .carte .carte__accroche, .carte .carte__desc { color: #fff; }
-.carte .carte__desc { color: rgb(255 255 255 / .88); }
-
 /* cartes d'affiches : l'affiche seule, sans texte ni voile ; clic sur la carte ouverte = plein écran */
-.carte { background: #fff; }
-.carte[data-actif="true"] { cursor: zoom-in; }
-.carte__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* page « affiche » : les textes prennent toute la largeur */
 .pp-tabs--affiche .pp-ligne, .pp-tabs--affiche .pp-tab .pp-ligne:not(:has(.pp-ligne__medias)) { grid-template-columns: 1fr; }
 .pp-tabs--affiche .pp-ligne__texte, .pp-tabs--affiche .pp-ligne--empile .pp-ligne__texte { max-width: none; }
@@ -5706,28 +5671,25 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 @media (max-width: 40rem) { .affiches-rang { grid-template-columns: 1fr; max-width: 22rem; margin-inline: auto; } }
 @media (prefers-reduced-motion: reduce) { .affiches-rang__affiche img { transition: none; } .affiches-rang__affiche img:hover { transform: none; } }
 
-/* diaporama : une diapo à la fois (onglet résultat) */
-.diapos { margin: .4rem 0 1.6rem; outline-offset: 6px; }
-.diapos__scene { position: relative; aspect-ratio: 16 / 9; border-radius: clamp(.8rem, 1.6vw, 1.4rem); overflow: hidden; background: #0b0b0c; box-shadow: 0 1px 2px rgb(0 0 0 / .08), 0 26px 44px -22px rgb(30 30 70 / .5); touch-action: pan-y; }
-.diapos__slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .45s ease; pointer-events: none; }
-.diapos__slide[data-actif="true"] { opacity: 1; pointer-events: auto; }
-.diapos__slide img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
-.diapos__fleche { position: absolute; top: 50%; translate: 0 -50%; width: 3rem; height: 3rem; border-radius: 50%; border: 0; background: rgb(255 255 255 / .92); color: #0b0b0c; display: grid; place-items: center; cursor: pointer; box-shadow: 0 6px 16px -6px rgb(0 0 0 / .4); transition: transform .25s; }
-.diapos__fleche:hover { transform: scale(1.08); }
-.diapos__fleche--prec { left: clamp(.6rem, 1.6vw, 1.2rem); }
-.diapos__fleche--suiv { right: clamp(.6rem, 1.6vw, 1.2rem); }
-.diapos__fleche svg { width: 1.3rem; height: 1.3rem; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.diapos__bas { margin-top: 1rem; display: grid; gap: .9rem; }
-.diapos__legende { margin: 0; font-size: .85rem; font-weight: 800; letter-spacing: .12em; }
+/* diapositives en cartes repliables (onglet résultat) */
+.diapos { --h: clamp(12rem, 24vw, 21rem); margin: .4rem 0 1.6rem; }
+.diapos__rang { display: flex; gap: clamp(.35rem, .8vw, .6rem); height: var(--h); }
+.diapos__carte { position: relative; flex: 1 1 0; min-width: 0; border-radius: clamp(.9rem, 1.6vw, 1.4rem); overflow: hidden; background: #0b0b0c; cursor: pointer; transition: flex .55s cubic-bezier(.2, .8, .2, 1); outline-offset: 3px; }
+.diapos__carte[data-actif="true"] { flex: 0 0 calc(var(--h) * 16 / 9); cursor: zoom-in; }
+.diapos__carte img { position: absolute; top: 0; left: 50%; height: 100%; width: calc(var(--h) * 16 / 9); max-width: none; translate: -50% 0; object-fit: cover; display: block; }
+.diapos__carte:not([data-actif="true"]) img { filter: saturate(.85) brightness(.9); }
+.diapos__num { position: absolute; left: 50%; bottom: .7rem; translate: -50% 0; font-size: .8rem; font-weight: 800; letter-spacing: .08em; color: #fff; text-shadow: 0 1px 6px rgb(0 0 0 / .6); transition: opacity .3s; }
+.diapos__carte[data-actif="true"] .diapos__num { opacity: 0; }
+.diapos__legende { margin: 1rem 0 0; font-size: .85rem; font-weight: 800; letter-spacing: .12em; }
 .diapos__legende [data-num] { font-size: 1.1rem; }
 .diapos__texte { margin-left: .8rem; font-size: 1rem; font-weight: 600; letter-spacing: 0; }
-.diapos__vignettes { display: flex; gap: .6rem; list-style: none; margin: 0; padding: .3rem .3rem .5rem; overflow-x: auto; scrollbar-width: thin; }
-.diapos__vignette { display: block; width: clamp(5.2rem, 10vw, 7.4rem); aspect-ratio: 16 / 9; padding: 0; border: 0; border-radius: .5rem; overflow: hidden; cursor: pointer; opacity: .55; outline: 2px solid transparent; outline-offset: 2px; transition: opacity .25s, outline-color .25s; }
-.diapos__vignette img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.diapos__vignette[aria-current="true"], .diapos__vignette:hover { opacity: 1; }
-.diapos__vignette[aria-current="true"] { outline-color: var(--ink); }
-@media (max-width: 40rem) { .diapos__fleche { width: 2.4rem; height: 2.4rem; } .diapos__texte { display: block; margin: .3rem 0 0; } }
-@media (prefers-reduced-motion: reduce) { .diapos__slide { transition: none; } }
-/* diaporama plus compact */
-.diapos { width: min(100%, 44rem); }
-.diapos__vignette { width: clamp(4rem, 7vw, 5.2rem); }
+@media (max-width: 52rem) {
+  .diapos { --h: auto; }
+  .diapos__rang { flex-direction: column; height: auto; }
+  .diapos__carte { flex: none; height: 3rem; transition: height .5s cubic-bezier(.2, .8, .2, 1); }
+  .diapos__carte[data-actif="true"] { height: auto; aspect-ratio: 16 / 9; }
+  .diapos__carte img { width: 100%; left: 0; translate: none; height: 100%; }
+  .diapos__num { left: .8rem; translate: none; bottom: auto; top: 50%; translate: 0 -50%; }
+  .diapos__texte { display: block; margin: .3rem 0 0; }
+}
+@media (prefers-reduced-motion: reduce) { .diapos__carte { transition: none; } }
