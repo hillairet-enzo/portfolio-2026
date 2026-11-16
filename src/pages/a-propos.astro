@@ -286,12 +286,12 @@ const photos = {
       cartes.forEach((c, i) => {
         const d = i - p;
         if (d <= 0) {
-          // la carte tombe vers l'écran : elle bascule vers nous, grossit et s'efface
+          // la carte glisse vers le bas en s'effaçant, sans bascule ni déformation
           const t = clamp(-d);
-          const e = t * t;
-          c.style.transformOrigin = '50% 100%';
-          c.style.transform = `translate3d(0, ${e * 18}vh, ${e * 900}px) rotateX(${-e * 55}deg)`;
-          c.style.opacity = String(1 - clamp((t - 0.55) / 0.35));
+          const e = 1 - (1 - t) * (1 - t);
+          c.style.transformOrigin = '50% 0';
+          c.style.transform = `translate3d(0, ${e * 55}vh, 0) scale(${1 + e * 0.02})`;
+          c.style.opacity = String(1 - clamp(t / 0.38));
           c.style.visibility = t >= 1 ? 'hidden' : 'visible';
         } else {
           const k = Math.min(d, 4.2);
@@ -300,6 +300,9 @@ const photos = {
           c.style.opacity = String(1 - clamp((d - 3) / 1.2));
           c.style.visibility = d > 4.2 ? 'hidden' : 'visible';
         }
+        // le contenu des cartes de derrière s'efface : à travers le verre on ne voit que leur couleur
+        const corps = c.querySelector<HTMLElement>('.pl__corps');
+        if (corps) corps.style.opacity = d > 0 ? String(clamp(1 - (d - 0.1) * 2.4)) : String(clamp(1 - -d * 3.5));
         c.style.zIndex = String(N - i);
         c.style.pointerEvents = d <= -1 || d > 3.4 ? 'none' : 'auto';
         c.classList.toggle('pl--derriere', i > proche);
@@ -324,7 +327,7 @@ const photos = {
 
     const statique = () => {
       pile.classList.add('pile--statique');
-      cartes.forEach((c) => { c.style.transform = ''; c.style.opacity = ''; c.style.visibility = ''; c.style.zIndex = ''; c.style.pointerEvents = ''; c.style.transformOrigin = ''; c.classList.remove('pl--derriere'); });
+      cartes.forEach((c) => { const co = c.querySelector<HTMLElement>('.pl__corps'); if (co) co.style.opacity = ''; c.style.transform = ''; c.style.opacity = ''; c.style.visibility = ''; c.style.zIndex = ''; c.style.pointerEvents = ''; c.style.transformOrigin = ''; c.classList.remove('pl--derriere'); });
     };
 
     const auDefilement = () => {

@@ -5997,3 +5997,16 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 .ap-bande__credit { position: absolute; left: .45rem; right: .45rem; bottom: .45rem; z-index: 2; width: fit-content; max-width: calc(100% - .9rem); padding: .32rem .6rem; border-radius: 999px; font-size: .72rem; font-weight: 650; line-height: 1.2; color: #fff; background: rgba(0,0,0,.45); -webkit-backdrop-filter: blur(10px) saturate(160%); backdrop-filter: blur(10px) saturate(160%); box-shadow: inset 0 1px 0 rgba(255,255,255,.25); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0; transform: translateY(.35rem); transition: opacity .3s, transform .35s cubic-bezier(.2,.7,.2,1); pointer-events: none; }
 .ap-bande__case:hover .ap-bande__credit, .ap-bande__case:focus-visible .ap-bande__credit { opacity: 1; transform: none; }
 @media (hover: none) { .ap-bande__credit { opacity: 1; transform: none; font-size: .62rem; } }
+
+/* cartes en verre : sans liseré blanc ni réfraction SVG (qui créait des bandes sur les cartes en mouvement) */
+.pl {
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid color-mix(in srgb, var(--fond, #fff) 75%, #000 8%);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--fond, #fff) 40%, #fff 60%),
+    inset 0 40px 60px -40px rgba(255,255,255,.35),
+    0 30px 60px -30px rgba(20,20,30,.38);
+  isolation: isolate;
+}
+.pl__corps { transition: none; }

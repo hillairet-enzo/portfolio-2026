@@ -160,3 +160,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : inspirations dans un ordre aléatoire à chaque chargement, doublons retirés, dernière colonne complétée
 - 2026-11-16 : crédit du créateur (@) affiché au survol des inspirations, récupéré par npm run pinterest
 - 2026-11-16 : crédits des 25 inspirations récupérés (créateurs Pinterest) et liens vers les vraies épingles
+- 2026-11-16 : cartes À propos sans liseré blanc ni réfraction SVG, sortie en glissé vers le bas, contenu des cartes de derrière masqué
