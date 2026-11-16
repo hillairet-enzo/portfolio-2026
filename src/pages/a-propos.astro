@@ -10,15 +10,14 @@ const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
 
 const insp = (n: number) => ({
   fichier: `a-propos/inspiration-${n}.jpg`,
-  alt: `Une de mes inspirations (${n}/3)`,
+  alt: `Une de mes inspirations (${n})`,
   sujet: 'Une inspiration Pinterest : affiche, interface, photo ou graphisme qui te plaît.',
   format: '1/1' as const,
   taille: '800 × 800 px',
 });
+const NB_INSPIRATIONS = 12; // une dizaine de carrés : 4 colonnes de 3
+const inspirations = Array.from({ length: NB_INSPIRATIONS }, (_, i) => insp(i + 1));
 const photos = {
-  insp1: insp(1),
-  insp2: insp(2),
-  insp3: insp(3),
   portrait: {
     fichier: 'a-propos/portrait.jpg',
     alt: 'Portrait d’Enzo Hillairet',
@@ -64,9 +63,9 @@ const photos = {
       </div>
       <div class="ap-hero__photo ap-patch">
         <div class="ap-patch__grand"><Photo photo={photos.portrait} prioritaire /></div>
-        <div class="ap-patch__p"><Photo photo={photos.insp1} /></div>
-        <div class="ap-patch__p"><Photo photo={photos.insp2} /></div>
-        <div class="ap-patch__p"><Photo photo={photos.insp3} /></div>
+        <div class="ap-patch__defile" id="ap-defile" tabindex="0" role="region" aria-label="Mes inspirations, faire défiler vers la droite">
+          {inspirations.map((ph) => <div class="ap-patch__p"><Photo photo={ph} /></div>)}
+        </div>
       </div>
     </div>
   </section>
@@ -169,6 +168,17 @@ const photos = {
 </Layout>
 
 <script>
+  // inspirations : glisser à la souris pour faire défiler (le tactile et le trackpad marchent déjà)
+  const defile = document.getElementById('ap-defile');
+  if (defile) {
+    let x0 = 0, s0 = 0, bouge = false;
+    defile.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      x0 = e.clientX; s0 = defile.scrollLeft; bouge = true; defile.classList.add('est-saisi');
+    });
+    window.addEventListener('pointermove', (e) => { if (bouge) defile.scrollLeft = s0 - (e.clientX - x0); });
+    window.addEventListener('pointerup', () => { bouge = false; defile.classList.remove('est-saisi'); });
+  }
   const pile = document.getElementById('pile');
   const cartes = pile ? Array.from(pile.querySelectorAll<HTMLElement>('.pl')) : [];
   const points = document.getElementById('pile-points');
