@@ -3,14 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Photo from '../components/Photo.astro';
 import Contact from '../components/Contact.astro';
 import { THEME_NEUTRE } from '../lib/theme';
-import { profil, competences, skillsIA, modelesIA, demarche, parcours } from '../data/profil';
+import { profil, competences, skillsIA, demarche, parcours } from '../data/profil';
 import { aCv } from '../lib/cv';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
-// Logos des modèles : public/images/ia/claude.png, gemini.png… (sinon une pastille avec la lettre)
-const logosIA = Object.keys(import.meta.glob('/public/images/ia/*.{png,svg,webp,jpg,jpeg,avif}')).map((f) => f.split('/').pop() as string);
-const logoDe = (id: string) => logosIA.find((f) => f.replace(/\.[^.]+$/, '').toLowerCase() === id);
+const aPhotoTravail = existsSync('public/images/a-propos/travail.jpg');
 const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
 
 const insp = (n: number) => ({
@@ -98,23 +96,26 @@ const photos = {
       <div class="pile__cartes">
 
         <section class="pl pl--gris" style="--fond:#5ebd3e" data-etiquette="En bref" aria-labelledby="titre-bref">
-          <div class="pl__corps pl__corps--bref">
+          <div class={`pl__corps pl__corps--bref${aPhotoTravail ? '' : ' pl__corps--bref-seul'}`}>
             <div class="pl__texte">
               <h2 id="titre-bref" class="pl__titre">En bref</h2>
-              <p class="pl__lead">Étudiant en BUT MMI à Montbéliard, je dessine des identités visuelles et je les fais vivre dans des sites interactifs.</p>
-              <p>Une montre à composer en 3D, une enquête de données sur Bordeaux, une plateforme de films, un site avec ses vidéos, des affiches : chaque projet va de l’idée à la mise en ligne.</p>
-              <div class="pl__duo">
+              <p class="pl__lead">Étudiant en BUT MMI à Montbéliard, je crée des identités visuelles et je les fais vivre en ligne.</p>
+              <div class="pl__comps pl__comps--chiffres">
                 <div>
                   <p class="pl__grand">6</p>
-                  <p>projets à découvrir, seul ou en équipe, dont <a href="/projets/tiktak">TiK•TaK</a>, <a href="/projets/thermo-viz">ThermoViz</a> et <a href="/projets/iris">Iris</a>.</p>
+                  <p>projets, seul ou en équipe : sites, vidéos et affiches.</p>
                 </div>
                 <div>
-                  <h3>Ce que je cherche</h3>
-                  <p>Un stage en communication et création, idéalement en studio de création digitale, pour apprendre au contact d’une équipe.</p>
+                  <p class="pl__grand">BUT 2</p>
+                  <p>MMI, à l’IUT de Montbéliard.</p>
+                </div>
+                <div>
+                  <p class="pl__grand">Stage</p>
+                  <p>en communication et création, idéalement en studio digital.</p>
                 </div>
               </div>
             </div>
-            <div class="pl-photo"><Photo photo={photos.travail} serre /></div>
+            {aPhotoTravail && <div class="pl-photo"><Photo photo={photos.travail} serre /></div>}
           </div>
         </section>
 
@@ -155,19 +156,7 @@ const photos = {
 
         <section class="pl pl--noir" style="--fond:#d12f2f" data-etiquette="Skills IA" aria-labelledby="titre-ia">
           <div class="pl__corps pl__corps--colonne">
-            <div class="ia-tete">
-              <h2 id="titre-ia" class="pl__titre">Skills IA</h2>
-              <ul class="ia-apps" aria-label="Modèles utilisés">
-                {
-                  modelesIA.map((m) => (
-                    <li style={`--c:${m.couleur}`}>
-                      <span class="ia-app">{logoDe(m.id) ? <img src={`/images/ia/${logoDe(m.id)}`} alt="" width="64" height="64" /> : <b aria-hidden="true">{m.lettre}</b>}</span>
-                      <span class="ia-app__nom">{m.nom}</span>
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
+            <h2 id="titre-ia" class="pl__titre">Skills IA</h2>
             <div class="pl__comps">
               {
                 skillsIA.map((c) => (

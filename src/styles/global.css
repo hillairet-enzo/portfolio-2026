@@ -6094,3 +6094,12 @@ html[data-theme='dark'] .toast-copie__texte { color: #d8dbe0; text-shadow: 0 0 1
 .ia-app img { width: 100%; height: 100%; object-fit: cover; }
 .ia-app:has(img) { background: #fff; }
 .ia-app img { width: 100%; height: 100%; object-fit: contain; padding: 20%; box-sizing: border-box; }
+
+/* ── Carte « En bref » : titre, phrase d'accroche, puis trois chiffres alignés ── */
+.pl__corps--bref { align-content: start; }
+.pl__corps--bref-seul { grid-template-columns: minmax(0, 1fr); }
+.pl__corps--bref .pl__texte { display: grid; grid-template-rows: auto auto 1fr; align-content: start; min-height: 0; }
+.pl__corps--bref .pl__lead { max-width: 34ch; font-size: clamp(1.3rem, min(2.6vw, 4svh), 2.3rem); line-height: 1.2; letter-spacing: -.02em; margin-bottom: clamp(1.4rem, 5svh, 3.4rem); }
+.pl__comps--chiffres { align-self: end; }
+.pl__comps--chiffres .pl__grand { font-size: clamp(2.6rem, min(6.4vw, 11svh), 5.6rem); margin-bottom: clamp(.4rem, 1.4svh, .9rem); }
+.pl__comps--chiffres p:not(.pl__grand) { font-size: clamp(1rem, min(1.4vw, 2.5svh), 1.2rem); line-height: 1.4; max-width: 22ch; }

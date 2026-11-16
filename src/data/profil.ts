@@ -33,12 +33,6 @@ export const competences = [
 ];
 
 // Ce que je sais faire avec l'IA, d'après la déclaration d'usage (IA.md) et le projet TiK•TaK.
-// Modèles utilisés (pastilles d'application). Pour afficher le vrai logo, dépose public/images/ia/<id>.png (ou .svg, .webp).
-export const modelesIA = [
-  { id: 'claude', nom: 'Claude', lettre: 'C', couleur: 'var(--arc-3)' },
-  { id: 'gemini', nom: 'Gemini', lettre: 'G', couleur: 'var(--arc-5)' },
-];
-
 export const skillsIA = [
   {
     titre: 'Piloter',
