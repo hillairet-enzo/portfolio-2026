@@ -5728,3 +5728,6 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 .diapos__vignette[aria-current="true"] { outline-color: var(--ink); }
 @media (max-width: 40rem) { .diapos__fleche { width: 2.4rem; height: 2.4rem; } .diapos__texte { display: block; margin: .3rem 0 0; } }
 @media (prefers-reduced-motion: reduce) { .diapos__slide { transition: none; } }
+/* diaporama plus compact */
+.diapos { width: min(100%, 44rem); }
+.diapos__vignette { width: clamp(4rem, 7vw, 5.2rem); }

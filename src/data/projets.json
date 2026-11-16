@@ -970,7 +970,7 @@
     "type": "affiche",
     "titre": "Art contemporain",
     "accroche": "Un diaporama sur l’art contemporain, présenté dans l’univers nostalgique de Windows XP et du manga.",
-    "resume": "Diaporama de 11 diapositives sur 9 œuvres d’art contemporain, mises en scène dans une esthétique Windows XP et manga entièrement créée sous Canva.",
+    "resume": "Diaporama sur 9 œuvres d’art contemporain, mises en scène dans une esthétique Windows XP et manga entièrement créée sous Canva.",
     "annee": "2025",
     "cadre": "Projet de cours, art contemporain (2 semaines)",
     "equipe": "Seul",
@@ -999,11 +999,6 @@
         "nom": "Des fenêtres qui ont chacune un rôle",
         "raison": "Paint montre l’œuvre, HyperTerminal donne sa fiche (titre, artiste, date, matériaux) et le message système résume l’idée à retenir.",
         "icone": "pages"
-      },
-      {
-        "nom": "Une fin qui joue le jeu",
-        "raison": "La dernière diapositive est une fenêtre « Shut down Windows » : j’y explique ma démarche, comme si l’ordinateur s’éteignait.",
-        "icone": "cube"
       }
     ],
     "defis": [
@@ -1075,17 +1070,10 @@
         "onglet": "resultat",
         "titre": "Le rendu final",
         "paragraphes": [
-          "Le résultat est un diaporama de onze diapositives, avec une introduction, neuf œuvres et une conclusion. Les œuvres présentées vont de My Bed de Tracey Emin à Cloud Gate d’Anish Kapoor, en passant par Dismaland de Banksy.",
+          "Le résultat est un diaporama de neuf diapositives, une par œuvre. Les œuvres présentées vont de My Bed de Tracey Emin à Cloud Gate d’Anish Kapoor, en passant par Dismaland de Banksy.",
           "Les œuvres appartiennent à leurs artistes. Les personnages et les éléments décoratifs viennent de Pinterest, et je les ai transformés pour ce projet."
         ],
         "photos": [
-          {
-            "fichier": "art-contemporain/diapo-01.jpg",
-            "alt": "Diapositive d’introduction : une fenêtre « System message » qui annonce l’art contemporain devant un personnage de manga sur fond de colline Windows XP",
-            "sujet": "Introduction : l’art contemporain",
-            "format": "16/9",
-            "taille": "1920 × 1080 px"
-          },
           {
             "fichier": "art-contemporain/diapo-02.jpg",
             "alt": "Diapositive sur My Bed de Tracey Emin : l’œuvre dans une fenêtre Paint, sa fiche dans une fenêtre de texte, une héroïne de manga sur fond bleu",
@@ -1146,13 +1134,6 @@
             "fichier": "art-contemporain/diapo-10.jpg",
             "alt": "Diapositive sur l’œuvre numérique Everydays: The First 5000 Days, avec un personnage de manga sur fond jaune",
             "sujet": "Everydays: The First 5000 Days (2021) : l’art est intégré à un marché de l’art",
-            "format": "16/9",
-            "taille": "1920 × 1080 px"
-          },
-          {
-            "fichier": "art-contemporain/diapo-11.jpg",
-            "alt": "Dernière diapositive : une fenêtre « Shut down Windows » qui explique la démarche, devant la colline de Windows XP",
-            "sujet": "Conclusion : « Shut down Windows »",
             "format": "16/9",
             "taille": "1920 × 1080 px"
           }
