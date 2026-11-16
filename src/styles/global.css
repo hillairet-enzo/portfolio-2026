@@ -5709,3 +5709,9 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 
 /* sans flèches : les cartes gagnent la place */
 .galerie .arc-vue { --cw: clamp(10.5rem, min(33vw, calc((100svh - 26rem) / 0.84)), 35rem); }
+
+/* À propos : titre dans le même esprit que l'accueil (début en gris léger, suite en gras), taille plus mesurée */
+.ap-hero h1 { font-size: clamp(2.3rem, 4.8vw, 4.4rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1.04; color: var(--encre); text-wrap: balance; max-width: 16em; }
+.ap-hero h1 > span { display: block; font-weight: 400; color: color-mix(in srgb, var(--encre) 55%, var(--fond)); }
+.ap-hero__etiquette { font-weight: 600; margin-bottom: 1.1rem; }
+.ap-hero__actions { margin-top: 1.8rem; }
