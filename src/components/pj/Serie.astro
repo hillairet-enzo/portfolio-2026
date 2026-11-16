@@ -1,0 +1,86 @@
+---
+// Série d'affiches : une affiche à la fois, grande, avec ses informations à côté.
+// Chaque photo : sujet = « Nom du lieu | Accroche | Description courte ».
+import type { Photo } from '../../data/projets';
+const { photos, format = '40 × 60 cm' } = Astro.props as { photos: Photo[]; format?: string };
+const items = photos.map((p) => {
+  const [nom, accroche, texte] = p.sujet.split('|').map((s) => s.trim());
+  return { ...p, nom, accroche, texte };
+});
+const n = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<section class="serie" id="serie" aria-label="La série d’affiches" data-serie>
+  <div class="contenu">
+    <p class="pp-etiquette">La série · {items.length} affiches · {format}</p>
+    <div class="serie__scene">
+      <div class="serie__scene-fond">
+        <div class="serie__pile">
+          {items.map((it, i) => (
+            <figure class="serie__affiche" data-actif={i === 0 ? 'true' : 'false'} aria-hidden={i === 0 ? 'false' : 'true'}>
+              <img src={`/images/${it.fichier}`} alt={it.alt} width="1200" height="1800" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" data-zoom />
+            </figure>
+          ))}
+        </div>
+      </div>
+      <div class="serie__infos">
+        <p class="serie__compteur" aria-live="polite"><span data-num>01</span> / {n(items.length - 1)}</p>
+        {items.map((it, i) => (
+          <div class="serie__fiche" data-actif={i === 0 ? 'true' : 'false'}>
+            <h2 class="serie__nom">{it.nom}</h2>
+            <p class="serie__accroche">« {it.accroche} »</p>
+            <p class="serie__texte">{it.texte}</p>
+          </div>
+        ))}
+        <div class="serie__commandes">
+          <button type="button" class="serie__fleche" data-dir="-1" aria-label="Affiche précédente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+          <ul class="serie__vignettes">
+            {items.map((it, i) => (
+              <li>
+                <button type="button" class="serie__vignette" data-i={i} aria-label={`Affiche ${i + 1} : ${it.nom}`} aria-current={i === 0 ? 'true' : 'false'}>
+                  <img src={`/images/${it.fichier}`} alt="" width="120" height="180" loading="lazy" />
+                </button>
+              </li>
+            ))}
+          </ul>
+          <button type="button" class="serie__fleche" data-dir="1" aria-label="Affiche suivante"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button>
+        </div>
+        <p class="serie__astuce">Clique sur l’affiche pour la voir en grand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const racine = document.querySelector<HTMLElement>('[data-serie]');
+  if (racine) {
+    const affiches = Array.from(racine.querySelectorAll<HTMLElement>('.serie__affiche'));
+    const fiches = Array.from(racine.querySelectorAll<HTMLElement>('.serie__fiche'));
+    const vignettes = Array.from(racine.querySelectorAll<HTMLElement>('.serie__vignette'));
+    const num = racine.querySelector('[data-num]')!;
+    let cur = 0;
+    const aller = (i: number) => {
+      cur = (i + affiches.length) % affiches.length;
+      affiches.forEach((a, k) => { a.dataset.actif = String(k === cur); a.setAttribute('aria-hidden', String(k !== cur)); });
+      fiches.forEach((f, k) => (f.dataset.actif = String(k === cur)));
+      vignettes.forEach((v, k) => v.setAttribute('aria-current', String(k === cur)));
+      num.textContent = String(cur + 1).padStart(2, '0');
+    };
+    racine.querySelectorAll<HTMLElement>('[data-dir]').forEach((b) => b.addEventListener('click', () => aller(cur + Number(b.dataset.dir))));
+    vignettes.forEach((v) => v.addEventListener('click', () => aller(Number(v.dataset.i))));
+    racine.addEventListener('keydown', (e) => {
+      if ((e.target as HTMLElement).closest('.zoom')) return;
+      if (e.key === 'ArrowLeft') aller(cur - 1);
+      if (e.key === 'ArrowRight') aller(cur + 1);
+    });
+    // glisser au doigt
+    let x0: number | null = null;
+    const scene = racine.querySelector('.serie__pile')!;
+    scene.addEventListener('pointerdown', (e) => { x0 = (e as PointerEvent).clientX; });
+    scene.addEventListener('pointerup', (e) => {
+      if (x0 === null) return;
+      const dx = (e as PointerEvent).clientX - x0; x0 = null;
+      if (Math.abs(dx) > 50) aller(cur + (dx < 0 ? 1 : -1));
+    });
+  }
+</script>

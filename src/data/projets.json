@@ -805,5 +805,164 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "affiches-montbeliard",
+    "type": "affiche",
+    "titre": "Affiches",
+    "accroche": "Une série d’affiches touristiques au style voyage d’autrefois, pour faire découvrir le patrimoine du Pays de Montbéliard.",
+    "resume": "Série d’affiches illustrées en flat design pour l’Office de Tourisme et l’Agglomération du Pays de Montbéliard : le Temple Saint-Martin, le Château des ducs de Wurtemberg et l’Église Saint-Maimbœuf.",
+    "annee": "2026",
+    "cadre": "Projet de cours, commande fictive, BUT MMI",
+    "equipe": "Seul",
+    "role": [
+      "Direction artistique de la campagne",
+      "Dessin des monuments",
+      "Mise en page des textes et des logos",
+      "Préparation des fichiers pour l’impression"
+    ],
+    "outils": [
+      "Affinity Designer"
+    ],
+    "choix": [
+      {
+        "nom": "Le flat design",
+        "raison": "Des formes simples et des aplats de couleur, sans contour : un style moderne qui rappelle les affiches de voyage d’autrefois.",
+        "icone": "palette"
+      },
+      {
+        "nom": "Une ambiance de nuit",
+        "raison": "La lune revient sur chaque affiche. Elle éclaire les monuments et donne à la série un côté intemporel.",
+        "icone": "nuage"
+      },
+      {
+        "nom": "Les feuilles d’automne",
+        "raison": "Placées au premier plan, elles apportent de la chaleur et encadrent naturellement l’illustration.",
+        "icone": "defilement"
+      },
+      {
+        "nom": "Un titre très épais",
+        "raison": "Une écriture massive pour que les accroches se lisent de loin, comme de vraies promesses plutôt que le simple nom du lieu.",
+        "icone": "carnet"
+      },
+      {
+        "nom": "Affinity Designer",
+        "raison": "Un logiciel de dessin vectoriel : ses courbes ne se pixelisent jamais, même en grand format. Il permet de tracer à la main des formes très nettes, ce qui était indispensable pour mon style.",
+        "icone": "cube"
+      }
+    ],
+    "defis": [
+      {
+        "defi": "Garder une unité visuelle entre des bâtiments très différents.",
+        "solution": "J’ai créé une grille stricte, la même sur chaque affiche : un grand cadre blanc, un titre très épais toujours au même endroit, un bandeau en bas avec la signature de la campagne, et des feuilles d’automne en haut à gauche."
+      },
+      {
+        "defi": "Dessiner des bâtiments compliqués sans passer par la vectorisation automatique, qui trace toute seule mais donne un rendu sale.",
+        "solution": "J’ai tracé chaque monument à la main avec des formes simples, comme des carrés et des triangles. Pour gagner du temps, je dessinais un seul élément (une fenêtre, une arcade) et je le copiais-collais."
+      },
+      {
+        "defi": "Donner une impression de volume avec un dessin tout plat, sans vraie perspective.",
+        "solution": "J’ai joué sur les ombres : j’ai empilé des formes en choisissant une couleur un peu plus sombre d’un côté, ce qui crée l’illusion du relief."
+      }
+    ],
+    "liens": [],
+    "couverture": {
+      "fichier": "affiches-montbeliard/couverture.jpg",
+      "alt": "Les trois affiches de la série, le Temple, le Château et l’Église, posées en éventail sur un fond gris clair",
+      "sujet": "Les trois affiches en éventail",
+      "format": "3/2",
+      "taille": "2400 × 1600 px"
+    },
+    "sections": [
+      {
+        "onglet": "contexte",
+        "titre": "Le contexte",
+        "paragraphes": [
+          "Ce projet a été réalisé pendant mes études. Le professeur nous a donné une commande fictive : créer une campagne d’affichage pour l’Office de Tourisme du Pays de Montbéliard et son Agglomération (PMA).",
+          "Il fallait mettre en valeur l’architecture de la ville sur des affiches grand format, en 40 × 60 cm. Le plus important était de donner à toutes les affiches une identité commune, pour qu’on reconnaisse la campagne au premier regard, tout en offrant à chaque monument sa propre ambiance."
+        ]
+      },
+      {
+        "onglet": "role",
+        "titre": "Mon rôle",
+        "paragraphes": [
+          "J’ai travaillé seul sur toute la chaîne de création. J’ai d’abord décidé de l’allure de la campagne (couleurs, style, ambiance), c’est ce qu’on appelle la direction artistique.",
+          "Ensuite, j’ai dessiné les trois monuments sur ordinateur, puis placé les textes et les logos de l’Office de Tourisme et de PMA. Pour finir, j’ai préparé les fichiers avec les bons réglages pour qu’un imprimeur professionnel puisse les imprimer."
+        ]
+      },
+      {
+        "onglet": "processus",
+        "titre": "Les étapes",
+        "paragraphes": [],
+        "flux": {
+          "etiquette": "Les étapes de la campagne",
+          "etapes": [
+            {
+              "titre": "Idéation",
+              "texte": "Je me suis inspiré des anciennes affiches de voyage, mais en les modernisant : un dessin épuré, des couleurs unies et aucun contour noir."
+            },
+            {
+              "titre": "Le système",
+              "texte": "J’ai d’abord préparé le gabarit commun : le cadre, la place des textes, la signature et les logos de PMA et de l’Office de Tourisme."
+            },
+            {
+              "titre": "Réalisation",
+              "texte": "J’ai dessiné chaque bâtiment par-dessus des photos de référence, puis ajouté la lune, les nuages et les feuilles d’automne pour créer l’ambiance."
+            },
+            {
+              "titre": "Finalisation",
+              "texte": "J’ai réglé le fichier pour l’impression professionnelle : couleurs adaptées à l’encre, haute résolution et marges de sécurité."
+            }
+          ]
+        }
+      },
+      {
+        "onglet": "processus",
+        "titre": "Le gabarit commun",
+        "paragraphes": [
+          "Voici le secret de la série : les trois affiches suivent exactement la même grille. L’accroche est toujours en haut, l’illustration est toujours dans un grand cadre blanc, et la signature « Montbéliard, l’histoire grandeur nature » avec le hashtag et les logos est toujours en bas. Seuls le monument, la couleur et la phrase d’accroche changent."
+        ],
+        "photos": [
+          {
+            "fichier": "affiches-montbeliard/gabarit.jpg",
+            "alt": "Les trois affiches côte à côte, avec trois zones colorées qui montrent la grille commune : l’accroche, l’illustration et la signature",
+            "sujet": "Schéma du gabarit commun",
+            "format": "21/9",
+            "taille": "2400 × 1029 px"
+          }
+        ]
+      },
+      {
+        "onglet": "resultat",
+        "titre": "Le rendu final",
+        "paragraphes": [
+          "J’ai livré une série de trois affiches : le Temple Saint-Martin, le Château des ducs de Wurtemberg et l’Église Saint-Maimbœuf, prêtes pour l’impression professionnelle.",
+          "Ce projet m’a appris à simplifier une architecture très détaillée en formes de base, et à organiser un fichier proprement pour un imprimeur."
+        ],
+        "photos": [
+          {
+            "fichier": "affiches-montbeliard/affiche-temple.jpg",
+            "alt": "Affiche du Temple Saint-Martin : un temple rose et ocre sous un croissant de lune, avec l’accroche « L’élégance a trouvé son sanctuaire »",
+            "sujet": "Le Temple Saint-Martin | L’élégance a trouvé son sanctuaire. | Un clocher pointu et une façade rose saumon, sous un fin croissant de lune. Les fenêtres allumées donnent un côté chaleureux à la scène.",
+            "format": "3/4",
+            "taille": "1200 × 1800 px"
+          },
+          {
+            "fichier": "affiches-montbeliard/affiche-chateau.jpg",
+            "alt": "Affiche du Château des ducs de Wurtemberg : des tours orange et blanches sous la pleine lune, avec l’accroche « Au cœur du panache montbéliardais »",
+            "sujet": "Le Château des ducs de Wurtemberg | Au cœur du panache montbéliardais. | La masse imposante du château, avec ses grosses tours orange et blanches, sous une pleine lune. C’est l’affiche la plus large et la plus chargée de la série.",
+            "format": "3/4",
+            "taille": "1200 × 1800 px"
+          },
+          {
+            "fichier": "affiches-montbeliard/affiche-maimboeuf.jpg",
+            "alt": "Affiche de l’Église Saint-Maimbœuf : une église dorée avec une haute flèche grise, avec l’accroche « La flèche vers le ciel »",
+            "sujet": "L’Église Saint-Maimbœuf | La flèche vers le ciel. | Une façade dorée et un clocher élancé qui monte vers le ciel. Ici, tout le dessin joue sur la verticalité.",
+            "format": "3/4",
+            "taille": "1200 × 1800 px"
+          }
+        ]
+      }
+    ]
   }
 ]

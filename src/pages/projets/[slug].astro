@@ -4,6 +4,7 @@ import Photo from '../../components/Photo.astro';
 import Contact from '../../components/Contact.astro';
 import Ligne from '../../components/pj/LigneProjet.astro';
 import Icone from '../../components/pj/Icone.astro';
+import Serie from '../../components/pj/Serie.astro';
 import { THEME_NEUTRE, couleurMoyenne } from '../../lib/theme';
 import { projets, trouverProjet, gabarits } from '../../data/projets';
 
@@ -25,6 +26,12 @@ const teintes = [
   { fond: '#ffb8d4', sombre: false },
 ];
 const gabarit = gabarits[projet.type];
+// Projet « affiche » : les images nommées affiche-* forment une série vue une par une, hors des onglets.
+const estAffiche = (f: string) => /\/affiche-/.test('/' + f);
+const serie = projet.type === 'affiche' ? projet.sections.flatMap((s) => s.photos ?? []).filter((ph) => estAffiche(ph.fichier)) : [];
+const sectionsVisibles = projet.sections
+  .map((s) => (serie.length ? { ...s, photos: s.photos?.filter((ph) => !estAffiche(ph.fichier)) } : s))
+  .filter((s) => s.paragraphes.length || s.flux || s.chiffres || s.visuel || s.schemas || s.photos?.length);
 // Quatre onglets : le dernier regroupe les choix (techniques ou créatifs) et le résultat.
 const blocs = [
   { id: 'contexte', onglets: ['contexte'] },
@@ -34,7 +41,7 @@ const blocs = [
 ].map((b, i) => ({
   ...b,
   titre: gabarit.onglets[i],
-  sections: projet.sections.filter((s) => (b.onglets as string[]).includes(s.onglet)),
+  sections: sectionsVisibles.filter((s) => (b.onglets as string[]).includes(s.onglet)),
   ...teintes[i],
 }));
 ---
@@ -64,6 +71,8 @@ const blocs = [
       </div>
     </div>
   </section>
+
+  {serie.length > 0 && <Serie photos={serie} />}
 
   <article class="pp" id="projet">
     <section class="pp-onglets" aria-label="Informations sur le projet">
