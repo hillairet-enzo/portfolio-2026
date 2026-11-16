@@ -16,37 +16,42 @@ export const profil = {
   hebergeur: 'Infomaniak Network SA, Rue Eugène Marziano 25, 1227 Les Acacias (GE), Suisse. Numéro IDE : CHE-103.167.648. Site : infomaniak.com.',
 };
 
-// Ce que tu sais faire, regroupé pour que ce soit lisible d’un coup d’œil.
+// Ce que je sais faire, tiré des six projets du portfolio.
 export const competences = [
   {
     titre: 'Concevoir',
-    items: ['Définir une direction artistique', 'Maquetter des interfaces sur Figma', 'Concevoir des parcours clairs', 'Écrire pour le web'],
+    items: ['Direction artistique (affiches, interfaces)', 'Maquettes sur Figma', 'Illustration vectorielle (Affinity Designer)', 'Écriture et récit pour le web'],
   },
   {
     titre: 'Développer',
-    items: ['Intégrer des pages responsives (HTML, CSS, JS)', 'Construire un site en composants (Astro)', 'Concevoir une base de données (SQLite)', 'Animer un modèle 3D (three.js)'],
+    items: ['Sites en composants (Astro, Tailwind CSS)', 'Bases de données (SQLite, PocketBase)', 'Visualisation de données (Observable Plot)', 'Modèle 3D interactif (three.js)'],
   },
   {
-    titre: 'Mettre en ligne',
-    items: ['Héberger un site (Netlify, VPS Apache)', 'Automatiser la mise en ligne (GitHub Actions)', 'Optimiser le référencement'],
+    titre: 'Produire et publier',
+    items: ['Tournage, prise de son et montage (DaVinci Resolve)', 'Gestion de projet d’équipe (Jira)', 'Mise en ligne (Netlify, serveur perso)', 'Référencement et accessibilité'],
   },
 ];
 
-// Les quatre temps d'un projet, tels que je les ai vécus sur TiK•TaK et ThermoViz.
+// Les quatre temps d'un projet, tels que je les ai vécus sur TiK•TaK, ThermoViz, Iris et les affiches.
 export const demarche = [
-  { titre: 'Cadrer', texte: 'Comprendre le sujet, le public et ce que le site doit permettre de faire. Poser une question ou une promesse claire.' },
-  { titre: 'Concevoir', texte: 'Choisir un style, dessiner les écrans, écrire les textes. Les mots font partie du design.' },
-  { titre: 'Développer', texte: 'Construire les pages, la base de données et les interactions, en gardant le code lisible.' },
-  { titre: 'Mettre en ligne', texte: 'Publier, tester sur ordinateur et téléphone, soigner le référencement et l’accessibilité.' },
+  { titre: 'Cadrer', texte: 'Poser une question claire : à qui je parle, que doit-on pouvoir faire ? ThermoViz est parti d’une seule question sur la chaleur à Bordeaux.' },
+  { titre: 'Concevoir', texte: 'Choisir un style, dessiner les écrans, écrire les textes. Pour les affiches : flat design, lune et feuilles d’automne. Les mots font partie du design.' },
+  { titre: 'Développer', texte: 'Construire les pages, la base de données et les interactions : une montre qui tourne en 3D, un bouton « Hasard », des graphiques à explorer.' },
+  { titre: 'Mettre en ligne', texte: 'Publier, tester sur ordinateur et téléphone, soigner le référencement et l’accessibilité. TiK•TaK tourne sur mon propre serveur.' },
 ];
 
-// Ton parcours, du plus récent au plus ancien. Ajoute ou retire des lignes librement.
+// Mon parcours, du plus récent au plus ancien.
 export const parcours = [
   {
-    periode: '2025 – aujourd’hui',
-    titre: 'BUT Métiers du Multimédia et de l’Internet',
+    periode: '2026 – aujourd’hui',
+    titre: 'BUT MMI, 2e année',
     lieu: 'IUT de Montbéliard',
-    texte: 'Création web, design, audiovisuel et communication. Projets en équipe et en solo (SAE).',
+    texte: 'TiK•TaK (SAE 301, seul), ThermoViz (SAE 303, en binôme) et Iris (R304, en trio).',
   },
-  // À REMPLIR : stages, jobs, associations, certifications…
+  {
+    periode: '2025 – 2026',
+    titre: 'BUT MMI, 1re année',
+    lieu: 'IUT de Montbéliard',
+    texte: 'Olyvia (site et vidéos), les affiches du Pays de Montbéliard et le diaporama Art contemporain.',
+  },
 ];
