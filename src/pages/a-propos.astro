@@ -21,7 +21,7 @@ const fichiersInsp = Object.keys(import.meta.glob('/public/images/a-propos/inspi
   .sort((a, b) => parseInt(a.replace(/\D/g, ''), 10) - parseInt(b.replace(/\D/g, ''), 10));
 const inspirations = fichiersInsp.length
   ? fichiersInsp.map((f, i) => ({ fichier: `a-propos/${f}`, alt: `Une de mes inspirations (${i + 1})`, sujet: '', format: '1/1' as const, taille: '' }))
-  : Array.from({ length: 12 }, (_, i) => insp(i + 1)); // aucune image encore : 12 cadres vides
+  : Array.from({ length: 30 }, (_, i) => insp(i + 1)); // aucune image encore : 30 cadres vides
 const photos = {
   portrait: {
     fichier: 'a-propos/portrait.jpg',

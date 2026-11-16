@@ -5897,3 +5897,12 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
   .ap-bande__texte { width: calc(100vw - 2 * var(--marge)); align-self: center; }
 }
 @media (max-width: 48rem) { .ap-bande__texte { width: calc(100vw - var(--marge) - 5rem); } .ap-bande__texte h1 { font-size: clamp(2rem, 8.4vw, 2.6rem); } }
+
+/* le blanc du haut se prolonge jusqu'aux onglets des cartes, le gris ne commence qu'avec elles */
+.pile { background:
+  linear-gradient(#fff 0, #fff 6.4rem, rgba(255,255,255,0) 6.4rem),
+  radial-gradient(40rem 28rem at 12% 20%, rgba(247,130,0,.22), transparent 70%),
+  radial-gradient(38rem 30rem at 88% 30%, rgba(151,57,153,.2), transparent 70%),
+  radial-gradient(44rem 30rem at 60% 90%, rgba(94,189,62,.18), transparent 70%),
+  #f3f3f1; }
+.ap-hero { padding-bottom: clamp(1.5rem, 3vw, 2.5rem); }
