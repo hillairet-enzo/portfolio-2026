@@ -140,3 +140,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : Affiches : cartes d'affiches dans l'onglet résultat, couverture simplifiée.
 - 2026-11-16 : projet 6 « Art contemporain » (diaporama Canva), visionneuse de diapos ; diapos provisoires en basse définition, à remplacer par les PNG exportés de Canva.
 - 2026-11-16 : accueil : cartes « Projet à ajouter » retirées, galerie ajustée à 6 projets.
+- 2026-11-16 : accueil, flèches retirées et cartes agrandies (tout tient à l'écran)

@@ -5706,3 +5706,6 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 .galerie__tete { gap: 1.2rem; }
 .galerie .arc-vue { --cw: clamp(10.5rem, min(31vw, calc((100svh - 31rem) / 0.84)), 31rem); }
 .arc__commandes { margin-top: 1rem; }
+
+/* sans flèches : les cartes gagnent la place */
+.galerie .arc-vue { --cw: clamp(10.5rem, min(33vw, calc((100svh - 26rem) / 0.84)), 35rem); }
