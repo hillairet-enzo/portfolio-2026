@@ -224,7 +224,7 @@ const lettres = [...profil.nom];
           setTimeout(function () { r.classList.remove('intro'); c.remove(); }, 1700);
           setTimeout(function () { r.classList.remove('intro-lance'); }, 3200);
         }
-        function pret() { setTimeout(sortir, Math.max(0, 4800 - (Date.now() - debut))); }
+        function pret() { setTimeout(sortir, Math.max(0, 3800 - (Date.now() - debut))); }
         if (document.readyState === 'complete') pret(); else addEventListener('load', pret);
         setTimeout(sortir, 8000);
       })();

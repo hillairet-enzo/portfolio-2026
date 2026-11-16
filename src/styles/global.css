@@ -6202,3 +6202,8 @@ html.police-ok .rl > b { animation-play-state: running; }
 @keyframes rl-tombe { from { transform: translateY(calc(var(--n) * 1.3em)); filter: none; } to { transform: none; filter: none; } }
 .rl .f { opacity: .55; }
 .rl .f { left: 50%; translate: -50% 0; }
+
+/* ── Chargement v4 : un peu plus rapide, cases plus larges (le « o » n'est plus rogné à droite) ── */
+.rl { padding-inline: .08em; margin-inline: -.08em; }
+.rl > b { animation-duration: 1s; animation-delay: calc(.2s + var(--i) * .09s); }
+.rl--espace { width: .3em; padding: 0; margin: 0; }
