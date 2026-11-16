@@ -22,8 +22,8 @@ if (piste) {
 
   function dessine() {
     const cw = largeur();
-    const esp = Math.max(1, Math.min(1.7, 9 / n)); // peu de projets : on écarte les cartes pour remplir l'écran
-    const premier = 0.8 * cw * (1 + (esp - 1) * 0.55); // écart centre → première voisine
+    const esp = 1; // cartes bien collées les unes aux autres
+    const premier = 0.8 * cw * esp; // écart centre → première voisine
     const suite = 0.43 * cw * esp; // écart entre les suivantes
     cartes.forEach((c, i) => {
       const t = ramene(i - pos);

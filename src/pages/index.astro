@@ -45,7 +45,7 @@ const avant = 0;
                 <a href={`/projets/${c.projet.slug}`} class="arc__lien" draggable="false">
                   <div class="arc__scene">
                     <div class="arc__img">
-                      <Photo photo={{ ...c.projet.couverture, format: '1/1' }} />
+                      <Photo photo={{ ...c.projet.couverture, format: '4/3' }} />
                     </div>
                   </div>
                   <p class="arc__label"><span>0{c.numero}</span>{c.projet.titre}</p>
@@ -65,7 +65,7 @@ const avant = 0;
             <li style={`--i:${i}`}>
               <a href={`/projets/${p.slug}`}>
                 <span class="liste__num">{String(i + 1).padStart(2, '0')}</span>
-                <span class="liste__img"><Photo photo={{ ...p.couverture, format: '1/1' }} serre /></span>
+                <span class="liste__img"><Photo photo={{ ...p.couverture, format: '4/3' }} serre /></span>
                 <span class="liste__corps">
                   <strong>{p.titre}</strong>
                   <span>{p.accroche}</span>
