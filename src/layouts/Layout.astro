@@ -58,7 +58,7 @@ const lettres = [...profil.nom];
   <body>
     <div class="chargeur" aria-hidden="true">
       <span class="chargeur__mot">
-        {lettres.map((l, i) => (l === ' ' ? <span class="rl rl--espace"></span> : <span class="rl"><b style={`--i:${i};--n:${5}`}>{[...Array(5)].map((_, k) => <i class="f" style={`--k:${k + 1};--c:var(--arc-${((i + k) % 5) + 1})`}>{'abcdefghijklmnopqrstuvwxyz'[(i * 7 + k * 11) % 26]}</i>)}<i class="fin">{l}</i></b></span>))}
+        {lettres.map((l, i) => (l === ' ' ? <span class="rl rl--espace"></span> : <span class="rl"><b style={`--i:${i};--n:${5}`}>{[...Array(5)].map((_, k) => <i class="f" style={`--k:${k + 1};--c:var(--arc-${((i + k) % 5) + 1})`}>{(/[ilrtfj]/.test(l) ? 'ijlrtf' : /[A-Z]/.test(l) ? 'EFPSBRKZ' : 'aceosuz')[(i * 7 + k * 5) % (/[ilrtfj]/.test(l) ? 6 : /[A-Z]/.test(l) ? 8 : 7)]}</i>)}<i class="fin">{l}</i></b></span>))}
       </span>
     </div>
     <VerreSVG />

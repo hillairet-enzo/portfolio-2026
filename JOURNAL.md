@@ -188,3 +188,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : nettoyage du dossier (fichiers inutilisés supprimés), âge centralisé dans profil.ts, IA.md complété (prompts, skills, covers).
 - 2026-11-16 : chargement en défilement de lettres (type tableau d'affichage) à la place de la barre ; titres de projet longs passés à la ligne (Art contemporain n'est plus coupé).
 - 2026-11-16 : chargement plus lent, lettres noires, lettres plus hautes (plus de coupe), départ une fois la police chargée.
+- 2026-11-16 : chargement en afficheur à lettres (chaque case change de lettre d'un coup puis se fixe), plus de morceaux de lettres.
