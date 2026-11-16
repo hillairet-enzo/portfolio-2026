@@ -19,7 +19,7 @@ function majDefilement() {
   const y = window.scrollY;
   if (barre) {
     const total = racine.scrollHeight - window.innerHeight;
-    barre.style.transform = `scaleX(${total > 0 ? borne(y / total) : 0})`;
+    barre.style.setProperty('--p', String(total > 0 ? borne(y / total) : 0));
   }
   if (hero && !reduit) {
     const h = hero.offsetHeight || 1;

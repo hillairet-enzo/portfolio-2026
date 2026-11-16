@@ -183,3 +183,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : nouvelles covers (Olyvia, Iris, Affiches, Art contemporain) : fond de couleur, titre et visuel.
 - 2026-11-16 : nouvelles covers TiK•TaK et ThermoViz, même style (fond de couleur, titre, visuels du site).
 - 2026-11-16 : covers refaites en 4/3 (plus de rognage sur les pages projet), TiK•TaK en couverture-carte.webp.
+- 2026-11-16 : barres de couleur (progression, pied de page) en verre liquide ; ombres de la galerie d'accueil plus douces, en plusieurs couches.

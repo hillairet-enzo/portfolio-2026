@@ -6114,3 +6114,57 @@ html[data-theme='dark'] .toast-copie__texte { color: #d8dbe0; text-shadow: 0 0 1
 .pl__intro + .pl__intro { margin-top: -.3rem; }
 .pl__corps--bref { grid-template-columns: minmax(0, 6fr) minmax(0, 4fr); align-items: stretch; }
 
+
+/* ═════ Barres de couleur en verre liquide (progression + pied de page) et ombres de la galerie ═════ */
+/* progression : rail de verre en haut, remplissage coloré translucide qui avance (--p écrit par animations.ts) */
+.progres {
+  position: fixed; inset: .3rem var(--marge) auto var(--marge); z-index: 80; height: .6rem; max-width: calc(var(--largeur) - 2 * var(--marge)); margin-inline: auto;
+  transform: none; will-change: auto; border-radius: 999px; pointer-events: none; overflow: hidden; isolation: isolate;
+  background: rgb(255 255 255 / .32);
+  -webkit-backdrop-filter: blur(10px) saturate(1.8); backdrop-filter: blur(10px) saturate(1.8);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .75), inset 0 0 0 1px rgb(255 255 255 / .4), 0 6px 16px -8px rgb(0 0 0 / .3);
+  opacity: calc(.0 + min(1, var(--p, 0) * 40));
+}
+.progres::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; width: calc(var(--p, 0) * 100%); min-width: .6rem;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / .6), rgb(255 255 255 / 0) 55%),
+    linear-gradient(90deg, var(--arc-1), var(--arc-2), var(--arc-3), var(--arc-4), var(--arc-5)) left / calc(100vw - 2 * var(--marge)) 100% no-repeat;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .85), inset 0 -2px 3px rgb(0 0 0 / .14), 0 0 14px rgb(247 130 0 / .35);
+}
+/* pied de page : capsule de verre à cinq couleurs, posée au-dessus du bas de page */
+.pied { padding-bottom: 1.8rem; }
+.pied::before {
+  inset: auto var(--marge) .7rem var(--marge); height: .7rem; max-width: calc(var(--largeur) - 2 * var(--marge)); margin-inline: auto; border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / .55), rgb(255 255 255 / 0) 55%),
+    linear-gradient(90deg, var(--arc-1) 0 20%, var(--arc-2) 20% 40%, var(--arc-3) 40% 60%, var(--arc-4) 60% 80%, var(--arc-5) 80% 100%);
+  opacity: .92;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .8), inset 0 0 0 1px rgb(255 255 255 / .3), inset 0 -2px 3px rgb(0 0 0 / .16), 0 8px 22px -8px rgb(247 130 0 / .5);
+}
+/* galerie d'accueil : ombres douces en plusieurs couches + rebord de verre */
+.arc__img {
+  position: relative;
+  box-shadow:
+    0 1px 1px rgb(0 0 0 / .05),
+    0 6px 10px -4px rgb(0 0 0 / .08),
+    0 18px 28px -12px rgb(0 0 0 / .14),
+    0 42px 64px -28px rgb(0 0 0 / .3);
+  transition: box-shadow .5s var(--ease);
+}
+.arc__img::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .55), inset 0 0 0 1px rgb(255 255 255 / .16), inset 0 -18px 28px -22px rgb(0 0 0 / .25);
+  background: linear-gradient(160deg, rgb(255 255 255 / .16), rgb(255 255 255 / 0) 32%);
+}
+.arc__lien:hover .arc__img {
+  box-shadow:
+    0 1px 1px rgb(0 0 0 / .05),
+    0 10px 16px -6px rgb(0 0 0 / .1),
+    0 26px 40px -14px rgb(0 0 0 / .18),
+    0 58px 84px -30px rgb(0 0 0 / .34);
+}
+html[data-theme='dark'] .arc__img {
+  box-shadow: 0 1px 1px rgb(0 0 0 / .4), 0 14px 28px -12px rgb(0 0 0 / .6), 0 40px 70px -30px rgb(0 0 0 / .8), 0 0 0 1px rgb(255 255 255 / .06);
+}
+@media (prefers-reduced-transparency: reduce) { .progres { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgb(255 255 255 / .85); } }
