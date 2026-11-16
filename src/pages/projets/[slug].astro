@@ -78,7 +78,7 @@ const blocs = [
 
         <!-- Onglets : on ouvre, les informations se déroulent -->
         <h2 class="pp-onglets__titre">En détail</h2>
-        <div class="pp-tabs" id="pp-tabs">
+        <div class:list={['pp-tabs', projet.type === 'affiche' && 'pp-tabs--affiche']} id="pp-tabs">
           {
             blocs.map((b, i) => (
               <div class="pp-tab" id={`bloc-${b.id}`} data-ouvert="false" style={`--i:${i}`}>

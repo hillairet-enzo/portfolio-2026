@@ -13,23 +13,7 @@ const items = photos.map((p) => {
   {items.map((it, i) => (
     <article class="carte" data-actif={i === 0 ? 'true' : 'false'} tabindex="0" aria-label={`Affiche ${i + 1} : ${it.nom}`}>
       <img class="carte__img" src={`/images/${it.fichier}`} alt={it.alt} width="1200" height="1800" loading="lazy" decoding="async" />
-      <span class="carte__voile" aria-hidden="true"></span>
-      <ul class="carte__tags" aria-hidden="true">
-        <li>Affiche {String(i + 1).padStart(2, '0')}</li>
-        <li>40 × 60 cm</li>
-      </ul>
-      <span class="carte__rond" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"></path></svg>
-      </span>
-      <div class="carte__texte">
-        <h4 class="carte__nom">{it.nom}</h4>
-        <p class="carte__accroche">« {it.accroche} »</p>
-        <p class="carte__desc">{it.texte}</p>
-        <button type="button" class="carte__bouton" data-grand>
-          Voir l’affiche en grand
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
-        </button>
-      </div>
+      <span class="carte__sr">{it.nom} : {it.accroche}</span>
     </article>
   ))}
 </div>
@@ -50,7 +34,7 @@ const items = photos.map((p) => {
         if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); cartes[(i - 1 + cartes.length) % cartes.length].focus(); activer(cartes[(i - 1 + cartes.length) % cartes.length]); }
       });
       c.addEventListener('mouseenter', () => { if (window.matchMedia('(hover: hover)').matches) activer(c); });
-      c.querySelector('[data-grand]')?.addEventListener('click', () => {
+      c.addEventListener('click', () => {
         const zoom = document.getElementById('zoom') as HTMLDialogElement | null;
         const img = c.querySelector('img')!;
         if (!zoom) return;

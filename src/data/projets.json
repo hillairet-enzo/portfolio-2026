@@ -867,9 +867,9 @@
     ],
     "liens": [],
     "couverture": {
-      "fichier": "affiches-montbeliard/couverture-droite.jpg",
-      "alt": "Les trois affiches de la série, le Temple, le Château et l’Église, posées en éventail sur un fond gris clair",
-      "sujet": "Les trois affiches en éventail",
+      "fichier": "affiches-montbeliard/couverture-detail.jpg",
+      "alt": "Détail de l’affiche du Château : des feuilles d’automne, la pleine lune et les tours du château sur un ciel bleu nuit",
+      "sujet": "Détail de l’illustration du Château",
       "format": "3/2",
       "taille": "2400 × 1600 px"
     },
@@ -924,7 +924,7 @@
         ],
         "photos": [
           {
-            "fichier": "affiches-montbeliard/gabarit.jpg",
+            "fichier": "affiches-montbeliard/gabarit-nb.jpg",
             "alt": "Les trois affiches côte à côte, avec trois zones colorées qui montrent la grille commune : l’accroche, l’illustration et la signature",
             "sujet": "Schéma du gabarit commun",
             "format": "21/9",
