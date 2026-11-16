@@ -147,3 +147,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : lien du site Iris ajouté (iris-vod.netlify.app), cartes À propos aux couleurs plus vives
 - 2026-11-16 : à propos, portrait ajouté
 - 2026-11-16 : à propos, patchwork de photos dans le hero (portrait + 3 photos recadrées)
+- 2026-11-16 : à propos, petites vignettes du hero prévues pour mes inspirations Pinterest (inspiration-1/2/3.jpg)

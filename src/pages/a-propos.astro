@@ -8,7 +8,17 @@ import { aCv } from '../lib/cv';
 
 const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
 
+const insp = (n: number) => ({
+  fichier: `a-propos/inspiration-${n}.jpg`,
+  alt: `Une de mes inspirations (${n}/3)`,
+  sujet: 'Une inspiration Pinterest : affiche, interface, photo ou graphisme qui te plaît.',
+  format: '1/1' as const,
+  taille: '800 × 800 px',
+});
 const photos = {
+  insp1: insp(1),
+  insp2: insp(2),
+  insp3: insp(3),
   portrait: {
     fichier: 'a-propos/portrait.jpg',
     alt: 'Portrait d’Enzo Hillairet',
@@ -54,9 +64,9 @@ const photos = {
       </div>
       <div class="ap-hero__photo ap-patch">
         <div class="ap-patch__grand"><Photo photo={photos.portrait} prioritaire /></div>
-        <img class="ap-patch__p ap-patch__p--1" src="/images/a-propos/patch-profil.jpg" alt="Enzo de profil, en t-shirt blanc" width="700" height="700" loading="eager" decoding="async" />
-        <img class="ap-patch__p ap-patch__p--2" src="/images/a-propos/patch-cafe.jpg" alt="Enzo qui boit un matcha dans un café" width="670" height="700" loading="eager" decoding="async" />
-        <img class="ap-patch__p ap-patch__p--3" src="/images/a-propos/patch-maillot.jpg" alt="Enzo en t-shirt de l’OM" width="550" height="570" loading="eager" decoding="async" />
+        <div class="ap-patch__p"><Photo photo={photos.insp1} /></div>
+        <div class="ap-patch__p"><Photo photo={photos.insp2} /></div>
+        <div class="ap-patch__p"><Photo photo={photos.insp3} /></div>
       </div>
     </div>
   </section>
