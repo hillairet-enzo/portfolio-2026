@@ -286,12 +286,12 @@ const photos = {
       cartes.forEach((c, i) => {
         const d = i - p;
         if (d <= 0) {
-          // la carte glisse vers le bas en s'effaçant, sans bascule ni déformation
+          // la carte tombe vers l'écran : elle bascule vers nous, grossit et s'efface
           const t = clamp(-d);
-          const e = 1 - (1 - t) * (1 - t);
-          c.style.transformOrigin = '50% 0';
-          c.style.transform = `translate3d(0, ${e * 55}vh, 0) scale(${1 + e * 0.02})`;
-          c.style.opacity = String(1 - clamp(t / 0.38));
+          const e = t * t;
+          c.style.transformOrigin = '50% 100%';
+          c.style.transform = `translate3d(0, ${e * 18}vh, ${e * 900}px) rotateX(${-e * 55}deg)`;
+          c.style.opacity = String(1 - clamp((t - 0.55) / 0.35));
           c.style.visibility = t >= 1 ? 'hidden' : 'visible';
         } else {
           const k = Math.min(d, 4.2);
@@ -302,7 +302,7 @@ const photos = {
         }
         // le contenu des cartes de derrière s'efface : à travers le verre on ne voit que leur couleur
         const corps = c.querySelector<HTMLElement>('.pl__corps');
-        if (corps) corps.style.opacity = d > 0 ? String(clamp(1 - (d - 0.1) * 2.4)) : String(clamp(1 - -d * 3.5));
+        if (corps) corps.style.opacity = d > 0 ? String(clamp(1 - (d - 0.1) * 2.4)) : '1';
         c.style.zIndex = String(N - i);
         c.style.pointerEvents = d <= -1 || d > 3.4 ? 'none' : 'auto';
         c.classList.toggle('pl--derriere', i > proche);
