@@ -36,15 +36,30 @@ export const competences = [
 export const skillsIA = [
   {
     titre: 'Piloter',
-    items: ['Écrire des consignes précises', 'Choisir le modèle selon la tâche', 'Avancer par retours successifs', 'Garder, corriger ou rejeter', 'Tenir ma direction artistique'],
+    items: [
+      { icone: 'prompt', texte: 'Rédiger des prompts clairs et précis' },
+      { icone: 'contexte', texte: 'Donner contexte, format et exemples' },
+      { icone: 'iterer', texte: 'Affiner par retours successifs' },
+      { icone: 'trier', texte: 'Garder, corriger ou rejeter' },
+    ],
   },
   {
     titre: 'Utiliser',
-    items: ['Claude : code et conception', 'Gemini : visuels de TiK•TaK', 'Un assistant IA dans un site (TiK•TaK)', 'Des maquettes Figma pilotées par IA'],
+    items: [
+      { icone: 'modeles', texte: 'Claude, Gemini : le bon modèle selon la tâche' },
+      { icone: 'skills', texte: 'Des skills adaptés à chaque tâche' },
+      { icone: 'code', texte: 'Code, maquettes et visuels générés' },
+      { icone: 'assistant', texte: 'Des assistants IA intégrés à un site' },
+    ],
   },
   {
     titre: 'Vérifier',
-    items: ['Relire et reprendre les textes', 'Contrôler les informations (hébergeur, sources)', 'Mesurer la qualité (Lighthouse)', 'Déclarer chaque usage (IA.md)'],
+    items: [
+      { icone: 'relire', texte: 'Relire et reprendre les textes' },
+      { icone: 'sources', texte: 'Contrôler les informations et les sources' },
+      { icone: 'qualite', texte: 'Mesurer la qualité (Lighthouse)' },
+      { icone: 'declarer', texte: 'Déclarer chaque usage (IA.md)' },
+    ],
   },
 ];
 

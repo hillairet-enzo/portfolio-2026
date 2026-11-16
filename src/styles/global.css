@@ -6082,3 +6082,7 @@ html[data-theme='dark'] .toast-copie__texte { color: #d8dbe0; text-shadow: 0 0 1
   .pl__corps { padding-bottom: clamp(2.4rem, 7svh, 4.4rem); }
   .pile__defiler { bottom: .7rem; }
 }
+
+/* ── Skills IA : une icône devant chaque ligne ── */
+.pl__comps li:has(.ia-ico) { display: flex; align-items: center; gap: .75rem; }
+.ia-ico { flex: none; width: 1.35em; height: 1.35em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }

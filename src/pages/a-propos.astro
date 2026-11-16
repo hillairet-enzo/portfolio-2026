@@ -8,6 +8,21 @@ import { aCv } from '../lib/cv';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
+// Icônes du bloc « Skills IA » (tracés simples, 24 × 24)
+const iconesIA: Record<string, string> = {
+  prompt: 'M4 5h16v11H9l-5 4zM8 9h8M8 12h5',
+  contexte: 'M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6',
+  iterer: 'M20 11a8 8 0 0 0-14-4L4 9M4 4v5h5M4 13a8 8 0 0 0 14 4l2-2M20 20v-5h-5',
+  trier: 'M4 12l5 5L20 6',
+  modeles: 'M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3M7 6h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zM10 10h4v4h-4z',
+  skills: 'M12 3l2.2 5.6L20 11l-5.8 2.4L12 19l-2.2-5.6L4 11l5.8-2.4zM19 3v4M17 5h4',
+  code: 'M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16',
+  assistant: 'M12 3a8 8 0 0 0-8 8c0 2.1.8 4 2.2 5.4L5 21l4.3-1.6A8 8 0 1 0 12 3zM8.5 11h.01M12 11h.01M15.5 11h.01',
+  relire: 'M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z',
+  sources: 'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-5-5',
+  qualite: 'M4 18a8 8 0 1 1 16 0M12 18l4-6',
+  declarer: 'M7 3h7l5 5v13H7zM14 3v5h5M10 14l2 2 4-4',
+};
 const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
 
 const insp = (n: number) => ({
@@ -159,7 +174,7 @@ const photos = {
                   <div>
                     <h3>{c.titre}</h3>
                     <ul>
-                      {c.items.map((i) => <li>{i}</li>)}
+                      {c.items.map((i) => <li><svg class="ia-ico" viewBox="0 0 24 24" aria-hidden="true"><path d={iconesIA[i.icone]} /></svg><span>{i.texte}</span></li>)}
                     </ul>
                   </div>
                 ))
