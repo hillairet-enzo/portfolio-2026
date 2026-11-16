@@ -486,6 +486,10 @@
     ],
     "liens": [
       {
+        "label": "Voir le site",
+        "url": "https://iris-vod.netlify.app"
+      },
+      {
         "label": "Voir le code sur GitHub",
         "url": "https://github.com/hillairet-enzo/VOD_AUGIER"
       }

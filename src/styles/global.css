@@ -5750,3 +5750,11 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 .pied h2 { color: #000; }
 .ap-hero h1 { font-size: clamp(2.6rem, 5.3vw, 4.8rem); max-width: none; }
 .ap-hero h1 { text-wrap: balance; }
+
+/* cartes translucides : couleurs plus vives */
+.pl {
+  background: linear-gradient(160deg, color-mix(in srgb, var(--fond, #fff) 88%, transparent), color-mix(in srgb, var(--fond, #fff) 68%, transparent));
+  -webkit-backdrop-filter: blur(22px) saturate(190%); backdrop-filter: blur(22px) saturate(190%);
+  border-color: rgba(255,255,255,.55);
+}
+.pl .pl-photo .photo--vide { background: rgba(255,255,255,.6); }
