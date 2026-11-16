@@ -15,8 +15,13 @@ const insp = (n: number) => ({
   format: '1/1' as const,
   taille: '800 × 800 px',
 });
-const NB_INSPIRATIONS = 12; // une dizaine de carrés : 4 colonnes de 3
-const inspirations = Array.from({ length: NB_INSPIRATIONS }, (_, i) => insp(i + 1));
+// Les inspirations sont détectées toutes seules : inspiration-1.jpg, inspiration-2.jpg… (jpg, png, webp)
+const fichiersInsp = Object.keys(import.meta.glob('/public/images/a-propos/inspiration-*.{jpg,jpeg,png,webp,avif}'))
+  .map((f) => f.split('/').pop() as string)
+  .sort((a, b) => parseInt(a.replace(/\D/g, ''), 10) - parseInt(b.replace(/\D/g, ''), 10));
+const inspirations = fichiersInsp.length
+  ? fichiersInsp.map((f, i) => ({ fichier: `a-propos/${f}`, alt: `Une de mes inspirations (${i + 1})`, sujet: '', format: '1/1' as const, taille: '' }))
+  : Array.from({ length: 12 }, (_, i) => insp(i + 1)); // aucune image encore : 12 cadres vides
 const photos = {
   portrait: {
     fichier: 'a-propos/portrait.jpg',
@@ -63,9 +68,9 @@ const photos = {
       </div>
       <div class="ap-hero__photo ap-patch">
         <div class="ap-patch__grand"><Photo photo={photos.portrait} prioritaire /></div>
-        <div class="ap-patch__defile" id="ap-defile" tabindex="0" role="region" aria-label="Mes inspirations, faire défiler vers la droite">
+        <div class="ap-patch__vue"><div class="ap-patch__defile" id="ap-defile" tabindex="0" role="region" aria-label="Mes inspirations, faire défiler vers la droite">
           {inspirations.map((ph) => <div class="ap-patch__p"><Photo photo={ph} /></div>)}
-        </div>
+        </div></div>
         <button class="ap-patch__retour" id="ap-retour" type="button" aria-label="Revenir au portrait"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button>
       </div>
     </div>
@@ -172,13 +177,33 @@ const photos = {
   // inspirations : glisser à la souris pour faire défiler (le tactile et le trackpad marchent déjà)
   const defile = document.getElementById('ap-defile');
   if (defile) {
-    let x0 = 0, s0 = 0, bouge = false;
+    // glisser à la souris avec inertie (le tactile et le trackpad défilent déjà naturellement)
+    let x0 = 0, s0 = 0, bouge = false, vitesse = 0, dernierX = 0, dernierT = 0, raf = 0;
+    const freiner = () => {
+      if (Math.abs(vitesse) < 0.02) { defile.classList.remove('est-saisi'); return; }
+      defile.scrollLeft -= vitesse * 16;
+      vitesse *= 0.94;
+      raf = requestAnimationFrame(freiner);
+    };
+    let aGlisse = false;
+    defile.addEventListener('dragstart', (e) => e.preventDefault());
+    defile.addEventListener('click', (e) => { if (aGlisse) { e.preventDefault(); e.stopPropagation(); aGlisse = false; } }, true);
     defile.addEventListener('pointerdown', (e) => {
       if (e.pointerType !== 'mouse') return;
-      x0 = e.clientX; s0 = defile.scrollLeft; bouge = true; defile.classList.add('est-saisi');
+      aGlisse = false;
+      cancelAnimationFrame(raf);
+      x0 = e.clientX; s0 = defile.scrollLeft; bouge = true; vitesse = 0; dernierX = e.clientX; dernierT = performance.now();
+      defile.classList.add('est-saisi');
     });
-    window.addEventListener('pointermove', (e) => { if (bouge) defile.scrollLeft = s0 - (e.clientX - x0); });
-    window.addEventListener('pointerup', () => { bouge = false; defile.classList.remove('est-saisi'); });
+    window.addEventListener('pointermove', (e) => {
+      if (!bouge) return;
+      if (Math.abs(e.clientX - x0) > 5) aGlisse = true;
+      defile.scrollLeft = s0 - (e.clientX - x0);
+      const t = performance.now();
+      if (t > dernierT) vitesse = 0.8 * vitesse + 0.2 * ((e.clientX - dernierX) / (t - dernierT));
+      dernierX = e.clientX; dernierT = t;
+    });
+    window.addEventListener('pointerup', () => { if (!bouge) return; bouge = false; raf = requestAnimationFrame(freiner); });
 
     // dès qu'on fait défiler, tout glisse vers la gauche et les inspirations passent en grande mosaïque
     const hero = document.getElementById('ap-hero');

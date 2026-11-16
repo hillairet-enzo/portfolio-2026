@@ -5835,3 +5835,24 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
   .ap-hero--mosaique .ap-patch { --hh: clamp(24rem, 64vh, 38rem); }
   .ap-hero--mosaique .ap-patch__defile { grid-template-rows: repeat(2, 1fr); grid-auto-columns: calc((var(--hh) - var(--pt)) / 2); }
 }
+
+/* défilé fluide : 3 rangées partout, pas d'aimantation, pas de masque repeint à chaque image */
+.ap-patch__vue { position: relative; flex: 1; min-width: 0; height: 100%; }
+.ap-patch__vue::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 3rem; background: linear-gradient(90deg, rgba(255,255,255,0), #fff); pointer-events: none; z-index: 2; }
+.ap-hero { --ap-fond: #fff; }
+.ap-patch__defile { flex: none; width: 100%; height: 100%; scroll-snap-type: none !important; -webkit-mask-image: none !important; mask-image: none !important; padding-right: 3rem; scroll-behavior: smooth; will-change: scroll-position; contain: layout paint; -webkit-overflow-scrolling: touch; }
+.ap-patch__defile.est-saisi { scroll-behavior: auto; }
+.ap-patch__defile .ap-patch__p { scroll-snap-align: none; contain: layout paint; }
+@media (min-width: 48.01rem) {
+  .ap-hero--mosaique .ap-patch__defile { grid-template-rows: repeat(3, 1fr); grid-auto-columns: calc((var(--hh) - 2 * var(--pt)) / 3); padding-left: 3.8rem; }
+  .ap-hero--mosaique .ap-patch { --hh: clamp(24rem, 62vh, 38rem); }
+  .ap-hero--mosaique .ap-patch__vue::before { content: ""; position: absolute; top: 0; left: 0; bottom: 0; width: 3rem; background: linear-gradient(270deg, rgba(255,255,255,0), #fff); pointer-events: none; z-index: 2; }
+}
+@media (max-width: 48rem) { .ap-patch__vue { flex: none; width: 100%; height: calc(var(--hh) * .5); } }
+/* vraie mosaïque : une grande case pour 5 petites, qui se répète */
+.ap-patch__defile { grid-auto-flow: column dense; }
+.ap-patch__defile .ap-patch__p { aspect-ratio: auto; }
+.ap-patch__defile .ap-patch__p:nth-child(6n + 1) { grid-row: span 2; grid-column: span 2; }
+@media (max-width: 48rem) { .ap-patch__defile .ap-patch__p:nth-child(6n + 1) { grid-row: auto; grid-column: auto; } .ap-patch__defile .ap-patch__p { aspect-ratio: 1; } }
+
+.ap-patch__defile img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; }
