@@ -36,11 +36,11 @@ export const competences = [
 export const skillsIA = [
   {
     titre: 'Piloter',
-    items: ['Écrire des consignes précises', 'Avancer par retours successifs', 'Garder, corriger ou rejeter', 'Tenir ma direction artistique'],
+    items: ['Écrire des consignes précises', 'Choisir le modèle selon la tâche', 'Avancer par retours successifs', 'Garder, corriger ou rejeter', 'Tenir ma direction artistique'],
   },
   {
-    titre: 'Intégrer',
-    items: ['Un assistant IA dans un site (TiK•TaK)', 'Des visuels générés (Gemini)', 'Du code écrit sous ma direction', 'Des maquettes Figma pilotées par IA'],
+    titre: 'Utiliser',
+    items: ['Claude : code et conception', 'Gemini : visuels de TiK•TaK', 'Un assistant IA dans un site (TiK•TaK)', 'Des maquettes Figma pilotées par IA'],
   },
   {
     titre: 'Vérifier',
