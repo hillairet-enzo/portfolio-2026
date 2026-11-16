@@ -172,3 +172,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : Skills IA, Claude et Gemini cités, polyvalence dans le choix des modèles.
 - 2026-11-16 : Skills IA avec icônes, sans nommer de projet, prompts et skills adaptés.
 - 2026-11-16 : Skills IA, icônes retirées des lignes, pastilles d'application Claude et Gemini (logos à déposer dans public/images/ia).
+- 2026-11-16 : vrais logos Claude et Gemini dans les pastilles de la carte Skills IA.
