@@ -6059,3 +6059,19 @@ html.intro .chargeur.sortie .chargeur__mot { animation: ch-sortie-logo .55s cubi
 .toast-copie__pastille { pointer-events: none; }
 .toast-copie__texte { font-size: .9rem; font-weight: 600; color: #3a3d41; text-shadow: 0 0 10px #fff, 0 0 4px #fff; }
 html[data-theme='dark'] .toast-copie__texte { color: #d8dbe0; text-shadow: 0 0 10px #000, 0 0 4px #000; }
+
+/* ── Cartes À propos : plus d'air en bas, le contenu suit la hauteur de la fenêtre ── */
+@media (min-width: 48.01rem) {
+  .pl__corps { padding-bottom: clamp(2.4rem, 7svh, 4.4rem); }
+  .pl__titre { font-size: clamp(2rem, min(4.4vw, 7svh), 4rem); margin-bottom: clamp(.7rem, 2svh, 1.6rem); }
+  .pl__lead { font-size: clamp(1.05rem, min(1.7vw, 2.8svh), 1.5rem); margin-bottom: clamp(.5rem, 1.4svh, 1rem); }
+  .pl__grand { font-size: clamp(2.6rem, min(6vw, 9svh), 5rem); }
+  .pl__duo { gap: 1.4rem; margin-top: clamp(.8rem, 2svh, 1.6rem); padding-top: clamp(.8rem, 2svh, 1.4rem); }
+  .pl p { line-height: 1.5; }
+}
+@media (min-width: 48.01rem) {
+  .pl__comps > div { padding-top: clamp(.6rem, 1.6svh, 1.2rem); }
+  .pl__comps h3 { font-size: clamp(1.25rem, min(2.6vw, 4.2svh), 2.2rem); margin-bottom: clamp(.5rem, 1.4svh, 1rem); }
+  .pl__comps ul { gap: clamp(.25rem, .8svh, .55rem); }
+  .pl__comps li { font-size: clamp(.92rem, min(1.5vw, 2.3svh), 1.25rem); padding-bottom: clamp(.25rem, .8svh, .55rem); }
+}
