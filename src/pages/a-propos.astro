@@ -69,7 +69,7 @@ const photos = {
       </div>
       <div class="ap-bande__portrait"><Photo photo={photos.portrait} prioritaire /></div>
       <div class="ap-bande__insp">
-        {inspirations.map((ph) => <div class="ap-bande__case"><Photo photo={ph} /></div>)}
+        {inspirations.map((ph, i) => <div class="ap-bande__case" style={`--i:${i}`}><Photo photo={ph} /></div>)}
       </div>
     </div>
   </section>
