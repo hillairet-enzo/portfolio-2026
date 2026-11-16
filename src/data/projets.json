@@ -495,9 +495,9 @@
       }
     ],
     "couverture": {
-      "fichier": "iris/couverture.webp",
-      "alt": "La fiche du film L’Odyssée sur Iris : le titre en grand sur une image sombre, avec les boutons Play, Télécharger et Watch Together",
-      "sujet": "La fiche d’un film sur Iris, en haut de page.",
+      "fichier": "iris/couverture-carte.webp",
+      "alt": "Cover d’Iris : le titre en grand sur fond bleu nuit, avec la page d’accueil du site et la version téléphone",
+      "sujet": "Cover : fond de couleur, titre et visuel du projet.",
       "format": "3/2",
       "taille": "2400 × 1600 px"
     },
@@ -686,11 +686,11 @@
       }
     ],
     "couverture": {
-      "fichier": "olyvia/logo.webp",
-      "alt": "Le logo d’Olyvia en blanc sur un fond rose",
-      "sujet": "Le logo d’Olyvia.",
+      "fichier": "olyvia/couverture.webp",
+      "alt": "Cover d’Olyvia : le titre en grand sur fond rose, avec le site sur ordinateur et sur téléphone",
+      "sujet": "Cover : fond de couleur, titre et visuel du projet.",
       "format": "3/2",
-      "taille": "890 × 593 px"
+      "taille": "2400 × 1600 px"
     },
     "sections": [
       {
@@ -871,9 +871,9 @@
     ],
     "liens": [],
     "couverture": {
-      "fichier": "affiches-montbeliard/couverture-detail.jpg",
-      "alt": "Détail de l’affiche du Château : des feuilles d’automne, la pleine lune et les tours du château sur un ciel bleu nuit",
-      "sujet": "Détail de l’illustration du Château",
+      "fichier": "affiches-montbeliard/couverture-serie.webp",
+      "alt": "Cover des affiches : le titre en grand sur fond bleu nuit, avec les trois affiches de la série",
+      "sujet": "Cover : fond de couleur, titre et visuel du projet.",
       "format": "3/2",
       "taille": "2400 × 1600 px"
     },
@@ -1021,9 +1021,9 @@
     ],
     "liens": [],
     "couverture": {
-      "fichier": "art-contemporain/couverture-xp.jpg",
-      "alt": "Une diapositive en style Windows XP avec la photo de l’œuvre My Bed dans une fenêtre Paint, une fenêtre de texte et une héroïne de manga sur fond bleu",
-      "sujet": "Diapositive du diaporama",
+      "fichier": "art-contemporain/couverture-carte.webp",
+      "alt": "Cover d’Art contemporain : le titre en grand sur fond bleu, avec deux diapositives au style Windows XP et manga",
+      "sujet": "Cover : fond de couleur, titre et visuel du projet.",
       "format": "3/2",
       "taille": "2400 × 1600 px"
     },
