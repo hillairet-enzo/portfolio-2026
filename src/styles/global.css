@@ -5924,3 +5924,24 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
   .ap-bande__texte h1 { font-size: clamp(2rem, 8.4vw, 2.6rem); }
   .ap-hero::before { width: 1rem; }
 }
+
+/* hero À propos : texte à la hauteur des photos, fondu gauche calé sur le logo */
+.ap-hero { --bord: max(var(--marge), calc((100% - var(--largeur)) / 2 + var(--marge))); }
+.ap-bande__texte { width: min(58rem, 50vw); }
+.ap-bande__texte h1 { font-size: clamp(2.6rem, min(5.6vw, 10.2svh), 7rem); line-height: 1; }
+.ap-bande .ap-hero__etiquette { font-size: clamp(.85rem, 1.6svh, 1.1rem); }
+.ap-bande .ap-hero__actions { gap: .8rem; }
+.ap-bande .ap-bouton { font-size: clamp(1rem, 2svh, 1.3rem); padding: .9em 1.5em; }
+.ap-bande .ap-bouton svg { width: 1.1em; height: 1.1em; }
+.ap-hero::before { width: var(--bord); background: linear-gradient(270deg, rgba(255,255,255,0), #fff 85%); }
+@media (max-width: 48rem) {
+  .ap-bande__texte { width: calc(100vw - var(--marge) - 5rem); }
+  .ap-bande__texte h1 { font-size: clamp(2rem, 8.4vw, 2.6rem); }
+  .ap-bande .ap-bouton { font-size: 1rem; }
+  .ap-hero::before { width: var(--marge); }
+}
+.ap-bande__texte { width: auto; max-width: 52vw; }
+.ap-bande__texte h1 { max-width: 10.6em; }
+.ap-bande { gap: clamp(2rem, 4vw, 4rem); }
+@media (max-width: 48rem) { .ap-bande__texte { width: calc(100vw - var(--marge) - 5rem); max-width: none; } .ap-bande { gap: 1.5rem; } }
+.ap-bande__texte h1 { max-width: 8.7em; }

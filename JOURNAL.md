@@ -154,3 +154,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : à propos, hero refait en une seule bande horizontale (texte, portrait, petites cases), défilement natif au trackpad partout dans la section
 - 2026-11-16 : à propos, blanc prolongé jusqu'aux cartes (gris seulement derrière elles), 30 cases d'inspiration
 - 2026-11-16 : à propos, hero plein écran (cartes plus bas), éléments mis à l'échelle, fondu blanc à gauche
+- 2026-11-16 : à propos, titre et boutons agrandis à la hauteur des photos, fondu gauche aligné sur le logo
