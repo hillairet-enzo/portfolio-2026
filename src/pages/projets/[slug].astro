@@ -4,7 +4,6 @@ import Photo from '../../components/Photo.astro';
 import Contact from '../../components/Contact.astro';
 import Ligne from '../../components/pj/LigneProjet.astro';
 import Icone from '../../components/pj/Icone.astro';
-import Cartes from '../../components/pj/Cartes.astro';
 import { THEME_NEUTRE, couleurMoyenne } from '../../lib/theme';
 import { projets, trouverProjet, gabarits } from '../../data/projets';
 
@@ -123,7 +122,15 @@ const blocs = [
                     {b.id === 'choix' && (
                       <>
                         <h4 class="pp-sous-titre">{gabarit.resultat}</h4>
-                        {serie.length > 0 && <Cartes photos={serie} />}
+                        {serie.length > 0 && (
+                          <div class="affiches-rang">
+                            {serie.map((ph) => (
+                              <figure class="affiches-rang__affiche">
+                                <img src={`/images/${ph.fichier}`} alt={ph.alt} width="1200" height="1800" loading="lazy" decoding="async" data-zoom />
+                              </figure>
+                            ))}
+                          </div>
+                        )}
                         {b.sections.filter((sec) => sec.onglet === 'resultat').map((sec) => <Ligne sec={sec} />)}
                         {projet.liens.length > 0 && (
                           <div class="pp-raccourcis">

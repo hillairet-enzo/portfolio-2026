@@ -5697,3 +5697,11 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 .pp-tabs--affiche .pp-ligne, .pp-tabs--affiche .pp-tab .pp-ligne:not(:has(.pp-ligne__medias)) { grid-template-columns: 1fr; }
 .pp-tabs--affiche .pp-ligne__texte, .pp-tabs--affiche .pp-ligne--empile .pp-ligne__texte { max-width: none; }
 .pp-tabs--affiche .texte-courant, .pp-tabs--affiche .texte-courant p { max-width: none; }
+
+/* affiches côte à côte (onglet résultat) */
+.affiches-rang { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.8rem, 2vw, 1.6rem); margin: .4rem 0 1.6rem; }
+.affiches-rang__affiche { margin: 0; }
+.affiches-rang__affiche img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / .08), 0 22px 36px -18px rgb(30 30 70 / .45); cursor: zoom-in; transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+.affiches-rang__affiche img:hover { transform: translateY(-.3rem); }
+@media (max-width: 40rem) { .affiches-rang { grid-template-columns: 1fr; max-width: 22rem; margin-inline: auto; } }
+@media (prefers-reduced-motion: reduce) { .affiches-rang__affiche img { transition: none; } .affiches-rang__affiche img:hover { transform: none; } }
