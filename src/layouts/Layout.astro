@@ -214,6 +214,8 @@ const lettres = [...profil.nom];
         var c = document.querySelector('.chargeur');
         if (!r.classList.contains('intro') || !c) return;
         var debut = Date.now(), fini = false;
+        function police() { r.classList.add('police-ok'); }
+        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(police); setTimeout(police, 1500); } else police();
         function sortir() {
           if (fini) return;
           fini = true;
@@ -222,9 +224,9 @@ const lettres = [...profil.nom];
           setTimeout(function () { r.classList.remove('intro'); c.remove(); }, 1700);
           setTimeout(function () { r.classList.remove('intro-lance'); }, 3200);
         }
-        function pret() { setTimeout(sortir, Math.max(0, 3200 - (Date.now() - debut))); }
+        function pret() { setTimeout(sortir, Math.max(0, 4800 - (Date.now() - debut))); }
         if (document.readyState === 'complete') pret(); else addEventListener('load', pret);
-        setTimeout(sortir, 6500);
+        setTimeout(sortir, 8000);
       })();
     </script>
     <div class="toast-copie" id="toast-copie" role="status" aria-live="polite"><span class="ct__copier toast-copie__pastille" id="toast-pastille">Copié ✓</span><span class="toast-copie__texte" id="toast-texte">Adresse copiée.</span></div>

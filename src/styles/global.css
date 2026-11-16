@@ -6189,3 +6189,10 @@ html[data-theme='dark'] .arc__img {
 /* titre de projet : les titres longs passent à la ligne et la taille suit le mot le plus long */
 .ph-titre { white-space: normal; font-size: clamp(2.2rem, min(18.5cqi, calc(175cqi / var(--n, 9))), 8rem); line-height: .9; }
 @media (max-width: 60rem) { .ph-titre { font-size: clamp(2.6rem, min(16vw, calc(150vw / var(--n, 9))), 6rem); } }
+
+/* ── Chargement v2 : cellule plus haute (rien n'est coupé), lettres noires, chute plus lente, départ une fois la police chargée ── */
+.rl { height: 1.3em; line-height: 1.3; margin-block: -.1em; }
+.rl > b { animation-duration: 2.6s; animation-delay: calc(.2s + var(--i) * .11s); animation-timing-function: cubic-bezier(.22, .7, .25, 1); animation-play-state: paused; }
+html.police-ok .rl > b { animation-play-state: running; }
+.rl .f { top: calc(var(--k) * -1.3em); color: var(--encre); opacity: .5; }
+@keyframes rl-tombe { from { transform: translateY(calc(var(--n) * 1.3em)); filter: blur(1.5px); } 75% { filter: blur(0); } }
