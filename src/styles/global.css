@@ -5758,3 +5758,12 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
   border-color: rgba(255,255,255,.55);
 }
 .pl .pl-photo .photo--vide { background: rgba(255,255,255,.6); }
+
+/* À propos : patchwork de photos dans le hero */
+.ap-patch { display: grid; grid-template-columns: 1.35fr 1fr; grid-template-rows: repeat(3, 1fr); gap: .6rem; aspect-ratio: 4 / 4.6; }
+.ap-patch__grand { grid-row: 1 / span 3; min-height: 0; }
+.ap-patch__grand .photo, .ap-patch__grand .photo--vide { height: 100%; width: 100%; aspect-ratio: auto !important; border-radius: 1.4rem; }
+.ap-patch__grand .photo img { height: 100%; width: 100%; object-fit: cover; object-position: 50% 30%; }
+.ap-patch__p { width: 100%; height: 100%; min-height: 0; object-fit: cover; border-radius: 1.4rem; display: block; }
+.ap-patch__p--1 { object-position: 50% 40%; }
+@media (max-width: 48rem) { .ap-patch { aspect-ratio: 1 / 1.05; } }
