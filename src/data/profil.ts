@@ -18,34 +18,16 @@ export const profil = {
 
 // Ce que je sais faire, tiré des six projets du portfolio.
 export const competences = [
-  {
-    titre: 'Concevoir',
-    items: ['Direction artistique (affiches, interfaces)', 'Maquettes sur Figma', 'Illustration vectorielle (Affinity Designer)', 'Écriture et récit pour le web'],
-  },
-  {
-    titre: 'Développer',
-    items: ['Sites en composants (Astro, Tailwind CSS)', 'Bases de données (SQLite, PocketBase)', 'Visualisation de données (Observable Plot)', 'Modèle 3D interactif (three.js)'],
-  },
-  {
-    titre: 'Produire et publier',
-    items: ['Tournage, prise de son et montage (DaVinci Resolve)', 'Gestion de projet d’équipe (Jira)', 'Mise en ligne (Netlify, serveur perso)', 'Référencement et accessibilité'],
-  },
+  { titre: 'Concevoir', items: ['Direction artistique', 'Maquettes Figma', 'Illustration vectorielle', 'Rédaction web'] },
+  { titre: 'Développer', items: ['Sites Astro et Tailwind', 'Bases de données', 'Graphiques de données', 'Modèle 3D'] },
+  { titre: 'Produire et publier', items: ['Tournage et montage vidéo', 'Gestion de projet (Jira)', 'Mise en ligne', 'Référencement'] },
 ];
 
 // Ce que je sais faire avec l'IA, d'après la déclaration d'usage (IA.md) et le projet TiK•TaK.
 export const skillsIA = [
-  {
-    titre: 'Piloter',
-    items: ['Rédiger des prompts clairs et précis', 'Donner contexte, format et exemples', 'Affiner par retours successifs', 'Garder, corriger ou rejeter'],
-  },
-  {
-    titre: 'Utiliser',
-    items: ['Claude, Gemini : le bon modèle selon la tâche', 'Des skills adaptés à chaque tâche', 'Code, maquettes et visuels générés', 'Des assistants IA intégrés à un site'],
-  },
-  {
-    titre: 'Vérifier',
-    items: ['Relire et reprendre les textes', 'Contrôler les informations et les sources', 'Mesurer la qualité (Lighthouse)', 'Déclarer chaque usage (IA.md)'],
-  },
+  { titre: 'Piloter', items: ['Prompts clairs et précis', 'Contexte, format, exemples', 'Retours successifs', 'Garder, corriger, rejeter'] },
+  { titre: 'Utiliser', items: ['Claude et Gemini selon la tâche', 'Des skills adaptés', 'Code, maquettes, visuels', 'Assistants IA dans un site'] },
+  { titre: 'Vérifier', items: ['Relire les textes', 'Vérifier les sources', 'Mesurer la qualité', 'Déclarer chaque usage'] },
 ];
 
 // Les quatre temps d'un projet, tels que je les ai vécus sur TiK•TaK, ThermoViz, Iris et les affiches.
@@ -58,16 +40,6 @@ export const demarche = [
 
 // Mon parcours, du plus récent au plus ancien.
 export const parcours = [
-  {
-    periode: '2026 – aujourd’hui',
-    titre: 'BUT MMI, 2e année',
-    lieu: 'IUT de Montbéliard',
-    texte: 'TiK•TaK (SAE 301, seul), ThermoViz (SAE 303, en binôme) et Iris (R304, en trio).',
-  },
-  {
-    periode: '2025 – 2026',
-    titre: 'BUT MMI, 1re année',
-    lieu: 'IUT de Montbéliard',
-    texte: 'Olyvia (site et vidéos), les affiches du Pays de Montbéliard et le diaporama Art contemporain.',
-  },
+  { periode: '2026 – aujourd’hui', titre: 'BUT MMI, 2e année', lieu: 'IUT de Montbéliard', texte: 'TiK•TaK, ThermoViz et Iris.' },
+  { periode: '2025 – 2026', titre: 'BUT MMI, 1re année', lieu: 'IUT de Montbéliard', texte: 'Olyvia, affiches et Art contemporain.' },
 ];
