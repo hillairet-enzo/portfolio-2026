@@ -164,3 +164,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : cartes À propos, retour de l'ancienne animation (bascule vers l'écran) avec le nouveau style
 - 2026-11-16 : mode sombre vérifié sur tout le site ; corrigé : cartes défi/solution, textes secondaires, à propos (fondus, fond des cartes, points), chemins des cadres photo
 - 2026-11-16 : clic sur une adresse mail = copie avec pastille « Copié ✓ » ; logo EH retiré (texte « Enzo Hillairet » seul) ; nouveau chargement par lettres.
+- 2026-11-16 : page contact, le clic sur l'adresse active le bouton Copier (plus de second avis).

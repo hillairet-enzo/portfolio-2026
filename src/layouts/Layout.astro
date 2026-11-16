@@ -250,6 +250,8 @@ const lettres = [...profil.nom];
           var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
           if (!a) return;
           e.preventDefault();
+          var bouton = document.getElementById('ct-copier');
+          if (bouton && a.classList.contains('ct__adresse')) { bouton.click(); return; } // page contact : le bouton « Copier » passe à « Copié ✓ »
           var mail = a.getAttribute('href').replace(/^mailto:/, '').split('?')[0];
           copier(mail).then(function () { annoncer('Adresse copiée.', true); }, function () { annoncer('Écrivez à ' + mail, false); });
         });
