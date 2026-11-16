@@ -34,7 +34,8 @@ const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map(([, it]) => {
   const img = (desc.match(/<img[^>]+src="([^"]+)"/) ?? [])[1];
   const lien = decode((it.match(/<link>([\s\S]*?)<\/link>/) ?? [])[1] ?? '').trim();
   const titre = decode((it.match(/<title>([\s\S]*?)<\/title>/) ?? [])[1] ?? '').replace(/<!\[CDATA\[|\]\]>/g, '').trim();
-  return img ? { img: img.replace(/\/\d+x\//, '/736x/'), lien, titre } : null;
+  const hash = img ? (img.match(/i\.pinimg\.com\/\d+x\/(.+)$/) ?? [])[1] : null;
+  return img ? { img: img.replace(/\/\d+x\//, '/736x/'), hash, lien, titre } : null;
 }).filter(Boolean).slice(0, max);
 
 if (!items.length) { console.error('Aucune image trouvée dans le flux.'); process.exit(1); }
@@ -78,9 +79,9 @@ for (const it of items) {
     n += 1;
     const fichier = `inspiration-${n}.jpg`;
     await writeFile(path.join(dossier, fichier), Buffer.from(await r.arrayBuffer()));
-    const garde = anciens.find((a) => a.lien === it.lien && a.manuel);
+    const garde = anciens.find((a) => a.manuel && (a.lien === it.lien || (a.img && a.img === it.hash)));
     const c = garde ? { auteur: garde.auteur, profil: garde.profil ?? null } : await credit(it.lien);
-    liste.push({ fichier, lien: it.lien, titre: it.titre, auteur: c.auteur, profil: c.profil, ...(garde ? { manuel: true } : {}) });
+    liste.push({ fichier, lien: garde?.lien ?? it.lien, titre: it.titre, auteur: c.auteur, profil: c.profil, img: it.hash, ...(garde ? { manuel: true } : {}) });
     process.stdout.write(`\r${n}/${items.length} images`);
   } catch { /* image ignorée */ }
 }

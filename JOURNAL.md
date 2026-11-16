@@ -159,3 +159,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : script npm run pinterest (flux RSS du tableau Enzo_Asap/random) pour remplir les inspirations, cases liées aux épingles
 - 2026-11-16 : inspirations dans un ordre aléatoire à chaque chargement, doublons retirés, dernière colonne complétée
 - 2026-11-16 : crédit du créateur (@) affiché au survol des inspirations, récupéré par npm run pinterest
+- 2026-11-16 : crédits des 25 inspirations récupérés (créateurs Pinterest) et liens vers les vraies épingles
