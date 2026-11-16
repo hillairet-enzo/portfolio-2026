@@ -6168,3 +6168,9 @@ html[data-theme='dark'] .arc__img {
   box-shadow: 0 1px 1px rgb(0 0 0 / .4), 0 14px 28px -12px rgb(0 0 0 / .6), 0 40px 70px -30px rgb(0 0 0 / .8), 0 0 0 1px rgb(255 255 255 / .06);
 }
 @media (prefers-reduced-transparency: reduce) { .progres { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgb(255 255 255 / .85); } }
+
+/* barres sur toute la largeur de la page */
+.progres { inset: 0 0 auto 0; max-width: none; margin-inline: 0; height: .6rem; border-radius: 0 0 999px 999px; }
+.progres::before { border-radius: 0 999px 999px 0; background-size: auto, 100vw 100%; }
+.pied::before { inset: auto 0 0 0; max-width: none; margin-inline: 0; height: .6rem; border-radius: 0; }
+.pied { padding-bottom: 2.2rem; }
