@@ -134,3 +134,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - Mettre le site en ligne sur enzoh.fr (hébergement, HTTPS) et refaire les mesures sur le site en ligne.
 - Mettre à jour LinkedIn, préparer les deux soutenances.
 - Mockups ThermoViz refaits comme TiK•TaK : MacBook en main et iPhone Duo, tous deux avec la page d'accueil, et suppression des 3 petites captures mobiles de l'onglet résultat.
+- Nouveau projet : Iris (plateforme de vidéo à la demande pour cinéphiles, module R304). Fiche saisie dans la base, vraies captures (accueil, étagères, PocketBase), mockups MacBook et iPhone Duo. Lien du site en ligne à ajouter après le déploiement.

@@ -419,5 +419,195 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "iris",
+    "type": "web",
+    "titre": "Iris",
+    "accroche": "Une plateforme de films pensée pour les cinéphiles, sans algorithme qui choisit à leur place.",
+    "resume": "Iris est le prototype d’une plateforme de vidéo à la demande pour les passionnés de cinéma. Elle met en avant le cinéma d’auteur et les documentaires, avec des sélections faites par des humains et un bouton « Hasard » pour sortir de ses habitudes.",
+    "annee": "2026",
+    "cadre": "Module R304, BUT MMI",
+    "equipe": "En trio",
+    "role": [
+      "Page d’accueil complète et dynamique",
+      "Base de données en ligne (PocketBase)",
+      "Bouton « Hasard »",
+      "Maquette Figma (en partie)",
+      "Audit des plateformes et spectateur type (en équipe)"
+    ],
+    "outils": [
+      "Astro",
+      "Tailwind CSS",
+      "PocketBase",
+      "JavaScript",
+      "Figma"
+    ],
+    "choix": [
+      {
+        "nom": "Astro",
+        "raison": "Construit les pages du site, vite et simplement.",
+        "icone": "pages"
+      },
+      {
+        "nom": "PocketBase",
+        "raison": "Garde les films et leurs affiches, modifiables sans toucher au code.",
+        "icone": "base"
+      },
+      {
+        "nom": "Tailwind CSS",
+        "raison": "Met en forme les pages : couleurs, espaces, tailles.",
+        "icone": "palette"
+      },
+      {
+        "nom": "JavaScript",
+        "raison": "Fait marcher le bouton « Hasard ».",
+        "icone": "eclair"
+      },
+      {
+        "nom": "Figma",
+        "raison": "Sert à dessiner la maquette avant de coder.",
+        "icone": "carnet"
+      }
+    ],
+    "defis": [
+      {
+        "defi": "Changer le contenu sans toucher au code",
+        "solution": "Le site est relié à une base de données en ligne, PocketBase. Quand on ajoute un film dans la base, il apparaît sur le site."
+      },
+      {
+        "defi": "Un bouton « Hasard » fluide",
+        "solution": "Un petit script choisit un film dans la base, puis change l’image de fond et le texte à l’instant, sans recharger la page."
+      },
+      {
+        "defi": "Des boutons qui ne sautent pas",
+        "solution": "Les résumés n’ont pas tous la même longueur, et les boutons bougeaient d’un film à l’autre. J’ai fixé une hauteur minimale à la zone de texte : les boutons restent en place."
+      }
+    ],
+    "liens": [
+      {
+        "label": "Voir le code sur GitHub",
+        "url": "https://github.com/hillairet-enzo/VOD_AUGIER"
+      }
+    ],
+    "couverture": {
+      "fichier": "iris/couverture.webp",
+      "alt": "La fiche du film L’Odyssée sur Iris : le titre en grand sur une image sombre, avec les boutons Play, Télécharger et Watch Together",
+      "sujet": "La fiche d’un film sur Iris, en haut de page.",
+      "format": "3/2",
+      "taille": "2400 × 1600 px"
+    },
+    "sections": [
+      {
+        "onglet": "contexte",
+        "titre": "Le point de départ",
+        "paragraphes": [
+          "Iris est un projet du module R304, Culture du numérique. La consigne : imaginer une plateforme de vidéo à la demande pour une communauté précise. Nous avons choisi les cinéphiles.",
+          "Il fallait d’abord comprendre ce qui les agace sur les grandes plateformes, par exemple des recommandations dont on ne sait pas d’où elles viennent, ou le manque de filtres précis. Puis proposer une interface adaptée, pour un seul support. Nous avons choisi l’ordinateur.",
+          "À rendre : un dossier de conception en A4 paysage, qui justifie les choix graphiques, avec l’arborescence du site et plusieurs écrans clés. Nous sommes allés plus loin : le site entier fonctionne."
+        ]
+      },
+      {
+        "onglet": "role",
+        "titre": "Mon rôle",
+        "paragraphes": [
+          "Iris est un projet de trio. J’ai développé la page d’accueil, de la mise en page jusqu’aux données : elle se remplit toute seule depuis une base de données en ligne, et son bouton « Hasard » change le film mis en avant sans recharger la page.",
+          "J’ai aussi pris part à la conception : l’audit des plateformes existantes, le spectateur type et la maquette Figma."
+        ]
+      },
+      {
+        "onglet": "processus",
+        "titre": "Du besoin à l’écran",
+        "paragraphes": [
+          "Nous sommes partis de la personne qui va s’en servir, pas de l’écran. Trois plateformes existantes ont été analysées, puis nous avons décrit un spectateur type, pour garder ses attentes en tête pendant tout le projet."
+        ],
+        "flux": {
+          "etiquette": "Les étapes d’Iris",
+          "etapes": [
+            {
+              "titre": "Rechercher",
+              "texte": "Analyse de trois plateformes et portrait d’un cinéphile avec ses frustrations."
+            },
+            {
+              "titre": "Dessiner",
+              "texte": "Choix des couleurs, inspiration des sites étudiés, puis maquette dans Figma."
+            },
+            {
+              "titre": "Coder",
+              "texte": "La page d’accueil construite pas à pas : d’abord avec de faux contenus pour le design, puis reliée à la base de données."
+            },
+            {
+              "titre": "Tester",
+              "texte": "Essais du site et de la base en local, pour corriger les bugs d’affichage avant le rendu."
+            }
+          ]
+        }
+      },
+      {
+        "onglet": "processus",
+        "titre": "Une page d’accueil qui change à chaque visite",
+        "paragraphes": [
+          "En haut, « À la une » met un film en avant, avec un bouton « Hasard » : il propose un film d’un autre genre, pour sortir de ses habitudes plutôt que de tourner dans la même bulle.",
+          "En dessous, les films sont rangés en étagères choisies par des humains : « Découvrir de nouvelles choses », un genre à la fois, l’œuvre d’un réalisateur. Ces étagères changent à chaque visite, et la règle du tirage au sort est expliquée sur la page."
+        ],
+        "photos": [
+          {
+            "fichier": "iris/accueil.jpg",
+            "alt": "Capture de l’accueil d’Iris : le film L’Odyssée à la une, avec les boutons Lancer et Hasard.",
+            "sujet": "Capture de l’accueil d’Iris : le film « L’Odyssée » à la une, avec les boutons « Lancer » et « Hasard ». Cadre sur le haut de la page.",
+            "format": "3/2",
+            "taille": "1800 × 1200 px"
+          },
+          {
+            "fichier": "iris/catalogue.jpg",
+            "alt": "Capture de l’étagère « Découvrir de nouvelles choses » : cinq affiches de films avec leur titre, leur réalisateur, l’année et la durée.",
+            "sujet": "Capture de l’étagère « Découvrir de nouvelles choses » avec les cinq affiches.",
+            "format": "3/2",
+            "taille": "1800 × 1200 px"
+          }
+        ]
+      },
+      {
+        "onglet": "choix",
+        "titre": "Des films modifiables sans toucher au code",
+        "paragraphes": [
+          "Les films, leurs affiches, les genres, les acteurs et les réalisateurs sont rangés dans PocketBase, une base de données en ligne. On y ajoute un film depuis une page d’administration, et il apparaît sur le site sans changer une ligne de code.",
+          "La capture montre la liste des films dans PocketBase : le titre, le résumé, l’année et la durée de chacun."
+        ],
+        "photos": [
+          {
+            "fichier": "iris/pocketbase.jpg",
+            "alt": "Capture de PocketBase : la liste des films avec leur titre, leur résumé, l’année et la durée.",
+            "sujet": "Capture de l’administration PocketBase, collection « movies ».",
+            "format": "3/2",
+            "taille": "1800 × 1200 px"
+          }
+        ]
+      },
+      {
+        "onglet": "resultat",
+        "titre": "Le résultat",
+        "paragraphes": [
+          "Nous avons rendu un dossier de conception en A4 paysage et un site entier qui fonctionne : page d’accueil, fiches des films, profil, genres, catégories, acteurs et réalisateurs.",
+          "C’est un prototype : le lecteur simule la lecture, et les notes sont gardées dans le navigateur. Le site le dit dès l’arrivée, avec un message d’avertissement : projet étudiant fictif, aucun film réellement diffusé."
+        ],
+        "photos": [
+          {
+            "fichier": "iris/mockup-ordinateur.jpg",
+            "alt": "L’accueil du site Iris sur l’écran d’un MacBook tenu à la main",
+            "sujet": "Sur ordinateur",
+            "format": "4/3",
+            "taille": "2400 × 1800 px"
+          },
+          {
+            "fichier": "iris/mockup-telephone.jpg",
+            "alt": "L’accueil du site Iris sur un téléphone tenu à la main",
+            "sujet": "Sur téléphone",
+            "format": "4/3",
+            "taille": "2400 × 1800 px"
+          }
+        ]
+      }
+    ]
   }
 ]
