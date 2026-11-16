@@ -4,6 +4,8 @@
 export const profil = {
   nom: 'Enzo Hillairet',
   prenom: 'Enzo',
+  // à mettre à jour à chaque anniversaire (une seule valeur, utilisée par la page À propos)
+  age: 19,
   formation: 'BUT MMI, Montbéliard',
   accroche: 'J’imagine des identités visuelles et je les fais vivre dans des sites interactifs, du premier croquis à la mise en ligne.',
   recherche: 'Je cherche un stage en communication et création, idéalement en studio de création digitale.',
