@@ -6075,3 +6075,10 @@ html[data-theme='dark'] .toast-copie__texte { color: #d8dbe0; text-shadow: 0 0 1
   .pl__comps ul { gap: clamp(.25rem, .8svh, .55rem); }
   .pl__comps li { font-size: clamp(.92rem, min(1.5vw, 2.3svh), 1.25rem); padding-bottom: clamp(.25rem, .8svh, .55rem); }
 }
+
+/* ── Cartes À propos : la carte s'arrête plus haut, « Défiler » a sa propre place dessous ── */
+@media (min-width: 48.01rem) {
+  .pl { height: calc(100svh - var(--haut-entete) - var(--pas) * 3 - 3.4rem); }
+  .pl__corps { padding-bottom: clamp(2.4rem, 7svh, 4.4rem); }
+  .pile__defiler { bottom: .7rem; }
+}

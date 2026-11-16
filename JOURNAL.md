@@ -166,3 +166,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : clic sur une adresse mail = copie avec pastille « Copié ✓ » ; logo EH retiré (texte « Enzo Hillairet » seul) ; nouveau chargement par lettres.
 - 2026-11-16 : page contact, le clic sur l'adresse active le bouton Copier (plus de second avis).
 - 2026-11-16 : cartes À propos, plus d'espace en bas ; textes adaptés à la hauteur de la fenêtre.
+- 2026-11-16 : cartes À propos plus courtes, « Défiler » sous la carte et non plus dessus.
