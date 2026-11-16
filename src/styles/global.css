@@ -5797,3 +5797,41 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
   .ap-patch__grand { height: auto; width: 100%; aspect-ratio: 3 / 4; }
   .ap-patch__defile { height: calc(var(--hh) * .5); grid-template-rows: 1fr; grid-auto-columns: calc(var(--hh) * .5); flex: none; width: 100%; }
 }
+
+/* À propos : photo plus fine, et défilé qui bascule en grande mosaïque */
+@property --hh { syntax: '<length>'; inherits: true; initial-value: 28rem; }
+.ap-hero__grille { transition: grid-template-columns .8s cubic-bezier(.2,.7,.2,1), gap .8s cubic-bezier(.2,.7,.2,1); }
+.ap-patch { position: relative; transition: --hh .8s cubic-bezier(.2,.7,.2,1); }
+.ap-patch__grand { aspect-ratio: auto; width: calc(var(--hh) * .6); overflow: hidden; transition: width .8s cubic-bezier(.2,.7,.2,1), margin .8s cubic-bezier(.2,.7,.2,1), opacity .5s; }
+.ap-patch__grand .photo img { object-position: 50% 30%; }
+.ap-hero__texte { min-width: 0; transition: opacity .45s; }
+.ap-patch__retour { position: absolute; left: 0; top: 50%; translate: 0 -50%; width: 3rem; height: 3rem; border-radius: 50%; border: 0; background: #000; color: #fff; display: grid; place-items: center; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .4s .3s; z-index: 3; }
+.ap-patch__retour svg { width: 1.3rem; height: 1.3rem; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+@media (min-width: 48.01rem) {
+  .ap-hero--mosaique .ap-hero__grille { grid-template-columns: 0fr 1fr; gap: 0; }
+  .ap-hero--mosaique .ap-hero__texte { opacity: 0; pointer-events: none; overflow: hidden; }
+  .ap-hero--mosaique .ap-patch { --hh: clamp(26rem, 66vh, 40rem); }
+  .ap-hero--mosaique .ap-patch__grand { width: 0; margin-right: calc(var(--pt) * -1); opacity: 0; }
+  .ap-hero--mosaique .ap-patch__retour { opacity: 1; pointer-events: auto; }
+  .ap-hero--mosaique .ap-patch__defile { padding-left: 3.8rem; -webkit-mask-image: linear-gradient(90deg, transparent, #000 3rem, #000 calc(100% - 3rem), transparent); mask-image: linear-gradient(90deg, transparent, #000 3rem, #000 calc(100% - 3rem), transparent); }
+}
+@media (max-width: 48rem) { .ap-patch__grand { width: 100%; aspect-ratio: 3 / 4; } .ap-patch__retour { display: none; } }
+@media (prefers-reduced-motion: reduce) { .ap-hero__grille, .ap-patch, .ap-patch__grand, .ap-hero__texte { transition: none; } }
+.ap-hero__grille { align-items: start; }
+.ap-hero__texte { align-self: center; }
+@media (min-width: 48.01rem) {
+  .ap-hero--mosaique .ap-hero__texte { max-height: 0; align-self: start; }
+  .ap-hero--mosaique .ap-patch { width: 100%; }
+}
+
+/* mosaïque : texte et portrait glissent vers la gauche, les inspirations prennent toute la largeur */
+@media (min-width: 48.01rem) {
+  .ap-hero__texte { transition: opacity .45s, transform .8s cubic-bezier(.2,.7,.2,1); }
+  .ap-hero--mosaique .ap-hero__grille { grid-template-columns: minmax(0, 1fr); }
+  .ap-hero--mosaique .ap-hero__texte { grid-column: 1; grid-row: 1; max-height: none; align-self: center; opacity: 0; visibility: hidden; transform: translateX(-5rem); transition: opacity .35s, transform .8s cubic-bezier(.2,.7,.2,1), visibility 0s .35s; }
+  .ap-hero--mosaique .ap-patch { grid-column: 1; grid-row: 1; z-index: 2; }
+}
+@media (min-width: 48.01rem) {
+  .ap-hero--mosaique .ap-patch { --hh: clamp(24rem, 64vh, 38rem); }
+  .ap-hero--mosaique .ap-patch__defile { grid-template-rows: repeat(2, 1fr); grid-auto-columns: calc((var(--hh) - var(--pt)) / 2); }
+}

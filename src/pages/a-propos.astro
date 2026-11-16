@@ -51,7 +51,7 @@ const photos = {
 
 <Layout titre="À propos" description={`${profil.nom}, étudiant en BUT MMI à Montbéliard. ${profil.recherche}`} page="apropos" claire theme={couleurs}>
   <!-- Ouverture : grande phrase + portrait -->
-  <section class="ap-hero" aria-labelledby="titre-ap">
+  <section class="ap-hero" id="ap-hero" aria-labelledby="titre-ap">
     <div class="contenu ap-hero__grille">
       <div class="ap-hero__texte">
         <p class="ap-hero__etiquette">À propos</p>
@@ -66,6 +66,7 @@ const photos = {
         <div class="ap-patch__defile" id="ap-defile" tabindex="0" role="region" aria-label="Mes inspirations, faire défiler vers la droite">
           {inspirations.map((ph) => <div class="ap-patch__p"><Photo photo={ph} /></div>)}
         </div>
+        <button class="ap-patch__retour" id="ap-retour" type="button" aria-label="Revenir au portrait"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button>
       </div>
     </div>
   </section>
@@ -178,6 +179,15 @@ const photos = {
     });
     window.addEventListener('pointermove', (e) => { if (bouge) defile.scrollLeft = s0 - (e.clientX - x0); });
     window.addEventListener('pointerup', () => { bouge = false; defile.classList.remove('est-saisi'); });
+
+    // dès qu'on fait défiler, tout glisse vers la gauche et les inspirations passent en grande mosaïque
+    const hero = document.getElementById('ap-hero');
+    const retour = document.getElementById('ap-retour');
+    defile.addEventListener('scroll', () => {
+      if (!hero) return;
+      if (defile.scrollLeft > 30) hero.classList.add('ap-hero--mosaique');
+    }, { passive: true });
+    retour?.addEventListener('click', () => { hero?.classList.remove('ap-hero--mosaique'); defile.scrollTo({ left: 0 }); });
   }
   const pile = document.getElementById('pile');
   const cartes = pile ? Array.from(pile.querySelectorAll<HTMLElement>('.pl')) : [];
