@@ -17,26 +17,11 @@ export const profil = {
 };
 
 // Ce que je sais faire, tiré des six projets du portfolio.
+// Les logiciels et outils que je sais utiliser, par grande famille.
 export const competences = [
-  { titre: 'Concevoir', items: ['Direction artistique', 'Maquettes d’interface', 'Illustration vectorielle'] },
-  { titre: 'Développer', items: ['Sites web responsives', 'Bases de données', 'Graphiques de données'] },
-  { titre: 'Produire et publier', items: ['Tournage et montage vidéo', 'Gestion de projet', 'Mise en ligne et référencement'] },
-];
-
-// Logiciels maîtrisés. Un logiciel s'affiche dès que public/images/logiciels/<id>.png (ou .svg, .webp) existe.
-export const logiciels = [
-  { id: 'figma', nom: 'Figma' },
-  { id: 'affinity', nom: 'Affinity' },
-  { id: 'davinci', nom: 'DaVinci Resolve' },
-  { id: 'canva', nom: 'Canva' },
-  { id: 'astro', nom: 'Astro' },
-  { id: 'tailwind', nom: 'Tailwind CSS' },
-  { id: 'javascript', nom: 'JavaScript' },
-  { id: 'sqlite', nom: 'SQLite' },
-  { id: 'threejs', nom: 'three.js' },
-  { id: 'wordpress', nom: 'WordPress' },
-  { id: 'jira', nom: 'Jira' },
-  { id: 'netlify', nom: 'Netlify' },
+  { titre: 'Concevoir', items: ['Figma', 'Affinity Designer', 'Canva'] },
+  { titre: 'Développer', items: ['Astro', 'Tailwind CSS', 'JavaScript', 'SQLite'] },
+  { titre: 'Produire et publier', items: ['DaVinci Resolve', 'Jira', 'WordPress', 'Netlify'] },
 ];
 
 // Ce que je sais faire avec l'IA, d'après la déclaration d'usage (IA.md) et le projet TiK•TaK.
