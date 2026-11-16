@@ -964,5 +964,200 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "art-contemporain",
+    "type": "affiche",
+    "titre": "Art contemporain",
+    "accroche": "Un diaporama sur l’art contemporain, présenté dans l’univers nostalgique de Windows XP et du manga.",
+    "resume": "Diaporama de 11 diapositives sur 9 œuvres d’art contemporain, mises en scène dans une esthétique Windows XP et manga entièrement créée sous Canva.",
+    "annee": "2025",
+    "cadre": "Projet de cours, art contemporain (2 semaines)",
+    "equipe": "Seul",
+    "role": [
+      "Choix des œuvres",
+      "Direction artistique",
+      "Composition des diapositives",
+      "Récupération et transformation des éléments"
+    ],
+    "outils": [
+      "Canva",
+      "Pinterest (recherche d’éléments)"
+    ],
+    "choix": [
+      {
+        "nom": "Une esthétique nostalgique",
+        "raison": "L’univers de Windows XP me touche depuis toujours. Il rappelle l’ordinateur de mon enfance et donne une ambiance unique à la présentation.",
+        "icone": "palette"
+      },
+      {
+        "nom": "Le mélange avec le manga",
+        "raison": "Un personnage de manga accompagne chaque œuvre, avec ses couleurs et son ambiance, pour donner à chaque diapositive sa propre personnalité.",
+        "icone": "bulle"
+      },
+      {
+        "nom": "Des fenêtres qui ont chacune un rôle",
+        "raison": "Paint montre l’œuvre, HyperTerminal donne sa fiche (titre, artiste, date, matériaux) et le message système résume l’idée à retenir.",
+        "icone": "pages"
+      },
+      {
+        "nom": "Une fin qui joue le jeu",
+        "raison": "La dernière diapositive est une fenêtre « Shut down Windows » : j’y explique ma démarche, comme si l’ordinateur s’éteignait.",
+        "icone": "cube"
+      }
+    ],
+    "defis": [
+      {
+        "defi": "Présenter l’art contemporain autrement qu’avec un diaporama classique.",
+        "solution": "J’ai imaginé un univers qui me ressemble : l’ordinateur de mon enfance, avec ses fenêtres Windows XP, mélangé à des personnages de manga."
+      },
+      {
+        "defi": "Trouver les bons éléments pour que chaque diapositive soit belle et lisible.",
+        "solution": "J’ai cherché des fenêtres, des fonds et des personnages sur Pinterest, puis je les ai transformés pour qu’ils s’intègrent à mes compositions."
+      },
+      {
+        "defi": "Garder une unité entre neuf œuvres très différentes.",
+        "solution": "Chaque diapositive suit la même organisation : une fenêtre Paint pour montrer l’œuvre, une fenêtre de texte pour sa fiche, et un message système pour l’idée à retenir. Seuls le fond et le personnage changent."
+      }
+    ],
+    "liens": [],
+    "couverture": {
+      "fichier": "art-contemporain/couverture-xp.jpg",
+      "alt": "Une diapositive en style Windows XP avec la photo de l’œuvre My Bed dans une fenêtre Paint, une fenêtre de texte et une héroïne de manga sur fond bleu",
+      "sujet": "Diapositive du diaporama",
+      "format": "3/2",
+      "taille": "2400 × 1600 px"
+    },
+    "sections": [
+      {
+        "onglet": "contexte",
+        "titre": "Le contexte",
+        "paragraphes": [
+          "Ce projet a été réalisé en 2025, pendant mes études, sur une durée de deux semaines. Le sujet était de représenter l’art contemporain, mais d’une manière différente d’une présentation habituelle.",
+          "J’ai choisi neuf œuvres et je les ai présentées une par une, chacune avec une idée à retenir : « l’art ne cherche pas le beau », « tous les matériaux sont utilisés », « l’art sort des musées »… Ensemble, elles montrent à quel point l’art contemporain peut prendre des formes variées."
+        ]
+      },
+      {
+        "onglet": "role",
+        "titre": "Mon rôle",
+        "paragraphes": [
+          "J’ai réalisé ce diaporama de A à Z, sans modèle préfabriqué. J’ai choisi les œuvres, imaginé la direction artistique, puis composé chaque diapositive dans Canva.",
+          "J’ai aussi récupéré sur Pinterest des fenêtres, des fonds et des personnages, que j’ai transformés pour créer mon propre univers."
+        ]
+      },
+      {
+        "onglet": "processus",
+        "titre": "Les étapes",
+        "paragraphes": [],
+        "flux": {
+          "etiquette": "Les étapes du projet",
+          "etapes": [
+            {
+              "titre": "Les œuvres",
+              "texte": "J’ai commencé par choisir les neuf œuvres et l’idée que chacune illustre."
+            },
+            {
+              "titre": "L’univers",
+              "texte": "J’ai ensuite associé chaque œuvre à un univers de manga, pour que l’image et le personnage se répondent."
+            },
+            {
+              "titre": "La composition",
+              "texte": "J’ai composé chaque diapositive : fenêtre Paint pour l’œuvre, fenêtre de texte pour la fiche et message système pour l’idée."
+            },
+            {
+              "titre": "Les éléments",
+              "texte": "J’ai trouvé les bons éléments sur Pinterest, puis je les ai transformés pour qu’ils s’accordent entre eux."
+            }
+          ]
+        }
+      },
+      {
+        "onglet": "resultat",
+        "titre": "Le rendu final",
+        "paragraphes": [
+          "Le résultat est un diaporama de onze diapositives, avec une introduction, neuf œuvres et une conclusion. Les œuvres présentées vont de My Bed de Tracey Emin à Cloud Gate d’Anish Kapoor, en passant par Dismaland de Banksy.",
+          "Les œuvres appartiennent à leurs artistes. Les personnages et les éléments décoratifs viennent de Pinterest, et je les ai transformés pour ce projet."
+        ],
+        "photos": [
+          {
+            "fichier": "art-contemporain/diapo-01.jpg",
+            "alt": "Diapositive d’introduction : une fenêtre « System message » qui annonce l’art contemporain devant un personnage de manga sur fond de colline Windows XP",
+            "sujet": "Introduction : l’art contemporain",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          },
+          {
+            "fichier": "art-contemporain/diapo-02.jpg",
+            "alt": "Diapositive sur My Bed de Tracey Emin : l’œuvre dans une fenêtre Paint, sa fiche dans une fenêtre de texte, une héroïne de manga sur fond bleu",
+            "sujet": "My Bed, Tracey Emin (1998) : l’art ne cherche pas le beau",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          },
+          {
+            "fichier": "art-contemporain/diapo-03.jpg",
+            "alt": "Diapositive sur Le Homard Téléphone de Salvador Dalí, avec une héroïne de manga sur fond rouge",
+            "sujet": "Le Homard Téléphone, Salvador Dalí (1936) : tous les matériaux sont utilisés",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          },
+          {
+            "fichier": "art-contemporain/diapo-04.jpg",
+            "alt": "Diapositive sur les Siluetas d’Ana Mendieta, avec un personnage de manga sur fond noir et vert",
+            "sujet": "Body Art (Silueta), Ana Mendieta (1973-1980) : l’art se crée sur tous les supports",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          },
+          {
+            "fichier": "art-contemporain/diapo-05.jpg",
+            "alt": "Diapositive sur The Obliteration Room de Yayoi Kusama, avec un personnage de manga sur fond gris",
+            "sujet": "The Obliteration Room, Yayoi Kusama (2011) : l’art sort des musées",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          },
+          {
+            "fichier": "art-contemporain/diapo-06.jpg",
+            "alt": "Diapositive sur la performance Shoot de Chris Burden, avec un personnage de manga sur fond noir",
+            "sujet": "Shoot, Chris Burden (1971) : l’art peut être éphémère",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          },
+          {
+            "fichier": "art-contemporain/diapo-07.jpg",
+            "alt": "Diapositive sur Dismaland de Banksy, avec un personnage de manga sur fond violet clair",
+            "sujet": "Dismaland, Banksy (2015) : l’art est ludique ou revendicatif",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          },
+          {
+            "fichier": "art-contemporain/diapo-08.jpg",
+            "alt": "Diapositive sur Cloud Gate d’Anish Kapoor, avec un alpiniste de manga sur fond de ciel bleu et de montagne",
+            "sujet": "Cloud Gate, Anish Kapoor (2004) : l’art donne une nouvelle place au spectateur",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          },
+          {
+            "fichier": "art-contemporain/diapo-09.jpg",
+            "alt": "Diapositive sur Market d’Evan Roth, avec un personnage de manga sur fond rose à pois",
+            "sujet": "Market, Evan Roth (2007) : l’art s’inspire de la société de consommation",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          },
+          {
+            "fichier": "art-contemporain/diapo-10.jpg",
+            "alt": "Diapositive sur l’œuvre numérique Everydays: The First 5000 Days, avec un personnage de manga sur fond jaune",
+            "sujet": "Everydays: The First 5000 Days (2021) : l’art est intégré à un marché de l’art",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          },
+          {
+            "fichier": "art-contemporain/diapo-11.jpg",
+            "alt": "Dernière diapositive : une fenêtre « Shut down Windows » qui explique la démarche, devant la colline de Windows XP",
+            "sujet": "Conclusion : « Shut down Windows »",
+            "format": "16/9",
+            "taille": "1920 × 1080 px"
+          }
+        ]
+      }
+    ]
   }
 ]

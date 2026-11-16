@@ -138,3 +138,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - Nouveau projet : Olyvia (site WordPress et deux vidéos verticales, SAÉ 201-202 et module R210). Fiche saisie, captures Jira, DaVinci et site, mockup MacBook. Mockup téléphone provisoire, à refaire avec une image de la vidéo en bonne qualité.
 - 2026-11-16 : projet 5 « Affiches » (campagne Montbéliard), nouveau gabarit affiche avec visionneuse une affiche à la fois.
 - 2026-11-16 : Affiches : cartes d'affiches dans l'onglet résultat, couverture simplifiée.
+- 2026-11-16 : projet 6 « Art contemporain » (diaporama Canva), visionneuse de diapos ; diapos provisoires en basse définition, à remplacer par les PNG exportés de Canva.

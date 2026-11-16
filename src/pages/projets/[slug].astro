@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Photo from '../../components/Photo.astro';
 import Contact from '../../components/Contact.astro';
 import Ligne from '../../components/pj/LigneProjet.astro';
+import Diapos from '../../components/pj/Diapos.astro';
 import Icone from '../../components/pj/Icone.astro';
 import { THEME_NEUTRE, couleurMoyenne } from '../../lib/theme';
 import { projets, trouverProjet, gabarits } from '../../data/projets';
@@ -27,9 +28,11 @@ const teintes = [
 const gabarit = gabarits[projet.type];
 // Projet « affiche » : les images nommées affiche-* forment une série vue une par une, hors des onglets.
 const estAffiche = (f: string) => /\/affiche-/.test('/' + f);
+const estDiapo = (f: string) => /\/diapo-/.test('/' + f);
 const serie = projet.type === 'affiche' ? projet.sections.flatMap((s) => s.photos ?? []).filter((ph) => estAffiche(ph.fichier)) : [];
+const diapos = projet.type === 'affiche' ? projet.sections.flatMap((s) => s.photos ?? []).filter((ph) => estDiapo(ph.fichier)) : [];
 const sectionsVisibles = projet.sections
-  .map((s) => (serie.length ? { ...s, photos: s.photos?.filter((ph) => !estAffiche(ph.fichier)) } : s))
+  .map((s) => ({ ...s, photos: s.photos?.filter((ph) => !(serie.length && estAffiche(ph.fichier)) && !(diapos.length && estDiapo(ph.fichier))) }))
   .filter((s) => s.paragraphes.length || s.flux || s.chiffres || s.visuel || s.schemas || s.photos?.length);
 // Quatre onglets : le dernier regroupe les choix (techniques ou créatifs) et le résultat.
 const blocs = [
@@ -122,6 +125,7 @@ const blocs = [
                     {b.id === 'choix' && (
                       <>
                         <h4 class="pp-sous-titre">{gabarit.resultat}</h4>
+                        {diapos.length > 0 && <Diapos photos={diapos} />}
                         {serie.length > 0 && (
                           <div class="affiches-rang">
                             {serie.map((ph) => (

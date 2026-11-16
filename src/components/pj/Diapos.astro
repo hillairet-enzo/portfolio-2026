@@ -1,0 +1,72 @@
+---
+// Diaporama : une diapo à la fois (flèches, vignettes, clavier, glisser), clic = plein écran.
+import type { Photo } from '../../data/projets';
+const { photos } = Astro.props as { photos: Photo[] };
+const n = photos.length;
+const num = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<div class="diapos" data-diapos tabindex="0" role="group" aria-roledescription="diaporama" aria-label="Les diapositives">
+  <div class="diapos__scene">
+    {photos.map((p, i) => (
+      <figure class="diapos__slide" data-actif={i === 0 ? 'true' : 'false'} aria-hidden={i === 0 ? 'false' : 'true'}>
+        <img src={`/images/${p.fichier}`} alt={p.alt} width="1920" height="1080" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+      </figure>
+    ))}
+    <button type="button" class="diapos__fleche diapos__fleche--prec" data-dir="-1" aria-label="Diapositive précédente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+    <button type="button" class="diapos__fleche diapos__fleche--suiv" data-dir="1" aria-label="Diapositive suivante"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button>
+  </div>
+  <div class="diapos__bas">
+    <p class="diapos__legende" aria-live="polite"><span data-num>01</span> / {num(n - 1)} <span class="diapos__texte" data-legende>{photos[0].sujet}</span></p>
+    <ul class="diapos__vignettes">
+      {photos.map((p, i) => (
+        <li><button type="button" class="diapos__vignette" data-i={i} aria-label={`Aller à la diapositive ${i + 1}`} aria-current={i === 0 ? 'true' : 'false'}><img src={`/images/${p.fichier}`} alt="" width="192" height="108" loading="lazy" /></button></li>
+      ))}
+    </ul>
+  </div>
+  <script type="application/json" data-sujets set:html={JSON.stringify(photos.map((p) => p.sujet))} />
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-diapos]').forEach((r) => {
+    const slides = Array.from(r.querySelectorAll<HTMLElement>('.diapos__slide'));
+    const vign = Array.from(r.querySelectorAll<HTMLElement>('.diapos__vignette'));
+    const num = r.querySelector('[data-num]')!;
+    const leg = r.querySelector('[data-legende]')!;
+    const sujets: string[] = JSON.parse(r.querySelector('[data-sujets]')!.textContent || '[]');
+    let cur = 0;
+    const aller = (i: number) => {
+      cur = (i + slides.length) % slides.length;
+      slides.forEach((s, k) => { s.dataset.actif = String(k === cur); s.setAttribute('aria-hidden', String(k !== cur)); });
+      vign.forEach((v, k) => v.setAttribute('aria-current', String(k === cur)));
+      num.textContent = String(cur + 1).padStart(2, '0');
+      leg.textContent = sujets[cur] || '';
+      vign[cur].scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    };
+    r.querySelectorAll<HTMLElement>('[data-dir]').forEach((b) => b.addEventListener('click', () => aller(cur + Number(b.dataset.dir))));
+    vign.forEach((v) => v.addEventListener('click', () => aller(Number(v.dataset.i))));
+    r.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') aller(cur - 1);
+      if (e.key === 'ArrowRight') aller(cur + 1);
+    });
+    let x0: number | null = null;
+    const scene = r.querySelector('.diapos__scene')!;
+    scene.addEventListener('pointerdown', (e) => { x0 = (e as PointerEvent).clientX; });
+    scene.addEventListener('pointerup', (e) => {
+      if (x0 === null) return;
+      const dx = (e as PointerEvent).clientX - x0; x0 = null;
+      if (Math.abs(dx) > 50) aller(cur + (dx < 0 ? 1 : -1));
+    });
+    // clic sur la diapo : plein écran
+    slides.forEach((s) => s.querySelector('img')!.addEventListener('click', () => {
+      const zoom = document.getElementById('zoom') as HTMLDialogElement | null;
+      const img = s.querySelector('img')!;
+      if (!zoom) return;
+      (zoom.querySelector('img') as HTMLImageElement).src = img.currentSrc || img.src;
+      (zoom.querySelector('img') as HTMLImageElement).alt = img.alt;
+      (zoom.querySelector('.zoom__legende') as HTMLElement).textContent = img.alt;
+      zoom.classList.add('zoom--seule');
+      zoom.showModal();
+    }));
+  });
+</script>

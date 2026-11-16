@@ -5705,3 +5705,26 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
 .affiches-rang__affiche img:hover { transform: translateY(-.3rem); }
 @media (max-width: 40rem) { .affiches-rang { grid-template-columns: 1fr; max-width: 22rem; margin-inline: auto; } }
 @media (prefers-reduced-motion: reduce) { .affiches-rang__affiche img { transition: none; } .affiches-rang__affiche img:hover { transform: none; } }
+
+/* diaporama : une diapo à la fois (onglet résultat) */
+.diapos { margin: .4rem 0 1.6rem; outline-offset: 6px; }
+.diapos__scene { position: relative; aspect-ratio: 16 / 9; border-radius: clamp(.8rem, 1.6vw, 1.4rem); overflow: hidden; background: #0b0b0c; box-shadow: 0 1px 2px rgb(0 0 0 / .08), 0 26px 44px -22px rgb(30 30 70 / .5); touch-action: pan-y; }
+.diapos__slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .45s ease; pointer-events: none; }
+.diapos__slide[data-actif="true"] { opacity: 1; pointer-events: auto; }
+.diapos__slide img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+.diapos__fleche { position: absolute; top: 50%; translate: 0 -50%; width: 3rem; height: 3rem; border-radius: 50%; border: 0; background: rgb(255 255 255 / .92); color: #0b0b0c; display: grid; place-items: center; cursor: pointer; box-shadow: 0 6px 16px -6px rgb(0 0 0 / .4); transition: transform .25s; }
+.diapos__fleche:hover { transform: scale(1.08); }
+.diapos__fleche--prec { left: clamp(.6rem, 1.6vw, 1.2rem); }
+.diapos__fleche--suiv { right: clamp(.6rem, 1.6vw, 1.2rem); }
+.diapos__fleche svg { width: 1.3rem; height: 1.3rem; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.diapos__bas { margin-top: 1rem; display: grid; gap: .9rem; }
+.diapos__legende { margin: 0; font-size: .85rem; font-weight: 800; letter-spacing: .12em; }
+.diapos__legende [data-num] { font-size: 1.1rem; }
+.diapos__texte { margin-left: .8rem; font-size: 1rem; font-weight: 600; letter-spacing: 0; }
+.diapos__vignettes { display: flex; gap: .6rem; list-style: none; margin: 0; padding: .3rem .3rem .5rem; overflow-x: auto; scrollbar-width: thin; }
+.diapos__vignette { display: block; width: clamp(5.2rem, 10vw, 7.4rem); aspect-ratio: 16 / 9; padding: 0; border: 0; border-radius: .5rem; overflow: hidden; cursor: pointer; opacity: .55; outline: 2px solid transparent; outline-offset: 2px; transition: opacity .25s, outline-color .25s; }
+.diapos__vignette img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.diapos__vignette[aria-current="true"], .diapos__vignette:hover { opacity: 1; }
+.diapos__vignette[aria-current="true"] { outline-color: var(--ink); }
+@media (max-width: 40rem) { .diapos__fleche { width: 2.4rem; height: 2.4rem; } .diapos__texte { display: block; margin: .3rem 0 0; } }
+@media (prefers-reduced-motion: reduce) { .diapos__slide { transition: none; } }
