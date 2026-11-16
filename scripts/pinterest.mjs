@@ -7,7 +7,7 @@
 //
 // Résultat : public/images/a-propos/inspiration-1.jpg, -2.jpg… et src/data/inspirations.json
 // (lien vers chaque épingle, pour que les cases renvoient à la source).
-import { mkdir, writeFile, readdir, unlink } from 'node:fs/promises';
+import { mkdir, writeFile, readdir, unlink, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const url = process.argv[2];
@@ -44,6 +44,31 @@ await mkdir(dossier, { recursive: true });
 // on retire les anciennes inspirations pour repartir proprement
 for (const f of await readdir(dossier)) if (/^inspiration-\d+\.(jpe?g|png|webp|avif)$/i.test(f)) await unlink(path.join(dossier, f)).catch(() => {});
 
+// Crédit : on lit la page de chaque épingle pour trouver le compte du créateur
+// (créateur d'origine, sinon la première personne qui l'a épinglée, sinon le site source).
+const moi = m[0].toLowerCase();
+const chercher = (html, cle) => {
+  const i = html.indexOf(`"${cle}":{`);
+  if (i < 0) return null;
+  const u = html.slice(i, i + 2500).match(/"username":"([^"]+)"/);
+  return u ? u[1] : null;
+};
+const credit = async (lien) => {
+  try {
+    const html = await (await fetch(lien, { headers: ua })).text();
+    for (const cle of ['native_creator', 'origin_pinner']) {
+      const u = chercher(html, cle);
+      if (u && u.toLowerCase() !== moi) return { auteur: `@${u}`, profil: `https://www.pinterest.com/${u}/` };
+    }
+    const d = html.match(/"domain":"([^"]+)"/);
+    if (d && !/pinterest|uploaded/i.test(d[1])) return { auteur: d[1], profil: null };
+  } catch { /* pas de crédit trouvé */ }
+  return { auteur: null, profil: null };
+};
+// les crédits corrigés à la main dans src/data/inspirations.json sont gardés d'un import à l'autre
+let anciens = [];
+try { anciens = JSON.parse(await readFile(path.join('src', 'data', 'inspirations.json'), 'utf8')); } catch {}
+
 const liste = [];
 let n = 0;
 for (const it of items) {
@@ -53,9 +78,12 @@ for (const it of items) {
     n += 1;
     const fichier = `inspiration-${n}.jpg`;
     await writeFile(path.join(dossier, fichier), Buffer.from(await r.arrayBuffer()));
-    liste.push({ fichier, lien: it.lien, titre: it.titre });
+    const garde = anciens.find((a) => a.lien === it.lien && a.manuel);
+    const c = garde ? { auteur: garde.auteur, profil: garde.profil ?? null } : await credit(it.lien);
+    liste.push({ fichier, lien: it.lien, titre: it.titre, auteur: c.auteur, profil: c.profil, ...(garde ? { manuel: true } : {}) });
     process.stdout.write(`\r${n}/${items.length} images`);
   } catch { /* image ignorée */ }
 }
 await writeFile(path.join('src', 'data', 'inspirations.json'), JSON.stringify(liste, null, 2) + '\n');
-console.log(`\n${n} inspirations enregistrées. Relance le site pour les voir.`);
+const sans = liste.filter((l) => !l.auteur).length;
+console.log(`\n${n} inspirations enregistrées.` + (sans ? ` ${sans} sans créateur trouvé : complète "auteur" dans src/data/inspirations.json et ajoute "manuel": true pour le garder.` : ''));

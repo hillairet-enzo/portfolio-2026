@@ -30,10 +30,10 @@ const fichiersInsp = Object.keys(import.meta.glob('/public/images/a-propos/inspi
     return true;
   });
 // liens vers les épingles, si le tableau a été importé avec « npm run pinterest »
-const donneesPin = Object.values(import.meta.glob('/src/data/inspirations.json', { eager: true, import: 'default' }))[0] as { fichier: string; lien: string; titre: string }[] | undefined;
+const donneesPin = Object.values(import.meta.glob('/src/data/inspirations.json', { eager: true, import: 'default' }))[0] as { fichier: string; lien: string; titre: string; auteur?: string | null }[] | undefined;
 const pinDe = (f: string) => donneesPin?.find((d) => d.fichier === f);
 const inspirations = fichiersInsp.length
-  ? fichiersInsp.map((f, i) => ({ fichier: `a-propos/${f}`, alt: pinDe(f)?.titre || `Une de mes inspirations (${i + 1})`, sujet: '', format: '1/1' as const, taille: '', lien: pinDe(f)?.lien }))
+  ? fichiersInsp.map((f, i) => ({ fichier: `a-propos/${f}`, alt: pinDe(f)?.titre || `Une de mes inspirations (${i + 1})`, sujet: '', format: '1/1' as const, taille: '', lien: pinDe(f)?.lien, auteur: pinDe(f)?.auteur }))
   : Array.from({ length: 30 }, (_, i) => insp(i + 1)); // aucune image encore : 30 cadres vides
 const photos = {
   portrait: {
@@ -83,7 +83,7 @@ const photos = {
       <div class="ap-bande__portrait"><Photo photo={photos.portrait} prioritaire /></div>
       <div class="ap-bande__insp">
         {inspirations.map((ph: any, i) => ph.lien
-          ? <a class="ap-bande__case" style={`--i:${i}`} href={ph.lien} target="_blank" rel="noopener" aria-label={`${ph.alt} (voir sur Pinterest)`}><Photo photo={ph} /></a>
+          ? <a class="ap-bande__case" style={`--i:${i}`} href={ph.lien} target="_blank" rel="noopener" aria-label={`${ph.alt}${ph.auteur ? `, par ${ph.auteur}` : ''} (voir sur Pinterest)`}><Photo photo={ph} /><span class="ap-bande__credit" aria-hidden="true">{ph.auteur ?? 'Source sur Pinterest'}</span></a>
           : <div class="ap-bande__case" style={`--i:${i}`}><Photo photo={ph} /></div>)}
       </div>
     </div>
