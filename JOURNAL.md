@@ -182,3 +182,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : Compétences, rangée de logos retirée ; logiciels listés dans chaque rubrique.
 - 2026-11-16 : nouvelles covers (Olyvia, Iris, Affiches, Art contemporain) : fond de couleur, titre et visuel.
 - 2026-11-16 : nouvelles covers TiK•TaK et ThermoViz, même style (fond de couleur, titre, visuels du site).
+- 2026-11-16 : covers refaites en 4/3 (plus de rognage sur les pages projet), TiK•TaK en couverture-carte.webp.
