@@ -683,10 +683,10 @@
     ],
     "couverture": {
       "fichier": "olyvia/couverture.webp",
-      "alt": "L’accueil du site Olyvia : le titre « La ménopause, sans tabou et avec des solutions » et le dessin d’une femme assise en méditation, sur fond rose",
-      "sujet": "La page d’accueil du site Olyvia.",
+      "alt": "Le logo d’Olyvia en blanc sur un fond rose",
+      "sujet": "Le logo d’Olyvia.",
       "format": "3/2",
-      "taille": "1476 × 984 px"
+      "taille": "890 × 593 px"
     },
     "sections": [
       {
@@ -801,22 +801,6 @@
             "sujet": "Vidéo sur téléphone",
             "format": "4/3",
             "taille": "2400 × 1800 px"
-          }
-        ]
-      },
-      {
-        "onglet": "resultat",
-        "titre": "Les vidéos sur le site",
-        "paragraphes": [
-          "Sur la page d’accueil, la section « Découvrez l’expérience Olyvia » présente la vidéo au format vertical, comme sur un téléphone."
-        ],
-        "photos": [
-          {
-            "fichier": "olyvia/videos.jpg",
-            "alt": "Capture de la section « Découvrez l’expérience Olyvia » : la vidéo verticale du forum de discussion Olyvia.",
-            "sujet": "Capture de la section vidéo de l’accueil.",
-            "format": "3/2",
-            "taille": "1576 × 1050 px"
           }
         ]
       }
