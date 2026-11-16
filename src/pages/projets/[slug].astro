@@ -54,7 +54,7 @@ const blocs = [
     <div class="contenu ph-grille">
       <div class="ph-gauche">
         <p class="pp-etiquette">Projet · {projet.annee}</p>
-      <h1 id="titre-projet" class="ph-titre">
+      <h1 id="titre-projet" class="ph-titre" style={`--n:${Math.max(...projet.titre.split(' ').map((m) => m.length), 6)}`}>
         {
           lien ? (
             <a class="ph-titre__lien" href={lien.url} target="_blank" rel="noopener" aria-label={`${projet.titre} : ${lien.label} (nouvel onglet)`}>
