@@ -50,10 +50,10 @@ export const skillsIA = [
 
 // Les quatre temps d'un projet, tels que je les ai vécus sur TiK•TaK, ThermoViz, Iris et les affiches.
 export const demarche = [
-  { titre: 'Cadrer', texte: 'Poser une question claire : à qui je parle, que doit-on pouvoir faire ? ThermoViz est parti d’une seule question sur la chaleur à Bordeaux.' },
-  { titre: 'Concevoir', texte: 'Choisir un style, dessiner les écrans, écrire les textes. Pour les affiches : flat design, lune et feuilles d’automne. Les mots font partie du design.' },
-  { titre: 'Développer', texte: 'Construire les pages, la base de données et les interactions : une montre qui tourne en 3D, un bouton « Hasard », des graphiques à explorer.' },
-  { titre: 'Mettre en ligne', texte: 'Publier, tester sur ordinateur et téléphone, soigner le référencement et l’accessibilité. TiK•TaK tourne sur mon propre serveur.' },
+  { titre: 'Cadrer', texte: 'Comprendre le sujet et le public.' },
+  { titre: 'Concevoir', texte: 'Choisir un style, dessiner, écrire.' },
+  { titre: 'Développer', texte: 'Construire les pages et les interactions.' },
+  { titre: 'Mettre en ligne', texte: 'Publier, tester, soigner les détails.' },
 ];
 
 // Mon parcours, du plus récent au plus ancien.
