@@ -6,16 +6,9 @@ import { projets } from '../data/projets';
 import { THEME_NEUTRE } from '../lib/theme';
 import { profil } from '../data/profil';
 
-// La galerie affiche toujours au moins ce nombre de cartes : les cases vides disparaissent à mesure que tu ajoutes des projets.
-const NB_CARTES = 11;
-const vides = Math.max(0, NB_CARTES - projets.length);
-// Tes projets sont placés au milieu de la galerie, les cases vides de chaque côté.
-const avant = Math.ceil(vides / 2);
-const cartes = [
-  ...Array.from({ length: avant }, () => ({ projet: null as (typeof projets)[number] | null })),
-  ...projets.map((p) => ({ projet: p })),
-  ...Array.from({ length: vides - avant }, () => ({ projet: null as (typeof projets)[number] | null })),
-].map((c, i, tous) => ({ ...c, numero: i + 1, k: Math.abs(i - Math.floor((tous.length - 1) / 2)) }));
+// Un projet = une carte ; le premier est au centre de la galerie.
+const cartes = projets.map((p, i, tous) => ({ projet: p, numero: i + 1, k: i }));
+const avant = 0;
 ---
 
 <Layout
@@ -59,19 +52,7 @@ const cartes = [
                   <p class="arc__meta">{c.projet.cadre}, {c.projet.annee}</p>
                 </a>
               </li>
-            ) : (
-              <li class="arc__carte arc__carte--vide" style={`--k:${c.k}`}>
-                <div class="arc__scene">
-                  <div class="arc__img">
-                    <div class="arc__vide" role="img" aria-label="Emplacement pour un futur projet">
-                      <span>Projet à ajouter</span>
-                    </div>
-                  </div>
-                </div>
-                <p class="arc__label"><span>0{c.numero}</span>À venir</p>
-                <p class="arc__meta">Nouvel emplacement</p>
-              </li>
-            ),
+            ) : null,
           )
         }
       </ul>
