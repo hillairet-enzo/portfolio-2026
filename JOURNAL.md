@@ -175,3 +175,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : vrais logos Claude et Gemini dans les pastilles de la carte Skills IA.
 - 2026-11-16 : carte En bref refaite (accroche + 3 chiffres, sans cadre photo vide) ; pastilles de logos retirées de Skills IA.
 - 2026-11-16 : carte En bref remplacée par une courte présentation (accroche, paragraphe, encadré stage).
+- 2026-11-16 : En bref reformulé, encart photo à droite, phrase stage sans mise en avant.

@@ -5,10 +5,9 @@ import Contact from '../components/Contact.astro';
 import { THEME_NEUTRE } from '../lib/theme';
 import { profil, competences, skillsIA, demarche, parcours } from '../data/profil';
 import { aCv } from '../lib/cv';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
-const aPhotoTravail = existsSync('public/images/a-propos/travail.jpg');
 const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
 
 const insp = (n: number) => ({
@@ -96,14 +95,14 @@ const photos = {
       <div class="pile__cartes">
 
         <section class="pl pl--gris" style="--fond:#5ebd3e" data-etiquette="En bref" aria-labelledby="titre-bref">
-          <div class={`pl__corps pl__corps--bref${aPhotoTravail ? '' : ' pl__corps--bref-seul'}`}>
+          <div class="pl__corps pl__corps--bref">
             <div class="pl__texte">
               <h2 id="titre-bref" class="pl__titre">En bref</h2>
-              <p class="pl__lead">J’ai 19 ans, je suis en deuxième année de BUT MMI et ce que j’aime, c’est quand le design et le code avancent ensemble.</p>
+              <p class="pl__lead">J’ai 19 ans, je suis en deuxième année de BUT MMI à Montbéliard.</p>
               <p class="pl__intro">J’imagine une identité visuelle, je la dessine sur Figma, puis je la code jusqu’à la mise en ligne. Du site à la vidéo en passant par l’affiche, c’est ce mélange entre design, communication et développement qui me plaît.</p>
-              <p class="pl__note">{profil.recherche}</p>
+              <p class="pl__intro">{profil.recherche}</p>
             </div>
-            {aPhotoTravail && <div class="pl-photo"><Photo photo={photos.travail} serre /></div>}
+            <div class="pl-photo"><Photo photo={photos.travail} serre /></div>
           </div>
         </section>
 

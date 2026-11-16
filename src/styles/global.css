@@ -6109,3 +6109,7 @@ html[data-theme='dark'] .toast-copie__texte { color: #d8dbe0; text-shadow: 0 0 1
 .pl__corps--bref .pl__lead { max-width: 30ch; margin-bottom: clamp(.8rem, 2.4svh, 1.4rem); }
 .pl__intro { max-width: 52ch; font-size: clamp(1rem, min(1.35vw, 2.4svh), 1.2rem); line-height: 1.5; font-weight: 500; margin-bottom: clamp(1rem, 3svh, 1.8rem); }
 .pl__note { max-width: 46ch; padding: clamp(.8rem, 2svh, 1.1rem) 1.2rem; border-left: 4px solid #0b0b0c; border-radius: 0 .7rem .7rem 0; background: rgb(11 11 12 / .09); font-size: clamp(.98rem, min(1.3vw, 2.3svh), 1.15rem); font-weight: 650; line-height: 1.4; }
+
+/* « En bref » : le paragraphe de présentation et la phrase sur le stage ont le même rendu, sans encadré */
+.pl__intro + .pl__intro { margin-top: -.3rem; }
+.pl__corps--bref { grid-template-columns: minmax(0, 6fr) minmax(0, 4fr); align-items: stretch; }
