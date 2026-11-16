@@ -12,7 +12,7 @@ const credits = [
 ];
 ---
 
-<Layout titre="Mentions légales" description="Mentions légales du portfolio d’Enzo Hillairet : éditeur, hébergement, crédits et données personnelles." page="autre" claire theme={couleurs}>
+<Layout titre="Mentions légales" description="Mentions légales du portfolio d’Enzo Hillairet : éditeur, hébergement, propriété intellectuelle, intelligence artificielle, données personnelles et cookies." page="autre" claire theme={couleurs}>
   <section class="ml" aria-labelledby="titre-ml">
     <header class="contenu ml__tete">
       <p class="ml__etiquette">Mentions légales</p>
@@ -23,7 +23,7 @@ const credits = [
       <section class="ml__bloc">
         <h2><span>01</span>Éditeur du site</h2>
         <div class="ml__texte">
-          <p><strong>{profil.nom}</strong>, étudiant en BUT MMI, {profil.ville}.</p>
+          <p><strong>{profil.nom}</strong>, personne physique, étudiant en BUT MMI, {profil.ville}. Ce site est un portfolio personnel et pédagogique, sans activité commerciale.</p>
           <p>Directeur de la publication : {profil.nom}.</p>
           <p>Contact : <a class="ml__lien" href={`mailto:${profil.email}`}>{profil.email}</a></p>
         </div>
@@ -33,19 +33,31 @@ const credits = [
         <h2><span>02</span>Hébergement</h2>
         <div class="ml__texte">
           <p>{profil.hebergeur}</p>
+          <p>Le nom de domaine enzoh.fr et la messagerie contact@enzoh.fr sont également gérés chez Infomaniak.</p>
         </div>
       </section>
 
       <section class="ml__bloc">
-        <h2><span>03</span>Propriété intellectuelle</h2>
+        <h2><span>03</span>Propriété intellectuelle et droits des tiers</h2>
         <div class="ml__texte">
-          <p>Les textes, schémas et mises en page de ce site sont la propriété de leur auteur. Les projets présentés ont été réalisés dans le cadre du BUT MMI, certains en binôme.</p>
-          <p>Les images des projets sont des captures et des visuels réalisés pour ces projets. Certains visuels de TiK•TaK ont été générés par intelligence artificielle.</p>
+          <p>Les textes, schémas, mises en page, visuels de couverture et le code de ce site sont l’œuvre de leur auteur ({profil.nom}), sauf mention contraire. Toute reproduction ou réutilisation sans autorisation est interdite.</p>
+          <p>Les projets présentés ont été réalisés dans le cadre du BUT MMI. Quand ils ont été réalisés à plusieurs, les coauteurs sont indiqués sur la page du projet et gardent leurs droits sur leur part du travail.</p>
+          <p>Certains projets sont des exercices pédagogiques : les marques, produits, prix, commandes et contenus qui y apparaissent sont fictifs, sauf indication contraire.</p>
+          <p>Les œuvres de tiers visibles dans les projets (affiches et extraits de films, illustrations, œuvres d’art, marques, logos, polices) appartiennent à leurs titulaires. Elles sont montrées pour illustrer le travail réalisé, dans un cadre d’étude et de présentation de portfolio. Les mises en situation (téléphone ou ordinateur tenus en main) utilisent des modèles de mockup de tiers, dont les auteurs conservent leurs droits.</p>
+          <p>Les images de la page À propos sont des inspirations trouvées sur Pinterest : chaque image renvoie vers sa source et indique son auteur.</p>
+          <p>Vous êtes titulaire de droits sur un contenu présent ici et souhaitez qu’il soit crédité ou retiré ? Écrivez-moi à <a class="ml__lien" href={`mailto:${profil.email}`}>{profil.email}</a> : je corrigerai ou retirerai le contenu dans les meilleurs délais.</p>
         </div>
       </section>
 
       <section class="ml__bloc">
-        <h2><span>04</span>Crédits</h2>
+        <h2><span>04</span>Intelligence artificielle</h2>
+        <div class="ml__texte">
+          <p>Des outils d’intelligence artificielle ont aidé à concevoir ce site : Claude (Anthropic) pour la conception, le code et la rédaction, Gemini (Google) pour certains visuels du projet TiK•TaK. Je dirige le travail, je relis, je corrige et je décide de ce qui est publié. Chaque usage est déclaré dans un document d’accompagnement remis avec le projet.</p>
+        </div>
+      </section>
+
+      <section class="ml__bloc">
+        <h2><span>05</span>Crédits</h2>
         <div class="ml__texte">
           <ul class="ml__credits">
             {
@@ -63,10 +75,30 @@ const credits = [
       </section>
 
       <section class="ml__bloc">
-        <h2><span>05</span>Données personnelles</h2>
+        <h2><span>06</span>Données personnelles</h2>
         <div class="ml__texte">
-          <p>Ce site ne dépose aucun cookie et n’utilise aucun outil de mesure d’audience. Il ne collecte aucune donnée.</p>
-          <p>Les seules informations que je reçois sont celles que vous choisissez de m’envoyer par e-mail. Je ne les utilise que pour vous répondre.</p>
+          <p><strong>Responsable du traitement :</strong> {profil.nom}, joignable à {profil.email}.</p>
+          <p><strong>Ce que je reçois :</strong> uniquement ce que vous m’envoyez par e-mail (votre adresse, votre nom éventuel et le contenu du message). Le site n’a ni formulaire, ni compte, ni outil de mesure d’audience.</p>
+          <p><strong>Pourquoi :</strong> pour vous répondre et gérer notre échange (intérêt légitime). Rien n’est utilisé pour de la prospection ni transmis à d’autres fins.</p>
+          <p><strong>Où et combien de temps :</strong> les messages arrivent sur la messagerie Infomaniak (Suisse, pays reconnu comme adéquat par l’Union européenne) et sont transférés vers ma messagerie personnelle (Google). Je les conserve le temps de l’échange, puis au plus 3 ans après le dernier contact.</p>
+          <p><strong>Journaux du serveur :</strong> comme tout hébergeur, Infomaniak peut enregistrer techniquement votre adresse IP lors de la visite, pour la sécurité et le bon fonctionnement du serveur.</p>
+          <p><strong>Vos droits :</strong> accès, rectification, effacement, opposition et limitation. Écrivez-moi pour les exercer. Vous pouvez aussi saisir la CNIL (<a class="ml__lien" href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
+        </div>
+      </section>
+
+      <section class="ml__bloc">
+        <h2><span>07</span>Cookies et stockage local</h2>
+        <div class="ml__texte">
+          <p>Ce site ne dépose aucun cookie et n’utilise aucun traceur publicitaire ou statistique. Il enregistre uniquement, dans votre navigateur, votre choix de thème clair ou sombre. Cette préférence reste sur votre appareil, n’est jamais envoyée au serveur et sert au seul fonctionnement du site : aucun bandeau de consentement n’est donc nécessaire. Les polices sont hébergées sur le site, sans appel à un service tiers.</p>
+        </div>
+      </section>
+
+      <section class="ml__bloc">
+        <h2><span>08</span>Liens externes et droit applicable</h2>
+        <div class="ml__texte">
+          <p>Ce site renvoie vers des sites que je ne contrôle pas (démonstrations de projets, LinkedIn, GitHub, Pinterest…). Je ne suis pas responsable de leur contenu ni de leurs pratiques sur les données.</p>
+          <p>Le présent site est soumis au droit français.</p>
+          <p class="ml__maj">Dernière mise à jour : 16 novembre 2026.</p>
         </div>
       </section>
     </div>

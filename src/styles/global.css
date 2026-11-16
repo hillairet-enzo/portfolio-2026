@@ -6207,3 +6207,9 @@ html.police-ok .rl > b { animation-play-state: running; }
 .rl { padding-inline: .08em; margin-inline: -.08em; }
 .rl > b { animation-duration: 1s; animation-delay: calc(.2s + var(--i) * .09s); }
 .rl--espace { width: .3em; padding: 0; margin: 0; }
+
+/* accessibilité : contrastes des légendes de la galerie (≥ 4,5:1) */
+.arc__label span { color: color-mix(in srgb, var(--encre) 66%, var(--fond)); }
+.arc__meta { color: color-mix(in srgb, var(--encre) 72%, var(--fond)); }
+
+.ml__maj { margin-top: .6rem; font-size: .85rem; opacity: .7; }
