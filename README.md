@@ -1,54 +1,71 @@
 # Portfolio d'Enzo Hillairet
 
-Site Astro, statique, moderne et épuré. Pas de base de données : tout le contenu est dans trois fichiers.
+Portfolio de BUT MMI (2e année, semestre 3), en ligne sur **[enzoh.fr](https://enzoh.fr)**.
+Étudiant en communication, création et UX, je cherche un stage en studio de création digitale.
+
+## Niveau technique visé
+
+**Niveau 4 de la grille** : framework JS avec contenus dynamiques liés à une source de données, architecture en composants, interactions.
+
+- **Source de données** : les projets sont dans une base SQLite (`data/portfolio.db`, structure dans `data/schema.sql`).
+- **Génération** : `scripts/exporter-projets.mjs` lit la base et produit `src/data/projets.json`. Astro génère ensuite une page par projet (`src/pages/projets/[slug].astro`), la galerie d'accueil, le plan du site et le lien « Projet suivant ».
+- **Composants** : `src/components/` (photo, hero, contact…) et `src/components/pj/` (blocs des pages projet : diapos, téléphones, montre, chiffres…).
+- **Interactions** : galerie en arc avec défilement en boucle (`src/scripts/arc.ts`), apparitions au défilement et barre de progression (`src/scripts/animations.ts`), cartes empilées de la page À propos, thème clair / sombre, écran de chargement en lettres, titre en machine à écrire et copie de l'adresse sur la page Contact.
+
+Le site est statique une fois compilé : pas de serveur, pas de base en ligne.
+
+## Technologies et librairies
+
+| Outil | Rôle | Licence |
+| --- | --- | --- |
+| [Astro](https://astro.build) 7 | Framework : pages, composants, génération statique | MIT |
+| [Inter](https://rsms.me/inter/) via `@fontsource-variable/inter` | Police, hébergée avec le site (aucune requête vers un tiers) | SIL OFL 1.1 |
+| `node:sqlite` (Node 22.5 ou plus) | Lecture de la base des projets au moment de la compilation | intégré à Node |
+| TypeScript | Scripts d'interaction | Apache 2.0 |
+
+Aucun framework CSS ni bibliothèque de composants : la feuille de styles (`src/styles/global.css`) est écrite pour ce site. Aucun thème ni template n'a été utilisé.
+Les mockups (Pixeden, Mockup Cloud) et les œuvres citées dans les projets sont crédités sur la page Mentions légales.
 
 ## Lancer le site
 
 ```bash
-npm install     # ou : bun install
-npm run dev     # http://localhost:4321
-npm run build   # génère le dossier dist/ à mettre en ligne
+npm install
+npm run dev       # http://localhost:4321 (exporte d'abord la base en JSON)
+npm run build     # génère dist/, le dossier à mettre en ligne
+npm run preview   # sert la version compilée
+```
+
+## Arborescence
+
+```
+data/              base SQLite des projets, schéma, mode d'emploi pour ajouter un projet
+scripts/           export de la base, liste des images manquantes, import des inspirations Pinterest
+public/            images, CV, favicon, image de partage (og.png), robots.txt
+src/data/          profil.ts (coordonnées, compétences, parcours), projets.ts (types) et projets.json (généré)
+src/layouts/       Layout.astro : gabarit commun (en-tête, pied de page, thème, chargement, balises SEO)
+src/pages/         accueil, à propos, contact, mentions légales, 404, pages projet, sitemap.xml
+src/components/    composants réutilisables
+src/scripts/       interactions en TypeScript
+src/lib/           couleurs des pages, CV, images
+src/styles/        feuille de styles unique
 ```
 
 ## Où modifier quoi
 
-| Je veux changer…                                        | Fichier                  |
-| ------------------------------------------------------- | ------------------------ |
-| Mon e-mail, LinkedIn, GitHub, CV, accroche, compétences | `src/data/profil.ts`     |
-| Les textes et photos d'un projet, ajouter un projet     | `src/data/projets.ts`    |
-| Les couleurs, polices, espacements                      | `src/styles/global.css`  |
+| Je veux changer… | Fichier |
+| --- | --- |
+| Mon e-mail, LinkedIn, GitHub, mon âge, mes compétences, mon parcours | `src/data/profil.ts` |
+| Les textes, photos et liens d'un projet, ajouter un projet | `data/portfolio.db` (voir `data/AJOUTER-UN-PROJET.md`) |
+| Les couleurs, polices, espacements | `src/styles/global.css` |
+| Le CV | `public/cv-enzo-hillairet.pdf` |
 
-## Ajouter les photos
+## Mise en ligne
 
-Chaque cadre gris « Photo à ajouter » indique ce qu'il faut mettre, le nom exact du fichier et le format.
-Dépose l'image à cet endroit dans `public/images/` (par exemple `public/images/tiktak/hero.jpg`) :
-le cadre est remplacé par la photo, sans rien d'autre à modifier.
+`npm run build`, puis envoi du dossier `dist/` chez Infomaniak (hébergement web lié au domaine enzoh.fr), avec HTTPS.
 
-## Ajouter un projet
+## Documents du projet
 
-Dans `src/data/projets.ts`, copie un bloc du tableau `projets`, place-le **en haut** du tableau (les plus récents d'abord), change le `slug`, les textes et les photos.
-La carte sur l'accueil, la page `/projets/<slug>`, le pied de page et le lien « Projet suivant » se créent seuls.
-## Couleur dominante de chaque page
-
-Chaque page prend la couleur de l'image de son hero, automatiquement (`src/lib/theme.ts`) :
-
-- **Accueil, À propos, Contact** : couleur de `public/images/hero-accueil.jpg`. Remplace cette image et toute la partie « personnelle » du site change de couleur.
-- **Page d'un projet** : couleur de la photo de couverture du projet.
-- **/projets** : couleur de la couverture du projet le plus récent (le premier de la liste).
-- Si une image est absente, une couleur chaude par défaut est utilisée.
-
-L'accueil affiche les `NB_ACCUEIL` premiers projets (3 par défaut, réglable dans le même fichier) et une tuile « Voir tous les projets » ; la page `/projets` les liste tous.
-
-## À remplir avant la mise en ligne
-
-- `email`, `linkedin`, `github`, `cv` dans `src/data/profil.ts` (valeurs d'exemple pour l'instant)
-- Ton CV en PDF dans `public/cv-enzo-hillairet.pdf`
-- Le parcours (stages, jobs, associations) dans `src/data/profil.ts`
-
-## Pages
-
-Accueil, Projets, une page par projet (`/projets/tiktak`, `/projets/thermo-viz`), À propos, Contact, Mentions légales et une page 404.
-
-## Image du grand hero
-
-Le hero de l'accueil utilise `public/images/hero-accueil.jpg` (2400 × 1350 px conseillé). Remplace ce fichier par ta propre image : le texte reste lisible grâce à un voile sombre à gauche. Les boutons « Mon CV » n'apparaissent qu'une fois `public/cv-enzo-hillairet.pdf` ajouté.
+- `POSITIONNEMENT.md` : cible, message, sélection des projets, direction artistique.
+- `JOURNAL.md` : journal de bord.
+- `IA.md` : déclaration de l'usage de l'intelligence artificielle.
+- `QUALITE.md` : grille de contrôle qualité (accessibilité, sobriété, référencement, juridique).

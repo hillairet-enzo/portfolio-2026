@@ -117,88 +117,97 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 - Photo d'ouverture des pages projet : ombre douce et fin liseré pour qu'elle se détache du fond.
 - ThermoViz : titre de la page projet corrigé (il était coupé sur les grands écrans, sa taille suit maintenant la largeur de sa colonne). Vraies captures du site (carte, écarts, ma commune, méthode, trois écrans mobile) et mockups MacBook et téléphone dans le résultat. Lien ajouté vers la page du projet sur data.gouv.fr (réutilisation publiée le 21 octobre 2026).
 
-## Choix des réseaux professionnels (consigne 2.4)
+### Lundi 16 novembre 2026
 
-**[À AJUSTER avec tes mots]**
-J'ai choisi **LinkedIn** parce que je cherche un stage en communication et création : c'est là que les recruteurs et les agences repèrent les profils. Mon profil reprend le même message que le portfolio.
-J'ai choisi **GitHub** parce que mon portfolio est du code : le dépôt public prouve mon travail et mon historique de commits.
-Les deux sont liés depuis le site et utilisent le même nom, pour qu'on me retrouve facilement.
-Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu pour y être cohérent.
-
-## À faire (suite du projet)
-
-- Ajouter la troisième étude de cas.
-- Ajouter mon CV en PDF et compléter mon parcours.
-- Remplir `QUALITE.md` : audit d'accessibilité manuel et test sur mobile.
-- Nettoyer et découper la feuille de styles (160 Ko).
-- Mettre le site en ligne sur enzoh.fr (hébergement, HTTPS) et refaire les mesures sur le site en ligne.
-- Mettre à jour LinkedIn, préparer les deux soutenances.
 - Mockups ThermoViz refaits comme TiK•TaK : MacBook en main et iPhone Duo, tous deux avec la page d'accueil, et suppression des 3 petites captures mobiles de l'onglet résultat.
 - Nouveau projet : Iris (plateforme de vidéo à la demande pour cinéphiles, module R304). Fiche saisie dans la base, vraies captures (accueil, étagères, PocketBase), mockups MacBook et iPhone Duo. Lien du site en ligne à ajouter après le déploiement.
 - Nouveau projet : Olyvia (site WordPress et deux vidéos verticales, SAÉ 201-202 et module R210). Fiche saisie, captures Jira, DaVinci et site, mockup MacBook. Mockup téléphone provisoire, à refaire avec une image de la vidéo en bonne qualité.
-- 2026-11-16 : projet 5 « Affiches » (campagne Montbéliard), nouveau gabarit affiche avec visionneuse une affiche à la fois.
-- 2026-11-16 : Affiches : cartes d'affiches dans l'onglet résultat, couverture simplifiée.
-- 2026-11-16 : projet 6 « Art contemporain » (diaporama Canva), visionneuse de diapos ; diapos provisoires en basse définition, à remplacer par les PNG exportés de Canva.
-- 2026-11-16 : accueil : cartes « Projet à ajouter » retirées, galerie ajustée à 6 projets.
-- 2026-11-16 : accueil, flèches retirées et cartes agrandies (tout tient à l'écran)
-- 2026-11-16 : à propos, titre harmonisé avec l'accueil (début gris léger, suite en gras, taille réduite)
-- 2026-11-16 : à propos, nouveau titre plus grand, cartes de couleur en verre translucide
-- 2026-11-16 : titres tout en noir et en gras (plus de gris), titre À propos remis en grand
-- 2026-11-16 : lien du site Iris ajouté (iris-vod.netlify.app), cartes À propos aux couleurs plus vives
-- 2026-11-16 : à propos, portrait ajouté
-- 2026-11-16 : à propos, patchwork de photos dans le hero (portrait + 3 photos recadrées)
-- 2026-11-16 : à propos, petites vignettes du hero prévues pour mes inspirations Pinterest (inspiration-1/2/3.jpg)
-- 2026-11-16 : à propos, défilé horizontal de 12 carrés d'inspirations à côté du portrait
-- 2026-11-16 : à propos, photo plus fine, le défilé des inspirations bascule en grande mosaïque (bouton retour)
-- 2026-11-16 : à propos, défilé d'inspirations plus fluide (3 rangées, vraie mosaïque, inertie, détection automatique des images inspiration-N)
-- 2026-11-16 : à propos, hero refait en une seule bande horizontale (texte, portrait, petites cases), défilement natif au trackpad partout dans la section
-- 2026-11-16 : à propos, blanc prolongé jusqu'aux cartes (gris seulement derrière elles), 30 cases d'inspiration
-- 2026-11-16 : à propos, hero plein écran (cartes plus bas), éléments mis à l'échelle, fondu blanc à gauche
-- 2026-11-16 : à propos, titre et boutons agrandis à la hauteur des photos, fondu gauche aligné sur le logo
-- 2026-11-16 : à propos, raccord blanc/gris sans couture, cartes en Liquid Glass (réfraction + liseré), photo collée aux cases, animations d'entrée et de survol
-- 2026-11-16 : script npm run pinterest (flux RSS du tableau Enzo_Asap/random) pour remplir les inspirations, cases liées aux épingles
-- 2026-11-16 : inspirations dans un ordre aléatoire à chaque chargement, doublons retirés, dernière colonne complétée
-- 2026-11-16 : crédit du créateur (@) affiché au survol des inspirations, récupéré par npm run pinterest
-- 2026-11-16 : crédits des 25 inspirations récupérés (créateurs Pinterest) et liens vers les vraies épingles
-- 2026-11-16 : cartes À propos sans liseré blanc ni réfraction SVG, sortie en glissé vers le bas, contenu des cartes de derrière masqué
-- 2026-11-16 : cartes À propos, retour de l'ancienne animation (bascule vers l'écran) avec le nouveau style
-- 2026-11-16 : mode sombre vérifié sur tout le site ; corrigé : cartes défi/solution, textes secondaires, à propos (fondus, fond des cartes, points), chemins des cadres photo
-- 2026-11-16 : clic sur une adresse mail = copie avec pastille « Copié ✓ » ; logo EH retiré (texte « Enzo Hillairet » seul) ; nouveau chargement par lettres.
-- 2026-11-16 : page contact, le clic sur l'adresse active le bouton Copier (plus de second avis).
-- 2026-11-16 : cartes À propos, plus d'espace en bas ; textes adaptés à la hauteur de la fenêtre.
-- 2026-11-16 : cartes À propos plus courtes, « Défiler » sous la carte et non plus dessus.
-- 2026-11-16 : textes des cartes À propos refaits à partir des 6 projets (en bref, démarche, compétences, parcours).
-- 2026-11-16 : carte « Au quotidien » remplacée par « Skills IA » (piloter, intégrer, vérifier), d'après IA.md.
-- 2026-11-16 : Skills IA, Claude et Gemini cités, polyvalence dans le choix des modèles.
-- 2026-11-16 : Skills IA avec icônes, sans nommer de projet, prompts et skills adaptés.
-- 2026-11-16 : Skills IA, icônes retirées des lignes, pastilles d'application Claude et Gemini (logos à déposer dans public/images/ia).
-- 2026-11-16 : vrais logos Claude et Gemini dans les pastilles de la carte Skills IA.
-- 2026-11-16 : carte En bref refaite (accroche + 3 chiffres, sans cadre photo vide) ; pastilles de logos retirées de Skills IA.
-- 2026-11-16 : carte En bref remplacée par une courte présentation (accroche, paragraphe, encadré stage).
-- 2026-11-16 : En bref reformulé, encart photo à droite, phrase stage sans mise en avant.
-- 2026-11-16 : carte Démarche simplifiée (quatre étapes, une phrase courte chacune).
-- 2026-11-16 : cartes Compétences, Skills IA et Parcours simplifiées (phrases courtes).
-- 2026-11-16 : Compétences, rangée de logiciels (Figma, Affinity, DaVinci, Astro, Tailwind, JavaScript) ; autres logos à déposer dans public/images/logiciels.
-- 2026-11-16 : Compétences, rangée de logos retirée ; logiciels listés dans chaque rubrique.
-- 2026-11-16 : nouvelles covers (Olyvia, Iris, Affiches, Art contemporain) : fond de couleur, titre et visuel.
-- 2026-11-16 : nouvelles covers TiK•TaK et ThermoViz, même style (fond de couleur, titre, visuels du site).
-- 2026-11-16 : covers refaites en 4/3 (plus de rognage sur les pages projet), TiK•TaK en couverture-carte.webp.
-- 2026-11-16 : barres de couleur (progression, pied de page) en verre liquide ; ombres de la galerie d'accueil plus douces, en plusieurs couches.
-- 2026-11-16 : barres de progression et de pied de page sur toute la largeur de la page.
-- 2026-11-16 : nettoyage du dossier (fichiers inutilisés supprimés), âge centralisé dans profil.ts, IA.md complété (prompts, skills, covers).
-- 2026-11-16 : chargement en défilement de lettres (type tableau d'affichage) à la place de la barre ; titres de projet longs passés à la ligne (Art contemporain n'est plus coupé).
-- 2026-11-16 : chargement plus lent, lettres noires, lettres plus hautes (plus de coupe), départ une fois la police chargée.
-- 2026-11-16 : chargement en afficheur à lettres (chaque case change de lettre d'un coup puis se fixe), plus de morceaux de lettres.
-- 2026-11-16 : chargement un peu plus rapide, cases de lettres plus larges (le o n'est plus rogné).
-- 2026-11-16 : audit (aucune erreur console, aucun lien cassé), correction ARIA du bouton de thème et des contrastes des légendes ; mentions légales complétées (droits des tiers, IA, RGPD, cookies, stockage local).
-- 2026-11-17 : chargement : lettres de passage en noir, plus de superposition (cases à la largeur de la plus large lettre), un peu plus rapide.
-- 2026-11-17 : chargement avec la même disposition que la page Contact (nom au centre, adresse et pastille, ligne du bas) ; barre de progression à bords carrés.
-- 2026-11-17 : chargement (nom centré, bas = ville · mail · ©) et effet de lettres sur tous les titres.
-- 2026-11-17 : effet de lettres retiré des titres, appliqué à tous les éléments du chargement (nom, ville, mail, ©).
-- 2026-11-17 : nettoyage du code (composants et page inutilisés, ~1800 lignes de CSS mortes).
-- 2026-11-17 : coéquipiers non nommés (ThermoViz : « en binôme » seulement) ; conservation des mails 3 ans et mention « fictif » TiK•TaK confirmées.
-- 2026-11-17 : licences des mockups vérifiées (Pixeden et Mockup Cloud : usage perso/commercial autorisé, sans obligation de crédit) ; crédits ajoutés aux mentions légales.
-- 2026-11-17 : œuvres des diapos Art contemporain créditées (alt + mentions légales).
-- 2026-11-17 : œuvre manga/anime affichée dans la légende des diapos (page Art contemporain).
-- 2026-11-17 : texte des mentions légales étendu jusqu'à la marge droite.
-- 2026-11-17 : image de partage (og:image) et données structurées Person ; dépendance Hairline inutilisée retirée ; points de la pile À propos agrandis à 24 px de zone cliquable (accessibilité 96 → 100).
+- projet 5 « Affiches » (campagne Montbéliard), nouveau gabarit affiche avec visionneuse une affiche à la fois.
+- Affiches : cartes d'affiches dans l'onglet résultat, couverture simplifiée.
+- projet 6 « Art contemporain » (diaporama Canva), visionneuse de diapos ; diapos provisoires en basse définition, à remplacer par les PNG exportés de Canva.
+- accueil : cartes « Projet à ajouter » retirées, galerie ajustée à 6 projets.
+- accueil, flèches retirées et cartes agrandies (tout tient à l'écran)
+- à propos, titre harmonisé avec l'accueil (début gris léger, suite en gras, taille réduite)
+- à propos, nouveau titre plus grand, cartes de couleur en verre translucide
+- titres tout en noir et en gras (plus de gris), titre À propos remis en grand
+- lien du site Iris ajouté (iris-vod.netlify.app), cartes À propos aux couleurs plus vives
+- à propos, portrait ajouté
+- à propos, patchwork de photos dans le hero (portrait + 3 photos recadrées)
+- à propos, petites vignettes du hero prévues pour mes inspirations Pinterest (inspiration-1/2/3.jpg)
+- à propos, défilé horizontal de 12 carrés d'inspirations à côté du portrait
+- à propos, photo plus fine, le défilé des inspirations bascule en grande mosaïque (bouton retour)
+- à propos, défilé d'inspirations plus fluide (3 rangées, vraie mosaïque, inertie, détection automatique des images inspiration-N)
+- à propos, hero refait en une seule bande horizontale (texte, portrait, petites cases), défilement natif au trackpad partout dans la section
+- à propos, blanc prolongé jusqu'aux cartes (gris seulement derrière elles), 30 cases d'inspiration
+- à propos, hero plein écran (cartes plus bas), éléments mis à l'échelle, fondu blanc à gauche
+- à propos, titre et boutons agrandis à la hauteur des photos, fondu gauche aligné sur le logo
+- à propos, raccord blanc/gris sans couture, cartes en Liquid Glass (réfraction + liseré), photo collée aux cases, animations d'entrée et de survol
+- script npm run pinterest (flux RSS du tableau Enzo_Asap/random) pour remplir les inspirations, cases liées aux épingles
+- inspirations dans un ordre aléatoire à chaque chargement, doublons retirés, dernière colonne complétée
+- crédit du créateur (@) affiché au survol des inspirations, récupéré par npm run pinterest
+- crédits des 25 inspirations récupérés (créateurs Pinterest) et liens vers les vraies épingles
+- cartes À propos sans liseré blanc ni réfraction SVG, sortie en glissé vers le bas, contenu des cartes de derrière masqué
+- cartes À propos, retour de l'ancienne animation (bascule vers l'écran) avec le nouveau style
+- mode sombre vérifié sur tout le site ; corrigé : cartes défi/solution, textes secondaires, à propos (fondus, fond des cartes, points), chemins des cadres photo
+- clic sur une adresse mail = copie avec pastille « Copié ✓ » ; logo EH retiré (texte « Enzo Hillairet » seul) ; nouveau chargement par lettres.
+- page contact, le clic sur l'adresse active le bouton Copier (plus de second avis).
+- cartes À propos, plus d'espace en bas ; textes adaptés à la hauteur de la fenêtre.
+- cartes À propos plus courtes, « Défiler » sous la carte et non plus dessus.
+- textes des cartes À propos refaits à partir des 6 projets (en bref, démarche, compétences, parcours).
+- carte « Au quotidien » remplacée par « Skills IA » (piloter, intégrer, vérifier), d'après IA.md.
+- Skills IA, Claude et Gemini cités, polyvalence dans le choix des modèles.
+- Skills IA avec icônes, sans nommer de projet, prompts et skills adaptés.
+- Skills IA, icônes retirées des lignes, pastilles d'application Claude et Gemini (logos à déposer dans public/images/ia).
+- vrais logos Claude et Gemini dans les pastilles de la carte Skills IA.
+- carte En bref refaite (accroche + 3 chiffres, sans cadre photo vide) ; pastilles de logos retirées de Skills IA.
+- carte En bref remplacée par une courte présentation (accroche, paragraphe, encadré stage).
+- En bref reformulé, encart photo à droite, phrase stage sans mise en avant.
+- carte Démarche simplifiée (quatre étapes, une phrase courte chacune).
+- cartes Compétences, Skills IA et Parcours simplifiées (phrases courtes).
+- Compétences, rangée de logiciels (Figma, Affinity, DaVinci, Astro, Tailwind, JavaScript) ; autres logos à déposer dans public/images/logiciels.
+- Compétences, rangée de logos retirée ; logiciels listés dans chaque rubrique.
+- nouvelles covers (Olyvia, Iris, Affiches, Art contemporain) : fond de couleur, titre et visuel.
+- nouvelles covers TiK•TaK et ThermoViz, même style (fond de couleur, titre, visuels du site).
+- covers refaites en 4/3 (plus de rognage sur les pages projet), TiK•TaK en couverture-carte.webp.
+- barres de couleur (progression, pied de page) en verre liquide ; ombres de la galerie d'accueil plus douces, en plusieurs couches.
+- barres de progression et de pied de page sur toute la largeur de la page.
+- nettoyage du dossier (fichiers inutilisés supprimés), âge centralisé dans profil.ts, IA.md complété (prompts, skills, covers).
+- chargement en défilement de lettres (type tableau d'affichage) à la place de la barre ; titres de projet longs passés à la ligne (Art contemporain n'est plus coupé).
+- chargement plus lent, lettres noires, lettres plus hautes (plus de coupe), départ une fois la police chargée.
+- chargement en afficheur à lettres (chaque case change de lettre d'un coup puis se fixe), plus de morceaux de lettres.
+- chargement un peu plus rapide, cases de lettres plus larges (le o n'est plus rogné).
+- audit (aucune erreur console, aucun lien cassé), correction ARIA du bouton de thème et des contrastes des légendes ; mentions légales complétées (droits des tiers, IA, RGPD, cookies, stockage local).
+
+### Mardi 17 novembre 2026
+
+- chargement : lettres de passage en noir, plus de superposition (cases à la largeur de la plus large lettre), un peu plus rapide.
+- chargement avec la même disposition que la page Contact (nom au centre, adresse et pastille, ligne du bas) ; barre de progression à bords carrés.
+- chargement (nom centré, bas = ville · mail · ©) et effet de lettres sur tous les titres.
+- effet de lettres retiré des titres, appliqué à tous les éléments du chargement (nom, ville, mail, ©).
+- nettoyage du code (composants et page inutilisés, ~1800 lignes de CSS mortes).
+- coéquipiers non nommés (ThermoViz : « en binôme » seulement) ; conservation des mails 3 ans et mention « fictif » TiK•TaK confirmées.
+- licences des mockups vérifiées (Pixeden et Mockup Cloud : usage perso/commercial autorisé, sans obligation de crédit) ; crédits ajoutés aux mentions légales.
+- œuvres des diapos Art contemporain créditées (alt + mentions légales).
+- œuvre manga/anime affichée dans la légende des diapos (page Art contemporain).
+- texte des mentions légales étendu jusqu'à la marge droite.
+- image de partage (og:image) et données structurées Person ; dépendance Hairline inutilisée retirée ; points de la pile À propos agrandis à 24 px de zone cliquable (accessibilité 96 → 100).
+- Relu les consignes du projet et comparé le site et les documents : README, QUALITE, IA et POSITIONNEMENT mis à jour ; Behance choisi comme deuxième réseau.
+
+**Ce qui a coincé** : l'écran de chargement a demandé beaucoup d'essais (morceaux de lettres, superpositions, lettres coupées) avant d'avoir un rendu propre.
+**Ce que j'ai décidé** : garder les six projets en études de cas, ne pas nommer mes coéquipiers, retirer l'effet de lettres des titres pour le garder sur le chargement seulement.
+
+## Choix des réseaux professionnels (consigne 2.4)
+
+J'ai choisi **LinkedIn** parce que je cherche un stage en communication et création : c'est là que les recruteurs et les studios repèrent les profils, et mon profil reprend le message du portfolio.
+J'ai choisi **Behance** comme deuxième réseau parce que je vise des studios de création digitale : c'est la vitrine que les directeurs artistiques consultent pour juger un travail visuel.
+J'y publie mes projets les plus graphiques (affiches, covers, interfaces) en grandes images, ce qui complète les études de cas plus rédigées du portfolio.
+Les deux comptes utilisent mon nom complet, la même photo et la même accroche, et renvoient vers enzoh.fr.
+Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la consigne, mais ce n'est pas le réseau que je mets en avant pour un profil communication.
+
+## À faire (suite du projet)
+
+- Ajouter la photo « travail », le vrai CV en PDF et remplacer les images d'inspiration Pinterest (crédits à revérifier).
+- Créer et remplir le compte Behance, mettre à jour LinkedIn avec le lien du portfolio.
+- Mettre le site en ligne sur enzoh.fr (hébergement Infomaniak, HTTPS) et refaire les mesures sur le site en ligne.
+- Test manuel : clavier, lecteur d'écran, zoom 200 %, téléphone.
+- Réviser le code à présenter et préparer la soutenance finale.

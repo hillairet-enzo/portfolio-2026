@@ -23,13 +23,18 @@ Ce fichier déclare chaque outil d'IA utilisé, à quelle étape, pour quoi fair
 
 ## 3. Ce que l'IA a produit
 
-- **Conception** : propositions d'identité visuelle (noir et blanc, effet « verre » inspiré d'Apple, palette arc-en-ciel en rappels discrets), logo monogramme « EH ».
+- **Conception** : propositions d'identité visuelle (noir et blanc, effet « verre » inspiré d'Apple, palette arc-en-ciel en rappels discrets), un logo monogramme « EH » (retiré ensuite).
 - **Code** : structure Astro (pages, composants, données dans `src/data`), galerie de projets en arc avec vue liste, page projet en détail, thème clair / sombre, écran de chargement, barre de défilement personnalisée, widget de thème, pied de page, mentions légales.
 - **Qualité** : `sitemap.xml`, `robots.txt`, conversion d'images en WebP, mesures Lighthouse.
 - **Dépôt** : création du dépôt Git et des premiers commits.
 - **Textes** : première version de textes du site, que j'ai relus et repris. Pour la page À propos, les textes sont réécrits à partir de mes projets, puis simplifiés selon mes retours.
 - **Covers des projets** : six covers au même style (fond de couleur, titre, visuels du site), fabriquées à partir de mes captures et de mes mockups.
 - **Interface** : barres de couleur et cartes en effet « verre liquide », ombres de la galerie d'accueil.
+- **Écran de chargement** : défilement de lettres façon tableau d'affichage (chaque case passe par quelques lettres de même largeur puis se fixe), sur mon nom, ma ville, mon adresse et l'année.
+- **Nettoyage du code** : script qui repère les règles CSS dont les classes n'existent plus, validé par des captures avant / après de toutes les pages ; suppression des composants inutilisés et d'une dépendance jamais utilisée.
+- **Juridique** : vérification des licences des mockups, crédits des œuvres de manga et d'anime, retrait du nom d'un coéquipier.
+- **Référencement** : image de partage (`og.png`), données structurées, nouvelles mesures Lighthouse.
+- **Documents** : mise à jour de `README.md`, `QUALITE.md`, `POSITIONNEMENT.md` après relecture des consignes.
 
 ## 4. Ce que j'ai modifié, corrigé ou rejeté
 
@@ -47,6 +52,9 @@ Je pilote le travail par retours successifs. Principaux arbitrages :
 - Des phrases trop vagues ou trop « slogan », des icônes sur chaque ligne de la page À propos, une phrase mise en avant à tort (la recherche de stage) : reformulées ou retirées.
 - Des covers de projets au rendu que je n'aimais pas : refaites, puis refaites une seconde fois car elles étaient rognées sur les pages projet.
 - Les logos des logiciels et des IA : je fournis moi-même les fichiers, l'IA ne les dessine pas.
+- L'écran de chargement : refait plusieurs fois. Rejeté une barre de progression, puis un défilement continu qui montrait des morceaux de lettres, des lettres grises, des lettres qui se superposaient et un « o » coupé. J'ai aussi demandé de retirer les liens et le bouton pour ne garder que mon nom au centre.
+- L'effet de lettres sur tous les titres du site : essayé puis retiré, je ne le voulais que sur le chargement.
+- Le nom de mon binôme sur ThermoViz : retiré, je ne nomme pas mes coéquipiers.
 
 **Corrigé après contrôle**
 - Textes illisibles sur les pages projet, survol de la liste de projets entièrement blanc, espace excessif entre deux sections, section contact trop noire, jonction avec le pied de page, barre de défilement pas assez visible, logo mal adapté au fond noir, flèche « retour en haut » incorrecte au survol, contraste insuffisant des numéros des mentions légales.
@@ -59,8 +67,9 @@ Je pilote le travail par retours successifs. Principaux arbitrages :
 
 Parties du code que je dois pouvoir présenter et modifier :
 
-- `src/data/projets.ts` et `profil.ts` : le contenu du site vient de ces fichiers, les pages sont générées à partir d'eux.
-- `src/layouts/Layout.astro` : structure commune, thème clair / sombre, écran de chargement, en-tête.
+- `data/portfolio.db`, `scripts/exporter-projets.mjs` et `src/data/projets.ts` : la base SQLite des projets, son export en JSON et la génération des pages ; `src/data/profil.ts` pour mes coordonnées.
+- `src/pages/projets/[slug].astro` : page générée pour chaque projet.
+- `src/layouts/Layout.astro` : structure commune, thème clair / sombre, écran de chargement en lettres, en-tête, balises de référencement.
 - `src/scripts/arc.ts` : galerie en arc avec défilement en boucle.
 - `src/lib/theme.ts` : couleurs des pages.
 - `src/pages/sitemap.xml.ts` : génération du plan du site.

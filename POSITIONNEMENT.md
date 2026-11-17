@@ -14,13 +14,16 @@ Ce message doit passer **avant le premier défilement**. L'accueil affiche mon n
 
 ## 3. Stratégie de contenu
 
-Trois projets sont présentés en profondeur, chacun avec le contexte, mon rôle exact, le processus, les choix techniques et le résultat :
+Chaque projet est présenté en étude de cas, avec le contexte et la commande, mon rôle exact, mon processus (recherches, pistes, arbitrages), les choix techniques et le résultat. La sélection montre chacune des facettes de mon profil, de la plus complète à la plus graphique :
 
-- **TiK•TaK** (SAE 301, réalisé seul) : un configurateur de montres. Il couvre toute la chaîne : direction artistique, interface, développement, base de données et mise en ligne.
-- **ThermoViz** (SAE 303, en binôme) : une visualisation de données sur la chaleur en ville. Il montre le récit, la rédaction et la préparation des données.
-- **Troisième projet : à venir.**
+- **TiK•TaK** (SAE 301, seul) : un configurateur de montres. Toute la chaîne : direction artistique, interface, développement, base de données, mise en ligne.
+- **ThermoViz** (SAE 303, en binôme) : une visualisation de données sur la chaleur en ville. Le récit, la rédaction et la préparation des données.
+- **Iris** : une plateforme de films pour cinéphiles. L'expérience utilisateur et l'interface.
+- **Olyvia** (projet de groupe) : un site et deux vidéos verticales. L'organisation d'une équipe et la vidéo.
+- **Affiches Montbéliard** : une série d'affiches. La création graphique pure.
+- **Art contemporain** : un diaporama au style Windows XP et manga. Une direction artistique décalée au service d'un exposé.
 
-Ces projets remplacent ceux de la maquette (Olyvia! et une affiche de l'an dernier). Ils sont plus récents et plus complets, et montrent la conception comme le développement.
+TiK•TaK, ThermoViz et Iris sont les trois études les plus complètes : ce sont elles qu'un recruteur voit en premier.
 
 ## 4. Direction artistique retenue
 
@@ -28,14 +31,14 @@ Une direction éditoriale :
 - le noir et le blanc, avec un vrai noir en mode sombre ;
 - un effet de verre inspiré des interfaces d'Apple ;
 - la police Inter et de grands titres serrés ;
-- des rappels de couleur arc-en-ciel discrets (barre de chargement, cartes de la page À propos, pied de page) ;
-- un monogramme **EH**, présent dans l'en-tête de chaque page, sur l'écran de chargement et dans le pied de page.
+- des rappels de couleur arc-en-ciel discrets (barre de progression, cartes de la page À propos, pied de page) ;
+- mon nom en typographie comme identité : dans l'en-tête de chaque page, en grand sur l'écran de chargement (lettres qui défilent comme un tableau d'affichage) et dans le pied de page.
 
 Elle répond aux remarques du jury :
 - mon identité est visible sur toutes les pages, et pas seulement en pied de page ;
 - il n'y a plus de décor identique d'une page à l'autre : chaque page a sa propre structure ;
 - les contenus sont moins enfermés dans des blocs ;
-- un logo a été créé.
+- mon nom sert de signature visuelle (j'avais d'abord créé un monogramme « EH », retiré ensuite : le nom en entier est plus lisible).
 
 **Pourquoi ce n'est pas le minimalisme que j'avais écarté.** J'avais refusé une interface monochrome « générique ». Ici, la personnalité ne vient pas d'un décor mais des interactions et du mouvement : la galerie en arc qui défile en boucle, les cartes qui s'empilent, le titre en machine à écrire, l'écran de chargement et les transitions. Le contraste fort sert l'accessibilité, que je voulais déjà préserver.
 
