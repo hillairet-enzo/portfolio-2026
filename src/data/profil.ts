@@ -12,6 +12,7 @@ export const profil = {
 
   email: 'contact@enzoh.fr',
   linkedin: 'https://www.linkedin.com/in/enzo-hillairet-630baa367/',
+  behance: 'https://www.behance.net/enzohillairet',
   github: 'https://github.com/hillairet-enzo',
   cv: '/cv-enzo-hillairet.pdf', // À REMPLIR : dépose ton CV dans public/ sous ce nom
   ville: 'Montbéliard', // À REMPLIR si besoin

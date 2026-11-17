@@ -221,3 +221,4 @@ Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la
 - 2026-11-17 : mise en ligne automatique avec GitHub Actions (.github/workflows/deploy.yml) : à chaque push, connexion SSH au VPS, git pull et build.
 - 2026-11-17 : référencement : titre de l'accueil commençant par mon nom, descriptions des projets raccourcies (≤ 155 caractères), image de partage propre à chaque projet, données structurées (Person, WebSite, CreativeWork), 404 en noindex, plan du site aligné sur les adresses canoniques avec date de mise à jour.
 - 2026-11-17 : fichier de validation Google Search Console ajouté (public/google43e9fe2dcda5c1e9.html).
+- 2026-11-17 : lien Behance (behance.net/enzohillairet) ajouté dans la section et la page contact, le pied de page, le menu mobile, les données structurées pour Google, les mentions légales et le README.

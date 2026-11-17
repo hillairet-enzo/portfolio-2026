@@ -86,7 +86,7 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
           alumniOf: { '@type': 'CollegeOrUniversity', name: 'IUT Nord Franche-Comté, BUT MMI, Montbéliard' },
           knowsAbout: ['Communication', 'Direction artistique', 'UX design', 'Design graphique', 'Développement web'],
           address: { '@type': 'PostalAddress', addressLocality: profil.ville, addressCountry: 'FR' },
-          sameAs: [profil.linkedin, profil.github],
+          sameAs: [profil.linkedin, profil.behance, profil.github],
         },
         {
           '@type': 'WebSite',
@@ -152,6 +152,7 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
               <a class="menu__mail" href={`mailto:${profil.email}`}>{profil.email}</a>
               <p>
                 <a href={profil.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+                <a href={profil.behance} target="_blank" rel="noopener">Behance</a>
                 <a href={profil.github} target="_blank" rel="noopener">GitHub</a>
                 {aCv && <a href={profil.cv} download>CV</a>}
                 <span>{profil.ville}</span>
@@ -189,6 +190,7 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
             <h2>Me retrouver</h2>
             <ul>
               <li><a href={profil.linkedin} rel="noopener">LinkedIn</a></li>
+              <li><a href={profil.behance} rel="noopener">Behance</a></li>
               <li><a href={profil.github} rel="noopener">GitHub</a></li>
               {aCv && <li><a href={profil.cv} download>Mon CV (PDF)</a></li>}
               <li class="pied__ville">{profil.ville}</li>

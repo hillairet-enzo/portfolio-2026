@@ -54,7 +54,7 @@ src/styles/        feuille de styles unique
 
 | Je veux changer… | Fichier |
 | --- | --- |
-| Mon e-mail, LinkedIn, GitHub, mon âge, mes compétences, mon parcours | `src/data/profil.ts` |
+| Mon e-mail, LinkedIn, Behance, GitHub, mon âge, mes compétences, mon parcours | `src/data/profil.ts` |
 | Les textes, photos et liens d'un projet, ajouter un projet | `data/portfolio.db` (voir `data/AJOUTER-UN-PROJET.md`) |
 | Les couleurs, polices, espacements | `src/styles/global.css` |
 | Le CV | `public/cv-enzo-hillairet.pdf` |
