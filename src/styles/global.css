@@ -4501,3 +4501,6 @@ html:not([data-theme='dark']) .contact-bloc .bouton:focus-visible, html:not([dat
 
 /* ── Mode sombre : version sombre du schéma de la série d'affiches ── */
 html[data-theme='dark'] img[src$="/gabarit-nb.jpg"] { content: url('/images/affiches-montbeliard/gabarit-nb-sombre.jpg'); }
+
+/* ── Mode sombre : titre de l'accueil en blanc (il était noir sur fond noir) ── */
+html[data-theme='dark'] .galerie h1, html[data-theme='dark'] .galerie h1 span { color: #fff; }
