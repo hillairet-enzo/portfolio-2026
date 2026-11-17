@@ -64,7 +64,7 @@ Grille propre à ce site : portfolio statique (Astro), sans base de données, sa
 | Licences | Astro (MIT), Inter (SIL OFL 1.1), Hairline (MIT) | Citées avec leurs auteurs dans les crédits |
 | Droits sur les contenus | Visuels et captures des projets | Origine déclarée ; certains visuels de TiK•TaK générés par IA sont signalés |
 
-**À vérifier avant la mise en ligne.** Nommer mon binôme sur le projet ThermoViz réalisé à deux, et confirmer que j'ai le droit d'utiliser chaque capture et visuel. Le CV et mon adresse e-mail seront publics.
+**À vérifier avant la mise en ligne.** Les coéquipiers ne sont pas nommés (choix assumé). Confirmer que j'ai le droit d'utiliser chaque capture et visuel. Le CV et mon adresse e-mail seront publics.
 
 ## Résumé : ce qui reste à faire
 

@@ -17,7 +17,7 @@ Ce message doit passer **avant le premier défilement**. L'accueil affiche mon n
 Trois projets sont présentés en profondeur, chacun avec le contexte, mon rôle exact, le processus, les choix techniques et le résultat :
 
 - **TiK•TaK** (SAE 301, réalisé seul) : un configurateur de montres. Il couvre toute la chaîne : direction artistique, interface, développement, base de données et mise en ligne.
-- **ThermoViz** (SAE 303, en binôme avec Matthis Carnicer) : une visualisation de données sur la chaleur en ville. Il montre le récit, la rédaction et la préparation des données.
+- **ThermoViz** (SAE 303, en binôme) : une visualisation de données sur la chaleur en ville. Il montre le récit, la rédaction et la préparation des données.
 - **Troisième projet : à venir.**
 
 Ces projets remplacent ceux de la maquette (Olyvia! et une affiche de l'an dernier). Ils sont plus récents et plus complets, et montrent la conception comme le développement.

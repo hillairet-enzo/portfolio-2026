@@ -54,7 +54,7 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 
 **Ce que j'ai fait**
 - Commencé à coder le portfolio à partir de la maquette, avec Astro : première version du site.
-- **20 et 21 octobre** : réalisation de la SAE 303 « ThermoViz » (visualisation de données sur la chaleur en ville) en binôme avec Matthis Carnicer. Mon rôle : récit et rédaction, intégration, préparation des données, page Méthode et une partie des visualisations. Dates d'après le dépôt du projet.
+- **20 et 21 octobre** : réalisation de la SAE 303 « ThermoViz » (visualisation de données sur la chaleur en ville) en binôme avec [nom retiré]. Mon rôle : récit et rédaction, intégration, préparation des données, page Méthode et une partie des visualisations. Dates d'après le dépôt du projet.
 - **2 au 5 novembre** : réalisation seul de la SAE 301 « TiK•TaK », un configurateur de montres personnalisées (Astro, Bun, SQLite) : direction artistique, interface, développement, base de données et mise en ligne. Le dépôt compte 83 commits.
 
 **Ce qui a coincé**
@@ -196,3 +196,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-17 : chargement (nom centré, bas = ville · mail · ©) et effet de lettres sur tous les titres.
 - 2026-11-17 : effet de lettres retiré des titres, appliqué à tous les éléments du chargement (nom, ville, mail, ©).
 - 2026-11-17 : nettoyage du code (composants et page inutilisés, ~1800 lignes de CSS mortes).
+- 2026-11-17 : coéquipiers non nommés (ThermoViz : « en binôme » seulement) ; conservation des mails 3 ans et mention « fictif » TiK•TaK confirmées.

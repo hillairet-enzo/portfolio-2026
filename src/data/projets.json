@@ -200,7 +200,7 @@
     "resume": "Un site qui croise la chaleur du sol, mesurée par satellite, et la pauvreté des ménages de la métropole de Bordeaux. Cinq visualisations, une conclusion et une page Méthode pour tout vérifier.",
     "annee": "Octobre 2026",
     "cadre": "SAE 303, BUT MMI",
-    "equipe": "En binôme avec Matthis Carnicer",
+    "equipe": "En binôme",
     "role": [
       "Récit et rédaction",
       "Intégration",
@@ -300,7 +300,7 @@
         "onglet": "role",
         "titre": "Mon rôle",
         "paragraphes": [
-          "ThermoViz est la SAE 303, réalisée en binôme avec Matthis Carnicer. Je me suis occupé de l’histoire racontée et de la rédaction, de l’intégration des pages, de la préparation des données et de la page Méthode. J’ai aussi fait une partie des visualisations.",
+          "ThermoViz est la SAE 303, réalisée en binôme. Je me suis occupé de l’histoire racontée et de la rédaction, de l’intégration des pages, de la préparation des données et de la page Méthode. J’ai aussi fait une partie des visualisations.",
           "J’ai écrit le script qui rassemble les quatre sources, change les systèmes de coordonnées et garde seulement les colonnes utiles."
         ]
       },
