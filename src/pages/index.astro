@@ -9,6 +9,9 @@ import { profil } from '../data/profil';
 // Un projet = une carte ; le premier est au centre de la galerie.
 const cartes = projets.map((p, i, tous) => ({ projet: p, numero: i + 1, k: i }));
 const avant = 0;
+// Ligne sous chaque carte : la nature du projet (plus parlante qu'un code de module) et l'année.
+const nature = (p: { cadre: string }) => (/perso/i.test(p.cadre) ? 'Projet personnel' : 'Projet universitaire');
+const an = (p: { annee: string }) => p.annee.match(/\d{4}/)?.[0] ?? p.annee;
 ---
 
 <Layout
@@ -47,7 +50,7 @@ const avant = 0;
                     </div>
                   </div>
                   <p class="arc__label"><span>0{c.numero}</span>{c.projet.titre}</p>
-                  <p class="arc__meta">{c.projet.cadre}, {c.projet.annee}</p>
+                  <p class="arc__meta">{nature(c.projet)} · {an(c.projet)}</p>
                 </a>
               </li>
             ) : null,
@@ -68,7 +71,7 @@ const avant = 0;
                   <strong>{p.titre}</strong>
                   <span>{p.accroche}</span>
                 </span>
-                <span class="liste__meta">{p.cadre}, {p.annee}</span>
+                <span class="liste__meta">{nature(p)} · {an(p)}</span>
                 <span class="liste__outils">{p.outils.slice(0, 3).join(' · ')}</span>
                 <span class="liste__fleche" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"></path></svg>

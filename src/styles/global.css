@@ -4439,3 +4439,35 @@ html.intro .chargeur.sortie .chargeur__bas { animation: ch-sortie-logo .55s cubi
 html[data-theme='dark'] .pile__point::after { background: rgb(255 255 255 / .25); }
 html[data-theme='dark'] .pile__point[aria-current="true"]::after { background: #fff; }
 .pile__point span { right: 2rem; }
+
+/* ── Onglets des pages projet : un onglet refermé par l'ouverture d'un autre se ferme sans animation ── */
+.pp-tab--net .pp-tab__panneau, .pp-tab--net .pp-tab__interieur { transition: none !important; }
+
+/* ── Section contact : un panneau à part, sombre, pour qu'elle se distingue du reste de la page ── */
+html:not([data-theme='dark']) .contact-bloc, html[data-theme='dark'] .contact-bloc { background: transparent; }
+.contact-bloc { padding-block: clamp(1.5rem, 3vw, 2.5rem) clamp(2.5rem, 5vw, 4.5rem); }
+html:not([data-theme='dark']) .contact-bloc .section, html[data-theme='dark'] .contact-bloc .section {
+  position: relative; overflow: hidden; isolation: isolate;
+  padding: clamp(2.2rem, 4.5vw, 4rem) clamp(1.4rem, 4.5vw, 4rem);
+  border-radius: clamp(1.4rem, 2.4vw, 2.2rem);
+  background: #101012; color: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / .08), 0 34px 80px -42px rgb(0 0 0 / .55);
+}
+html[data-theme='dark'] .contact-bloc .section { background: #1a1a1d; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .08); }
+.contact-bloc .section::before { content: ''; position: absolute; inset: 0 0 auto; height: 5px; background: linear-gradient(90deg, var(--arc-1), var(--arc-2), var(--arc-3), var(--arc-4), var(--arc-5)); z-index: -1; }
+html:not([data-theme='dark']) .contact-bloc h2, html[data-theme='dark'] .contact-bloc h2 { color: #fff; }
+html:not([data-theme='dark']) .contact-bloc .chapo, html[data-theme='dark'] .contact-bloc .chapo { color: rgb(255 255 255 / .74); }
+html:not([data-theme='dark']) .contact-bloc__mail, html[data-theme='dark'] .contact-bloc__mail { color: #fff; text-decoration-color: rgb(255 255 255 / .9); }
+html:not([data-theme='dark']) .contact-bloc__mail:hover, html[data-theme='dark'] .contact-bloc__mail:hover { color: rgb(255 255 255 / .8); }
+html:not([data-theme='dark']) .contact-bloc .bouton, html[data-theme='dark'] .contact-bloc .bouton { background: transparent; border-color: rgb(255 255 255 / .55); color: #fff; }
+html:not([data-theme='dark']) .contact-bloc .bouton:hover, html[data-theme='dark'] .contact-bloc .bouton:hover { background: #fff; border-color: #fff; color: #0b0b0c; }
+html:not([data-theme='dark']) .contact-bloc .bouton--plein, html[data-theme='dark'] .contact-bloc .bouton--plein { background: #fff; border-color: #fff; color: #0b0b0c; }
+html:not([data-theme='dark']) .contact-bloc .bouton--plein:hover, html[data-theme='dark'] .contact-bloc .bouton--plein:hover { background: rgb(255 255 255 / .85); border-color: transparent; color: #0b0b0c; }
+.contact-bloc .bouton:focus-visible, .contact-bloc__mail:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+@media (prefers-contrast: more) { html .contact-bloc .section { background: #000; box-shadow: inset 0 0 0 2px #fff; } }
+
+/* ── Mode sombre : bouton « Menu » du téléphone sans rectangle gris, comme en clair ── */
+html[data-theme='dark'] .menu summary { background: none; box-shadow: none; }
+/* Mode sombre : le menu plein écran du téléphone est opaque (on ne voit plus la page derrière) */
+html[data-theme='dark'] .menu__panneau { background: #000; background-image: radial-gradient(70% 45% at 85% 5%, #1a1a1d 0%, transparent 70%), radial-gradient(60% 40% at 0% 100%, #141416 0%, transparent 70%); }
+html[data-theme='dark'] .menu__liens li { border-bottom-color: rgb(255 255 255 / .12); }

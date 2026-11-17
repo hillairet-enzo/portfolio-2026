@@ -230,14 +230,28 @@ const blocs = [
     t.querySelector('.pp-tab__bouton')?.setAttribute('aria-expanded', 'false');
     t.querySelector('.pp-tab__panneau')?.setAttribute('inert', '');
   };
+  // Ouvre un onglet et l'amène en haut de l'écran, sous l'en-tête.
+  // Les onglets déjà ouverts se referment d'un coup (sans animation) en gardant le titre cliqué à sa place,
+  // pour que la page ne saute pas pendant que le nouvel onglet se déplie.
   const ouvrir = (t: HTMLElement, defiler = true) => {
-    tabs.forEach((x) => x !== t && fermer(x));
+    const bouton = t.querySelector<HTMLElement>('.pp-tab__bouton')!;
+    const avant = bouton.getBoundingClientRect().top;
+    tabs.forEach((x) => {
+      if (x === t || x.dataset.ouvert !== 'true') return;
+      x.classList.add('pp-tab--net');
+      fermer(x);
+    });
+    window.scrollBy(0, bouton.getBoundingClientRect().top - avant);
+    requestAnimationFrame(() => tabs.forEach((x) => x.classList.remove('pp-tab--net')));
     t.dataset.ouvert = 'true';
-    t.querySelector('.pp-tab__bouton')?.setAttribute('aria-expanded', 'true');
+    bouton.setAttribute('aria-expanded', 'true');
     t.querySelector('.pp-tab__panneau')?.removeAttribute('inert');
     if (defiler) {
       const reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      setTimeout(() => t.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'start' }), reduit ? 0 : 640);
+      const entete = document.querySelector<HTMLElement>('.entete');
+      const marge = (entete ? entete.getBoundingClientRect().height : 0) + 16;
+      const haut = window.scrollY + t.getBoundingClientRect().top - marge;
+      window.scrollTo({ top: Math.max(0, haut), behavior: reduit ? 'auto' : 'smooth' });
     }
   };
   tabs.forEach((t) => {
