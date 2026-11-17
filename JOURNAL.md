@@ -211,3 +211,4 @@ Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la
 - Mettre le site en ligne sur enzoh.fr (hébergement Infomaniak, HTTPS) et refaire les mesures sur le site en ligne.
 - Test manuel : clavier, lecteur d'écran, zoom 200 %, téléphone.
 - Réviser le code à présenter et préparer la soutenance finale.
+- 2026-11-17 : fichier .htaccess (page 404, cache, compression) ; site compilé en zip pour la mise en ligne chez Infomaniak.
