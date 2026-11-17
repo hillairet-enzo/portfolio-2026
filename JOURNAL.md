@@ -219,3 +219,4 @@ Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la
 - 2026-11-17 : Art contemporain indiqué comme projet personnel ; bouton du notebook Observable retiré de ThermoViz ; section contact sans liseré, panneau gris clair en mode clair ; schéma des affiches en version sombre ; galerie d'accueil en mode sombre avec sol éclairé, reflet et ombres visibles.
 - 2026-11-17 : mode sombre, titre de l'accueil « Curieux de voir ce que j'ai créé ? » passé en blanc (il était noir sur noir).
 - 2026-11-17 : mise en ligne automatique avec GitHub Actions (.github/workflows/deploy.yml) : à chaque push, connexion SSH au VPS, git pull et build.
+- 2026-11-17 : référencement : titre de l'accueil commençant par mon nom, descriptions des projets raccourcies (≤ 155 caractères), image de partage propre à chaque projet, données structurées (Person, WebSite, CreativeWork), 404 en noindex, plan du site aligné sur les adresses canoniques avec date de mise à jour.

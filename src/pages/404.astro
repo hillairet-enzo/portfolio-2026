@@ -6,7 +6,7 @@ import { THEME_NEUTRE } from '../lib/theme';
 const couleurs = THEME_NEUTRE;
 ---
 
-<Layout titre="Page introuvable" page="autre" theme={couleurs}>
+<Layout titre="Page introuvable" page="autre" noindex theme={couleurs}>
   <PageHero titre={['404']} taille="moyen" carte={{ texte: 'Cette page n’existe pas ou a changé d’adresse.' }}>
     <Fragment slot="actions">
       <a class="bouton bouton--couleur" href="/">Retour à l’accueil</a>

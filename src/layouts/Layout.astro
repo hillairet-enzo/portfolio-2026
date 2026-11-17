@@ -11,6 +11,10 @@ interface Props {
   page?: 'accueil' | 'projet' | 'apropos' | 'contact' | 'autre';
   claire?: boolean; // page sans hero sombre : l'en-tête reste en verre clair dès le haut
   theme?: string; // variables de couleur calculées depuis l'image du hero (src/lib/theme.ts)
+  titreSeo?: string; // titre complet de l'onglet et de Google, s'il doit différer de « titre – nom »
+  image?: string; // image de partage (LinkedIn, Google) propre à la page ; par défaut /og.png
+  noindex?: boolean; // page à ne pas référencer (404)
+  donnees?: Record<string, unknown>; // données structurées propres à la page (schema.org)
 }
 const {
   claire = false,
@@ -18,8 +22,13 @@ const {
   description = `${profil.nom}, étudiant en BUT MMI. ${profil.accroche} ${profil.recherche}`,
   page = 'accueil',
   theme = '',
+  titreSeo,
+  image = '/og.png',
+  noindex = false,
+  donnees,
 } = Astro.props;
-const titreComplet = titre ? `${titre} – ${profil.nom}` : `${profil.nom}, portfolio`;
+const titreComplet = titreSeo ?? (titre ? `${titre} – ${profil.nom}` : `${profil.nom}, portfolio`);
+const imagePartage = new URL(image, Astro.site).href;
 const url = new URL(Astro.url.pathname, Astro.site);
 const annee = new Date().getFullYear();
 const lettres = [...profil.nom];
@@ -56,21 +65,39 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
     <meta property="og:title" content={titreComplet} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
-    <meta property="og:image" content={new URL('/og.png', Astro.site).href} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content={imagePartage} />
+    {image === '/og.png' && <meta property="og:image:width" content="1200" />}
+    {image === '/og.png' && <meta property="og:image:height" content="630" />}
+    {noindex && <meta name="robots" content="noindex" />}
     <meta property="og:image:alt" content={`${profil.nom}, étudiant en BUT MMI`} />
     <meta property="og:locale" content="fr_FR" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: profil.nom,
-      url: Astro.site?.href,
-      email: `mailto:${profil.email}`,
-      jobTitle: 'Étudiant en BUT MMI',
-      address: { '@type': 'PostalAddress', addressLocality: profil.ville, addressCountry: 'FR' },
-      sameAs: [profil.linkedin, profil.github],
+      '@graph': [
+        {
+          '@type': 'Person',
+          '@id': new URL('/#enzo', Astro.site).href,
+          name: profil.nom,
+          url: Astro.site?.href,
+          image: new URL('/images/a-propos/portrait.jpg', Astro.site).href,
+          email: `mailto:${profil.email}`,
+          jobTitle: 'Étudiant en BUT MMI, communication et UX',
+          alumniOf: { '@type': 'CollegeOrUniversity', name: 'IUT Nord Franche-Comté, BUT MMI, Montbéliard' },
+          knowsAbout: ['Communication', 'Direction artistique', 'UX design', 'Design graphique', 'Développement web'],
+          address: { '@type': 'PostalAddress', addressLocality: profil.ville, addressCountry: 'FR' },
+          sameAs: [profil.linkedin, profil.github],
+        },
+        {
+          '@type': 'WebSite',
+          '@id': new URL('/#site', Astro.site).href,
+          name: `${profil.nom}, portfolio`,
+          url: Astro.site?.href,
+          inLanguage: 'fr-FR',
+          author: { '@id': new URL('/#enzo', Astro.site).href },
+        },
+        ...(donnees ? [donnees] : []),
+      ],
     })} />
   </head>
   <body>

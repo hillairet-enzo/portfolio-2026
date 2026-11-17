@@ -46,9 +46,31 @@ const blocs = [
   sections: sectionsVisibles.filter((s) => (b.onglets as string[]).includes(s.onglet)),
   ...teintes[i],
 }));
+// Description pour Google (environ 155 caractères au plus) : l'accroche du projet, coupée proprement si besoin.
+const couper = (t: string, max = 155) => (t.length <= max ? t : t.slice(0, t.lastIndexOf(' ', max - 1)).replace(/[,;:.\s]+$/, '') + '…');
+const nature = /perso/i.test(projet.cadre) ? 'personnel' : 'universitaire';
+const descriptionSeo = couper(`${projet.accroche ?? projet.resume} Projet ${nature} d’Enzo Hillairet (${projet.annee.match(/\d{4}/)?.[0] ?? projet.annee}).`);
 ---
 
-<Layout titre={projet.titre} description={projet.resume} page="projet" claire theme={couleurs}>
+<Layout
+  titre={projet.titre}
+  titreSeo={`${projet.titre} – projet d’Enzo Hillairet`}
+  description={descriptionSeo}
+  image={`/images/${projet.couverture.fichier}`}
+  donnees={{
+    '@type': 'CreativeWork',
+    name: projet.titre,
+    description: descriptionSeo,
+    url: new URL(`/projets/${projet.slug}/`, Astro.site).href,
+    image: new URL(`/images/${projet.couverture.fichier}`, Astro.site).href,
+    dateCreated: projet.annee.match(/\d{4}/)?.[0],
+    inLanguage: 'fr-FR',
+    author: { '@id': new URL('/#enzo', Astro.site).href },
+  }}
+  page="projet"
+  claire
+  theme={couleurs}
+>
   <!-- Ouverture : titre pleine largeur, grande photo nette, badge qui tourne -->
   <section class="ph" aria-labelledby="titre-projet">
     <div class="contenu ph-grille">
