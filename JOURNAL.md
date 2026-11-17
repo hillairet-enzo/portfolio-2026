@@ -200,14 +200,14 @@ La note de positionnement a été mise à jour en conséquence (`POSITIONNEMENT.
 
 J'ai choisi **LinkedIn** parce que je cherche un stage en communication et création : c'est là que les recruteurs et les studios repèrent les profils, et mon profil reprend le message du portfolio.
 J'ai choisi **Behance** comme deuxième réseau parce que je vise des studios de création digitale : c'est la vitrine que les directeurs artistiques consultent pour juger un travail visuel.
-J'y publie mes projets les plus graphiques (affiches, covers, interfaces) en grandes images, ce qui complète les études de cas plus rédigées du portfolio.
-Les deux comptes utilisent mon nom complet, la même photo et la même accroche, et renvoient vers enzoh.fr.
+Je prévois de l'alimenter avec mes projets les plus graphiques (affiches, covers, interfaces) en grandes images, et d'y faire des posts réguliers : cela complètera les études de cas plus rédigées du portfolio.
+Les deux comptes utiliseront mon nom complet, la même photo et la même accroche, et renverront vers enzoh.fr.
 Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la consigne, mais ce n'est pas le réseau que je mets en avant pour un profil communication.
 
 ## À faire (suite du projet)
 
 - Ajouter la photo « travail », le vrai CV en PDF et remplacer les images d'inspiration Pinterest (crédits à revérifier).
-- Créer et remplir le compte Behance, mettre à jour LinkedIn avec le lien du portfolio.
+- Alimenter Behance (projets graphiques, posts réguliers) et mettre à jour LinkedIn avec le lien du portfolio.
 - Mettre le site en ligne sur enzoh.fr (hébergement Infomaniak, HTTPS) et refaire les mesures sur le site en ligne.
 - Test manuel : clavier, lecteur d'écran, zoom 200 %, téléphone.
 - Réviser le code à présenter et préparer la soutenance finale.
