@@ -6213,3 +6213,10 @@ html.police-ok .rl > b { animation-play-state: running; }
 .arc__meta { color: color-mix(in srgb, var(--encre) 72%, var(--fond)); }
 
 .ml__maj { margin-top: .6rem; font-size: .85rem; opacity: .7; }
+
+/* ── Chargement v5 : lettres de passage noires, cases à la largeur de la plus large lettre (plus de superposition), un peu plus rapide ── */
+.rl { display: inline-grid; padding: 0; margin: 0; }
+.rl--espace { display: inline-block; width: .3em; }
+.rl > b { display: grid; justify-items: center; animation-duration: .8s; animation-delay: calc(.15s + var(--i) * .07s); }
+.rl .f, .rl .fin { position: static; grid-area: 1 / 1; left: auto; translate: none; }
+.rl .f { transform: translateY(calc(var(--k) * -1.3em)); color: var(--encre); opacity: 1; }
