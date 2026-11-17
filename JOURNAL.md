@@ -213,3 +213,4 @@ Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la
 - Réviser le code à présenter et préparer la soutenance finale.
 - 2026-11-17 : fichier .htaccess (page 404, cache, compression) ; site compilé en zip pour la mise en ligne chez Infomaniak.
 - 2026-11-17 : images recompressées (11 → 6,8 Mo) pour tenir dans l'hébergement Starter d'Infomaniak (10 Mo) ; site compilé : 8 Mo.
+- 2026-11-17 : l'hébergement Starter d'Infomaniak refuse l'envoi des fichiers ; décision : héberger sur le VPS de la formation (Apache, comme en TP) à l'adresse portfolio.enzoh.fr. Le site est statique : Apache sert directement dist/, sans serveur Node.

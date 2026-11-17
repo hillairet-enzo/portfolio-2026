@@ -2,7 +2,7 @@
 
 Grille propre à ce site : portfolio statique (Astro), contenus des projets tirés d'une base SQLite **à la compilation** (aucune base en ligne), sans formulaire, sans cookie, avec beaucoup d'images (covers, captures, mockups, inspirations) et d'effets visuels (verre, animations, écran de chargement en lettres, galerie en arc). Les critères retenus découlent de ces choix : les risques de ce site sont le poids des images, l'accessibilité des animations et des effets de verre, et les droits sur les visuels de tiers.
 
-**Méthode.** Lighthouse 12 (Chromium, profil ordinateur) sur les dix pages du site, une par une, sur la version compilée en local (`astro build` puis `astro preview`). Les chiffres de vitesse sont donc meilleurs qu'en ligne : ils seront refaits sur enzoh.fr après la mise en ligne. Les autres contrôles sont faits dans le code et dans le HTML généré.
+**Méthode.** Lighthouse 12 (Chromium, profil ordinateur) sur les dix pages du site, une par une, sur la version compilée en local (`astro build` puis `astro preview`). Les chiffres de vitesse sont donc meilleurs qu'en ligne : ils seront refaits sur portfolio.enzoh.fr après la mise en ligne. Les autres contrôles sont faits dans le code et dans le HTML généré.
 
 ## Résultats Lighthouse (17 novembre 2026)
 
@@ -54,7 +54,7 @@ Grille propre à ce site : portfolio statique (Astro), contenus des projets tir�
 | Critère | Ce que j'ai vérifié, et comment | Correction / résultat |
 | --- | --- | --- |
 | Titres et descriptions | `<title>` et `meta description` différents sur chaque page, relus dans le HTML généré | Présents |
-| URL canonique | Balise `canonical` sur chaque page | Présente, construite depuis `site: 'https://enzoh.fr'` |
+| URL canonique | Balise `canonical` sur chaque page | Présente, construite depuis `site: 'https://portfolio.enzoh.fr'` |
 | Partage sur LinkedIn | Balises Open Graph | Ajout d'une image de partage (`og.png`, 1200 × 630) et de `og:image`, `og:locale`, `twitter:card` |
 | Données structurées | Bloc JSON-LD `Person` (nom, métier, ville, e-mail, LinkedIn, GitHub) | Ajouté dans le gabarit |
 | Plan du site | `sitemap.xml` généré depuis la base des projets ; `robots.txt` qui y renvoie | 10 adresses, mises à jour toutes seules à chaque nouveau projet |
@@ -79,6 +79,6 @@ Grille propre à ce site : portfolio statique (Astro), contenus des projets tir�
 ## Résumé : ce qui reste à faire
 
 1. Test manuel complet au clavier, au lecteur d'écran (NVDA), au zoom 200 % et sur téléphone.
-2. Refaire les mesures Lighthouse sur enzoh.fr, en ligne.
+2. Refaire les mesures Lighthouse sur portfolio.enzoh.fr, en ligne.
 3. Remplacer les images d'inspiration, la photo « travail » et le CV, puis revérifier les crédits.
 4. Ajouter des tailles d'image adaptées au mobile.

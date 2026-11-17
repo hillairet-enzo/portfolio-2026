@@ -1,6 +1,6 @@
 # IA.md — Déclaration d'usage de l'intelligence artificielle
 
-Projet : portfolio personnel (BUT MMI, semestre 3), enzoh.fr.
+Projet : portfolio personnel (BUT MMI, semestre 3), portfolio.enzoh.fr.
 Auteur : Enzo Hillairet.
 
 Ce fichier déclare chaque outil d'IA utilisé, à quelle étape, pour quoi faire, et ce que j'ai modifié, corrigé ou rejeté dans ce qu'il a produit.

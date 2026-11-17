@@ -1,6 +1,6 @@
 # Portfolio d'Enzo Hillairet
 
-Portfolio de BUT MMI (2e année, semestre 3), en ligne sur **[enzoh.fr](https://enzoh.fr)**.
+Portfolio de BUT MMI (2e année, semestre 3), en ligne sur **[portfolio.enzoh.fr](https://portfolio.enzoh.fr)**.
 Étudiant en communication, création et UX, je cherche un stage en studio de création digitale.
 
 ## Niveau technique visé
@@ -61,7 +61,18 @@ src/styles/        feuille de styles unique
 
 ## Mise en ligne
 
-`npm run build`, puis envoi du dossier `dist/` chez Infomaniak (hébergement web lié au domaine enzoh.fr), avec HTTPS.
+Le site est servi par **Apache** sur le serveur VPS de la formation, à l'adresse `portfolio.enzoh.fr` (enregistrement DNS « A » créé chez Infomaniak, registrar du domaine). Le site étant **statique**, Apache sert directement le dossier `dist/` : pas de serveur Node ni de reverse proxy à faire tourner, donc moins de ressources consommées.
+
+Mise à jour, sur le serveur :
+
+```bash
+cd /var/www/portfolio/portfolio-2026
+git pull origin main
+bun install
+bunx --bun astro build   # src/data/projets.json est versionné : pas besoin de Node sur le serveur
+```
+
+Apache sert aussitôt la nouvelle version (aucun service à redémarrer). Certificat HTTPS : Let's Encrypt via certbot.
 
 ## Documents du projet
 

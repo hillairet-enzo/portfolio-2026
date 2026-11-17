@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://enzoh.fr',
+  site: 'https://portfolio.enzoh.fr',
   redirects: { '/projets': '/', '/inspirations': '/' },
 });
