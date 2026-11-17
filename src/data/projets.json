@@ -272,10 +272,6 @@
         "url": "https://thermo-viz.netlify.app"
       },
       {
-        "label": "Ouvrir le notebook Observable",
-        "url": "https://observablehq.com/@mmi-montbeliard/sae-303-gr-13"
-      },
-      {
         "label": "Voir la page sur data.gouv.fr",
         "url": "https://www.data.gouv.fr/reuses/thermo-viz-chaleur-et-pauvrete-dans-la-metropole-bordelaise"
       }
@@ -976,7 +972,7 @@
     "accroche": "Un diaporama sur l’art contemporain, présenté dans l’univers nostalgique de Windows XP et du manga.",
     "resume": "Diaporama sur 9 œuvres d’art contemporain, mises en scène dans une esthétique Windows XP et manga entièrement créée sous Canva.",
     "annee": "2025",
-    "cadre": "Projet de cours, art contemporain (2 semaines)",
+    "cadre": "Projet personnel, art contemporain (2 semaines)",
     "equipe": "Seul",
     "role": [
       "Choix des œuvres",
