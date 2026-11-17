@@ -192,3 +192,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-16 : chargement un peu plus rapide, cases de lettres plus larges (le o n'est plus rogné).
 - 2026-11-16 : audit (aucune erreur console, aucun lien cassé), correction ARIA du bouton de thème et des contrastes des légendes ; mentions légales complétées (droits des tiers, IA, RGPD, cookies, stockage local).
 - 2026-11-17 : chargement : lettres de passage en noir, plus de superposition (cases à la largeur de la plus large lettre), un peu plus rapide.
+- 2026-11-17 : chargement avec la même disposition que la page Contact (nom au centre, adresse et pastille, ligne du bas) ; barre de progression à bords carrés.

@@ -6220,3 +6220,15 @@ html.police-ok .rl > b { animation-play-state: running; }
 .rl > b { display: grid; justify-items: center; animation-duration: .8s; animation-delay: calc(.15s + var(--i) * .07s); }
 .rl .f, .rl .fin { position: static; grid-area: 1 / 1; left: auto; translate: none; }
 .rl .f { transform: translateY(calc(var(--k) * -1.3em)); color: var(--encre); opacity: 1; }
+
+/* ── Chargement v6 : même disposition que la page Contact (centre + ligne du bas), barre de progression carrée ── */
+html.intro .chargeur { display: grid; grid-template-rows: 1fr auto; place-content: stretch; justify-items: stretch; gap: 0; }
+.chargeur__centre { display: grid; align-content: center; justify-items: center; gap: clamp(1.4rem, 3.4vw, 2.6rem); padding: 2rem var(--marge); text-align: center; }
+.chargeur__mail { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; animation: ch-monte .9s 1.9s cubic-bezier(.2, .9, .25, 1) backwards; }
+.chargeur__adresse { font-size: clamp(1.1rem, 2.6vw, 2rem); font-weight: 500; letter-spacing: -.04em; line-height: 1.05; color: var(--encre); }
+.chargeur__pastille { pointer-events: none; }
+.chargeur__bas { animation: ch-monte .9s 1.2s cubic-bezier(.2, .9, .25, 1) backwards; color: var(--encre); }
+@keyframes ch-monte { from { opacity: 0; transform: translateY(.8rem); } }
+html.intro .chargeur.sortie .chargeur__mail, html.intro .chargeur.sortie .chargeur__bas { animation: ch-sortie-logo .55s cubic-bezier(.5, 0, .75, 0) forwards; }
+.progres, .progres::before { border-radius: 0; }
+.progres::before { min-width: 0; }

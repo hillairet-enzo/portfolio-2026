@@ -59,9 +59,20 @@ const piscine = (l: string) => (/[ilj]/.test(l) ? 'ijlilj' : /[rtf]/.test(l) ? '
   </head>
   <body>
     <div class="chargeur" aria-hidden="true">
-      <span class="chargeur__mot">
-        {lettres.map((l, i) => (l === ' ' ? <span class="rl rl--espace"></span> : <span class="rl"><b style={`--i:${i};--n:${5}`}>{[...Array(5)].map((_, k) => <i class="f" style={`--k:${k + 1};--c:var(--arc-${((i + k) % 5) + 1})`}>{piscine(l)[(i * 7 + k * 5) % piscine(l).length]}</i>)}<i class="fin">{l}</i></b></span>))}
-      </span>
+      <div class="chargeur__centre">
+        <span class="chargeur__mot">
+          {lettres.map((l, i) => (l === ' ' ? <span class="rl rl--espace"></span> : <span class="rl"><b style={`--i:${i};--n:${5}`}>{[...Array(5)].map((_, k) => <i class="f" style={`--k:${k + 1};--c:var(--arc-${((i + k) % 5) + 1})`}>{piscine(l)[(i * 7 + k * 5) % piscine(l).length]}</i>)}<i class="fin">{l}</i></b></span>))}
+        </span>
+        <div class="chargeur__mail">
+          <span class="chargeur__adresse">{profil.email}</span>
+          <span class="ct__copier chargeur__pastille">Portfolio {new Date().getFullYear()}</span>
+        </div>
+      </div>
+      <div class="contenu ct__bas chargeur__bas">
+        <p>{profil.ville}</p>
+        <p class="ct__bas-liens"><span>LinkedIn</span><span>GitHub</span><span>CV</span></p>
+        <p>©{new Date().getFullYear()}</p>
+      </div>
     </div>
     <VerreSVG />
     <a class="evitement" href="#contenu">Aller au contenu</a>
