@@ -63,14 +63,10 @@ const piscine = (l: string) => (/[ilj]/.test(l) ? 'ijlilj' : /[rtf]/.test(l) ? '
         <span class="chargeur__mot">
           {lettres.map((l, i) => (l === ' ' ? <span class="rl rl--espace"></span> : <span class="rl"><b style={`--i:${i};--n:${5}`}>{[...Array(5)].map((_, k) => <i class="f" style={`--k:${k + 1};--c:var(--arc-${((i + k) % 5) + 1})`}>{piscine(l)[(i * 7 + k * 5) % piscine(l).length]}</i>)}<i class="fin">{l}</i></b></span>))}
         </span>
-        <div class="chargeur__mail">
-          <span class="chargeur__adresse">{profil.email}</span>
-          <span class="ct__copier chargeur__pastille">Portfolio {new Date().getFullYear()}</span>
-        </div>
       </div>
       <div class="contenu ct__bas chargeur__bas">
         <p>{profil.ville}</p>
-        <p class="ct__bas-liens"><span>LinkedIn</span><span>GitHub</span><span>CV</span></p>
+        <p>{profil.email}</p>
         <p>©{new Date().getFullYear()}</p>
       </div>
     </div>
@@ -187,6 +183,7 @@ const piscine = (l: string) => (/[ilj]/.test(l) ? 'ijlilj' : /[rtf]/.test(l) ? '
     </script>
     <script>
       import '../scripts/animations.ts';
+      import '../scripts/titres.ts';
     </script>
     <script>
       // Le titre de l'en-tête reçoit un fond en verre dès qu'on quitte le haut de la page.
