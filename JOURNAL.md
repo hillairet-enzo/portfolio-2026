@@ -195,3 +195,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-17 : chargement avec la même disposition que la page Contact (nom au centre, adresse et pastille, ligne du bas) ; barre de progression à bords carrés.
 - 2026-11-17 : chargement (nom centré, bas = ville · mail · ©) et effet de lettres sur tous les titres.
 - 2026-11-17 : effet de lettres retiré des titres, appliqué à tous les éléments du chargement (nom, ville, mail, ©).
+- 2026-11-17 : nettoyage du code (composants et page inutilisés, ~1800 lignes de CSS mortes).
