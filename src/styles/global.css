@@ -6235,14 +6235,3 @@ html.intro .chargeur.sortie .chargeur__mail, html.intro .chargeur.sortie .charge
 
 /* ── Chargement v7 : nom au centre, bas de page = ville · adresse · © ── */
 .chargeur__mail { display: none; }
-
-/* ── Effet de lettres sur les titres (src/scripts/titres.ts) ── */
-.rl { overflow: clip; }
-.tl { }
-.tl:not(.tl--go) { opacity: 0; }
-.rw { display: inline-block; white-space: nowrap; }
-.tl .rl { margin-block: -.15em; }
-.tl .rl > b { animation-duration: .55s; animation-delay: calc(var(--i) * .035s); animation-timing-function: steps(3, jump-end); }
-html.police-ok .tl:not(.tl--go) .rl > b { animation-play-state: paused; }
-.tl-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.tl .rl .f, .tl .rl .fin { color: inherit; }

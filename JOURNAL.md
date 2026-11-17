@@ -194,3 +194,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-17 : chargement : lettres de passage en noir, plus de superposition (cases à la largeur de la plus large lettre), un peu plus rapide.
 - 2026-11-17 : chargement avec la même disposition que la page Contact (nom au centre, adresse et pastille, ligne du bas) ; barre de progression à bords carrés.
 - 2026-11-17 : chargement (nom centré, bas = ville · mail · ©) et effet de lettres sur tous les titres.
+- 2026-11-17 : effet de lettres retiré des titres, appliqué à tous les éléments du chargement (nom, ville, mail, ©).

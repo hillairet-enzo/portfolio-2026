@@ -24,7 +24,7 @@ const url = new URL(Astro.url.pathname, Astro.site);
 const annee = new Date().getFullYear();
 const lettres = [...profil.nom];
 // lettres de passage de l'écran de chargement : de largeur proche de la vraie lettre, pour ne jamais déborder sur la case voisine
-const piscine = (l: string) => (/[ilj]/.test(l) ? 'ijlilj' : /[rtf]/.test(l) ? 'rtfrtf' : l === 'H' ? 'HNUDKOB' : /[A-Z]/.test(l) ? 'EBPRSKZ' : 'aceosuz');
+const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.test(l) ? '0123456' : /[ilj]/i.test(l) ? 'ijlilj' : /[rtf]/i.test(l) ? 'rtfrtf' : l === 'H' ? 'HNUDKOB' : /[A-Z]/.test(l) ? 'EBPRSKZ' : 'aceosuz');
 ---
 
 <!doctype html>
@@ -65,9 +65,9 @@ const piscine = (l: string) => (/[ilj]/.test(l) ? 'ijlilj' : /[rtf]/.test(l) ? '
         </span>
       </div>
       <div class="contenu ct__bas chargeur__bas">
-        <p>{profil.ville}</p>
-        <p>{profil.email}</p>
-        <p>©{new Date().getFullYear()}</p>
+        {[profil.ville, profil.email, `©${new Date().getFullYear()}`].map((txt, j) => (
+          <p aria-label={txt}>{[...txt].map((l, i) => (l === ' ' ? <span class="rl rl--espace"></span> : <span class="rl"><b style={`--i:${i + j * 3};--n:${5}`}>{[...Array(5)].map((_, k) => <i class="f" style={`--k:${k + 1}`}>{piscine(l)[(i * 7 + k * 5) % piscine(l).length]}</i>)}<i class="fin">{l}</i></b></span>))}</p>
+        ))}
       </div>
     </div>
     <VerreSVG />
@@ -183,7 +183,6 @@ const piscine = (l: string) => (/[ilj]/.test(l) ? 'ijlilj' : /[rtf]/.test(l) ? '
     </script>
     <script>
       import '../scripts/animations.ts';
-      import '../scripts/titres.ts';
     </script>
     <script>
       // Le titre de l'en-tête reçoit un fond en verre dès qu'on quitte le haut de la page.
