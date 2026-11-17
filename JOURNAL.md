@@ -197,3 +197,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-17 : effet de lettres retiré des titres, appliqué à tous les éléments du chargement (nom, ville, mail, ©).
 - 2026-11-17 : nettoyage du code (composants et page inutilisés, ~1800 lignes de CSS mortes).
 - 2026-11-17 : coéquipiers non nommés (ThermoViz : « en binôme » seulement) ; conservation des mails 3 ans et mention « fictif » TiK•TaK confirmées.
+- 2026-11-17 : licences des mockups vérifiées (Pixeden et Mockup Cloud : usage perso/commercial autorisé, sans obligation de crédit) ; crédits ajoutés aux mentions légales.
