@@ -199,3 +199,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-17 : coéquipiers non nommés (ThermoViz : « en binôme » seulement) ; conservation des mails 3 ans et mention « fictif » TiK•TaK confirmées.
 - 2026-11-17 : licences des mockups vérifiées (Pixeden et Mockup Cloud : usage perso/commercial autorisé, sans obligation de crédit) ; crédits ajoutés aux mentions légales.
 - 2026-11-17 : œuvres des diapos Art contemporain créditées (alt + mentions légales).
+- 2026-11-17 : œuvre manga/anime affichée dans la légende des diapos (page Art contemporain).

@@ -3,19 +3,22 @@
 import type { Photo } from '../../data/projets';
 const { photos } = Astro.props as { photos: Photo[] };
 const num = (i: number) => String(i + 1).padStart(2, '0');
+// Œuvre de manga ou d'anime citée en fin de description : on l'affiche dans la légende.
+const manga = (alt: string) => alt.match(/Manga[\s\u00a0\u202f]*: (.+?)\.?$/)?.[1];
+const legende = (p: Photo) => (manga(p.alt) ? `${p.sujet} · Manga : ${manga(p.alt)}` : p.sujet);
 ---
 
 <div class="diapos" data-diapos>
   <div class="diapos__rang">
     {photos.map((p, i) => (
-      <article class="diapos__carte" data-actif={i === 0 ? 'true' : 'false'} tabindex="0" aria-label={`Diapositive ${i + 1} : ${p.sujet}`}>
+      <article class="diapos__carte" data-actif={i === 0 ? 'true' : 'false'} tabindex="0" aria-label={`Diapositive ${i + 1} : ${legende(p)}`}>
         <img src={`/images/${p.fichier}`} alt={p.alt} width="1920" height="1080" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
         <span class="diapos__num" aria-hidden="true">{num(i)}</span>
       </article>
     ))}
   </div>
-  <p class="diapos__legende" aria-live="polite"><span data-num>01</span> / {num(photos.length - 1)} <span class="diapos__texte" data-legende>{photos[0].sujet}</span></p>
-  <script type="application/json" data-sujets set:html={JSON.stringify(photos.map((p) => p.sujet))} />
+  <p class="diapos__legende" aria-live="polite"><span data-num>01</span> / {num(photos.length - 1)} <span class="diapos__texte" data-legende>{legende(photos[0])}</span></p>
+  <script type="application/json" data-sujets set:html={JSON.stringify(photos.map(legende))} />
 </div>
 
 <script>
