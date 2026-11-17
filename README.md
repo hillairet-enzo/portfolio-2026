@@ -63,7 +63,9 @@ src/styles/        feuille de styles unique
 
 Le site est servi par **Apache** sur le serveur VPS de la formation, à l'adresse `portfolio.enzoh.fr` (enregistrement DNS « A » créé chez Infomaniak, registrar du domaine). Le site étant **statique**, Apache sert directement le dossier `dist/` : pas de serveur Node ni de reverse proxy à faire tourner, donc moins de ressources consommées.
 
-Mise à jour, sur le serveur :
+**Mise à jour automatique** : à chaque `git push` sur `main`, GitHub Actions (`.github/workflows/deploy.yml`) se connecte au VPS en SSH et lance les commandes ci-dessous. Les accès (hôte, port, utilisateur, clé SSH) sont stockés dans les secrets du dépôt, jamais dans le code.
+
+À la main, sur le serveur :
 
 ```bash
 cd /var/www/portfolio/portfolio-2026
