@@ -1,0 +1,32 @@
+# Mise en ligne automatique : à chaque push sur main, GitHub se connecte au VPS en SSH,
+# récupère la dernière version du dépôt et recompile le site. Apache sert aussitôt le nouveau dossier dist/.
+name: Mise en ligne sur portfolio.enzoh.fr
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # bouton « Run workflow » pour relancer à la main
+
+concurrency:
+  group: deploiement
+  cancel-in-progress: true
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mettre à jour le site sur le VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOTE }}
+          port: ${{ secrets.VPS_PORT }}
+          username: ${{ secrets.VPS_UTILISATEUR }}
+          key: ${{ secrets.VPS_CLE_SSH }}
+          script: |
+            set -e
+            cd /var/www/portfolio/portfolio-2026
+            git pull --ff-only origin main
+            export PATH="$HOME/.bun/bin:$PATH"
+            bun install
+            bunx --bun astro build
+            echo "Site mis à jour : https://portfolio.enzoh.fr"
