@@ -201,3 +201,4 @@ Je n'ai pas choisi Instagram ni Behance, car je n'y publie pas assez de contenu 
 - 2026-11-17 : œuvres des diapos Art contemporain créditées (alt + mentions légales).
 - 2026-11-17 : œuvre manga/anime affichée dans la légende des diapos (page Art contemporain).
 - 2026-11-17 : texte des mentions légales étendu jusqu'à la marge droite.
+- 2026-11-17 : image de partage (og:image) et données structurées Person ; dépendance Hairline inutilisée retirée ; points de la pile À propos agrandis à 24 px de zone cliquable (accessibilité 96 → 100).

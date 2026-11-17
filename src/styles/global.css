@@ -4429,3 +4429,13 @@ html.intro .chargeur.sortie .chargeur__bas { animation: ch-sortie-logo .55s cubi
 .progres::before { min-width: 0; }
 
 /* ── Chargement v7 : nom au centre, bas de page = ville · adresse · © ── */
+
+/* ── Points de la pile À propos : zone cliquable de 24 px (WCAG 2.5.8), le point visible reste petit ── */
+.pile__points { gap: 0; }
+.pile__point, html[data-theme='dark'] .pile__point, .pile__point[aria-current="true"], html[data-theme='dark'] .pile__point[aria-current="true"] { width: 1.5rem; height: 1.5rem; display: grid; place-items: center; background: none; transform: none; }
+.pile__point::after { content: ''; width: .7rem; height: .7rem; border-radius: 50%; background: rgba(11,11,12,.25); transition: transform .25s var(--ease, ease), background .25s; }
+.pile__point:hover::after { transform: scale(1.4); }
+.pile__point[aria-current="true"]::after { background: #0b0b0c; transform: scale(1.35); }
+html[data-theme='dark'] .pile__point::after { background: rgb(255 255 255 / .25); }
+html[data-theme='dark'] .pile__point[aria-current="true"]::after { background: #fff; }
+.pile__point span { right: 2rem; }

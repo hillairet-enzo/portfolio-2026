@@ -56,6 +56,22 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
     <meta property="og:title" content={titreComplet} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
+    <meta property="og:image" content={new URL('/og.png', Astro.site).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${profil.nom}, étudiant en BUT MMI`} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: profil.nom,
+      url: Astro.site?.href,
+      email: `mailto:${profil.email}`,
+      jobTitle: 'Étudiant en BUT MMI',
+      address: { '@type': 'PostalAddress', addressLocality: profil.ville, addressCountry: 'FR' },
+      sameAs: [profil.linkedin, profil.github],
+    })} />
   </head>
   <body>
     <div class="chargeur" aria-hidden="true">
