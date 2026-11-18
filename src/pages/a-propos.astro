@@ -10,8 +10,7 @@ import galerie from '../data/galerie.json';
 const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
 
 // Galerie : les 25 épingles du tableau Pinterest « portfolio » (liste dans src/data/galerie.json).
-// Si le nombre d'images n'est pas un multiple de 3, la dernière s'étire sur la colonne.
-const reste = galerie.length % 3;
+// 24 images = 8 colonnes de 3, pour que la bande finisse proprement.
 const photos = {
   portrait: {
     fichier: 'a-propos/portrait.jpg',
@@ -65,7 +64,6 @@ const photos = {
             href={g.lien}
             target="_blank"
             rel="noopener"
-            style={i === galerie.length - 1 && reste === 1 ? 'grid-row: span 3' : i === galerie.length - 2 && reste === 2 ? 'grid-row: span 2' : undefined}
             aria-label={`Inspiration ${i + 1}, voir sur Pinterest`}
           >
             <img src={`/images/a-propos/${g.fichier}`} alt="" width="736" height="736" loading={i < 9 ? 'eager' : 'lazy'} decoding="async" draggable="false" />
