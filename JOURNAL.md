@@ -223,3 +223,4 @@ Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la
 - 2026-11-17 : fichier de validation Google Search Console ajouté (public/google43e9fe2dcda5c1e9.html).
 - 2026-11-17 : lien Behance (behance.net/enzohillairet) ajouté dans la section et la page contact, le pied de page, le menu mobile, les données structurées pour Google, les mentions légales et le README.
 - 2026-11-18 : CV en cours de refonte : tous les boutons « CV » (en-tête, accueil, à propos, contact, pied de page) affichent un message « CV en construction » au lieu de télécharger le PDF. Pied de page rendu plus compact, avec « Mentions légales » alignées sur la colonne « Me retrouver ».
+- 2026-11-18 : page À propos : fond uni derrière la section « Un stage, un projet… » (suppression des lueurs colorées de la pile de cartes qui passaient derrière).
