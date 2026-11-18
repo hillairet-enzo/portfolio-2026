@@ -142,3 +142,4 @@ Ce journal raconte l'avancée de mon portfolio, semaine par semaine : ce que j'a
 - Tester le site au clavier, avec un lecteur d'écran, en zoom 200 % et sur téléphone.
 - Réviser le code à présenter et préparer la soutenance finale.
 - 2026-11-18 — À propos : images de la galerie ramenées à 480 px et photo « travail » à 1 000 px (page 1 891 → 1 201 Ko) ; QUALITE.md refait avec de nouvelles mesures Lighthouse.
+- 2026-11-18 — README.md raccourci (84 → 53 lignes) : niveau technique, technologies, lancement, où modifier quoi, mise en ligne.
