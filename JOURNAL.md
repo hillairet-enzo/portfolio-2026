@@ -226,3 +226,4 @@ Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la
 - 2026-11-18 : page À propos : fond uni derrière la section « Un stage, un projet… » (suppression des lueurs colorées de la pile de cartes qui passaient derrière).
 - 2026-11-18 : mode sombre supprimé (bouton retiré de l'en-tête et du menu, site uniquement en clair) ; page À propos : fond #f8f8f8 derrière la section « Un stage, un projet… », comme l'accueil ; mentions légales en onglets dépliables, comme les pages projet ; accueil en version liste : descriptions et technologies retirées (titre, nature et année seulement).
 - 2026-11-18 : message « CV en construction » / « Adresse copiée » : carte blanche pleine (fond, bordure, ombre) au lieu d'un texte posé directement sur la page, qui se superposait au pied de page et se lisait mal.
+- 2026-11-18 — À propos : vraie photo d'Enzo dans la carte verte « En bref » (public/images/a-propos/travail.jpg, recadrée 4/5, alt mis à jour).
