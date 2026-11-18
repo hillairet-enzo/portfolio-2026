@@ -63,10 +63,11 @@ const photos = {
             class="ap-bande__case"
             href={g.lien}
             target="_blank"
-            rel="noopener"
-            aria-label={`Inspiration ${i + 1}, voir sur Pinterest`}
+            rel="noopener noreferrer"
+            aria-label={`Inspiration ${i + 1}${g.auteur ? `, de @${g.auteur}` : ''} : voir sur Pinterest`}
           >
             <img src={`/images/a-propos/${g.fichier}`} alt="" width="736" height="736" loading={i < 9 ? 'eager' : 'lazy'} decoding="async" draggable="false" />
+            <span class="ap-bande__credit" aria-hidden="true">{g.auteur ? `@${g.auteur}` : 'Voir sur Pinterest'}</span>
           </a>
         ))}
       </div>
@@ -189,6 +190,7 @@ const photos = {
     bande.addEventListener('dragstart', (e) => e.preventDefault());
     bande.addEventListener('click', (e) => { if (aGlisse) { e.preventDefault(); e.stopPropagation(); aGlisse = false; } }, true);
     bande.addEventListener('pointerdown', (e) => {
+      aGlisse = false; // un glissement précédent ne doit jamais bloquer un clic sur une image
       if (e.pointerType !== 'mouse' || e.button !== 0 || (e.target as HTMLElement).closest('a, button')) return;
       cancelAnimationFrame(raf);
       saisi = true; aGlisse = false; v = 0; x0 = dx = e.clientX; s0 = bande.scrollLeft; dt = performance.now();

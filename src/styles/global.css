@@ -4530,3 +4530,8 @@ html[data-theme='dark'] .galerie h1, html[data-theme='dark'] .galerie h1 span { 
 .toast-copie__pastille, .toast-copie__pastille:hover { margin: 0; padding: 0; background: none !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; border: 0; opacity: 1; font-size: 1.05rem; font-weight: 750; color: #0b0b0c; }
 .toast-copie__pastille::before, .toast-copie__pastille::after { display: none !important; }
 .toast-copie__texte { font-size: .9rem; font-weight: 500; line-height: 1.35; color: #45484d; text-shadow: none; }
+
+/* crédit de l'artiste au survol d'une image de la galerie */
+.ap-bande__credit { position: absolute; left: .5rem; bottom: .5rem; z-index: 2; max-width: calc(100% - 1rem); padding: .34rem .7rem; border-radius: 999px; font-size: .78rem; font-weight: 650; line-height: 1.2; color: #fff; background: rgba(0,0,0,.55); -webkit-backdrop-filter: blur(10px) saturate(160%); backdrop-filter: blur(10px) saturate(160%); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0; transform: translateY(.35rem); transition: opacity .25s, transform .3s cubic-bezier(.2,.7,.2,1); pointer-events: none; }
+.ap-bande__case:hover .ap-bande__credit, .ap-bande__case:focus-visible .ap-bande__credit { opacity: 1; transform: none; }
+@media (hover: none) { .ap-bande__credit { opacity: 1; transform: none; font-size: .66rem; } }

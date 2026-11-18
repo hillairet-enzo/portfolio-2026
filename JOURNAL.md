@@ -231,3 +231,4 @@ Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la
 - 2026-11-18 — À propos : galerie = les 25 épingles exactes du tableau Pinterest portfolio (script scripts/inspirations-tableau.mjs) ; plus aucune image répétée à la fin de la bande (la dernière case s'étire sur la colonne).
 - 2026-11-18 — À propos : galerie Pinterest refaite de zéro, version simple : liste fixe src/data/galerie.json (25 épingles du tableau portfolio), images dans public/images/a-propos/, plus de mélange ni de script d'import ; anciens scripts Pinterest supprimés.
 - 2026-11-18 — À propos : grande photo verticale retirée de la fin de la bande (galerie = 24 images, 8 colonnes de 3).
+- 2026-11-18 — À propos : pastille @artiste au survol des images de la galerie (« Voir sur Pinterest » si l'auteur est inconnu) ; clic sur une image toujours pris en compte (un glissement précédent ne le bloque plus).
