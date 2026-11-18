@@ -4529,3 +4529,9 @@ html[data-theme='dark'] .galerie h1, html[data-theme='dark'] .galerie h1 span { 
 .ml .pp-tab h2 { display: block; margin: 0; font-size: inherit; letter-spacing: inherit; font-weight: inherit; text-transform: none; }
 .ml .pp-tab__interieur .ml__texte { max-width: 62rem; padding-left: 3.4rem; }
 @media (max-width: 40rem) { .ml .pp-tab__interieur .ml__texte { padding-left: 0; } }
+
+/* ── Message « CV en construction » / « Adresse copiée » : une seule carte pleine, lisible sur n'importe quel contenu ── */
+.toast-copie { z-index: 600; gap: .25rem; padding: .85rem 1.4rem 1rem; text-align: center; background: #fff; border: 1px solid rgb(11 11 12 / .12); border-radius: 1.4rem; box-shadow: 0 1px 2px rgb(0 0 0 / .06), 0 18px 40px -14px rgb(0 0 0 / .35); }
+.toast-copie__pastille, .toast-copie__pastille:hover { margin: 0; padding: 0; background: none !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; border: 0; opacity: 1; font-size: 1.05rem; font-weight: 750; color: #0b0b0c; }
+.toast-copie__pastille::before, .toast-copie__pastille::after { display: none !important; }
+.toast-copie__texte { font-size: .9rem; font-weight: 500; line-height: 1.35; color: #45484d; text-shadow: none; }
