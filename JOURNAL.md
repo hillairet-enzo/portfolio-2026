@@ -229,3 +229,4 @@ Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la
 - 2026-11-18 — À propos : vraie photo d'Enzo dans la carte verte « En bref » (public/images/a-propos/travail.jpg, recadrée 4/5, alt mis à jour).
 - 2026-11-18 — À propos : galerie d'inspirations remplacée par le tableau Pinterest Enzo_Asap/portfolio (25 images, import via npm run pinterest) ; mentions légales ajustées (lien vers la source, sans nom d'auteur).
 - 2026-11-18 — À propos : galerie = les 25 épingles exactes du tableau Pinterest portfolio (script scripts/inspirations-tableau.mjs) ; plus aucune image répétée à la fin de la bande (la dernière case s'étire sur la colonne).
+- 2026-11-18 — À propos : galerie Pinterest refaite de zéro, version simple : liste fixe src/data/galerie.json (25 épingles du tableau portfolio), images dans public/images/a-propos/, plus de mélange ni de script d'import ; anciens scripts Pinterest supprimés.

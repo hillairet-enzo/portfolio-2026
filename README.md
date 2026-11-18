@@ -39,7 +39,7 @@ npm run preview   # sert la version compilée
 
 ```
 data/              base SQLite des projets, schéma, mode d'emploi pour ajouter un projet
-scripts/           export de la base, liste des images manquantes, import des inspirations Pinterest
+scripts/           export de la base, liste des images manquantes
 public/            images, CV, favicon, image de partage (og.png), robots.txt
 src/data/          profil.ts (coordonnées, compétences, parcours), projets.ts (types) et projets.json (généré)
 src/layouts/       Layout.astro : gabarit commun (en-tête, pied de page, thème, chargement, balises SEO)

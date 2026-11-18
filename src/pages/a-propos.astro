@@ -5,36 +5,13 @@ import Contact from '../components/Contact.astro';
 import { THEME_NEUTRE } from '../lib/theme';
 import { profil, competences, skillsIA, demarche, parcours } from '../data/profil';
 import { aCv } from '../lib/cv';
-import { readFileSync } from 'node:fs';
-import { createHash } from 'node:crypto';
+import galerie from '../data/galerie.json';
 
 const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
 
-const insp = (n: number) => ({
-  fichier: `a-propos/inspiration-${n}.jpg`,
-  alt: `Une de mes inspirations (${n})`,
-  sujet: 'Une inspiration Pinterest : affiche, interface, photo ou graphisme qui te plaît.',
-  format: '1/1' as const,
-  taille: '800 × 800 px',
-});
-// Les inspirations sont détectées toutes seules : inspiration-1.jpg, inspiration-2.jpg… (jpg, png, webp)
-const vus = new Set<string>();
-const fichiersInsp = Object.keys(import.meta.glob('/public/images/a-propos/inspiration-*.{jpg,jpeg,png,webp,avif}'))
-  .map((f) => f.split('/').pop() as string)
-  .sort((a, b) => parseInt(a.replace(/\D/g, ''), 10) - parseInt(b.replace(/\D/g, ''), 10))
-  // une même épingle enregistrée deux fois n'apparaît qu'une fois
-  .filter((f) => {
-    const empreinte = createHash('md5').update(readFileSync(`public/images/a-propos/${f}`)).digest('hex');
-    if (vus.has(empreinte)) return false;
-    vus.add(empreinte);
-    return true;
-  });
-// liens vers les épingles, si le tableau a été importé avec « npm run pinterest »
-const donneesPin = Object.values(import.meta.glob('/src/data/inspirations.json', { eager: true, import: 'default' }))[0] as { fichier: string; lien: string; titre: string; auteur?: string | null }[] | undefined;
-const pinDe = (f: string) => donneesPin?.find((d) => d.fichier === f);
-const inspirations = fichiersInsp.length
-  ? fichiersInsp.map((f, i) => ({ fichier: `a-propos/${f}`, alt: pinDe(f)?.titre || `Une de mes inspirations (${i + 1})`, sujet: '', format: '1/1' as const, taille: '', lien: pinDe(f)?.lien, auteur: pinDe(f)?.auteur }))
-  : Array.from({ length: 30 }, (_, i) => insp(i + 1)); // aucune image encore : 30 cadres vides
+// Galerie : les 25 épingles du tableau Pinterest « portfolio » (liste dans src/data/galerie.json).
+// Si le nombre d'images n'est pas un multiple de 3, la dernière s'étire sur la colonne.
+const reste = galerie.length % 3;
 const photos = {
   portrait: {
     fichier: 'a-propos/portrait.jpg',
@@ -82,9 +59,18 @@ const photos = {
       </div>
       <div class="ap-bande__portrait"><Photo photo={photos.portrait} prioritaire /></div>
       <div class="ap-bande__insp">
-        {inspirations.map((ph: any, i) => ph.lien
-          ? <a class="ap-bande__case" style={`--i:${i}`} href={ph.lien} target="_blank" rel="noopener" aria-label={`${ph.alt}${ph.auteur ? `, par ${ph.auteur}` : ''} (voir sur Pinterest)`}><Photo photo={ph} /><span class="ap-bande__credit" aria-hidden="true">{ph.auteur ?? 'Source sur Pinterest'}</span></a>
-          : <div class="ap-bande__case" style={`--i:${i}`}><Photo photo={ph} /></div>)}
+        {galerie.map((g, i) => (
+          <a
+            class="ap-bande__case"
+            href={g.lien}
+            target="_blank"
+            rel="noopener"
+            style={i === galerie.length - 1 && reste === 1 ? 'grid-row: span 3' : i === galerie.length - 2 && reste === 2 ? 'grid-row: span 2' : undefined}
+            aria-label={`Inspiration ${i + 1}, voir sur Pinterest`}
+          >
+            <img src={`/images/a-propos/${g.fichier}`} alt="" width="736" height="736" loading={i < 9 ? 'eager' : 'lazy'} decoding="async" draggable="false" />
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -193,20 +179,6 @@ const photos = {
   // À la souris, on peut aussi la glisser, avec un peu d'inertie au lâcher.
   const bande = document.getElementById('ap-bande');
 
-  // Inspirations : ordre tiré au hasard à chaque chargement, et dernière colonne toujours pleine
-  const grille = document.querySelector<HTMLElement>('.ap-bande__insp');
-  if (grille && grille.children.length > 1) {
-    const cases = Array.from(grille.children) as HTMLElement[];
-    for (let i = cases.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [cases[i], cases[j]] = [cases[j], cases[i]];
-    }
-    // dernière colonne incomplète : la dernière case s'étire sur la hauteur libre (aucune image répétée)
-    const reste = cases.length % 3;
-    if (reste === 1) cases[cases.length - 1].style.gridRow = 'span 3';
-    if (reste === 2) cases[cases.length - 2].style.gridRow = 'span 2';
-    cases.forEach((c, i) => { c.style.setProperty('--i', String(i)); grille.appendChild(c); });
-  }
 
   if (bande) {
     let x0 = 0, s0 = 0, saisi = false, aGlisse = false, v = 0, dx = 0, dt = 0, raf = 0;

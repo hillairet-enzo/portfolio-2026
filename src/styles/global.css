@@ -4199,19 +4199,14 @@ html[data-theme='dark'] .ph-photo { box-shadow: 0 0 0 1px rgb(255 255 255 / .14)
   .ap-bande__texte h1 { animation: ap-monte 1s cubic-bezier(.2,.7,.2,1) .2s backwards; }
   .ap-bande .ap-hero__actions { animation: ap-monte .9s cubic-bezier(.2,.7,.2,1) .4s backwards; }
   .ap-bande__portrait { animation: ap-devoile 1.1s cubic-bezier(.2,.7,.2,1) .3s backwards; }
-  .ap-bande__case { animation: ap-case .7s cubic-bezier(.2,.7,.2,1) backwards; animation-delay: calc(.5s + min(var(--i), 14) * .05s); }
   .ap-bande__case, .ap-bande__portrait { transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s; }
   .ap-bande:not(.est-saisi) .ap-bande__case:hover { transform: translateY(-4px) scale(1.035); box-shadow: 0 18px 30px -18px rgba(0,0,0,.45); z-index: 1; }
   .ap-bande:not(.est-saisi) .ap-bande__portrait:hover { transform: scale(1.012); }
-  .ap-bande__case .photo img, .ap-bande__portrait .photo img { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
-  .ap-bande:not(.est-saisi) .ap-bande__case:hover .photo img { transform: scale(1.08); }
+  .ap-bande__case img, .ap-bande__portrait .photo img { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+  .ap-bande:not(.est-saisi) .ap-bande__case:hover img { transform: scale(1.08); }
 }
-.ap-bande__case { position: relative; border-radius: 1rem; }
+.ap-bande__case { position: relative; display: block; border-radius: 1rem; overflow: hidden; background: #ecebe8; }
 
-/* crédit du créateur au survol d'une inspiration */
-.ap-bande__credit { position: absolute; left: .45rem; right: .45rem; bottom: .45rem; z-index: 2; width: fit-content; max-width: calc(100% - .9rem); padding: .32rem .6rem; border-radius: 999px; font-size: .72rem; font-weight: 650; line-height: 1.2; color: #fff; background: rgba(0,0,0,.45); -webkit-backdrop-filter: blur(10px) saturate(160%); backdrop-filter: blur(10px) saturate(160%); box-shadow: inset 0 1px 0 rgba(255,255,255,.25); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0; transform: translateY(.35rem); transition: opacity .3s, transform .35s cubic-bezier(.2,.7,.2,1); pointer-events: none; }
-.ap-bande__case:hover .ap-bande__credit, .ap-bande__case:focus-visible .ap-bande__credit { opacity: 1; transform: none; }
-@media (hover: none) { .ap-bande__credit { opacity: 1; transform: none; font-size: .62rem; } }
 
 /* cartes en verre : sans liseré blanc ni réfraction SVG (qui créait des bandes sur les cartes en mouvement) */
 .pl {
