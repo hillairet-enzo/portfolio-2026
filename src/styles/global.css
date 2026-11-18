@@ -2161,7 +2161,7 @@ html {
 }
 .liste a {
   display: grid;
-  grid-template-columns: 2.2rem 4.75rem minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr) 2.4rem;
+  grid-template-columns: 2.2rem 4.75rem minmax(0, 1.6fr) minmax(0, 1fr) 2.4rem;
   align-items: center;
   gap: 1.1rem;
   padding: 0.9rem 0.6rem;
@@ -2202,8 +2202,7 @@ html {
   line-height: 1.4;
   color: color-mix(in srgb, var(--encre) 58%, var(--fond));
 }
-.liste__meta,
-.liste__outils {
+.liste__meta {
   font-size: 0.85rem;
   line-height: 1.4;
   color: color-mix(in srgb, var(--encre) 62%, var(--fond));
@@ -2241,8 +2240,7 @@ html {
     grid-template-areas: 'img corps fleche' 'img meta fleche';
     gap: 0.2rem 0.9rem;
   }
-  .liste__num,
-  .liste__outils {
+  .liste__num {
     display: none;
   }
   .liste__img { grid-area: img; }
@@ -4522,5 +4520,12 @@ html[data-theme='dark'] .galerie h1, html[data-theme='dark'] .galerie h1 span { 
 @media (max-width: 52rem) { .pied__fin { grid-template-columns: 1fr auto; } }
 
 /* section contact : fond uni, sans les lueurs colorées de la pile de cartes qui passaient derrière */
-.pile-suite { background: linear-gradient(180deg, rgb(239 239 236 / 0) 0, #efefec 5rem); }
-html[data-theme='dark'] .pile-suite { background: linear-gradient(180deg, rgb(22 23 26 / 0) 0, #16171a 5rem); }
+.pile-suite { background: linear-gradient(180deg, rgb(248 248 248 / 0) 0, #f8f8f8 5rem); }
+
+/* ── Mentions légales : onglets comme sur les pages projet ── */
+.ml .pp-tabs { margin-bottom: clamp(3rem, 6vw, 5rem); }
+.ml .pp-tab__nom { font-size: clamp(1.25rem, 2.6vw, 2.1rem); line-height: 1.15; }
+.ml .pp-tab__bouton { min-height: 4rem; }
+.ml .pp-tab h2 { display: block; margin: 0; font-size: inherit; letter-spacing: inherit; font-weight: inherit; text-transform: none; }
+.ml .pp-tab__interieur .ml__texte { max-width: 62rem; padding-left: 3.4rem; }
+@media (max-width: 40rem) { .ml .pp-tab__interieur .ml__texte { padding-left: 0; } }

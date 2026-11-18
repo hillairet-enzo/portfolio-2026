@@ -20,89 +20,211 @@ const credits = [
       <h1 id="titre-ml" class="ml__titre">En toute <mark>transparence</mark>.</h1>
     </header>
 
-    <div class="contenu ml__liste">
-      <section class="ml__bloc">
-        <h2><span>01</span>Éditeur du site</h2>
-        <div class="ml__texte">
-          <p><strong>{profil.nom}</strong>, personne physique, étudiant en BUT MMI, {profil.ville}. Ce site est un portfolio personnel et pédagogique, sans activité commerciale.</p>
-          <p>Directeur de la publication : {profil.nom}.</p>
-          <p>Contact : <a class="ml__lien" href={`mailto:${profil.email}`}>{profil.email}</a></p>
+    <div class="contenu ml__liste pp-tabs" id="pp-tabs">
+        <div class="pp-tab" id="ml-01" data-ouvert="false" style="--i:0">
+          <h2>
+            <button type="button" class="pp-tab__bouton" aria-expanded="false" aria-controls="pan-ml-01" id="btn-ml-01">
+              <span class="pp-lettre" aria-hidden="true">01</span>
+              <span class="pp-tab__nom">Éditeur du site</span>
+              <span class="pp-tab__icone" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="pp-tab__panneau" id="pan-ml-01" role="region" aria-labelledby="btn-ml-01" inert>
+            <div class="pp-tab__interieur">
+              <div class="ml__texte">
+                <p><strong>{profil.nom}</strong>, personne physique, étudiant en BUT MMI, {profil.ville}. Ce site est un portfolio personnel et pédagogique, sans activité commerciale.</p>
+                <p>Directeur de la publication : {profil.nom}.</p>
+                <p>Contact : <a class="ml__lien" href={`mailto:${profil.email}`}>{profil.email}</a></p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <section class="ml__bloc">
-        <h2><span>02</span>Hébergement</h2>
-        <div class="ml__texte">
-          <p>{profil.hebergeur}</p>
-          <p>Le nom de domaine enzoh.fr et la messagerie contact@enzoh.fr sont également gérés chez Infomaniak.</p>
+        <div class="pp-tab" id="ml-02" data-ouvert="false" style="--i:1">
+          <h2>
+            <button type="button" class="pp-tab__bouton" aria-expanded="false" aria-controls="pan-ml-02" id="btn-ml-02">
+              <span class="pp-lettre" aria-hidden="true">02</span>
+              <span class="pp-tab__nom">Hébergement</span>
+              <span class="pp-tab__icone" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="pp-tab__panneau" id="pan-ml-02" role="region" aria-labelledby="btn-ml-02" inert>
+            <div class="pp-tab__interieur">
+              <div class="ml__texte">
+                <p>{profil.hebergeur}</p>
+                <p>Le nom de domaine enzoh.fr et la messagerie contact@enzoh.fr sont également gérés chez Infomaniak.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <section class="ml__bloc">
-        <h2><span>03</span>Propriété intellectuelle et droits des tiers</h2>
-        <div class="ml__texte">
-          <p>Les textes, schémas, mises en page, visuels de couverture et le code de ce site sont l’œuvre de leur auteur ({profil.nom}), sauf mention contraire. Toute reproduction ou réutilisation sans autorisation est interdite.</p>
-          <p>La plupart des projets présentés ont été réalisés dans le cadre du BUT MMI ; « Art contemporain » est un projet personnel. Quand ils ont été réalisés à plusieurs, les coauteurs sont indiqués sur la page du projet et gardent leurs droits sur leur part du travail.</p>
-          <p>Certains projets sont des exercices pédagogiques : les marques, produits, prix, commandes et contenus qui y apparaissent sont fictifs, sauf indication contraire.</p>
-          <p>Les œuvres de tiers visibles dans les projets (affiches et extraits de films, illustrations, œuvres d’art, marques, logos, polices) appartiennent à leurs titulaires. Elles sont montrées pour illustrer le travail réalisé, dans un cadre d’étude et de présentation de portfolio. Les mises en situation (téléphone ou ordinateur tenus en main) utilisent des modèles de mockup de tiers, dont les auteurs conservent leurs droits.</p>
-          <p>Les illustrations de manga et d’anime des diapositives du projet « Art contemporain » viennent des œuvres suivantes, qui appartiennent à leurs auteurs et éditeurs : <em>Neon Genesis Evangelion</em> (Hideaki Anno, studios Gainax et Khara), <em>Chainsaw Man</em> (Tatsuki Fujimoto), <em>Death Note</em> (Tsugumi Ohba et Takeshi Obata), <em>Berserk</em> (Kentaro Miura), <em>Ascension</em> (Shin’ichi Sakamoto), <em>K-On!</em> (Kakifly) et <em>GTO</em> (Tōru Fujisawa).</p>
-          <p>Les images de la page À propos sont des inspirations trouvées sur Pinterest : chaque image renvoie vers sa source et indique son auteur.</p>
-          <p>Vous êtes titulaire de droits sur un contenu présent ici et souhaitez qu’il soit crédité ou retiré ? Écrivez-moi à <a class="ml__lien" href={`mailto:${profil.email}`}>{profil.email}</a> : je corrigerai ou retirerai le contenu dans les meilleurs délais.</p>
+        <div class="pp-tab" id="ml-03" data-ouvert="false" style="--i:2">
+          <h2>
+            <button type="button" class="pp-tab__bouton" aria-expanded="false" aria-controls="pan-ml-03" id="btn-ml-03">
+              <span class="pp-lettre" aria-hidden="true">03</span>
+              <span class="pp-tab__nom">Propriété intellectuelle et droits des tiers</span>
+              <span class="pp-tab__icone" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="pp-tab__panneau" id="pan-ml-03" role="region" aria-labelledby="btn-ml-03" inert>
+            <div class="pp-tab__interieur">
+              <div class="ml__texte">
+                <p>Les textes, schémas, mises en page, visuels de couverture et le code de ce site sont l’œuvre de leur auteur ({profil.nom}), sauf mention contraire. Toute reproduction ou réutilisation sans autorisation est interdite.</p>
+                <p>La plupart des projets présentés ont été réalisés dans le cadre du BUT MMI ; « Art contemporain » est un projet personnel. Quand ils ont été réalisés à plusieurs, les coauteurs sont indiqués sur la page du projet et gardent leurs droits sur leur part du travail.</p>
+                <p>Certains projets sont des exercices pédagogiques : les marques, produits, prix, commandes et contenus qui y apparaissent sont fictifs, sauf indication contraire.</p>
+                <p>Les œuvres de tiers visibles dans les projets (affiches et extraits de films, illustrations, œuvres d’art, marques, logos, polices) appartiennent à leurs titulaires. Elles sont montrées pour illustrer le travail réalisé, dans un cadre d’étude et de présentation de portfolio. Les mises en situation (téléphone ou ordinateur tenus en main) utilisent des modèles de mockup de tiers, dont les auteurs conservent leurs droits.</p>
+                <p>Les illustrations de manga et d’anime des diapositives du projet « Art contemporain » viennent des œuvres suivantes, qui appartiennent à leurs auteurs et éditeurs : <em>Neon Genesis Evangelion</em> (Hideaki Anno, studios Gainax et Khara), <em>Chainsaw Man</em> (Tatsuki Fujimoto), <em>Death Note</em> (Tsugumi Ohba et Takeshi Obata), <em>Berserk</em> (Kentaro Miura), <em>Ascension</em> (Shin’ichi Sakamoto), <em>K-On!</em> (Kakifly) et <em>GTO</em> (Tōru Fujisawa).</p>
+                <p>Les images de la page À propos sont des inspirations trouvées sur Pinterest : chaque image renvoie vers sa source et indique son auteur.</p>
+                <p>Vous êtes titulaire de droits sur un contenu présent ici et souhaitez qu’il soit crédité ou retiré ? Écrivez-moi à <a class="ml__lien" href={`mailto:${profil.email}`}>{profil.email}</a> : je corrigerai ou retirerai le contenu dans les meilleurs délais.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <section class="ml__bloc">
-        <h2><span>04</span>Intelligence artificielle</h2>
-        <div class="ml__texte">
-          <p>Des outils d’intelligence artificielle ont aidé à concevoir ce site : Claude (Anthropic) pour la conception, le code et la rédaction, Gemini (Google) pour certains visuels du projet TiK•TaK. Je dirige le travail, je relis, je corrige et je décide de ce qui est publié. Chaque usage est déclaré dans un document d’accompagnement remis avec le projet.</p>
+        <div class="pp-tab" id="ml-04" data-ouvert="false" style="--i:3">
+          <h2>
+            <button type="button" class="pp-tab__bouton" aria-expanded="false" aria-controls="pan-ml-04" id="btn-ml-04">
+              <span class="pp-lettre" aria-hidden="true">04</span>
+              <span class="pp-tab__nom">Intelligence artificielle</span>
+              <span class="pp-tab__icone" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="pp-tab__panneau" id="pan-ml-04" role="region" aria-labelledby="btn-ml-04" inert>
+            <div class="pp-tab__interieur">
+              <div class="ml__texte">
+                <p>Des outils d’intelligence artificielle ont aidé à concevoir ce site : Claude (Anthropic) pour la conception, le code et la rédaction, Gemini (Google) pour certains visuels du projet TiK•TaK. Je dirige le travail, je relis, je corrige et je décide de ce qui est publié. Chaque usage est déclaré dans un document d’accompagnement remis avec le projet.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <section class="ml__bloc">
-        <h2><span>05</span>Crédits</h2>
-        <div class="ml__texte">
-          <ul class="ml__credits">
-            {
-              credits.map((c) => (
-                <li>
-                  <a class="ml__lien" href={c.lien} rel="noopener">{c.nom}</a>
-                  <span>{c.detail}</span>
-                  <em>{c.licence}</em>
-                </li>
-              ))
-            }
-          </ul>
-          <p>Conception, rédaction et développement : {profil.nom}.</p>
+        <div class="pp-tab" id="ml-05" data-ouvert="false" style="--i:4">
+          <h2>
+            <button type="button" class="pp-tab__bouton" aria-expanded="false" aria-controls="pan-ml-05" id="btn-ml-05">
+              <span class="pp-lettre" aria-hidden="true">05</span>
+              <span class="pp-tab__nom">Crédits</span>
+              <span class="pp-tab__icone" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="pp-tab__panneau" id="pan-ml-05" role="region" aria-labelledby="btn-ml-05" inert>
+            <div class="pp-tab__interieur">
+              <div class="ml__texte">
+                <ul class="ml__credits">
+                  {
+                    credits.map((c) => (
+                      <li>
+                        <a class="ml__lien" href={c.lien} rel="noopener">{c.nom}</a>
+                        <span>{c.detail}</span>
+                        <em>{c.licence}</em>
+                      </li>
+                    ))
+                  }
+                </ul>
+                <p>Conception, rédaction et développement : {profil.nom}.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <section class="ml__bloc">
-        <h2><span>06</span>Données personnelles</h2>
-        <div class="ml__texte">
-          <p><strong>Responsable du traitement :</strong> {profil.nom}, joignable à {profil.email}.</p>
-          <p><strong>Ce que je reçois :</strong> uniquement ce que vous m’envoyez par e-mail (votre adresse, votre nom éventuel et le contenu du message). Le site n’a ni formulaire, ni compte, ni outil de mesure d’audience.</p>
-          <p><strong>Pourquoi :</strong> pour vous répondre et gérer notre échange (intérêt légitime). Rien n’est utilisé pour de la prospection ni transmis à d’autres fins.</p>
-          <p><strong>Où et combien de temps :</strong> les messages arrivent sur la messagerie Infomaniak (Suisse, pays reconnu comme adéquat par l’Union européenne) et sont transférés vers ma messagerie personnelle (Google). Je les conserve le temps de l’échange, puis au plus 3 ans après le dernier contact.</p>
-          <p><strong>Journaux du serveur :</strong> comme tout hébergeur, Infomaniak peut enregistrer techniquement votre adresse IP lors de la visite, pour la sécurité et le bon fonctionnement du serveur.</p>
-          <p><strong>Vos droits :</strong> accès, rectification, effacement, opposition et limitation. Écrivez-moi pour les exercer. Vous pouvez aussi saisir la CNIL (<a class="ml__lien" href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
+        <div class="pp-tab" id="ml-06" data-ouvert="false" style="--i:5">
+          <h2>
+            <button type="button" class="pp-tab__bouton" aria-expanded="false" aria-controls="pan-ml-06" id="btn-ml-06">
+              <span class="pp-lettre" aria-hidden="true">06</span>
+              <span class="pp-tab__nom">Données personnelles</span>
+              <span class="pp-tab__icone" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="pp-tab__panneau" id="pan-ml-06" role="region" aria-labelledby="btn-ml-06" inert>
+            <div class="pp-tab__interieur">
+              <div class="ml__texte">
+                <p><strong>Responsable du traitement :</strong> {profil.nom}, joignable à {profil.email}.</p>
+                <p><strong>Ce que je reçois :</strong> uniquement ce que vous m’envoyez par e-mail (votre adresse, votre nom éventuel et le contenu du message). Le site n’a ni formulaire, ni compte, ni outil de mesure d’audience.</p>
+                <p><strong>Pourquoi :</strong> pour vous répondre et gérer notre échange (intérêt légitime). Rien n’est utilisé pour de la prospection ni transmis à d’autres fins.</p>
+                <p><strong>Où et combien de temps :</strong> les messages arrivent sur la messagerie Infomaniak (Suisse, pays reconnu comme adéquat par l’Union européenne) et sont transférés vers ma messagerie personnelle (Google). Je les conserve le temps de l’échange, puis au plus 3 ans après le dernier contact.</p>
+                <p><strong>Journaux du serveur :</strong> comme tout hébergeur, Infomaniak peut enregistrer techniquement votre adresse IP lors de la visite, pour la sécurité et le bon fonctionnement du serveur.</p>
+                <p><strong>Vos droits :</strong> accès, rectification, effacement, opposition et limitation. Écrivez-moi pour les exercer. Vous pouvez aussi saisir la CNIL (<a class="ml__lien" href="https://www.cnil.fr" rel="noopener">cnil.fr</a>).</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <section class="ml__bloc">
-        <h2><span>07</span>Cookies et stockage local</h2>
-        <div class="ml__texte">
-          <p>Ce site ne dépose aucun cookie et n’utilise aucun traceur publicitaire ou statistique. Il enregistre uniquement, dans votre navigateur, votre choix de thème clair ou sombre. Cette préférence reste sur votre appareil, n’est jamais envoyée au serveur et sert au seul fonctionnement du site : aucun bandeau de consentement n’est donc nécessaire. Les polices sont hébergées sur le site, sans appel à un service tiers.</p>
+        <div class="pp-tab" id="ml-07" data-ouvert="false" style="--i:6">
+          <h2>
+            <button type="button" class="pp-tab__bouton" aria-expanded="false" aria-controls="pan-ml-07" id="btn-ml-07">
+              <span class="pp-lettre" aria-hidden="true">07</span>
+              <span class="pp-tab__nom">Cookies et stockage local</span>
+              <span class="pp-tab__icone" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="pp-tab__panneau" id="pan-ml-07" role="region" aria-labelledby="btn-ml-07" inert>
+            <div class="pp-tab__interieur">
+              <div class="ml__texte">
+                <p>Ce site ne dépose aucun cookie et n’utilise aucun traceur publicitaire ou statistique. Il enregistre uniquement, dans votre navigateur, votre choix d’affichage de l’accueil (galerie ou liste). Cette préférence reste sur votre appareil, n’est jamais envoyée au serveur et sert au seul fonctionnement du site : aucun bandeau de consentement n’est donc nécessaire. Les polices sont hébergées sur le site, sans appel à un service tiers.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <section class="ml__bloc">
-        <h2><span>08</span>Liens externes et droit applicable</h2>
-        <div class="ml__texte">
-          <p>Ce site renvoie vers des sites que je ne contrôle pas (démonstrations de projets, LinkedIn, Behance, GitHub, Pinterest…). Je ne suis pas responsable de leur contenu ni de leurs pratiques sur les données.</p>
-          <p>Le présent site est soumis au droit français.</p>
-          <p class="ml__maj">Dernière mise à jour : 16 novembre 2026.</p>
+        <div class="pp-tab" id="ml-08" data-ouvert="false" style="--i:7">
+          <h2>
+            <button type="button" class="pp-tab__bouton" aria-expanded="false" aria-controls="pan-ml-08" id="btn-ml-08">
+              <span class="pp-lettre" aria-hidden="true">08</span>
+              <span class="pp-tab__nom">Liens externes et droit applicable</span>
+              <span class="pp-tab__icone" aria-hidden="true"></span>
+            </button>
+          </h2>
+          <div class="pp-tab__panneau" id="pan-ml-08" role="region" aria-labelledby="btn-ml-08" inert>
+            <div class="pp-tab__interieur">
+              <div class="ml__texte">
+                <p>Ce site renvoie vers des sites que je ne contrôle pas (démonstrations de projets, LinkedIn, Behance, GitHub, Pinterest…). Je ne suis pas responsable de leur contenu ni de leurs pratiques sur les données.</p>
+                <p>Le présent site est soumis au droit français.</p>
+                <p class="ml__maj">Dernière mise à jour : 16 novembre 2026.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
     </div>
   </section>
 </Layout>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLElement>('.pp-tab'));
+  const fermer = (t: HTMLElement) => {
+    t.dataset.ouvert = 'false';
+    t.querySelector('.pp-tab__bouton')?.setAttribute('aria-expanded', 'false');
+    t.querySelector('.pp-tab__panneau')?.setAttribute('inert', '');
+  };
+  const ouvrir = (t: HTMLElement) => {
+    const bouton = t.querySelector<HTMLElement>('.pp-tab__bouton')!;
+    const avant = bouton.getBoundingClientRect().top;
+    tabs.forEach((x) => {
+      if (x === t || x.dataset.ouvert !== 'true') return;
+      x.classList.add('pp-tab--net');
+      fermer(x);
+    });
+    window.scrollBy(0, bouton.getBoundingClientRect().top - avant);
+    requestAnimationFrame(() => tabs.forEach((x) => x.classList.remove('pp-tab--net')));
+    t.dataset.ouvert = 'true';
+    bouton.setAttribute('aria-expanded', 'true');
+    t.querySelector('.pp-tab__panneau')?.removeAttribute('inert');
+    const reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const entete = document.querySelector<HTMLElement>('.entete');
+    const marge = (entete ? entete.getBoundingClientRect().height : 0) + 16;
+    window.scrollTo({ top: Math.max(0, window.scrollY + t.getBoundingClientRect().top - marge), behavior: reduit ? 'auto' : 'smooth' });
+  };
+  tabs.forEach((t) => {
+    t.querySelector('.pp-tab__bouton')?.addEventListener('click', () => {
+      if (t.dataset.ouvert === 'true') fermer(t);
+      else ouvrir(t);
+    });
+  });
+  const boutons = tabs.map((t) => t.querySelector<HTMLButtonElement>('.pp-tab__bouton')!);
+  boutons.forEach((b, i) => b.addEventListener('keydown', (e) => {
+    const k = e.key;
+    const vers = k === 'ArrowDown' ? (i + 1) % boutons.length : k === 'ArrowUp' ? (i - 1 + boutons.length) % boutons.length : k === 'Home' ? 0 : k === 'End' ? boutons.length - 1 : -1;
+    if (vers >= 0) { e.preventDefault(); boutons[vers].focus(); }
+  }));
+  const h = location.hash.replace('#', '');
+  const cible = h && tabs.find((t) => t.id === h);
+  if (cible) ouvrir(cible);
+</script>

@@ -10,7 +10,7 @@ Portfolio de BUT MMI (2e année, semestre 3), en ligne sur **[portfolio.enzoh.fr
 - **Source de données** : les projets sont dans une base SQLite (`data/portfolio.db`, structure dans `data/schema.sql`).
 - **Génération** : `scripts/exporter-projets.mjs` lit la base et produit `src/data/projets.json`. Astro génère ensuite une page par projet (`src/pages/projets/[slug].astro`), la galerie d'accueil, le plan du site et le lien « Projet suivant ».
 - **Composants** : `src/components/` (photo, hero, contact…) et `src/components/pj/` (blocs des pages projet : diapos, téléphones, montre, chiffres…).
-- **Interactions** : galerie en arc avec défilement en boucle (`src/scripts/arc.ts`), apparitions au défilement et barre de progression (`src/scripts/animations.ts`), cartes empilées de la page À propos, thème clair / sombre, écran de chargement en lettres, titre en machine à écrire et copie de l'adresse sur la page Contact.
+- **Interactions** : galerie en arc avec défilement en boucle (`src/scripts/arc.ts`), apparitions au défilement et barre de progression (`src/scripts/animations.ts`), cartes empilées de la page À propos, écran de chargement en lettres, titre en machine à écrire et copie de l'adresse sur la page Contact.
 
 Le site est statique une fois compilé : pas de serveur, pas de base en ligne.
 

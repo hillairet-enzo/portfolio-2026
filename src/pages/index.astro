@@ -70,10 +70,8 @@ const an = (p: { annee: string }) => p.annee.match(/\d{4}/)?.[0] ?? p.annee;
                 <span class="liste__img"><Photo photo={{ ...p.couverture, format: '4/3' }} serre /></span>
                 <span class="liste__corps">
                   <strong>{p.titre}</strong>
-                  <span>{p.accroche}</span>
                 </span>
                 <span class="liste__meta">{nature(p)} · {an(p)}</span>
-                <span class="liste__outils">{p.outils.slice(0, 3).join(' · ')}</span>
                 <span class="liste__fleche" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"></path></svg>
                 </span>
