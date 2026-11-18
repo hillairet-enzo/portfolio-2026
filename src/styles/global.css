@@ -4504,3 +4504,19 @@ html[data-theme='dark'] img[src$="/gabarit-nb.jpg"] { content: url('/images/affi
 
 /* ── Mode sombre : titre de l'accueil en blanc (il était noir sur fond noir) ── */
 html[data-theme='dark'] .galerie h1, html[data-theme='dark'] .galerie h1 span { color: #fff; }
+
+/* pied de page compact + mentions légales alignées sur la colonne « Me retrouver » */
+.pied { padding-top: clamp(1.9rem, 3.5vw, 2.6rem); }
+.pied__corps { gap: 1.4rem var(--marge); padding-bottom: clamp(1.3rem, 2.4vw, 1.8rem); }
+.pied__id { gap: .7rem; }
+.pied h2 { margin-bottom: .65rem; }
+.pied li + li { margin-top: .4rem; }
+.pied__fin { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 2fr); column-gap: var(--marge); align-items: center; padding-block: .85rem 1.05rem; }
+.pied__fin-droite { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.pied__haut-bouton { width: 2.2rem; height: 2.2rem; font-size: 1rem; }
+@media (min-width: 52.01rem) {
+  /* même grille que .pied__corps : 2fr | 1fr | 1fr ; la colonne de droite démarre où commence « Me retrouver » */
+  .pied__fin { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); }
+  .pied__fin-droite { grid-column: 3; }
+}
+@media (max-width: 52rem) { .pied__fin { grid-template-columns: 1fr auto; } }

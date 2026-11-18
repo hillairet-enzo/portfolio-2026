@@ -136,7 +136,7 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
             <svg class="tw__ico tw__ico--lune" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"></path></svg>
             <span class="tw__bouton" aria-hidden="true"></span>
           </button>
-          {aCv && <a class="entete__cv" href={profil.cv} download>CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"></path></svg></a>}
+          {aCv && <a class="entete__cv" href="#cv" data-cv>CV <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"></path></svg></a>}
           <a class="pilule" href="/contact">Me contacter <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
         </div>
 
@@ -154,7 +154,7 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
                 <a href={profil.linkedin} target="_blank" rel="noopener">LinkedIn</a>
                 <a href={profil.behance} target="_blank" rel="noopener">Behance</a>
                 <a href={profil.github} target="_blank" rel="noopener">GitHub</a>
-                {aCv && <a href={profil.cv} download>CV</a>}
+                {aCv && <a href="#cv" data-cv>CV</a>}
                 <span>{profil.ville}</span>
               </p>
               <button class="menu__theme" type="button" data-theme-toggle aria-label="Passer en mode sombre" aria-pressed="false"><span class="theme-bascule" aria-hidden="true"><svg class="t-lune" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"></path></svg><svg class="t-soleil" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"></path></svg></span><span data-theme-libelle>Mode sombre</span></button>
@@ -192,15 +192,17 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
               <li><a href={profil.linkedin} rel="noopener">LinkedIn</a></li>
               <li><a href={profil.behance} rel="noopener">Behance</a></li>
               <li><a href={profil.github} rel="noopener">GitHub</a></li>
-              {aCv && <li><a href={profil.cv} download>Mon CV (PDF)</a></li>}
+              {aCv && <li><a href="#cv" data-cv>Mon CV (PDF)</a></li>}
               <li class="pied__ville">{profil.ville}</li>
             </ul>
           </div>
         </div>
         <div class="pied__fin">
-          <p>© {annee} {profil.nom} · {profil.formation}</p>
-          <p class="pied__liens"><a href="/mentions-legales">Mentions légales</a></p>
-          <a class="pied__haut-bouton" href="#contenu" aria-label="Retour en haut">↑</a>
+          <p class="pied__copy">© {annee} {profil.nom} · {profil.formation}</p>
+          <div class="pied__fin-droite">
+            <p class="pied__liens"><a href="/mentions-legales">Mentions légales</a></p>
+            <a class="pied__haut-bouton" href="#contenu" aria-label="Retour en haut">↑</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -288,10 +290,10 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
       // Un clic sur une adresse mail la copie (pas d'ouverture d'un logiciel de messagerie).
       (function () {
         var toast = document.getElementById('toast-copie'), minuteur;
-        function annoncer(t, ok) {
+        function annoncer(t, ok, pastille, duree) {
           if (!toast) return;
-          document.getElementById('toast-pastille').textContent = ok ? 'Copié ✓' : 'Copie impossible'; document.getElementById('toast-texte').textContent = t; toast.classList.add('visible');
-          clearTimeout(minuteur); minuteur = setTimeout(function () { toast.classList.remove('visible'); }, 2200);
+          document.getElementById('toast-pastille').textContent = pastille || (ok ? 'Copié ✓' : 'Copie impossible'); document.getElementById('toast-texte').textContent = t; toast.classList.add('visible');
+          clearTimeout(minuteur); minuteur = setTimeout(function () { toast.classList.remove('visible'); }, duree || 2200);
         }
         function copier(texte) {
           if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(texte);
@@ -302,6 +304,8 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
           });
         }
         document.addEventListener('click', function (e) {
+          var cv = e.target.closest && e.target.closest('a[data-cv]');
+          if (cv) { e.preventDefault(); annoncer('Je suis en train de refaire mon CV, il arrive bientôt.', true, 'CV en construction', 3600); return; }
           var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
           if (!a) return;
           e.preventDefault();
