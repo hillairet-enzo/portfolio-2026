@@ -193,7 +193,7 @@ const photos = {
   // À la souris, on peut aussi la glisser, avec un peu d'inertie au lâcher.
   const bande = document.getElementById('ap-bande');
 
-  // Inspirations : ordre tiré au hasard à chaque chargement, et colonnes toujours complètes (3 cases)
+  // Inspirations : ordre tiré au hasard à chaque chargement, et dernière colonne toujours pleine
   const grille = document.querySelector<HTMLElement>('.ap-bande__insp');
   if (grille && grille.children.length > 1) {
     const cases = Array.from(grille.children) as HTMLElement[];
@@ -201,14 +201,10 @@ const photos = {
       const j = Math.floor(Math.random() * (i + 1));
       [cases[i], cases[j]] = [cases[j], cases[i]];
     }
-    // on complète la dernière colonne avec des cases tirées parmi les premières (loin des voisines)
-    const manque = (3 - (cases.length % 3)) % 3;
-    for (let k = 0; k < manque; k++) {
-      const copie = cases[k * 2].cloneNode(true) as HTMLElement;
-      copie.setAttribute('aria-hidden', 'true');
-      copie.setAttribute('tabindex', '-1');
-      cases.push(copie);
-    }
+    // dernière colonne incomplète : la dernière case s'étire sur la hauteur libre (aucune image répétée)
+    const reste = cases.length % 3;
+    if (reste === 1) cases[cases.length - 1].style.gridRow = 'span 3';
+    if (reste === 2) cases[cases.length - 2].style.gridRow = 'span 2';
     cases.forEach((c, i) => { c.style.setProperty('--i', String(i)); grille.appendChild(c); });
   }
 

@@ -228,3 +228,4 @@ Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la
 - 2026-11-18 : message « CV en construction » / « Adresse copiée » : carte blanche pleine (fond, bordure, ombre) au lieu d'un texte posé directement sur la page, qui se superposait au pied de page et se lisait mal.
 - 2026-11-18 — À propos : vraie photo d'Enzo dans la carte verte « En bref » (public/images/a-propos/travail.jpg, recadrée 4/5, alt mis à jour).
 - 2026-11-18 — À propos : galerie d'inspirations remplacée par le tableau Pinterest Enzo_Asap/portfolio (25 images, import via npm run pinterest) ; mentions légales ajustées (lien vers la source, sans nom d'auteur).
+- 2026-11-18 — À propos : galerie = les 25 épingles exactes du tableau Pinterest portfolio (script scripts/inspirations-tableau.mjs) ; plus aucune image répétée à la fin de la bande (la dernière case s'étire sur la colonne).
