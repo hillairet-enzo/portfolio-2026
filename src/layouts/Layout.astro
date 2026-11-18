@@ -76,7 +76,7 @@ const piscine = (l: string) => (/[.,:;'’·]/.test(l) ? '.,:;.,' : /[@©0-9]/.t
           '@id': new URL('/#enzo', Astro.site).href,
           name: profil.nom,
           url: Astro.site?.href,
-          image: new URL('/images/a-propos/portrait.jpg', Astro.site).href,
+          image: new URL('/images/a-propos/portrait.webp', Astro.site).href,
           email: `mailto:${profil.email}`,
           jobTitle: 'Étudiant en BUT MMI, communication et UX',
           alumniOf: { '@type': 'CollegeOrUniversity', name: 'IUT Nord Franche-Comté, BUT MMI, Montbéliard' },

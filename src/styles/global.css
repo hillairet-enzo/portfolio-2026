@@ -4493,7 +4493,7 @@ html:not([data-theme='dark']) .contact-bloc .bouton--plein:hover { background: #
 html:not([data-theme='dark']) .contact-bloc .bouton:focus-visible, html:not([data-theme='dark']) .contact-bloc__mail:focus-visible { outline-color: var(--encre); }
 
 /* ── Mode sombre : version sombre du schéma de la série d'affiches ── */
-html[data-theme='dark'] img[src$="/gabarit-nb.jpg"] { content: url('/images/affiches-montbeliard/gabarit-nb-sombre.jpg'); }
+html[data-theme='dark'] img[src$="/gabarit-nb.webp"] { content: url('/images/affiches-montbeliard/gabarit-nb-sombre.webp'); }
 
 /* ── Mode sombre : titre de l'accueil en blanc (il était noir sur fond noir) ── */
 html[data-theme='dark'] .galerie h1, html[data-theme='dark'] .galerie h1 span { color: #fff; }

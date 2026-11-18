@@ -1,7 +1,7 @@
 # Portfolio d'Enzo Hillairet
 
 Portfolio de BUT MMI (2e année, semestre 3), en ligne sur **[portfolio.enzoh.fr](https://portfolio.enzoh.fr)**.
-Je cherche un stage en communication et création, de préférence en studio de création digitale.
+Je cherche un stage en communication et création.
 
 ## Niveau technique visé
 

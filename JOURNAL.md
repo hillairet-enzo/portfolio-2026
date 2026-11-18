@@ -143,3 +143,4 @@ Ce journal raconte l'avancée de mon portfolio, semaine par semaine : ce que j'a
 - Réviser le code à présenter et préparer la soutenance finale.
 - 2026-11-18 — À propos : images de la galerie ramenées à 480 px et photo « travail » à 1 000 px (page 1 891 → 1 201 Ko) ; QUALITE.md refait avec de nouvelles mesures Lighthouse.
 - 2026-11-18 — README.md raccourci (84 → 53 lignes) : niveau technique, technologies, lancement, où modifier quoi, mise en ligne.
+- 2026-11-18 — Toutes les images du site converties en WebP (64 JPG → WebP, 5,8 → 3,9 Mo) ; `og.png` reste en PNG pour le partage sur les réseaux, le favicon en SVG.

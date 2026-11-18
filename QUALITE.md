@@ -45,6 +45,7 @@ Mesures faites le 18 novembre 2026, sur la version compilée en local (`astro bu
 
 | Critère | Ce que j'ai vérifié et comment | Ce que j'ai corrigé |
 | --- | --- | --- |
+| Format des images | Les images du site étaient en JPEG. | Toutes les images sont maintenant en WebP (64 fichiers, 5,8 → 3,9 Mo au total, qualité 82). Seule `og.png` reste en PNG, car LinkedIn et les réseaux sociaux n'affichent pas toujours le WebP ; le favicon reste en SVG. |
 | Poids de la page À propos | Lighthouse : 1 891 Ko. La galerie affichait 24 images en 736 px de large pour des cases de 214 px, et ma photo faisait 315 Ko. | Images de la galerie ramenées à 480 px (1 504 → 897 Ko au total), ma photo à 1 000 px de large (315 → 120 Ko). La page passe à 1 201 Ko. |
 | Poids de l'accueil | Poids transféré mesuré par Lighthouse. | 589 Ko pour six covers. |
 | Poids des autres pages | Lighthouse. | 94 Ko sans photo, 210 à 570 Ko pour une page projet. |
@@ -58,7 +59,7 @@ Mesures faites le 18 novembre 2026, sur la version compilée en local (`astro bu
 - L'écran de chargement est un choix de direction artistique. Il retarde volontairement l'arrivée sur le site d'environ 3 secondes, une seule fois.
 - La page À propos reste la plus lourde à cause de la galerie et du portrait.
 
-**À améliorer :** convertir les images en WebP et servir plusieurs tailles selon l'écran (`srcset`) ; charger les images de la galerie seulement quand on fait défiler la bande.
+**À améliorer :** servir plusieurs tailles selon l'écran (`srcset`) ; charger les images de la galerie seulement quand on fait défiler la bande.
 
 ## 3. Référencement
 
@@ -94,5 +95,5 @@ Mesures faites le 18 novembre 2026, sur la version compilée en local (`astro bu
 1. Vérifier l'hébergement dans les mentions légales : elles disent Infomaniak, mais le site est servi depuis le VPS de la formation (seuls le nom de domaine et la messagerie sont chez Infomaniak).
 2. Refaire les mesures Lighthouse sur portfolio.enzoh.fr, en ligne.
 3. Tester au clavier, avec un lecteur d'écran (NVDA), en zoom à 200 % et sur un vrai téléphone.
-4. Convertir les images en WebP, ajouter des tailles adaptées au mobile et alléger la page À propos.
+4. Ajouter des tailles d'image adaptées au mobile (`srcset`) et alléger la page À propos.
 5. Déposer le vrai CV en PDF, puis revérifier les crédits.

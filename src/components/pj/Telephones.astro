@@ -2,7 +2,7 @@
 // Trois téléphones : captures réelles si elles existent, sinon écrans dessinés en code.
 import Montre from './Montre.astro';
 import { imageExiste } from '../../lib/images';
-const fichiers = ['tiktak/mobile-1.jpg', 'tiktak/mobile-2.jpg', 'tiktak/mobile-3.jpg'];
+const fichiers = ['tiktak/mobile-1.webp', 'tiktak/mobile-2.webp', 'tiktak/mobile-3.webp'];
 const reel = fichiers.map((f) => imageExiste(f));
 ---
 

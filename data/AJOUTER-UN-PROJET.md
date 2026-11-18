@@ -39,4 +39,4 @@ Les captures d'écran s'affichent automatiquement dans un cadre :
 
 ## Mockups dans « Le résultat »
 
-Une image dont le nom commence par `mockup-` (par exemple `tiktak/mockup-ordinateur.jpg`) est affichée en « vitrine » : coins arrondis, sans bord, avec une légende en pastille. La légende est le champ `sujet` de la photo. Mettre deux images au format 4/3 pour qu'elles se placent côte à côte.
+Une image dont le nom commence par `mockup-` (par exemple `tiktak/mockup-ordinateur.webp`) est affichée en « vitrine » : coins arrondis, sans bord, avec une légende en pastille. La légende est le champ `sujet` de la photo. Mettre deux images au format 4/3 pour qu'elles se placent côte à côte.

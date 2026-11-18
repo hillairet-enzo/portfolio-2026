@@ -136,14 +136,14 @@
         },
         "photos": [
           {
-            "fichier": "tiktak/configurateur.jpg",
+            "fichier": "tiktak/configurateur.webp",
             "alt": "Le configurateur TiK•TaK avec une montre carrée et le panneau de choix des pièces",
             "sujet": "Capture du configurateur (page /configurateur) : la montre carrée à bracelet gris pierre au centre, le panneau des pièces à côté (bracelet, boîtier, cadran) et le prix en bas.",
             "format": "21/9",
             "taille": "1537 × 659 px"
           },
           {
-            "fichier": "tiktak/modele-3d.jpg",
+            "fichier": "tiktak/modele-3d.webp",
             "alt": "Le modèle 3D de la montre dans le configurateur",
             "sujet": "Capture du modèle 3D de la montre ronde orange, légèrement tournée, sur fond clair. Zoomer pour que la montre remplisse l’image.",
             "format": "21/9",
@@ -159,7 +159,7 @@
         ],
         "photos": [
           {
-            "fichier": "tiktak/assistant-ia.jpg",
+            "fichier": "tiktak/assistant-ia.webp",
             "alt": "Conversation avec l’assistant IA qui compose une montre orange",
             "sujet": "Capture de l’assistant IA : ta phrase « Une montre orange pour le trail, ronde », la réponse de l’assistant et la montre orange obtenue à côté.",
             "format": "21/9",
@@ -175,14 +175,14 @@
         ],
         "photos": [
           {
-            "fichier": "tiktak/mockup-ordinateur.jpg",
+            "fichier": "tiktak/mockup-ordinateur.webp",
             "alt": "L’accueil du site TiK•TaK sur l’écran d’un MacBook tenu à la main",
             "sujet": "Sur ordinateur",
             "format": "4/3",
             "taille": "2400 × 1800 px"
           },
           {
-            "fichier": "tiktak/mockup-telephone.jpg",
+            "fichier": "tiktak/mockup-telephone.webp",
             "alt": "L’accueil du site TiK•TaK sur un téléphone tenu à la main",
             "sujet": "Sur téléphone",
             "format": "4/3",
@@ -333,14 +333,14 @@
         },
         "photos": [
           {
-            "fichier": "thermo-viz/carte.jpg",
+            "fichier": "thermo-viz/carte.webp",
             "alt": "La carte des zones de chaleur de la métropole de Bordeaux",
             "sujet": "Capture de la première visualisation, « La carte » : la carte de la métropole avec les zones colorées, le titre « Les zones les plus chaudes forment un bloc autour du centre » visible au-dessus.",
             "format": "3/2",
             "taille": "1188 × 793 px"
           },
           {
-            "fichier": "thermo-viz/comparaison.jpg",
+            "fichier": "thermo-viz/comparaison.webp",
             "alt": "Graphique comparant la part de ménages pauvres et des autres ménages selon la chaleur",
             "sujet": "Capture de la visualisation « Les écarts » : le graphique qui compare ménages pauvres et autres ménages, avec son titre « Oui, les ménages pauvres vivent un peu plus souvent dans les zones chaudes ».",
             "format": "3/2",
@@ -356,7 +356,7 @@
         ],
         "photos": [
           {
-            "fichier": "thermo-viz/ma-commune.jpg",
+            "fichier": "thermo-viz/ma-commune.webp",
             "alt": "Le menu de choix de commune ouvert, sur fond de photo de Bordeaux",
             "sujet": "Capture du champ « Et chez moi ? » avec la liste des communes ouverte (effet verre sur la photo). Cadre serré sur le haut de la page.",
             "format": "3/2",
@@ -373,7 +373,7 @@
         ],
         "photos": [
           {
-            "fichier": "thermo-viz/methode.jpg",
+            "fichier": "thermo-viz/methode.webp",
             "alt": "La page Méthode du site, avec le tableau des sources",
             "sujet": "Capture de la page /methode : le tableau des quatre sources (producteur, date, licence) avec les onglets en haut.",
             "format": "3/2",
@@ -391,14 +391,14 @@
         ],
         "photos": [
           {
-            "fichier": "thermo-viz/mockup-ordinateur.jpg",
+            "fichier": "thermo-viz/mockup-ordinateur.webp",
             "alt": "L’accueil de ThermoViz sur l’écran d’un MacBook tenu à la main",
             "sujet": "Sur ordinateur",
             "format": "4/3",
             "taille": "2400 × 1800 px"
           },
           {
-            "fichier": "thermo-viz/mockup-telephone.jpg",
+            "fichier": "thermo-viz/mockup-telephone.webp",
             "alt": "L’accueil de ThermoViz sur un téléphone tenu à la main",
             "sujet": "Sur téléphone",
             "format": "4/3",
@@ -552,14 +552,14 @@
         ],
         "photos": [
           {
-            "fichier": "iris/accueil.jpg",
+            "fichier": "iris/accueil.webp",
             "alt": "Capture de l’accueil d’Iris : le film L’Odyssée à la une, avec les boutons Lancer et Hasard.",
             "sujet": "Capture de l’accueil d’Iris : le film « L’Odyssée » à la une, avec les boutons « Lancer » et « Hasard ». Cadre sur le haut de la page.",
             "format": "3/2",
             "taille": "1800 × 1200 px"
           },
           {
-            "fichier": "iris/catalogue.jpg",
+            "fichier": "iris/catalogue.webp",
             "alt": "Capture de l’étagère « Découvrir de nouvelles choses » : cinq affiches de films avec leur titre, leur réalisateur, l’année et la durée.",
             "sujet": "Capture de l’étagère « Découvrir de nouvelles choses » avec les cinq affiches.",
             "format": "3/2",
@@ -576,7 +576,7 @@
         ],
         "photos": [
           {
-            "fichier": "iris/pocketbase.jpg",
+            "fichier": "iris/pocketbase.webp",
             "alt": "Capture de PocketBase : la liste des films avec leur titre, leur résumé, l’année et la durée.",
             "sujet": "Capture de l’administration PocketBase, collection « movies ».",
             "format": "3/2",
@@ -593,14 +593,14 @@
         ],
         "photos": [
           {
-            "fichier": "iris/mockup-ordinateur.jpg",
+            "fichier": "iris/mockup-ordinateur.webp",
             "alt": "L’accueil du site Iris sur l’écran d’un MacBook tenu à la main",
             "sujet": "Sur ordinateur",
             "format": "4/3",
             "taille": "2400 × 1800 px"
           },
           {
-            "fichier": "iris/mockup-telephone.jpg",
+            "fichier": "iris/mockup-telephone.webp",
             "alt": "L’accueil du site Iris sur un téléphone tenu à la main",
             "sujet": "Sur téléphone",
             "format": "4/3",
@@ -715,7 +715,7 @@
         ],
         "photos": [
           {
-            "fichier": "olyvia/jira.jpg",
+            "fichier": "olyvia/jira.webp",
             "alt": "Capture du tableau Jira du projet Olyvia, avec les colonnes À faire, En cours, En revue et Terminé.",
             "sujet": "Capture du tableau Jira du projet Olyvia.",
             "format": "21/9",
@@ -764,7 +764,7 @@
         ],
         "photos": [
           {
-            "fichier": "olyvia/davinci.jpg",
+            "fichier": "olyvia/davinci.webp",
             "alt": "Capture de la ligne de montage dans DaVinci Resolve 20 : une piste vidéo et trois pistes de son.",
             "sujet": "Capture de la ligne de montage dans DaVinci Resolve 20.",
             "format": "21/9",
@@ -789,14 +789,14 @@
         ],
         "photos": [
           {
-            "fichier": "olyvia/mockup-ordinateur.jpg",
+            "fichier": "olyvia/mockup-ordinateur.webp",
             "alt": "L’accueil du site Olyvia sur l’écran d’un MacBook tenu à la main",
             "sujet": "Sur ordinateur",
             "format": "4/3",
             "taille": "2400 × 1800 px"
           },
           {
-            "fichier": "olyvia/mockup-telephone.jpg",
+            "fichier": "olyvia/mockup-telephone.webp",
             "alt": "La vidéo du forum Olyvia au format vertical sur un téléphone tenu à la main",
             "sujet": "Vidéo sur téléphone",
             "format": "4/3",
@@ -924,7 +924,7 @@
         ],
         "photos": [
           {
-            "fichier": "affiches-montbeliard/gabarit-nb.jpg",
+            "fichier": "affiches-montbeliard/gabarit-nb.webp",
             "alt": "Les trois affiches côte à côte, avec trois zones colorées qui montrent la grille commune : l’accroche, l’illustration et la signature",
             "sujet": "Schéma du gabarit commun",
             "format": "21/9",
@@ -941,21 +941,21 @@
         ],
         "photos": [
           {
-            "fichier": "affiches-montbeliard/affiche-temple.jpg",
+            "fichier": "affiches-montbeliard/affiche-temple.webp",
             "alt": "Affiche du Temple Saint-Martin : un temple rose et ocre sous un croissant de lune, avec l’accroche « L’élégance a trouvé son sanctuaire »",
             "sujet": "Le Temple Saint-Martin | L’élégance a trouvé son sanctuaire. | Un clocher pointu et une façade rose saumon, sous un fin croissant de lune. Les fenêtres allumées donnent un côté chaleureux à la scène.",
             "format": "3/4",
             "taille": "1200 × 1800 px"
           },
           {
-            "fichier": "affiches-montbeliard/affiche-chateau.jpg",
+            "fichier": "affiches-montbeliard/affiche-chateau.webp",
             "alt": "Affiche du Château des ducs de Wurtemberg : des tours orange et blanches sous la pleine lune, avec l’accroche « Au cœur du panache montbéliardais »",
             "sujet": "Le Château des ducs de Wurtemberg | Au cœur du panache montbéliardais. | La masse imposante du château, avec ses grosses tours orange et blanches, sous une pleine lune. C’est l’affiche la plus large et la plus chargée de la série.",
             "format": "3/4",
             "taille": "1200 × 1800 px"
           },
           {
-            "fichier": "affiches-montbeliard/affiche-maimboeuf.jpg",
+            "fichier": "affiches-montbeliard/affiche-maimboeuf.webp",
             "alt": "Affiche de l’Église Saint-Maimbœuf : une église dorée avec une haute flèche grise, avec l’accroche « La flèche vers le ciel »",
             "sujet": "L’Église Saint-Maimbœuf | La flèche vers le ciel. | Une façade dorée et un clocher élancé qui monte vers le ciel. Ici, tout le dessin joue sur la verticalité.",
             "format": "3/4",
@@ -1075,63 +1075,63 @@
         ],
         "photos": [
           {
-            "fichier": "art-contemporain/diapo-02.jpg",
+            "fichier": "art-contemporain/diapo-02.webp",
             "alt": "Diapositive sur My Bed de Tracey Emin : l’œuvre dans une fenêtre Paint, sa fiche dans une fenêtre de texte, une héroïne de manga sur fond bleu. Manga : Neon Genesis Evangelion.",
             "sujet": "My Bed, Tracey Emin (1998) : l’art ne cherche pas le beau",
             "format": "16/9",
             "taille": "1920 × 1080 px"
           },
           {
-            "fichier": "art-contemporain/diapo-03.jpg",
+            "fichier": "art-contemporain/diapo-03.webp",
             "alt": "Diapositive sur Le Homard Téléphone de Salvador Dalí, avec une héroïne de manga sur fond rouge. Manga : Neon Genesis Evangelion.",
             "sujet": "Le Homard Téléphone, Salvador Dalí (1936) : tous les matériaux sont utilisés",
             "format": "16/9",
             "taille": "1920 × 1080 px"
           },
           {
-            "fichier": "art-contemporain/diapo-04.jpg",
+            "fichier": "art-contemporain/diapo-04.webp",
             "alt": "Diapositive sur les Siluetas d’Ana Mendieta, avec un personnage de manga sur fond noir et vert. Manga : Chainsaw Man.",
             "sujet": "Body Art (Silueta), Ana Mendieta (1973-1980) : l’art se crée sur tous les supports",
             "format": "16/9",
             "taille": "1920 × 1080 px"
           },
           {
-            "fichier": "art-contemporain/diapo-05.jpg",
+            "fichier": "art-contemporain/diapo-05.webp",
             "alt": "Diapositive sur The Obliteration Room de Yayoi Kusama, avec un personnage de manga sur fond gris. Manga : Death Note.",
             "sujet": "The Obliteration Room, Yayoi Kusama (2011) : l’art sort des musées",
             "format": "16/9",
             "taille": "1920 × 1080 px"
           },
           {
-            "fichier": "art-contemporain/diapo-06.jpg",
+            "fichier": "art-contemporain/diapo-06.webp",
             "alt": "Diapositive sur la performance Shoot de Chris Burden, avec un personnage de manga sur fond noir. Manga : Death Note.",
             "sujet": "Shoot, Chris Burden (1971) : l’art peut être éphémère",
             "format": "16/9",
             "taille": "1920 × 1080 px"
           },
           {
-            "fichier": "art-contemporain/diapo-07.jpg",
+            "fichier": "art-contemporain/diapo-07.webp",
             "alt": "Diapositive sur Dismaland de Banksy, avec un personnage de manga sur fond violet clair. Manga : Berserk.",
             "sujet": "Dismaland, Banksy (2015) : l’art est ludique ou revendicatif",
             "format": "16/9",
             "taille": "1920 × 1080 px"
           },
           {
-            "fichier": "art-contemporain/diapo-08.jpg",
+            "fichier": "art-contemporain/diapo-08.webp",
             "alt": "Diapositive sur Cloud Gate d’Anish Kapoor, avec un alpiniste de manga sur fond de ciel bleu et de montagne. Manga : Ascension.",
             "sujet": "Cloud Gate, Anish Kapoor (2004) : l’art donne une nouvelle place au spectateur",
             "format": "16/9",
             "taille": "1920 × 1080 px"
           },
           {
-            "fichier": "art-contemporain/diapo-09.jpg",
+            "fichier": "art-contemporain/diapo-09.webp",
             "alt": "Diapositive sur Market d’Evan Roth, avec un personnage de manga sur fond rose à pois. Manga : K-On!.",
             "sujet": "Market, Evan Roth (2007) : l’art s’inspire de la société de consommation",
             "format": "16/9",
             "taille": "1920 × 1080 px"
           },
           {
-            "fichier": "art-contemporain/diapo-10.jpg",
+            "fichier": "art-contemporain/diapo-10.webp",
             "alt": "Diapositive sur l’œuvre numérique Everydays: The First 5000 Days, avec un personnage de manga sur fond jaune. Manga : GTO.",
             "sujet": "Everydays: The First 5000 Days (2021) : l’art est intégré à un marché de l’art",
             "format": "16/9",
