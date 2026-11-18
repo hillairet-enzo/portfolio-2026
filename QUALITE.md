@@ -2,7 +2,7 @@
 
 Cette grille porte sur mon site : un portfolio statique (Astro) très visuel, avec une galerie de projets en arc, beaucoup d'images, un écran de chargement en lettres, des cartes qui s'empilent et des pages projet à onglets. Les projets viennent d'une base SQLite lue au moment de la compilation. Le site n'a ni formulaire ni cookie. J'ai donc surtout contrôlé ce qui peut coincer dans ce cas précis : le poids des images, l'accessibilité des animations et des onglets, la navigation sans souris, le référencement et les droits sur les images de tiers.
 
-Mesures faites le 18 novembre 2026, sur la version compilée en local (`astro build` puis `astro preview`). Les temps sont donc meilleurs qu'en ligne : je les referai sur portfolio.enzoh.fr.
+Mesures refaites le 18 novembre 2026, après le passage de toutes les images en WebP, sur la version compilée en local (`astro build` puis `astro preview`). Les temps sont donc meilleurs qu'en ligne : je les referai sur portfolio.enzoh.fr.
 
 ## Outils utilisés
 
@@ -14,16 +14,16 @@ Mesures faites le 18 novembre 2026, sur la version compilée en local (`astro bu
 
 | Page | Performance | Accessibilité | Bonnes pratiques | Référencement | Poids transféré | LCP |
 | --- | --- | --- | --- | --- | --- | --- |
-| Accueil | 99 | 100 | 100 | 100 | 589 Ko | 0,9 s |
-| À propos | 98 | 100 | 100 | 100 | 1 201 Ko | 1,2 s |
+| Accueil | 100 | 100 | 100 | 100 | 589 Ko | 0,8 s |
+| À propos | 99 | 100 | 100 | 100 | 908 Ko | 0,9 s |
 | Contact | 100 | 100 | 100 | 100 | 94 Ko | 0,3 s |
 | Mentions légales | 100 | 100 | 100 | 100 | 181 Ko | 0,5 s |
 | TiK•TaK | 100 | 100 | 100 | 100 | 212 Ko | 0,4 s |
 | ThermoViz | 100 | 100 | 100 | 100 | 221 Ko | 0,4 s |
 | Iris | 100 | 100 | 100 | 100 | 223 Ko | 0,4 s |
 | Olyvia | 100 | 100 | 100 | 100 | 230 Ko | 0,4 s |
-| Affiches Montbéliard | 100 | 100 | 100 | 100 | 352 Ko | 0,5 s |
-| Art contemporain | 100 | 100 | 100 | 100 | 572 Ko | 0,8 s |
+| Affiches Montbéliard | 100 | 100 | 100 | 100 | 352 Ko | 0,4 s |
+| Art contemporain | 100 | 100 | 100 | 100 | 497 Ko | 0,7 s |
 
 ## 1. Accessibilité
 
@@ -46,9 +46,9 @@ Mesures faites le 18 novembre 2026, sur la version compilée en local (`astro bu
 | Critère | Ce que j'ai vérifié et comment | Ce que j'ai corrigé |
 | --- | --- | --- |
 | Format des images | Les images du site étaient en JPEG. | Toutes les images sont maintenant en WebP (64 fichiers, 5,8 → 3,9 Mo au total, qualité 82). Seule `og.png` reste en PNG, car LinkedIn et les réseaux sociaux n'affichent pas toujours le WebP ; le favicon reste en SVG. |
-| Poids de la page À propos | Lighthouse : 1 891 Ko. La galerie affichait 24 images en 736 px de large pour des cases de 214 px, et ma photo faisait 315 Ko. | Images de la galerie ramenées à 480 px (1 504 → 897 Ko au total), ma photo à 1 000 px de large (315 → 120 Ko). La page passe à 1 201 Ko. |
+| Poids de la page À propos | Lighthouse : 1 891 Ko. La galerie affichait 24 images en 736 px de large pour des cases de 214 px, et ma photo faisait 315 Ko. | Images de la galerie ramenées à 480 px (1 504 → 897 Ko au total), ma photo à 1 000 px de large (315 → 120 Ko). Avec le passage en WebP, la page passe à 908 Ko. |
 | Poids de l'accueil | Poids transféré mesuré par Lighthouse. | 589 Ko pour six covers. |
-| Poids des autres pages | Lighthouse. | 94 Ko sans photo, 210 à 570 Ko pour une page projet. |
+| Poids des autres pages | Lighthouse. | 94 Ko sans photo, 210 à 500 Ko pour une page projet. |
 | Feuille de styles | Compilation du site. | 144 Ko, soit 30 Ko une fois compressée. Un nettoyage avait déjà retiré environ 1 800 lignes de CSS devenues inutiles. |
 | Polices | Inspection du dossier compilé. | Une seule famille, Inter, hébergée avec le site (Fontsource), sans Google Fonts. |
 | JavaScript | Lecture du code. | Aucune bibliothèque d'animation : seulement de courts scripts. Le temps de blocage est de 0 ms sur toutes les pages. |
