@@ -4,13 +4,13 @@ Projet : portfolio personnel (BUT MMI, semestre 3), portfolio.enzoh.fr. Auteur :
 
 ## En résumé
 
-Le design du site vient de moi : la direction artistique, la maquette Figma, la structure, le choix des projets, des images et des couleurs, et toutes les décisions de modification. J'ai utilisé Claude Code, un outil d'IA d'Anthropic, directement dans le dossier du projet pour adapter ce design en code (Astro, CSS, JavaScript). Je lui dis quoi changer, je regarde le résultat, puis je valide ou je fais refaire.
+Le design du site vient de moi : la direction artistique, la maquette Figma, la structure, le choix des projets, des images et des couleurs, et toutes les décisions de modification. L'IA que j'ai utilisée est **Claude**, le modèle d'Anthropic, via son outil Claude Code, directement dans le dossier du projet. Claude a adapté ce design en code (Astro, CSS, JavaScript). Je lui dis quoi changer, je regarde le résultat, puis je valide ou je fais refaire.
 
 ## Outils utilisés
 
 | Outil | Usage |
 | --- | --- |
-| **Claude Code** (Anthropic) | Écrire et corriger le code du site, préparer les images, relire et mettre à jour les documents du dépôt |
+| **Claude** (Anthropic), via Claude Code | Écrire et corriger le code du site, préparer les images, relire et mettre à jour les documents du dépôt |
 | **Connecteur Figma**, piloté par Claude | Remettre ma maquette à jour pour qu'elle suive le site (voir plus bas) |
 | **Gemini** (Google) | Générer certains visuels du projet TiK•TaK, déclarés dans les mentions légales |
 
@@ -25,7 +25,7 @@ Le design du site vient de moi : la direction artistique, la maquette Figma, la 
 - Les retours sur le rendu quand quelque chose ne me plaisait pas. Exemples récents : supprimer le mode sombre parce que je n'aimais pas son contraste, changer le fond de la section contact, mettre des onglets sur les mentions légales, retirer les descriptions dans la vue liste de l'accueil, retirer une grande photo verticale de la galerie, refaire la galerie de zéro quand elle ne s'affichait pas bien.
 - Les informations vraies du site : coordonnées, hébergeur, mentions légales. Je les vérifie moi-même.
 
-## Ce que Claude Code a fait
+## Ce que Claude a fait
 
 - Écrire le code du site : pages, composants, galerie de projets, animations, adaptation au téléphone.
 - Traduire ma maquette Figma en code, écran par écran.
@@ -41,9 +41,9 @@ Le design du site vient de moi : la direction artistique, la maquette Figma, la 
 ## Comment je travaille avec lui
 
 - Je donne des consignes précises, avec une capture ou un exemple quand c'est utile.
-- Il me répond en français et me montre le résultat.
+- Claude me répond en français et me montre le résultat.
 - Je regarde chaque changement dans le navigateur, y compris en navigation privée pour éviter le cache, puis je redemande une correction si le rendu ne correspond pas à ce que je veux.
-- Je pousse moi-même le code sur GitHub. Les commits sont à mon nom : l'usage de l'IA est déclaré dans ce fichier, pas dans les commits.
+- Je pousse moi-même le code sur GitHub. Les commits sont à mon nom, mais une grande partie du code qu'ils contiennent a été écrite par Claude : c'est déclaré ici.
 
 ## Ce que je peux expliquer devant le jury
 
