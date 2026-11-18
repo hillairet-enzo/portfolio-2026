@@ -232,3 +232,4 @@ Mon code reste visible sur GitHub (dépôt public du portfolio), demandé par la
 - 2026-11-18 — À propos : galerie Pinterest refaite de zéro, version simple : liste fixe src/data/galerie.json (25 épingles du tableau portfolio), images dans public/images/a-propos/, plus de mélange ni de script d'import ; anciens scripts Pinterest supprimés.
 - 2026-11-18 — À propos : grande photo verticale retirée de la fin de la bande (galerie = 24 images, 8 colonnes de 3).
 - 2026-11-18 — À propos : pastille @artiste au survol des images de la galerie (« Voir sur Pinterest » si l'auteur est inconnu) ; clic sur une image toujours pris en compte (un glissement précédent ne le bloque plus).
+- 2026-11-18 — IA.md réécrit en version courte : le design vient de moi, Claude Code l'a adapté en code ; usage déclaré honnêtement.
