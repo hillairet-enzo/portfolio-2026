@@ -1,0 +1,138 @@
+[
+  {
+    "etiquette": "En bref",
+    "titre": "En bref",
+    "fond": "#5ebd3e",
+    "theme": "gris",
+    "gabarit": "bref",
+    "lead": "J’ai {age} ans, je suis en deuxième année de BUT MMI à Montbéliard.",
+    "intro": [
+      "J’imagine une identité visuelle, je la dessine sur Figma, puis je la code jusqu’à la mise en ligne. Du site à la vidéo en passant par l’affiche, c’est ce mélange entre design, communication et développement qui me plaît.",
+      "{recherche}"
+    ],
+    "blocs": []
+  },
+  {
+    "etiquette": "Démarche",
+    "titre": "Ma démarche",
+    "fond": "#ffb900",
+    "theme": "gris",
+    "gabarit": "etapes",
+    "blocs": [
+      {
+        "titre": "Cadrer",
+        "texte": "Comprendre le sujet et le public.",
+        "items": []
+      },
+      {
+        "titre": "Concevoir",
+        "texte": "Choisir un style, dessiner, écrire.",
+        "items": []
+      },
+      {
+        "titre": "Développer",
+        "texte": "Construire les pages et les interactions.",
+        "items": []
+      },
+      {
+        "titre": "Mettre en ligne",
+        "texte": "Publier, tester, soigner les détails.",
+        "items": []
+      }
+    ]
+  },
+  {
+    "etiquette": "Compétences",
+    "titre": "Compétences",
+    "fond": "#f78200",
+    "theme": "gris",
+    "gabarit": "listes",
+    "blocs": [
+      {
+        "titre": "Concevoir",
+        "items": [
+          "Figma",
+          "Affinity Designer",
+          "Canva"
+        ]
+      },
+      {
+        "titre": "Développer",
+        "items": [
+          "Astro",
+          "Tailwind CSS",
+          "JavaScript",
+          "SQLite"
+        ]
+      },
+      {
+        "titre": "Produire et publier",
+        "items": [
+          "DaVinci Resolve",
+          "Jira",
+          "WordPress",
+          "Netlify"
+        ]
+      }
+    ]
+  },
+  {
+    "etiquette": "Skills IA",
+    "titre": "Skills IA",
+    "fond": "#d12f2f",
+    "theme": "noir",
+    "gabarit": "listes",
+    "blocs": [
+      {
+        "titre": "Piloter",
+        "items": [
+          "Prompts clairs et précis",
+          "Contexte, format, exemples",
+          "Retours successifs",
+          "Garder, corriger, rejeter"
+        ]
+      },
+      {
+        "titre": "Utiliser",
+        "items": [
+          "Claude et Gemini selon la tâche",
+          "Des skills adaptés",
+          "Code, maquettes, visuels",
+          "Assistants IA dans un site"
+        ]
+      },
+      {
+        "titre": "Vérifier",
+        "items": [
+          "Relire les textes",
+          "Vérifier les sources",
+          "Mesurer la qualité",
+          "Déclarer chaque usage"
+        ]
+      }
+    ]
+  },
+  {
+    "etiquette": "Parcours",
+    "titre": "Parcours",
+    "fond": "#973999",
+    "theme": "noir",
+    "gabarit": "parcours",
+    "blocs": [
+      {
+        "titre": "BUT MMI, 2e année",
+        "texte": "TiK•TaK, ThermoViz et Iris.",
+        "periode": "2026 – aujourd’hui",
+        "lieu": "IUT de Montbéliard",
+        "items": []
+      },
+      {
+        "titre": "BUT MMI, 1re année",
+        "texte": "Olyvia, affiches et Art contemporain.",
+        "periode": "2025 – 2026",
+        "lieu": "IUT de Montbéliard",
+        "items": []
+      }
+    ]
+  }
+]

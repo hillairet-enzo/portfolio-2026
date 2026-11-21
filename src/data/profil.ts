@@ -19,31 +19,4 @@ export const profil = {
   hebergeur: 'Infomaniak Network SA, Rue Eugène Marziano 25, 1227 Les Acacias (GE), Suisse. Numéro IDE : CHE-103.167.648. Site : infomaniak.com.',
 };
 
-// Ce que je sais faire, tiré des six projets du portfolio.
-// Les logiciels et outils que je sais utiliser, par grande famille.
-export const competences = [
-  { titre: 'Concevoir', items: ['Figma', 'Affinity Designer', 'Canva'] },
-  { titre: 'Développer', items: ['Astro', 'Tailwind CSS', 'JavaScript', 'SQLite'] },
-  { titre: 'Produire et publier', items: ['DaVinci Resolve', 'Jira', 'WordPress', 'Netlify'] },
-];
-
-// Ce que je sais faire avec l'IA, d'après la déclaration d'usage (IA.md) et le projet TiK•TaK.
-export const skillsIA = [
-  { titre: 'Piloter', items: ['Prompts clairs et précis', 'Contexte, format, exemples', 'Retours successifs', 'Garder, corriger, rejeter'] },
-  { titre: 'Utiliser', items: ['Claude et Gemini selon la tâche', 'Des skills adaptés', 'Code, maquettes, visuels', 'Assistants IA dans un site'] },
-  { titre: 'Vérifier', items: ['Relire les textes', 'Vérifier les sources', 'Mesurer la qualité', 'Déclarer chaque usage'] },
-];
-
-// Les quatre temps d'un projet, tels que je les ai vécus sur TiK•TaK, ThermoViz, Iris et les affiches.
-export const demarche = [
-  { titre: 'Cadrer', texte: 'Comprendre le sujet et le public.' },
-  { titre: 'Concevoir', texte: 'Choisir un style, dessiner, écrire.' },
-  { titre: 'Développer', texte: 'Construire les pages et les interactions.' },
-  { titre: 'Mettre en ligne', texte: 'Publier, tester, soigner les détails.' },
-];
-
-// Mon parcours, du plus récent au plus ancien.
-export const parcours = [
-  { periode: '2026 – aujourd’hui', titre: 'BUT MMI, 2e année', lieu: 'IUT de Montbéliard', texte: 'TiK•TaK, ThermoViz et Iris.' },
-  { periode: '2025 – 2026', titre: 'BUT MMI, 1re année', lieu: 'IUT de Montbéliard', texte: 'Olyvia, affiches et Art contemporain.' },
-];
+// Les cartes de la page À propos (en bref, démarche, compétences, skills IA, parcours) sont dans la base : data/portfolio.db.

@@ -56,3 +56,29 @@ CREATE TABLE photo   (
   taille     TEXT NOT NULL DEFAULT '2400 × 1350 px',
   PRIMARY KEY (section_id, ordre)
 );
+
+-- Page À propos : les cartes de couleur qui défilent (une ligne = une carte).
+-- `gabarit` choisit la mise en page : bref (texte + photo), etapes (étapes numérotées),
+-- listes (blocs avec une liste), parcours (période, titre, lieu, texte).
+-- Dans `lead` et `intro`, {age} et {recherche} sont remplacés par les valeurs de src/data/profil.ts.
+CREATE TABLE carte (
+  id        INTEGER PRIMARY KEY,
+  ordre     INTEGER NOT NULL,
+  etiquette TEXT NOT NULL,                         -- nom court affiché dans l'onglet et la navigation
+  titre     TEXT NOT NULL,
+  fond      TEXT NOT NULL CHECK (fond GLOB '#[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]'),
+  theme     TEXT NOT NULL CHECK (theme IN ('gris', 'noir')),   -- couleur du texte sur le fond
+  gabarit   TEXT NOT NULL CHECK (gabarit IN ('bref', 'etapes', 'listes', 'parcours')),
+  lead      TEXT,                                  -- gabarit « bref » : phrase d'accroche
+  intro     TEXT                                   -- gabarit « bref » : paragraphes séparés par une ligne vide
+);
+CREATE TABLE carte_bloc (
+  id       INTEGER PRIMARY KEY,
+  carte_id INTEGER NOT NULL REFERENCES carte(id) ON DELETE CASCADE,
+  ordre    INTEGER NOT NULL,
+  titre    TEXT NOT NULL,
+  texte    TEXT,                                   -- etapes et parcours
+  periode  TEXT,                                   -- parcours
+  lieu     TEXT                                    -- parcours
+);
+CREATE TABLE carte_item (bloc_id INTEGER NOT NULL REFERENCES carte_bloc(id) ON DELETE CASCADE, ordre INTEGER NOT NULL, libelle TEXT NOT NULL, PRIMARY KEY (bloc_id, ordre));

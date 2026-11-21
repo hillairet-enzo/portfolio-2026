@@ -3,9 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Photo from '../components/Photo.astro';
 import Contact from '../components/Contact.astro';
 import { THEME_NEUTRE } from '../lib/theme';
-import { profil, competences, skillsIA, demarche, parcours } from '../data/profil';
+import { profil } from '../data/profil';
 import { aCv } from '../lib/cv';
 import galerie from '../data/galerie.json';
+import cartes from '../data/apropos.json'; // les cartes de couleur viennent de la base (data/portfolio.db)
+
+// {age} et {recherche} dans les textes de la base sont remplacés par les valeurs de profil.ts
+const remplacer = (t: string) => t.replace('{age}', String(profil.age)).replace('{recherche}', profil.recherche);
 
 const couleurs = `${THEME_NEUTRE}--ligne:#15171a;`;
 
@@ -66,7 +70,7 @@ const photos = {
             rel="noopener noreferrer"
             aria-label={`Inspiration ${i + 1}${g.auteur ? `, de @${g.auteur}` : ''} : voir sur Pinterest`}
           >
-            <img src={`/images/a-propos/${g.fichier}`} alt="" width="736" height="736" loading={i < 9 ? 'eager' : 'lazy'} decoding="async" draggable="false" />
+            <img src={`/images/a-propos/${g.fichier}`} alt="" width="736" height="736" loading={i < 4 ? 'eager' : 'lazy'} decoding="async" draggable="false" />
             <span class="ap-bande__credit" aria-hidden="true">{g.auteur ? `@${g.auteur}` : 'Voir sur Pinterest'}</span>
           </a>
         ))}
@@ -75,95 +79,69 @@ const photos = {
   </section>
 
   <!-- Pile de cartes : chaque carte est un chapitre, le défilement les fait passer une à une -->
-  <div class="pile" id="pile" style={`--n:${7}`}>
+  <div class="pile" id="pile" style={`--n:${cartes.length + 1}`}>
     <div class="pile__scene">
       <div class="pile__cartes">
-
-        <section class="pl pl--gris" style="--fond:#5ebd3e" data-etiquette="En bref" aria-labelledby="titre-bref">
-          <div class="pl__corps pl__corps--bref">
-            <div class="pl__texte">
-              <h2 id="titre-bref" class="pl__titre">En bref</h2>
-              <p class="pl__lead">J’ai {profil.age} ans, je suis en deuxième année de BUT MMI à Montbéliard.</p>
-              <p class="pl__intro">J’imagine une identité visuelle, je la dessine sur Figma, puis je la code jusqu’à la mise en ligne. Du site à la vidéo en passant par l’affiche, c’est ce mélange entre design, communication et développement qui me plaît.</p>
-              <p class="pl__intro">{profil.recherche}</p>
-            </div>
-            <div class="pl-photo"><Photo photo={photos.travail} serre /></div>
-          </div>
-        </section>
-
-        <section class="pl pl--gris" style="--fond:#ffb900" data-etiquette="Démarche" aria-labelledby="titre-demarche">
-          <div class="pl__corps pl__corps--colonne">
-            <h2 id="titre-demarche" class="pl__titre">Ma démarche</h2>
-            <ol class="pl__etapes">
-              {
-                demarche.map((e, i) => (
-                  <li>
-                    <span class="pl__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                    <h3>{e.titre}</h3>
-                    <p>{e.texte}</p>
-                  </li>
-                ))
-              }
-            </ol>
-          </div>
-        </section>
-
-        <section class="pl pl--gris" style="--fond:#f78200" data-etiquette="Compétences" aria-labelledby="titre-comp">
-          <div class="pl__corps pl__corps--colonne">
-            <h2 id="titre-comp" class="pl__titre">Compétences</h2>
-            <div class="pl__comps">
-              {
-                competences.map((c) => (
-                  <div>
-                    <h3>{c.titre}</h3>
-                    <ul>
-                      {c.items.map((i) => <li>{i}</li>)}
-                    </ul>
+        {
+          cartes.map((c, i) => (
+            <section class={`pl pl--${c.theme}`} style={`--fond:${c.fond}`} data-etiquette={c.etiquette} aria-labelledby={`titre-carte-${i}`}>
+              {c.gabarit === 'bref' && (
+                <div class="pl__corps pl__corps--bref">
+                  <div class="pl__texte">
+                    <h2 id={`titre-carte-${i}`} class="pl__titre">{c.titre}</h2>
+                    {c.lead && <p class="pl__lead">{remplacer(c.lead)}</p>}
+                    {c.intro?.map((p) => <p class="pl__intro">{remplacer(p)}</p>)}
                   </div>
-                ))
-              }
-            </div>
-            </div>
-        </section>
-
-        <section class="pl pl--noir" style="--fond:#d12f2f" data-etiquette="Skills IA" aria-labelledby="titre-ia">
-          <div class="pl__corps pl__corps--colonne">
-            <h2 id="titre-ia" class="pl__titre">Skills IA</h2>
-            <div class="pl__comps">
-              {
-                skillsIA.map((c) => (
-                  <div>
-                    <h3>{c.titre}</h3>
-                    <ul>
-                      {c.items.map((i) => <li>{i}</li>)}
-                    </ul>
+                  <div class="pl-photo"><Photo photo={photos.travail} serre /></div>
+                </div>
+              )}
+              {c.gabarit === 'etapes' && (
+                <div class="pl__corps pl__corps--colonne">
+                  <h2 id={`titre-carte-${i}`} class="pl__titre">{c.titre}</h2>
+                  <ol class="pl__etapes">
+                    {c.blocs.map((b, j) => (
+                      <li>
+                        <span class="pl__num" aria-hidden="true">{String(j + 1).padStart(2, '0')}</span>
+                        <h3>{b.titre}</h3>
+                        <p>{b.texte}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+              {c.gabarit === 'listes' && (
+                <div class="pl__corps pl__corps--colonne">
+                  <h2 id={`titre-carte-${i}`} class="pl__titre">{c.titre}</h2>
+                  <div class="pl__comps">
+                    {c.blocs.map((b) => (
+                      <div>
+                        <h3>{b.titre}</h3>
+                        <ul>{b.items.map((it) => <li>{it}</li>)}</ul>
+                      </div>
+                    ))}
                   </div>
-                ))
-              }
-            </div>
-          </div>
-        </section>
-
-        <section class="pl pl--noir" style="--fond:#973999" data-etiquette="Parcours" aria-labelledby="titre-parcours">
-          <div class="pl__corps pl__corps--colonne">
-            <h2 id="titre-parcours" class="pl__titre">Parcours</h2>
-            <ol class="pl__parcours">
-              {
-                parcours.map((p) => (
-                  <li>
-                    <p class="pl__periode">{p.periode}</p>
-                    <div>
-                      <strong>{p.titre}</strong>
-                      <span>{p.lieu}</span>
-                    </div>
-                    <p>{p.texte}</p>
-                  </li>
-                ))
-              }
-            </ol>
-          </div>
-        </section>
-
+                </div>
+              )}
+              {c.gabarit === 'parcours' && (
+                <div class="pl__corps pl__corps--colonne">
+                  <h2 id={`titre-carte-${i}`} class="pl__titre">{c.titre}</h2>
+                  <ol class="pl__parcours">
+                    {c.blocs.map((b) => (
+                      <li>
+                        <p class="pl__periode">{b.periode}</p>
+                        <div>
+                          <strong>{b.titre}</strong>
+                          <span>{b.lieu}</span>
+                        </div>
+                        <p>{b.texte}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+            </section>
+          ))
+        }
       </div>
       <nav class="pile__points" aria-label="Chapitres" id="pile-points"></nav>
       <p class="pile__defiler" aria-hidden="true">Défiler ↓</p>
