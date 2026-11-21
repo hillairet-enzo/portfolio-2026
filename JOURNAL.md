@@ -150,3 +150,4 @@ Ce journal raconte l'avancée de mon portfolio, semaine par semaine : ce que j'a
 - 2026-11-21 — Back-office local (`npm run admin`) : une page pour ajouter, modifier et supprimer les lignes de la base, avec un bouton « Mettre à jour le site ». Il n'écoute que sur mon ordinateur et n'est pas mis en ligne.
 - 2026-11-21 — Page À propos plus légère : portrait 264 → 85 Ko, photo « travail » 65 → 28 Ko, deux inspirations allégées, 4 images chargées d'emblée au lieu de 9.
 - 2026-11-21 — Script `npm run pinterest:auteurs` : retrouve les noms d'artistes manquants de la galerie À propos (10 sur 24) sans toucher aux images.
+- 2026-11-21 — Galerie À propos : toutes les cases affichent « Voir sur Pinterest » au survol, au lieu du nom de l'artiste quand il était connu (10 sur 24 ne l'étaient pas). Script des auteurs retiré.
