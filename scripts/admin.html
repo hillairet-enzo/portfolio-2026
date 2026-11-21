@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Back-office du portfolio</title>
+<style>
+  :root { --fond:#f6f5f1; --encre:#15171a; --doux:#5b6068; --trait:#d9d6cd; --carte:#fff; --accent:#1f5fd6; --ok:#17794a; --danger:#b3261e; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--fond); color:var(--encre); display:grid; grid-template-columns: 260px 1fr; min-height:100vh; }
+  nav { background:#fff; border-right:1px solid var(--trait); padding:1.2rem 1rem; position:sticky; top:0; height:100vh; overflow:auto; }
+  nav h1 { font-size:1rem; margin:0 0 .2rem; }
+  nav p { margin:0 0 1rem; color:var(--doux); font-size:.85rem; }
+  nav h2 { font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--doux); margin:1.2rem 0 .4rem; }
+  nav button.table { display:flex; justify-content:space-between; width:100%; text-align:left; border:0; background:none; padding:.45rem .6rem; border-radius:.5rem; font:inherit; cursor:pointer; color:inherit; }
+  nav button.table:hover { background:#efede6; }
+  nav button.table[aria-current="true"] { background:var(--encre); color:#fff; }
+  nav .n { opacity:.6; font-variant-numeric: tabular-nums; }
+  .maj { width:100%; margin-top:1.4rem; padding:.7rem; border:0; border-radius:.6rem; background:var(--accent); color:#fff; font:inherit; font-weight:600; cursor:pointer; }
+  .maj:disabled { opacity:.6; cursor:wait; }
+  main { padding:1.6rem clamp(1rem, 3vw, 2.4rem) 4rem; max-width:980px; }
+  main h2 { margin:0 0 .2rem; font-size:1.4rem; }
+  .aide { color:var(--doux); margin:0 0 1.2rem; }
+  .ligne { background:var(--carte); border:1px solid var(--trait); border-radius:.8rem; padding:1rem; margin:0 0 .8rem; display:grid; gap:.7rem; }
+  .ligne.neuve { border-style:dashed; }
+  .champs { display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:.7rem; }
+  .champs .large { grid-column: 1 / -1; }
+  label { display:grid; gap:.2rem; font-size:.78rem; color:var(--doux); }
+  label small { font-weight:400; opacity:.8; }
+  input, textarea, select { font:inherit; color:var(--encre); padding:.5rem .6rem; border:1px solid var(--trait); border-radius:.5rem; background:#fff; width:100%; }
+  textarea { min-height:5.5rem; resize:vertical; }
+  input[type="color"] { padding:.1rem; height:2.3rem; }
+  .actions { display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; }
+  .actions button { padding:.5rem .9rem; border-radius:.5rem; border:1px solid var(--trait); background:#fff; font:inherit; cursor:pointer; }
+  .actions button.principal { background:var(--encre); color:#fff; border-color:var(--encre); }
+  .actions button.danger { color:var(--danger); }
+  .etat { font-size:.85rem; }
+  .etat.ok { color:var(--ok); } .etat.erreur { color:var(--danger); }
+  #bandeau { position:fixed; right:1rem; bottom:1rem; max-width:420px; background:var(--encre); color:#fff; padding:.8rem 1rem; border-radius:.7rem; display:none; white-space:pre-wrap; font-size:.85rem; }
+  @media (max-width: 760px) { body { grid-template-columns: 1fr; } nav { position:static; height:auto; border-right:0; border-bottom:1px solid var(--trait); } }
+</style>
+</head>
+<body>
+<nav>
+  <h1>Back-office</h1>
+  <p>Modifie ta base <code>portfolio.db</code>. Rien n'est en ligne tant que tu n'as pas fait <code>git push</code>.</p>
+  <div id="menu"></div>
+  <button class="maj" id="maj" type="button">Mettre à jour le site</button>
+</nav>
+<main id="contenu"><p class="aide">Chargement…</p></main>
+<div id="bandeau" role="status" aria-live="polite"></div>
+
+<script>
+const NOMS = {
+  projet:['Projets','Une ligne par projet : titre, accroche, résumé, couverture, ordre d’affichage.'],
+  role:['Compétences d’un projet','Ce que tu as fait sur le projet. « projet_id » est le numéro du projet.'],
+  outil:['Outils d’un projet','Logiciels et technologies utilisés.'],
+  lien:['Liens d’un projet','Site en ligne, code, etc.'],
+  choix:['Choix d’outils','Un outil ou un choix créatif et sa raison.'],
+  defi:['Défis et solutions','Un défi rencontré et la solution trouvée.'],
+  section:['Sections de texte','Les paragraphes de chaque onglet d’une fiche projet (séparés par une ligne vide).'],
+  etape:['Étapes','Les étapes numérotées d’une section. « section_id » est le numéro de la section.'],
+  chiffre:['Chiffres clés','Valeur, suffixe et libellé.'],
+  photo:['Photos','Image, texte alternatif et légende d’une section.'],
+  carte:['Cartes À propos','Les cartes de couleur qui défilent. {age} et {recherche} sont remplacés automatiquement.'],
+  carte_bloc:['Contenu des cartes','Étapes, listes ou parcours. « carte_id » est le numéro de la carte.'],
+  carte_item:['Éléments des listes','Les puces d’une liste. « bloc_id » est le numéro du bloc.'],
+};
+const LONGS = new Set(['paragraphes','texte','intro','solution','raison','resume','accroche','lead','defi','sujet','alt','couv_alt','couv_sujet']);
+let tables = [], courante = null;
+
+const el = (t, a = {}, ...f) => { const n = document.createElement(t); for (const [k,v] of Object.entries(a)) { if (k === 'class') n.className = v; else if (k.startsWith('on')) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v); } n.append(...f); return n; };
+const api = async (action, corps) => {
+  const r = corps === undefined ? await fetch('/api/' + action) : await fetch('/api/' + action, { method:'POST', headers:{ 'Content-Type':'application/json', 'X-Admin':'1' }, body: JSON.stringify(corps) });
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.erreur || 'Erreur');
+  return j;
+};
+const bandeau = (msg) => { const b = document.getElementById('bandeau'); b.textContent = msg; b.style.display = 'block'; clearTimeout(bandeau.t); bandeau.t = setTimeout(() => b.style.display = 'none', 6000); };
+const traduire = (m) => m
+  .replace(/CHECK constraint failed: (.*)/, 'Valeur non permise : $1')
+  .replace(/NOT NULL constraint failed: (\S+)/, 'Champ obligatoire vide : $1')
+  .replace(/UNIQUE constraint failed: (\S+)/, 'Cette valeur existe déjà : $1')
+  .replace(/FOREIGN KEY constraint failed/, 'Le numéro lié (projet_id, section_id, carte_id…) n’existe pas.');
+
+function champ(col, valeur) {
+  const libelle = el('label', { class: LONGS.has(col.nom) ? 'large' : '' }, col.nom, col.obligatoire && !col.cle ? el('small', {}, ' (obligatoire)') : '');
+  let saisie;
+  if (col.choix) {
+    saisie = el('select', { name: col.nom }, ...(col.obligatoire ? [] : [el('option', { value: '' }, '—')]), ...col.choix.map((c) => el('option', { value: c }, c)));
+    saisie.value = valeur ?? (col.obligatoire && col.defaut ? col.defaut.replace(/'/g, '') : '');
+  } else if (col.nom === 'fond') {
+    saisie = el('input', { name: col.nom, type: 'color' }); saisie.value = valeur || '#5ebd3e';
+  } else if (LONGS.has(col.nom) || (typeof valeur === 'string' && (valeur.length > 90 || valeur.includes('\n')))) {
+    saisie = el('textarea', { name: col.nom }); saisie.value = valeur ?? '';
+    libelle.classList.add('large');
+  } else {
+    saisie = el('input', { name: col.nom, type: /INT|REAL/i.test(col.type) ? 'number' : 'text', step: 'any' }); saisie.value = valeur ?? '';
+  }
+  if (col.cle && col.type === 'INTEGER' && valeur === undefined) saisie.placeholder = 'automatique';
+  libelle.append(saisie);
+  return libelle;
+}
+
+function ligne(t, donnees) {
+  const neuve = !donnees;
+  const f = el('form', { class: 'ligne' + (neuve ? ' neuve' : '') });
+  const etat = el('span', { class: 'etat' });
+  const champs = el('div', { class: 'champs' }, ...t.colonnes.map((c) => champ(c, donnees ? donnees[c.nom] : undefined)));
+  const lire = () => Object.fromEntries(new FormData(f).entries());
+  const enregistrer = el('button', { type: 'submit', class: 'principal' }, neuve ? 'Ajouter' : 'Enregistrer');
+  const actions = el('div', { class: 'actions' }, enregistrer);
+  if (!neuve) actions.append(el('button', { type: 'button', class: 'danger', onclick: async () => {
+    if (!confirm('Supprimer cette ligne ? Les lignes qui en dépendent seront aussi supprimées.')) return;
+    try { await api('supprimer', { table: t.nom, rowid: donnees._rowid }); f.remove(); bandeau('Ligne supprimée. Pense à « Mettre à jour le site ».'); } catch (e) { etat.className = 'etat erreur'; etat.textContent = traduire(e.message); }
+  } }, 'Supprimer'));
+  actions.append(etat);
+  f.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    try {
+      const r = await api('enregistrer', { table: t.nom, rowid: donnees?._rowid, valeurs: lire() });
+      etat.className = 'etat ok'; etat.textContent = neuve ? 'Ajouté.' : 'Enregistré.';
+      if (neuve) { await ouvrir(t.nom); window.scrollTo({ top: document.body.scrollHeight }); }
+    } catch (e) { etat.className = 'etat erreur'; etat.textContent = traduire(e.message); }
+  });
+  f.append(champs, actions);
+  return f;
+}
+
+async function ouvrir(nom) {
+  courante = nom;
+  const t = tables.find((x) => x.nom === nom);
+  document.querySelectorAll('nav button.table').forEach((b) => b.setAttribute('aria-current', String(b.dataset.nom === nom)));
+  const lignes = await api('lignes?table=' + encodeURIComponent(nom));
+  const [titre, aide] = NOMS[nom] ?? [nom, ''];
+  const c = document.getElementById('contenu');
+  c.replaceChildren(el('h2', {}, titre), el('p', { class: 'aide' }, aide), ...lignes.map((l) => ligne(t, l)), el('h2', {}, 'Ajouter une ligne'), ligne(t, null));
+  const n = document.querySelector(`nav button[data-nom="${nom}"] .n`); if (n) n.textContent = lignes.length;
+}
+
+async function demarrer() {
+  tables = await api('tables');
+  const menu = document.getElementById('menu');
+  const groupes = [['Projets', ['projet','role','outil','lien','choix','defi','section','etape','chiffre','photo']], ['Page À propos', ['carte','carte_bloc','carte_item']]];
+  for (const [g, noms] of groupes) {
+    menu.append(el('h2', {}, g));
+    for (const nom of noms.filter((n) => tables.some((t) => t.nom === n))) {
+      menu.append(el('button', { class: 'table', type: 'button', 'data-nom': nom, onclick: () => ouvrir(nom) }, el('span', {}, NOMS[nom]?.[0] ?? nom), el('span', { class: 'n' }, '')));
+    }
+  }
+  for (const t of tables) { const l = await api('lignes?table=' + t.nom); const n = document.querySelector(`nav button[data-nom="${t.nom}"] .n`); if (n) n.textContent = l.length; }
+  ouvrir('projet');
+}
+
+document.getElementById('maj').addEventListener('click', async (ev) => {
+  ev.target.disabled = true;
+  try { const r = await api('exporter', {}); bandeau(r.message + '\nLe site utilisera ces données au prochain « npm run dev » ou « npm run build ».'); } catch (e) { bandeau('Erreur : ' + e.message); }
+  ev.target.disabled = false;
+});
+demarrer().catch((e) => { document.getElementById('contenu').textContent = 'Erreur : ' + e.message; });
+</script>
+</body>
+</html>

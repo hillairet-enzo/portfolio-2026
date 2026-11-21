@@ -4,7 +4,8 @@ Le contenu des projets est dans la base SQLite `data/portfolio.db` (structure : 
 Le site reste statique : `npm run projets:exporter` (lancé tout seul avant `npm run dev` et `npm run build`)
 convertit la base en `src/data/projets.json`, que le site lit.
 
-Prérequis : Node 22.5 ou plus (module `node:sqlite`). Pour éditer la base : « DB Browser for SQLite ».
+Prérequis : Node 22.5 ou plus (module `node:sqlite`).
+Pour éditer la base : `npm run admin` (page locale http://127.0.0.1:4500, avec un bouton « Mettre à jour le site »), ou « DB Browser for SQLite ».
 
 ## Étapes
 1. Ouvrir `data/portfolio.db`.
