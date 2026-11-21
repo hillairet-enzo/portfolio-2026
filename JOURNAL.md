@@ -145,3 +145,7 @@ Ce journal raconte l'avancée de mon portfolio, semaine par semaine : ce que j'a
 - 2026-11-18 — README.md raccourci (84 → 53 lignes) : niveau technique, technologies, lancement, où modifier quoi, mise en ligne.
 - 2026-11-18 — Toutes les images du site converties en WebP (64 JPG → WebP, 5,8 → 3,9 Mo) ; `og.png` reste en PNG pour le partage sur les réseaux, le favicon en SVG.
 - 2026-11-18 — Mesures Lighthouse refaites après le passage en WebP : 99 à 100 partout, page À propos 1 201 → 908 Ko ; QUALITE.md mis à jour.
+- 2026-11-21 — Retours de la soutenance (15/20) : j'ai cherché un secret ou un fichier sensible dans le dépôt et tout son historique, sans en trouver ; la clé SSH du déploiement est dans les « secrets » GitHub. Le `.gitignore` refuse maintenant les fichiers `.env`, les clés et les fichiers temporaires de la base.
+- 2026-11-21 — Les cartes de couleur de la page À propos viennent maintenant de la base (tables `carte`, `carte_bloc`, `carte_item`) au lieu d'être écrites dans le code : c'est le côté « dynamique » demandé.
+- 2026-11-21 — Back-office local (`npm run admin`) : une page pour ajouter, modifier et supprimer les lignes de la base, avec un bouton « Mettre à jour le site ». Il n'écoute que sur mon ordinateur et n'est pas mis en ligne.
+- 2026-11-21 — Page À propos plus légère : portrait 264 → 85 Ko, photo « travail » 65 → 28 Ko, deux inspirations allégées, 4 images chargées d'emblée au lieu de 9.
