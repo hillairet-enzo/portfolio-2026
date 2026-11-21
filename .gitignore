@@ -1,3 +1,14 @@
 node_modules
 dist
 .astro
+
+# Jamais dans le dépôt : secrets, clés, fichiers temporaires de la base
+.env
+.env.*
+*.pem
+*.key
+*.ppk
+id_rsa*
+*.db-journal
+*.db-wal
+*.db-shm
